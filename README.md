@@ -9,12 +9,14 @@ From a local clone of
 [the repository](https://github.com/hyperledger/sawtooth-website), run
 
 ```
-docker-compose up -d
+docker-compose up
 ```
+
+Pay attention to the output for markdown syntax errors. Errors will appear on lines beginning with `linter_1`.
 
 The site will be available at [`http://localhost:8000`](http://localhost:8000)
 
-To stop the site, run
+To stop the site, type `[Ctrl]+C` then run
 
 ```
 docker-compose down -v

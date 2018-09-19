@@ -2,7 +2,7 @@ version: "2.1"
 
 services:
   jekyll:
-    image: sawtooth-jekyll:latest
+    image: sawtooth-jekyll
     build:
       context: generator/
       dockerfile: ./Dockerfile
@@ -10,6 +10,14 @@ services:
     command: bundle exec jekyll build -Vs ./source --config ./_config.yml
     volumes:
       - $PWD/generator:/srv/jekyll
+  linter:
+    build:
+      context: linter/
+      dockerfile: ./Dockerfile
+    volumes:
+      - $PWD/generator:/srv/jekyll
+    working_dir: /srv/jekyll/
+    command: sh -c "sleep 2; echo '=== LINTING ==='; mdl ./source && echo 'All clear.'"
   webserver:
     image: sawtooth-website
     container_name: sawtooth-website
@@ -22,3 +30,5 @@ services:
       - 8000:80
     volumes:
       - $PWD/generator:/srv/jekyll
+    depends_on:
+      - linter
