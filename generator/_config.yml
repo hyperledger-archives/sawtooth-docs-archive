@@ -1,0 +1,101 @@
+# SITE CONFIGURATION
+baseurl: /info # the subpath of your site, e.g. /blog
+url: "0.0.0.0" # the base hostname & protocol for your site
+#destination: /srv/jekyll/_site
+keep_files: [./*]
+
+# THEME-SPECIFIC CONFIGURATION
+theme_settings:
+  # Meta
+  title: Hyperledger Sawtooth
+  avatar: avatar.png
+  gravatar: # Email MD5 hash
+  description: "A website with blog posts and pages" # used by search engines
+
+  # Header and footer text
+  header_text: >
+     <h1>Sawtooth</h1>
+  header_text_feature_image: ../examples/img/hero-bg.jpg
+  footer_text: >
+    <h2>Sawtooth</h2>
+    <p>
+      <a href="https://chat.hyperledger.org/channel/sawtooth" target="_blank" title="Rocket Chat">RocketChat</a>
+    </p>
+    <p>
+      <a href="https://sawtooth.hyperledger.org/docs/" target="_blank" title="Documentation">Documentation</a>
+      &bull;
+      <a href="https://github.com/hyperledger/sawtooth-core/" target="_blank" title="Github">Github</a>
+      &bull;
+      <a href="seafood.html" title="Seafood Supply Chain Traceability">Seafood Supply Chain Traceability</a>
+      &bull;
+      <a href="bond.html" title="Bond Asset Settlement">Bond Asset Settlement</a>
+      &bull;
+      <a href="marketplace.html" title="Marketplace Digital Asset Exchange">Marketplace Digital Asset Exchange</a>
+    </p>
+    <p>
+      <a href="http://www.linuxfoundation.org/privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
+      &bull;
+      <a href="http://www.linuxfoundation.org/terms" target="_blank" title="Terms of Service">Terms of Service</a>
+    </p>
+    <p>
+      <small class="copyright">&copy; Copyright 2015&ndash;2017, Intel Corporation. Sawtooth is an open source project that is available to the public.</small>
+    </p>
+    <p>
+      <small>Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+    </p>
+
+  # Icons
+  rss: false
+  email_address: # Full email address, e.g. "sam@example.com"
+  behance:
+  bitbucket:
+  dribbble:
+  facebook:
+  flickr:
+  github: hyperledger
+  google_plus:
+  instagram:
+  linkedin:  # Full URL
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange:  # Full URL
+  steam:
+  tumblr:
+  twitter: Hyperledger
+  wordpress:
+  youtube:
+
+  # Scripts
+  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname:
+  katex: # Enable if using math markup
+
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_email: "Email"
+  str_next: "Next"
+  str_prev: "Prev"
+  str_continue_reading: "Continue reading"
+
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
+
+# PAGINATION
+paginate: 5
+paginate_path: "info/page:num"
+
+# COLLECTIONS
+collections:
+  portfolio:
+    output: true
+
+# BUILD SETTINGS
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+plugins: [jekyll-paginate]
