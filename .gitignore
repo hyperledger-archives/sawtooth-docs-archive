@@ -1,2 +1,3 @@
 /generator/_site/*
 /generator/.sass-cache
+/generator/*.complete
