@@ -1,12 +1,9 @@
 ---
 layout: page
-title: Info
+title: Home
 permalink: /
-feature-img: "../examples/img/hero-bg.jpg"
+feature-img: "examples/img/hero-bg.jpg"
 ---
-
-![Sawtooth logo](/examples/img/logo-dark.png "Sawtooth")
-{: .header}
 
 Hyperledger Sawtooth
 --------------------

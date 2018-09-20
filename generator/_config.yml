@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: /info # the subpath of your site, e.g. /blog
+#baseurl: / # the subpath of your site, e.g. /blog
 url: "0.0.0.0" # the base hostname & protocol for your site
 #destination: /srv/jekyll/_site
 keep_files: [./*]
@@ -22,15 +22,15 @@ theme_settings:
       <a href="https://chat.hyperledger.org/channel/sawtooth" target="_blank" title="Rocket Chat">RocketChat</a>
     </p>
     <p>
-      <a href="https://sawtooth.hyperledger.org/docs/" target="_blank" title="Documentation">Documentation</a>
+      <a href="/docs/" target="_blank" title="Documentation">Documentation</a>
       &bull;
       <a href="https://github.com/hyperledger/sawtooth-core/" target="_blank" title="Github">Github</a>
       &bull;
-      <a href="seafood.html" title="Seafood Supply Chain Traceability">Seafood Supply Chain Traceability</a>
+      <a href="/examples/seafood.html" title="Seafood Supply Chain Traceability">Seafood Supply Chain Traceability</a>
       &bull;
-      <a href="bond.html" title="Bond Asset Settlement">Bond Asset Settlement</a>
+      <a href="/examples/bond.html" title="Bond Asset Settlement">Bond Asset Settlement</a>
       &bull;
-      <a href="marketplace.html" title="Marketplace Digital Asset Exchange">Marketplace Digital Asset Exchange</a>
+      <a href="/examples/marketplace.html" title="Marketplace Digital Asset Exchange">Marketplace Digital Asset Exchange</a>
     </p>
     <p>
       <a href="http://www.linuxfoundation.org/privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
@@ -41,7 +41,7 @@ theme_settings:
       <small class="copyright">&copy; Copyright 2015&ndash;2017, Intel Corporation. Sawtooth is an open source project that is available to the public.</small>
     </p>
     <p>
-      <small>Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+      <small>Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
     </p>
 
   # Icons

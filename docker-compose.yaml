@@ -3,16 +3,14 @@ version: "2.1"
 services:
   jekyll:
     image: generator-jekyll
-    build:
-      context: ./generator
+    build: ./generator
     working_dir: /srv/jekyll/
     entrypoint: /srv/jekyll/entrypoint-gen.sh
     volumes:
       - $PWD/generator:/srv/jekyll
   linter:
     image: linter
-    build:
-      context: ./linter
+    build: ./linter
     volumes:
       - $PWD/generator:/srv/jekyll
     working_dir: /srv/jekyll/
