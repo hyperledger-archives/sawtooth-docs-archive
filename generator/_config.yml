@@ -38,10 +38,7 @@ theme_settings:
       <a href="http://www.linuxfoundation.org/terms" target="_blank" title="Terms of Service">Terms of Service</a>
     </p>
     <p>
-      <small class="copyright">&copy; Copyright 2015&ndash;2017, Intel Corporation. Sawtooth is an open source project that is available to the public.</small>
-    </p>
-    <p>
-      <small>Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+      <small class="copyright">Copyright &copy; 2015-2018 contributors to Hyperledger Sawtooth</small>
     </p>
 
   # Icons

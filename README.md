@@ -12,7 +12,8 @@ From a local clone of
 docker-compose up
 ```
 
-Pay attention to the output for markdown syntax errors. Errors will appear on lines beginning with `linter_1`.
+Pay attention to the output for markdown syntax errors. Errors will appear on
+lines beginning with `linter_1`.
 
 The site will be available at [`http://localhost:8000`](http://localhost:8000)
 
@@ -24,12 +25,8 @@ docker-compose down -v
 
 ## Adding a Post
 
-To add a post, create a
-[markdown file](https://kramdown.gettalong.org/quickref.html)
-in `generator/source/_posts`
-
-To create a post, add a file to the `generator/source/_posts` directory with the
-following format:
+To create a post, add a [markdown file](https://kramdown.gettalong.org/quickref.html)
+to the `generator/source/_posts` directory with the following format:
 
 ```
 YEAR-MONTH-DAY-title.MARKUP
@@ -50,19 +47,21 @@ layout or other meta data.
 ```
 ---
 layout: post
-title: Hyperledger Fabric & Sawtooth Certification Exams Coming Soon!
+title: Hyperledger Sawtooth, Seth and Truffle 101
 categories: [certification, hyperledger]
 tags: [cert, calendar]
 ---
 
-Excerpt from [hyperledger.org](https://www.hyperledger.org/blog/2018/09/05/hyperledger-fabric-sawtooth-certification-exams-coming-soon)
+Excerpt from [hyperledger.org](https://www.hyperledger.org/blog/2018/07/24
+/hyperledger-sawtooth-seth-and-truffle-101)
 
-We strongly believe in helping organizations and developers overcome obstacles
-to blockchain adoption by investing in training and certification courses for
-Hyperledger. That’s why we’re thrilled to announce that Certified Hyperledger
-Fabric Administrator and Certified Hyperledger Sawtooth Administrator exams will
-be released later this year!
-...
+I develop on both Hyperledger Fabric/Sawtooth and Ethereum (to be specified,
+Quorum) so I am familiar with the languages available on both platform —
+chaincode (Go) and smart contract (Solidity). Often I am asked this question:
+“Which platform is better?” To which I will answer, this question is a false
+choice as with Hyperledger Sawtooth Seth, you can build your smart contracts in
+Solidity and deploy the same smart contract in Hyperledger Sawtooth — Pretty
+cool isn’t it? ...
 ```
 
 ## Editing Site Content
@@ -72,3 +71,14 @@ etc., by editing the files in `/generator/source/`.
 
 E.g., `/generator/source/index.md`, `/generator/source/contact.md` and
 `/generator/source/about.md`
+
+## LICENSE
+
+* This documentation and the content herein is covered by [
+  Creative Commons Attribution 4.0 International License](
+  http://creativecommons.org/licenses/by/4.0/ "license") unless otherwise stated.
+* Jekyll (docker-compose.yaml) is used under LICENSE-MIT
+* The Jekyll Type theme is used under generator/source/LICENSE (MIT)
+* Markdown lint tool (docker-compose.yaml) is used under LICENSE-MIT
+
+
