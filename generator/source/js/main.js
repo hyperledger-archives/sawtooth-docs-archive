@@ -1,3 +1,5 @@
+// Copyright (c) 2014 Rohan Chandra
+// SPDX-License-Identifier: MIT
 var elements = document.getElementsByTagName('script')
 
 Array.prototype.forEach.call(elements, function(element) {

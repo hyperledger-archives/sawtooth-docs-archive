@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Markdown and HTML
+# Copyright (c) 2018 Bitwise IO, Inc.
+# Licensed under Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
 ---
 
 Jeykll supports the use of

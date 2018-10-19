@@ -1,3 +1,7 @@
+# Copyright (c) 2014 Rohan Chandra
+# SPDX-License-Identifier: MIT
+# The Jekyl theme "Type" used and modified under the above licence from https://github.com/rohanchandra/type-theme
+#
 # SITE CONFIGURATION
 #baseurl: / # the subpath of your site, e.g. /blog
 url: "0.0.0.0" # the base hostname & protocol for your site

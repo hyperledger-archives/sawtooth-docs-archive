@@ -66,7 +66,7 @@ cool isn’t it? ...
 
 ## Editing Site Content
 
-Change the content of `/info/index.html`, `/info/contact/`, `/info/about/`,
+Change the content of `/`, `/contact/`, `/about/`,
 etc., by editing the files in `/generator/source/`.
 
 E.g., `/generator/source/index.md`, `/generator/source/contact.md` and
