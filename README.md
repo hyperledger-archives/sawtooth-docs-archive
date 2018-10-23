@@ -25,7 +25,8 @@ docker-compose down -v
 
 ## Adding a Post
 
-To create a post, add a [markdown file](https://kramdown.gettalong.org/quickref.html)
+To create a post, add a [markdown](https://kramdown.gettalong.org/quickref.html)
+or [reStructuredText](http://docutils.sourceforge.net/rst.html) file
 to the `generator/source/_posts` directory with the following format:
 
 ```
@@ -38,7 +39,7 @@ file. For example, the following are examples of valid post filenames:
 
 ```
 2019-04-23-hyperledger-is-awesome.md
-2019-09-12-how-to-write-a-how-to.md
+2019-09-12-how-to-write-a-how-to.rst
 ```
 
 All post files must begin with front matter which is typically used to set a
