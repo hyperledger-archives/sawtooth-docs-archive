@@ -3,4 +3,13 @@
 # https://creativecommons.org/licenses/by/4.0/
 FROM ruby:alpine
 
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base && \
+    pip install --upgrade pip && \
+    pip install restructuredtext_lint && \
+    rm -rf /var/cache/apk/*
+
 RUN gem install mdl
