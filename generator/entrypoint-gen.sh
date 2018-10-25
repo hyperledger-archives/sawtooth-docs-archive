@@ -5,7 +5,7 @@
 
 cd /srv/jekyll/
 rm -rf /srv/jekyll/_site/*
-bundle exec jekyll build -V --config ./_config.yml
+bundle exec jekyll build --config ./_config.yml
 EXITCODE=$?
 touch jekyll.complete
 exit $EXITCODE
