@@ -4,6 +4,8 @@
 
 FROM jekyll/builder:3.5
 
+ENV PYTHONIOENCODING=utf-8
+
 RUN apk add --update \
     python \
     python-dev \

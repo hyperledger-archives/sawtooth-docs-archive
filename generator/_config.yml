@@ -41,7 +41,7 @@ theme_settings:
     <p>
       <small class="copyright">Copyright &copy; 2015-2018 contributors to Hyperledger Sawtooth</small>
     </p>
-
+  permalink: /:categories/:year/:month/:day/:release/:title/
   # Icons
   rss: false
   email_address: # Full email address, e.g. "sam@example.com"
