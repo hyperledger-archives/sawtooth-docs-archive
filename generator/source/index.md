@@ -23,15 +23,6 @@ community and documented
 Information on what _Active_ entails can be found in the
 [Hyperledger Project Lifecycle document](https://wiki.hyperledger.org/community/project-lifecycle).
 
-# Latest Release
-
-The latest release of Hyperledger Sawtooth is 1.1, codename Bumper.
-
-- [Latest source](https://github.com/hyperledger/sawtooth-core/tree/1-1)
-- [Documentation](https://sawtooth.hyperledger.org/docs/core/releases/latest/)
-- [Release notes](release/bumper/)
-- [Dockerhub](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=hyperledger%2Fsawtooth&starCount=0)
-
 # Posts
 
 <ul>
