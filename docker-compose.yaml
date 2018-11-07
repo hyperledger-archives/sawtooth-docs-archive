@@ -32,3 +32,5 @@ services:
       - 8000:80
     volumes:
       - $PWD/generator:/srv/jekyll
+    environment:
+      - BUILDONLY=${BUILDONLY}
