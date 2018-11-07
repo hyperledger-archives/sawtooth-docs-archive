@@ -75,7 +75,7 @@ if (shopt -s nullglob dotglob; f=(/srv/jekyll/_site/*); ((${#f[@]}))); then
 
     info "Copying build to container"
     cp -rf ./archive/htdocs/* /usr/local/apache2/htdocs/
-    /usr/local/apache2/bin/httpd -DFOREGROUND
+    echo "$BUILDONLY" | grep -qEix 'yes|true|1|y' || /usr/local/apache2/bin/httpd -DFOREGROUND
 else
     rm /srv/jekyll/*.complete
     info "Site was not built"
