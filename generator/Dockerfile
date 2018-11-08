@@ -2,18 +2,22 @@
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
 
-FROM jekyll/builder:3.5
+FROM ruby:2.5.3-slim-stretch
 
 ENV PYTHONIOENCODING=utf-8
 
-RUN apk add --update \
+RUN apt-get update -q && \
+    apt-get install -qq --no-install-recommends \
     python \
     python-dev \
-    py-pip \
-    build-base && \
-    pip install --upgrade pip && \
+    build-essential \
+    curl \
+    wget \
+    python-pip \
+    unzip && \
+    rm -rf /var/lib/apt/lists/* && \
     pip install docutils pygments && \
-    rm -rf /var/cache/apk/*
+    gem install jekyll bundler
 
 COPY Gemfile .
 COPY Gemfile.lock .
