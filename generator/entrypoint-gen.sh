@@ -17,11 +17,13 @@ info(){
 }
 
 get_archives(){
+    mkdir -p ${wd}archive/
+    cd ${wd}archive/
     wget -qNrA gz -nH --no-parent --no-check-certificate \
-        https://sawtooth.hyperledger.org/archive/core/
-    cd ./archive/core/
+        http://archive.sawtooth.me/core/
+    cd ${wd}archive/core/
     wget -qN --no-check-certificate \
-        https://sawtooth.hyperledger.org/archive/core/sl.txt
+        http://archive.sawtooth.me/core/sl.txt
     cd $wd
 }
 
@@ -52,7 +54,7 @@ for repo in core seth raft sabre supply-chain; do
     for branch in master; do
         remote_epoch=$(nightly_epoch "$repo" "$branch")
         archive_epoch=$(stat -c '%Y' \
-            ./archive/nightly/${repo}/${branch}/html.zip \
+            ./archive/nightly/${repo}/${branch}/html.zip 2>/dev/null \
             || echo 0 | tr -cd '0-9')
         # If the file has not been updated, to not download.
         if [ $remote_epoch -gt $archive_epoch ]; then
