@@ -62,6 +62,7 @@ NEXT_
 .. _Sawtooth FAQ Glossary: glossary
 .. _Sawtooth Transaction Family Prefixes: prefixes
 .. _Sawtooth Settings: settings
+.. _Sawooth Permissioning: permissioning
 .. _Sawtooth Videos: videos
 .. _GitHub: https://github.com/hyperledger/sawtooth-website
 .. _Developer Certificate of Origin (DCO): https://developercertificate.org/
