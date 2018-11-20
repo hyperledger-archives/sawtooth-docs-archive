@@ -5,6 +5,8 @@
 
 cd /srv/jekyll/
 
+pip install pygments
+
 until [ -f /srv/jekyll/jekyll.complete ]; do
     sleep .2
 done

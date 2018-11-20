@@ -302,7 +302,7 @@ Also, if you can use a compiled binary tool:
 Copy the corresponding public key output to ``network_public_key`` and the private key output to ``network_private_key`` fields in ``validator.toml``
 
 What does this warning mean: ``Network key pair is not configured, Network communications between validators will not be authenticated or encrypted`` ?
-------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 You did not configure the keypair for the network nodes.  For development purposes, that is OK.  For production, use create a network keypair and add to file `validator.toml`, as instructed in the question here about how to generate the ``network_public_key`` and ``network_private_key`` .
 
 
@@ -319,7 +319,7 @@ After adding 100,000 blockchain state variables, I run out of memory. Why?
 Sawtooth stores the blockchain in a LMDB database at ``/var/lib/Sawtooth/block-00.lmdb`` . The LMDB database is a "sparse" file meaning no storage is allocated for the file until it is used (written to). The database should not run out of memory, as long as filesystem storage is available. The memory error could happen in Kubernetes or Docker or other virtual machine environments where there are no storage volumes mapped to the VM.
 
 What are the maximum number of blocks in a Sawtooth blockchain?
---------------------------------------
+---------------------------------------------------------------
 There is no limit, other than the available storage for a node.
 
 

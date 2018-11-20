@@ -97,4 +97,3 @@ sass:
   style: :compressed
 keep_files: [./*]
 source: ./source
-include: [community/index.rst]
