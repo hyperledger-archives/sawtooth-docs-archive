@@ -1,6 +1,18 @@
+---
+layout: page
+hide: true
+tags: [appendix]
+title: Appendix - Sawtooth Transaction Family Prefixes
+permalink: /faq/prefixes/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
+---
 Appendix: Sawtooth Transaction Family Prefixes
-==================
-[PREVIOUS_ | HOME_ | NEXT_]
+==============================================
+.. class:: mininav
+
+PREVIOUS_ FAQ_ NEXT_
 
 .. contents::
 
@@ -112,10 +124,12 @@ https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_sp
 | polls         |           |        |                                         |
 +---------------+-----------+--------+-----------------------------------------+
 
-[PREVIOUS_ | HOME_ | NEXT_]
+.. class:: mininav
 
-.. _PREVIOUS: glossary.rst
-.. _HOME: README.rst
-.. _NEXT: settings.rst
+PREVIOUS_ FAQ_ NEXT_
+
+.. _PREVIOUS: /faq/glossary/
+.. _FAQ: /faq/
+.. _NEXT: /faq/settings/
 
 © Copyright 2018, Intel Corporation.

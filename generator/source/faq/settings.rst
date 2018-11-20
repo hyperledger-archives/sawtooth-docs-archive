@@ -1,22 +1,34 @@
+---
+layout: page
+hide: true
+tags: [appendix]
+title: "Appendix: Sawtooth Settings"
+permalink: /faq/settings/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
+---
 Appendix: Sawtooth Settings
-==================
-[PREVIOUS_ | HOME_ | NEXT_]
+===========================
+.. class:: mininav
+
+PREVIOUS_ FAQ_ NEXT_
 
 .. contents::
 
 
 This is an unofficial list of some Transaction Family (TF) settings.
-There is no central registry, most or all of these can be found found on github.
+There is no central registry, most or all of these can be found on github.
 
 The following are some Sawtooth settings.
 Since Sawtooth settings are extensible and include transaction family-specific settings, this list is incomplete.
 
 * You can list existing settings with the
-``sawtooth settings list --url http://localhost:8008`` command.
-For options, append ``help`` to the command.
+  ``sawtooth settings list --url http://localhost:8008`` command.
+  For options, append ``help`` to the command.
 
 * You can set a setting with the ``sawset proposal create --url http://localhost:8008`` command.  For example,
-``sawset proposal create --url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv sawtooth.publisher.max_batches_per_block=200``
+  ``sawset proposal create --url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv sawtooth.publisher.max_batches_per_block=200``
 
 * Some baseline settings are documented at https://sawtooth.hyperledger.org/docs/core/releases/1.0/transaction_family_specifications/settings_transaction_family.html
 * Transactor settings are documented at https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/configuring_permissions.html
@@ -68,7 +80,7 @@ sawtooth.poet.key_block_claim_limit
 sawtooth.poet.population_estimate_sample_size
     Sample size, in blocks, to compute the local mean wait time (default 50).
     The local mean wait time multiplied by random_float(0,1) yields the PoET duration time.
-    For production, we recommend 500 to get stable population estimates. Most enterprise networks have stable populations and so a long sample length is preferable. 
+    For production, we recommend 500 to get stable population estimates. Most enterprise networks have stable populations and so a long sample length is preferable.
 sawtooth.poet.report_public_key_pem
     Public key used by Validator Registry TP to verify attestation reports.
     From ``/etc/sawtooth/ias_rk_pub.pem`` or (for PoET CFT) ``/etc/sawtooth/simulator_rk_pub.pem``
@@ -132,10 +144,12 @@ transactor.transaction_signer.validator_registry
 transactor.transaction_signer.xo
     Public keys of authorized xo TF signers
 
-[PREVIOUS_ | HOME_ | NEXT_]
+.. class:: mininav
 
-.. _PREVIOUS: prefixes.rst
-.. _HOME: README.rst
-.. _NEXT: videos.rst
+PREVIOUS_ FAQ_ NEXT_
+
+.. _PREVIOUS: /faq/prefixes/
+.. _FAQ: /faq/
+.. _NEXT: /faq/videos/
 
 © Copyright 2018, Intel Corporation.

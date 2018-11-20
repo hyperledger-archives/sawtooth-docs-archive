@@ -1,15 +1,27 @@
+---
+layout: page
+hide: true
+tags: [appendix]
+title: Appendix - Sawtooth Videos
+permalink: /faq/videos/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
+---
 Appendix: Sawtooth Videos
-==================
-[PREVIOUS_ | HOME_]
+=========================
+.. class:: mininav
+
+PREVIOUS_ FAQ_
 
 .. contents::
 
 
 Selected YouTube Videos
---------------
+-----------------------
 
 2018 YouTube Videos
---------------
+-------------------
 Hyperledger Sawtooth Seafood Supply Chain Demo (3:21, Bitwise, 2018)
     https://www.youtube.com/watch?v=q0T8qAyzY30
 
@@ -36,19 +48,19 @@ Introducción a Hyperledger VII - Sawtooth (Español) (7:36, Sergio Torres, Bloc
     https://www.youtube.com/watch?v=_YkKaDXLVPg
 
 2017 YouTube Videos
---------------
+-------------------
 Vision for Hyperledger's Sawtooth Distributed Ledger (2:03, Dan Middleton, Intel, 2017)
     https://www.youtube.com/watch?v=gjAHjX0RmOw
 Introduction to Hyperledger Sawtooth (Seafood Supply Chain) (3:40, Hyperledger, 2017)
     https://www.youtube.com/watch?v=8nrVlICgiYM
 
 Hyperledger Videos
---------------
+------------------
 Hyperledger Sawtooth 1.0: Market Significance and Technical Overview. Free registration required (61:27, Dan Middleton, Intel, 2018)
     https://gateway.on24.com/wcc/gateway/linux/1101876/1585244/hyperledger-sawtooth-v10-market-significance-and-technical-overview
 
 Intel Chip Chat Audio
-----------------------
+---------------------
 Why Enterprises Should Be Moving Blockchain Forward. Ep. 576 (9:51, Mike Reed, Intel, 2018)
     https://connectedsocialmedia.com/16399/why-enterprises-should-be-moving-blockchain-forward-intel-chip-chat-episode-576/
 
@@ -57,12 +69,12 @@ Where We've Been and Where We're going -- Intel's Blockchain Journey. Ep. 559 (1
 
 
 Sawtooth Technical Forum
---------------------------
+------------------------
 This is an list of recordings of past Hyperledger Sawtooth Technical Forums.
 Most are in mp4 (video) format, but a few are available in audio only (m4a).
 
 2018 Sawtooth Technical Forum
-----
+-----------------------------
 Located at
 https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc
 
@@ -90,7 +102,7 @@ Sawtooth Rust SDK (Peter Schwarz, Bitwise)
     20180215-sawtooth-tech-forum.m4a_ (audio only; starts at 23:40)
 
 2017 Sawtooth Technical Forum
-----
+-----------------------------
 Located at
 https://drive.google.com/drive/folders/12HLBKfFEF09eKhjqkvtTStejx4ZD8btW
 
@@ -120,10 +132,12 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
     20170622-sawtooth-tech-forum.mp4_ (starts at 12:00)
 
 
-[PREVIOUS_ | HOME_]
+.. class:: mininav
 
-.. _PREVIOUS: settings.rst
-.. _HOME: README.rst
+PREVIOUS_ FAQ_
+
+.. _PREVIOUS: /faq/settings/
+.. _FAQ: /faq/
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view
 .. _20180913-sawtooth-tech-forum.mp4: https://drive.google.com/file/d/1jnL4nhYgY7zSqKF-WolNdYQJQa68m0al/view

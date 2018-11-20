@@ -1,6 +1,19 @@
+---
+layout: page
+hide: true
+tags: [appendix]
+title: Appendix - Glossary
+permalink: /faq/glossary/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
+---
 Sawtooth: Glossary
 ==================
-[PREVIOUS_ | HOME_ | NEXT_]
+
+.. class:: mininav
+
+PREVIOUS_ FAQ_ NEXT_
 
 .. contents::
 
@@ -252,10 +265,12 @@ ZKP
 zkSNARKS
     Zero Knowledge Succinct Non-interactive Arguments of Knowledge, which allow proof of correctness, given public and private input
 
-[PREVIOUS_ | HOME_ | NEXT_]
+.. class:: mininav
 
-.. _PREVIOUS: docker.rst
-.. _HOME: README.rst
-.. _NEXT: prefixes.rst
+PREVIOUS_ FAQ_ NEXT_
+
+.. _PREVIOUS: /faq/docker/
+.. _FAQ: /faq/
+.. _NEXT: /faq/prefixes/
 
 © Copyright 2018, Intel Corporation.
