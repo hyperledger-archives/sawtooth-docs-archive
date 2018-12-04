@@ -174,14 +174,12 @@ Sawtooth PBFT is still in the prototype phase and is under active development.
 
 [> back to top <](#top)
 
+
 # Documentation
 
 In addition to updates for Hyperledger Sawtooth 1.1 features, technical
-corrections, and bug fixes throughout, the documentation has the following
-changes and improvements.
-
-- New Rust SDK documentation.
-- New glossary of Sawtooth terminology.
+corrections, and bug fixes throughout, the Sawtooth documentation has the
+ following changes and improvements.
 
 ## Application Developer’s Guide
 
@@ -194,6 +192,11 @@ changes and improvements.
   Sawtooth. See [Playing with the XO Transaction Family](https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/intro_xo_transaction_family.html).
 - Improved and expanded tutorials for using the Sawtooth JavaScript, Go, and
   Python SDKs, plus a new Rust version. See [Using the Sawtooth SDKs](https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/using_the_sdks.html).
+
+## API References
+
+- New Rust SDK documentation; see
+  [Rust SDK API Reference](https://sawtooth.hyperledger.org/docs/core/nightly/master/sdks.html#rust).
 
 ## System Administrator’s Guide
 
@@ -210,6 +213,10 @@ changes and improvements.
 ## Architecture Guide
 
 - General improvements and a new architecture overview.
+
+## Glossary
+
+- New glossary of Sawtooth terminology.
 
 [> back to top <](#top)
 
