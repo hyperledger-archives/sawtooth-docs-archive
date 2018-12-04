@@ -220,7 +220,7 @@ Distributing nodes on virtual machines sharing the same host does nothing to gua
 Distributing nodes at the same site does not protect against site outages.
 
 Can I restrict what validator nodes win consensus?
--------------------------
+--------------------------------------------------
 No. Every peer node validates blocks and every peer node can publish a block.
 You can write your own plugin consensus module to restrict what peer nodes win. Or modify an existing consensus module to experiment.
 
