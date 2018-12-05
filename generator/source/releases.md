@@ -10,7 +10,7 @@ feature-img: "examples/img/hero-bg.jpg"
 
 # Stable Releases
 
-Release 1.1 (Bumper): [Documentation][bumper-docs] \| [Release notes][bumper-release-notes]
+[Hyperledger Sawtooth release 1.1 (Bumper)][bumper-release-notes]
 
 [bumper-docs]: https://sawtooth.hyperledger.org/docs/core/releases/latest/
 [bumper-release-notes]: bumper/
