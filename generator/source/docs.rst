@@ -3,6 +3,7 @@ layout: page
 title: Docs
 permalink: /docs/
 feature-img: "../docs/imgs/hero-bg.jpg"
+feat_img_size: small
 # Copyright (c) 2015–2017 Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
@@ -11,21 +12,21 @@ feature-img: "../docs/imgs/hero-bg.jpg"
 Hyperledger Sawtooth Documentation
 ==================================
 
-.. contents::
+.. class:: mininav
 
-Hyperledger Sawtooth is an enterprise-grade solution for building,
-deploying, and running distributed ledgers
+`Sawtooth Core`_
+`Sawtooth Sabre`_
+`Sawtooth Seth`_
+`Sawtooth Supply Chain`_
+
+Documentation for Hyperledger Sawtooth
 
 Sawtooth Core
 -------------
 
--  `Latest Release <core/releases/latest/>`__
--  `Release v1.0.5 <core/releases/1.0.5/>`__
--  `Release v1.0.4 <core/releases/1.0.4/>`__
--  `Release v1.0.2 <core/releases/1.0.2/>`__
--  `Release v1.0.1 <core/releases/1.0.1/>`__
--  `Release v0.8 <core/releases/0.8/>`__
--  `Release v0.7 <core/releases/0.7/>`__
+-  `Latest Release <core/releases/latest/>`__ - Latest stable code release
+-  `Release 1.1 (Bumper) <core/releases/1.1.2/>`__
+-  `Release 1.0.5 <core/releases/1.0.5/>`__
 -  `Nightly master <core/nightly/master/>`__
 
 Sawtooth Sabre
@@ -44,3 +45,4 @@ Sawtooth Supply Chain
 ---------------------
 
 -  `Nightly master <supply-chain/nightly/master/>`__
+
