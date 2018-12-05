@@ -1,7 +1,7 @@
 ---
 layout: page
 hide: true
-title: Bumper Release Notes
+title: Hyperledger Sawtooth 1.1 (Bumper)
 permalink: /release/bumper/
 release: 1.1
 release-name: bumper
@@ -16,9 +16,9 @@ Hyperledger Sawtooth 1.1 (Bumper) is now available. See the [latest
 documentation](https://sawtooth.hyperledger.org/docs/core/releases/latest/) to
 get started.
 
-The following release notes describe the new and changed features in
-Hyperledger Sawtooth 1.1 (since release 1.0). They have been organized into the
-following categories:
+This page describes the new and changed features in Hyperledger
+Sawtooth 1.1 (since release 1.0). Information is organized in the following
+categories:
 
 - [Core](#core): Changes to core Sawtooth components
 - [Consensus](#consensus): Changes to the consensus API, changes to existing
