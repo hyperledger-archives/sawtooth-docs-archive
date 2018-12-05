@@ -19,17 +19,14 @@ Hyperledger Sawtooth Documentation
 `Sawtooth Seth`_
 `Sawtooth Supply Chain`_
 
-Hyperledger Sawtooth is an enterprise-grade solution for building,
-deploying, and running distributed ledgers
+Documentation for Hyperledger Sawtooth
 
 Sawtooth Core
 -------------
 
--  `Latest Release <core/releases/latest/>`__ - The latest, stable code release.
--  `Latest Docs <core/releases/latest/>`__ - The latest documentation revision.
-   May contain fixes that pertain to the latest release.
--  `Release v1.1.1 <core/releases/1.1.1/>`__
--  `Release v1.0.5 <core/releases/1.0.5/>`__
+-  `Latest Release <core/releases/latest/>`__ - Latest stable code release
+-  `Release 1.1 (Bumper) <core/releases/1.1.2/>`__
+-  `Release 1.0.5 <core/releases/1.0.5/>`__
 -  `Nightly master <core/nightly/master/>`__
 
 Sawtooth Sabre
