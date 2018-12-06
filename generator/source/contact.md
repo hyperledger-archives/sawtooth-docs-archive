@@ -24,7 +24,7 @@ Want to receive updates on Sawtooth? Add your email here:
 [Mailing List](https://lists.hyperledger.org/mailman/listinfo/hyperledger-stl
 ["Hyperledger Sawtooth Mailing List"){: .button}
 
-What to ask question and chat with other developers?
+Want to ask questions and chat with other developers?
 
 [RocketChat](https://chat.hyperledger.org/channel/sawtooth
 "RocketChat"){: .button}
