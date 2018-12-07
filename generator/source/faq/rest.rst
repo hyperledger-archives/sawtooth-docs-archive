@@ -116,6 +116,10 @@ Back pressure is a flow-control technique to help prevent DoS attacks.
 It results in a ``Status.QUEUE_FULL`` client batch submit response or a 429 "Too Many Requests" REST API error.
 If the validator is overwhelmed it will stop accepting new batches until it can handle more work. The number of batches that validator can accept is based on a multiplier,  QUEUE_MULTIPLIER (currently 10, formerly 2), times a rolling average of the number of published batches.
 
+What does this error mean from sawset: ``There is no resource with the identifier``?
+------------------------------------------------------------------------------------
+It means the command format is correct, but the identifier does not exist.
+
 .. class:: mininav
 
 PREVIOUS_ FAQ_ NEXT_
