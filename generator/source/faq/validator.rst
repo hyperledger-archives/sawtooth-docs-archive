@@ -145,16 +145,20 @@ What TCP ports does Sawtooth use?
   Port 4004 is sometimes exported to port 4040 in Sawtooth Docker containers for the validator.
 
 * 8008 is used by the REST API, which connects the Client to the Validator.
-  This port can be closed to external hosts in a firewall configuration if the client is always on the same host as a validator
+  This port should be closed to external hosts in a firewall configuration if the client is always on the same host as a validator. This port is not encrypted.
+  If the client connecting to the REST API is external to the host, I recommend placing a TLS/HTTPS proxy in front this port and adding authentication.
 
 * 8800 is used by the Validator network to communicate with other Validators.
-  This port needs to be open to external hosts in a firewall configuration to communicate with peer validators
+  This port needs to be open to external hosts in a firewall configuration to communicate with peer validators. Uses ZMQ.
 
 * 5050 is used by the consensus engine (such as PoET or Raft).
-  This port should be closed to external hosts in a firewall configuration
+  This port should be closed to external hosts in a firewall configuration. Uses ZMQ.
 
 * 3030 is used by the Seth TP (if you have Seth running).
-  This port can be closed to external hosts in a firewall configuration if the client is always on the same host as a validator
+  It is used to send JSON-RPC EVM requests and is not encrypted.
+  This port should be blocked from external access because one can do admin operations from it.
+
+Sawtooth does not use UDP ports (only TCP).
 
 How do I create a Sawtooth Network?
 -----------------------------------

@@ -23,42 +23,49 @@ Selected YouTube Videos
 2018 YouTube Videos
 -------------------
 Hyperledger Sawtooth Seafood Supply Chain Demo (3:21, Bitwise, 2018)
-    https://www.youtube.com/watch?v=q0T8qAyzY30
+    https://youtu.be/q0T8qAyzY30
 
 Intel: Building Blockchain for the Enterprise. Shows how Sawtooth builds are done on AWS (5:33, Ryan Beck-Buysse, Bitwise, Lana Kalashnyk, AWS, 2018)
-    https://www.youtube.com/watch?v=B_L_PjlSywA
+    https://youtu.be/B_L_PjlSywA
 
 Sawtooth 1.0 Architecture and App Development (31:26, Zac Delventhal, Bitwise, 2018)
-    https://www.youtube.com/watch?v=uBebFQM49Xk
+    https://youtu.be/uBebFQM49Xk
 
 Hyperledger Sawtooth Technical Overview (58:38, Dan Anderson, Intel, 2018)
-    https://www.youtube.com/watch?v=KGFuKIBma_M
+    https://youtu.be/KGFuKIBma_M
 
 Hyperledger Sawtooth Application Developer Overview using "CookieJar" (54:58, Dan Anderson, Intel, 2018)
-    https://www.youtube.com/watch?v=VFXary3rwY0
+    https://youtu.be/VFXary3rwY0
+
+Hyperledger Sawtooth Explainer Video (2:06, Hyperledger, 2018)
+    https://youtu.be/3BVUiPQuv-w
+
+Hyperledger Sawtooth Blockchain Security (Dan Anderson, Intel, 2018)
+    Part 1 (23:30): https://youtu.be/ZEM1F5-U0_o
+    Part 2 (28:03): https://youtu.be/nkQfCexqJac
 
 Blockchain and Hyperledger Sawtooth Overview (6:15, Daniel Homlund Martin Kronberg and Daniel Homlund, Intel, 2018)
-    https://www.youtube.com/watch?v=HwFItjV6Czo
+    https://youtu.be/HwFItjV6Czo
 
 Several Sawtooth application development tutorials by John S.
     https://www.youtube.com/channel/UC4YOKxLGKFcaq4duRhH75qw
 
 Hyperledger Sawtooth and Kubernetes at Hyperledger Hong Kong meetup. (1:38:24, Duncan Johnston-Watt, Blockchain Technology Partners, 2018)
-    https://www.youtube.com/watch?v=d4tf5Ps4VLw
+    https://youtu.be/d4tf5Ps4VLw
     Slides: https://bit.ly/2PR1Oub
 
 Introducción a Hyperledger VII - Sawtooth (Español) (7:36, Sergio Torres, Blocknitive)
-    https://www.youtube.com/watch?v=b-VVNLce6MI
+    https://youtu.be/b-VVNLce6MI
 
 ¿Qué es Hyperledger Sawtooth? (Español) (2:00, Angel Berniz)
-    https://www.youtube.com/watch?v=_YkKaDXLVPg
+    https://youtu.be/_YkKaDXLVPg
 
 2017 YouTube Videos
 -------------------
 Vision for Hyperledger's Sawtooth Distributed Ledger (2:03, Dan Middleton, Intel, 2017)
-    https://www.youtube.com/watch?v=gjAHjX0RmOw
+    https://youtu.be/gjAHjX0RmOw
 Introduction to Hyperledger Sawtooth (Seafood Supply Chain) (3:40, Hyperledger, 2017)
-    https://www.youtube.com/watch?v=8nrVlICgiYM
+    https://youtu.be/8nrVlICgiYM
 
 Hyperledger Videos
 ------------------

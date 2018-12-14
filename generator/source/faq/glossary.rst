@@ -209,6 +209,8 @@ Solidity
     A contract-oriented programming language used to implement smart contracts. Compiles into Ethereum VM code and is supported by Seth
 Stale block
     A block proposed to be at the head of a blockchain, but lost to a competing block that became the head as decided by the consensus algorithm
+State Pruning
+    Removing unneeded older state roots from Merkle-Radix global state database.  See https://github.com/hyperledger/sawtooth-rfcs/pull/8
 Static Nodes or Static Peers
     A hard-coded set of peers a node knows about, but may not change
 TEE

@@ -55,7 +55,7 @@ Hyperledger Sawtooth 1.0: Market Significance & Technical Overview (Hyperledger,
   https://gateway.on24.com/wcc/gateway/linux/1101876/1585244/hyperledger-sawtooth-v10-market-significance-and-technical-overview
   https://www.hyperledger.org/resources/webinars
 Hyperledger Sawtooth 1.0 Architecture and App Development (Bitwise IO, 2018, 31:26):
-  https://www.youtube.com/watch?v=uBebFQM49Xk
+  https://youtu.be/uBebFQM49Xk
 You can find several more here:
   https://www.youtube.com/results?search_query=Hyperledger+Sawtooth
 
@@ -165,7 +165,7 @@ How do I tell what version of Sawtooth is running?
 .. code:: sh
 
     $ sawtooth --version
-    sawtooth-cli (Hyperledger Sawtooth) version 1.0.5
+    sawtooth-cli (Hyperledger Sawtooth) version 1.1.2
 
 What's the difference between the ``sawtooth``, ``sawadm``, ``sawnet``, and ``sawset`` commands?
 ------------------------------------------------------------------------------------------------
