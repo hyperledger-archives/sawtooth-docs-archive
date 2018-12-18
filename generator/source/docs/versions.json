@@ -9,6 +9,7 @@
   ["Release v1.0.0rc6", "/docs/core/releases/1.0.0rc6/"],
   ["Release v0.8", "/docs/core/releases/0.8/"],
   ["Release v0.7", "/docs/core/releases/0.7/"],
+  ["Nightly 1-1", "/docs/core/nightly/1-1/"],
   ["Nightly 0-8", "/docs/core/nightly/0-8/"],
   ["Nightly master", "/docs/core/nightly/master/"]
 ]

@@ -24,10 +24,11 @@ Documentation for Hyperledger Sawtooth
 Sawtooth Core
 -------------
 
--  `Latest Release <core/releases/latest/>`__ - Latest stable code release
+-  `Latest Release <core/releases/latest/>`__
 -  `Release 1.1 (Bumper) <core/releases/1.1.2/>`__
 -  `Release 1.0.5 <core/releases/1.0.5/>`__
 -  `Nightly master <core/nightly/master/>`__
+-  `Nightly 1-1 <core/nightly/1-1/>`__
 
 Sawtooth Sabre
 --------------
@@ -45,4 +46,9 @@ Sawtooth Supply Chain
 ---------------------
 
 -  `Nightly master <supply-chain/nightly/master/>`__
+
+Sawtooth PBFT
+---------------------
+
+-  `Nightly master <pbft/nightly/master/>`__
 
