@@ -5,3 +5,4 @@
 /generator/source/.sass-cache
 /generator/source/_plugins/jekyll-rst/*.pyc
 /generator/archive
+Gemfile.lock
