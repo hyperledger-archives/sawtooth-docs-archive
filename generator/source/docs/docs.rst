@@ -25,7 +25,7 @@ Sawtooth Core
 -------------
 
 -  `Latest Release <core/releases/latest/>`__
--  `Release 1.1 (Bumper) <core/releases/1.1.2/>`__
+-  `Release 1.1.2 <core/releases/1.1.2/>`__
 -  `Release 1.0.5 <core/releases/1.0.5/>`__
 -  `Nightly master <core/nightly/master/>`__
 -  `Nightly 1-1 <core/nightly/1-1/>`__
@@ -33,13 +33,11 @@ Sawtooth Core
 Sawtooth Sabre
 --------------
 
--  `Latest Release <sabre/releases/latest/>`__
 -  `Nightly master <sabre/nightly/master/>`__
 
 Sawtooth Seth
 -------------
 
--  `Latest Release <seth/releases/latest/>`__
 -  `Nightly master <seth/nightly/master/>`__
 
 Sawtooth Supply Chain
