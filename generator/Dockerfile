@@ -20,6 +20,5 @@ RUN apt-get update -q && \
     gem install jekyll bundler
 
 COPY Gemfile .
-COPY Gemfile.lock .
 COPY _config.yml .
-RUN gem install RbST
+RUN bundle install
