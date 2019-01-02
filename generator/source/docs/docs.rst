@@ -15,6 +15,7 @@ Hyperledger Sawtooth Documentation
 .. class:: mininav
 
 `Sawtooth Core`_
+`Sawtooth PBFT`_
 `Sawtooth Sabre`_
 `Sawtooth Seth`_
 `Sawtooth Supply Chain`_
@@ -30,6 +31,11 @@ Sawtooth Core
 -  `Nightly master <core/nightly/master/>`__
 -  `Nightly 1-1 <core/nightly/1-1/>`__
 
+Sawtooth PBFT
+---------------------
+
+-  `Nightly master <pbft/nightly/master/>`__
+
 Sawtooth Sabre
 --------------
 
@@ -44,9 +50,4 @@ Sawtooth Supply Chain
 ---------------------
 
 -  `Nightly master <supply-chain/nightly/master/>`__
-
-Sawtooth PBFT
----------------------
-
--  `Nightly master <pbft/nightly/master/>`__
 
