@@ -40,8 +40,10 @@ Since Sawtooth settings are extensible and include transaction family-specific s
 sawtooth.config.authorization_type
     Example setting--never used.  To set authorization type, use command line option ``sawtooth-validator --network-auth {trust|challenge}``
 
-sawtooth.consensus.algorithm
-    Consensus algorithm (e.g., ``poet`` (PoET SGX or PoET CFT) or ``devmode`` (default) or ``raft`` or any other pluggable consensus engine you provide)
+sawtooth.consensus.algorithm.name
+    Pluggable consensus algorithm name. These include ``PoET``, ``Devmode``, ``sawtooth-raft-engine``, and ``sawtooth-pbft``.  The default is ``devmode`` for Sawtooth 1.1 or earlier, with no default for the (unreleased) nightly build.
+sawtooth.consensus.algorithm.version
+    Consensus algorithm version. Currently 0.1 for PoET, Devmode, and sawtooth-pbft, and 0.1.0 for sawtooth-raft-engine.
 sawtooth.consensus.block_validation_rules
     Lists validation rules to use in deciding what blocks to add to the blockchain.
     See https://sawtooth.hyperledger.org/docs/core/nightly/master/architecture/injecting_batches_block_validation_rules.html
@@ -49,6 +51,41 @@ sawtooth.consensus.max_wait_time
     Maximum devmode consensus wait time, in seconds
 sawtooth.consensus.min_wait_time
     Minimum devmode consensus wait time, in seconds
+
+sawtooth.consensus.pbft.peers
+    JSON list of each peer node's public key. Only required PBFT setting.
+    Key is from ``/etc/sawtooth/keys/validator.pub`` .
+    Example:
+    ``["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",\
+    "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa"]``
+
+    For details on this and other PBFT settings, see
+    https://github.com/hyperledger/sawtooth-pbft/blob/master/src/config.rs
+sawtooth.consensus.pbft.block_duration
+    How often to try to publish a block. Optional, default 200 ms.
+sawtooth.consensus.pbft.exponential_retry_base
+    Base time to use for retrying with exponential backoff
+    Optional, default 100 ms
+sawtooth.consensus.pbft.exponential_retry_max
+    Maximum time for retrying with exponential backoff.
+    Optional, default 60s
+sawtooth.consensus.pbft.faulty_primary_timeout
+    How long to wait for the next (BlockNew + PrePrepare) before determining
+    primary is faulty. Should be > block_duration.
+    Optional, default 30s
+sawtooth.consensus.pbft.view_change_duration
+    If the node starts a change to view (v + 2),
+    the timeout will be (2 * view_change_duration)
+    Optional, default 5s
+sawtooth.consensus.pbft.forced_view_change_period
+    How many blocks to commit before forcing a view change for fairness
+    Optional, default 30 blocks
+sawtooth.consensus.pbft.message_timeout
+    How long to wait for updates from the Consensus API.
+    Optional, default 10 ms.
+sawtooth.consensus.pbft.max_log_size
+    Log size. Optional, default 1000 messages
+
 sawtooth.consensus.raft.election_tick
     RAFT consensus election tick, in seconds. E.g., 1500
 sawtooth.consensus.raft.heartbeat_tick
@@ -74,9 +111,15 @@ sawtooth.poet.enclave_module_name
     Python module name implementing the PoET enclave.
     Set to ``sawtooth_poet_sgx.poet_enclave_sgx.poet_enclave``
 sawtooth.poet.initial_wait_time
-    For C Test: initial time to wait in seconds before proposing a block (e.g., 25; default 3000)
+    For C Test: initial time to wait in seconds before proposing a block (e.g., 25; default is 3000)
+sawtooth.poet.block_claim_delay
+    For C Test: block claim delay in blocks.
+    Set to 1 to prevent most reasonable attacks.
+    Set to 2 or 3 if you want more aggressive protection. Default is 1.
 sawtooth.poet.key_block_claim_limit
-    For K Test: maximum number of blocks a validator may claim with a PoET keypair before it needs to refresh its signup information (default 250)
+    For K Test: maximum number of blocks a validator may claim with a PoET keypair before it needs to refresh its signup information.
+    I recommend bumping up so each key is good for 100000 blocks.
+    A big number reduces the likelihood that validator keys will expire simultaneously and deadlock the network. Default is 250
 sawtooth.poet.population_estimate_sample_size
     Sample size, in blocks, to compute the local mean wait time (default 50).
     The local mean wait time multiplied by random_float(0,1) yields the PoET duration time.
@@ -93,7 +136,8 @@ sawtooth.poet.valid_enclave_measurements
     Adds the enclave measurement for your enclave to the blockchain for the validator registry transaction processor to use to check signup information.
     From ``poet enclave --enclave-module sgx measurement`` or (for PoET CFT) ``poet enclave measurement``
 sawtooth.poet.ztest_minimum_win_count
-    For Z Test: minimum win count, to test a node is not winning too frequently
+    For Z Test: minimum win count, to test a node is not winning too frequently.
+    For test networks, disable by setting to 999999999, which gives you several decades before the Z test kicks in (16 years * 5 validators @ 30 seconds/block). This test is meant to catch rogue validators who have broken their enclave and are publishing too frequently.  The Z Test doesn't work on small networks because all validators publish often
 
 sawtooth.publisher.max_batches_per_block
     Maximum batches allowed per block (e.g., 100)

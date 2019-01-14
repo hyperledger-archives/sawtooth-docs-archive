@@ -66,16 +66,18 @@ https://github.com/danintel/sawtooth-faq/blob/master/settings.rst
 
 What courses are available on Hyperledger Sawtooth?
 ---------------------------------------------------
+* B9Lab has a five-week Sawtooth Developer training course.  See https://academy.b9lab.com/courses/B9lab/current-sawtooth-course
 * EdX has a "Blockchain for Business" course that reviews Blockchain technology and includes an introduction to Sawtooth and other Hyperledger blockchain software. See
   https://www.edx.org/course/blockchain-business-introduction-linuxfoundationx-lfs171x-0
-* An intermediate EdX course, edx 201 "Hyperledger Sawtooth for Application Developers" is under final review for release. It will use Simple Supply Chain as an example, https://github.com/hyperledger/education-sawtooth-simple-supply
+* A self-study set of PDF slides, with a simple supply chain application as an example, is at https://github.com/hyperledger/education-sawtooth-simple-supply
 * A self-paced course is Cryptomoji, which where students extend a Cryptokitties clone,  https://github.com/hyperledger/education-cryptomoji
 * The Kerala Blockchain Academy offers a Certified Hyperledger Sawtooth Developer (CHD) program at IITM-K, India. See http://www.iiitmk.ac.in/kba/
+* Blockchain Educators offers a Certified Hyperledger Sawtooth Administrator (CHSA) course. See
+https://www.blockchaineducators.org/hyperledger/
 
 What Sawtooth exams are available?
 ----------------------------------
-A Certified Hyperledger Sawtooth Administrator exam will be available in late 2018. See https://www.hyperledger.org/blog/2018/09/05/hyperledger-fabric-sawtooth-certification-exams-coming-soon
-and the exam outline at
+A Certified Hyperledger Sawtooth Administrator (CHSA) exam is available at
 https://www.hyperledger.org/resources/training/hyperledger-sawtooth-certification
 
 Are there any example applications based on Sawtooth?
@@ -218,6 +220,18 @@ No, not now. There is a Sawtooth Explorer at
 https://github.com/hyperledger/sawtooth-explorer
 It may or may not be merged with Hyperledger Explorer in the future.
 Sawtooth Explorer provides visibility into the Sawtooth blockchain for node operators.
+
+How do I setup and use Sawtooth Explorer?
+-----------------------------------------
+* Install, configure, and run Hyperledger Sawtooth
+* Clone Sawtooth Explorer with ``git clone https://github.com/hyperledger/sawtooth-explorer``
+* ``cd sawtooth-explorer``
+* In file ``docker/nginx.conf``, change ``proxy_pass`` to ``http://localhost:8008``
+* In file ``src/environments/environment.ts``, change ``apiURL`` to ``http://<host-ip-address>:8090`` (change to your hostname or IP address)
+* Start Sawtooth Explorer with ``docker-compose up``
+* In a web browser, navigate to http://<host-ip-address>:8090 (change to your hostname or IP address)
+* You can now see the transactions/batches that you submit from the client to Sawtooth in the Explorer user interface
+* More details are at https://github.com/hyperledger/sawtooth-explorer
 
 How do I report a bug?
 ----------------------

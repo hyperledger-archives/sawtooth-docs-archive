@@ -20,8 +20,16 @@ PREVIOUS_ FAQ_
 Selected YouTube Videos
 -----------------------
 
+2019 YouTube Videos
+-------------------
+Hyperledger Sawtooth Performance Metrics with Grafana (Dan Anderson, Intel, 2019)
+    https://youtu.be/YBd7PJlNRSQ
+
 2018 YouTube Videos
 -------------------
+Hyperledger Sawtooth Release 1.1 (34:28, Dan Anderson, Intel, 2018)
+    https://youtu.be/SSFVV71skP4
+
 Hyperledger Sawtooth Seafood Supply Chain Demo (3:21, Bitwise, 2018)
     https://youtu.be/q0T8qAyzY30
 
@@ -112,6 +120,7 @@ Private Data Objects (Eugene Yarmosh, Intel)
     20180510-sawtooth-tech-forum.m4a_ (audio only; starts at 25:40)
 Sawtooth Consensus Engines (Adam Ludvik, Bitwise)
     20180426-sawtooth-tech-forum.mp4_ (starts at 10:00)
+    ConsensusEngineSDK.pdf_ (slides)
 Sawtooth Explorer Demo (Joe Wright, PokitDok)
     20180413-sawtooth-explorer-demo.mp4_ (starts at 11:30)
 Sawtooth Rust SDK (Peter Schwarz, Bitwise)
@@ -162,6 +171,7 @@ PREVIOUS_ FAQ_
 .. _20180524-sawtooth-tech-forum.mp4: https://drive.google.com/file/d/1TG29bCQ9hRX8TB3r5vjVVD7aET3qy_Sd/view
 .. _20180510-sawtooth-tech-forum.m4a: https://drive.google.com/file/d/10ykcVpXqRBEN1l9JmHIauNBhx00Ue61N/view
 .. _20180426-sawtooth-tech-forum.mp4: https://drive.google.com/file/d/1W_4rnlrgO211BOkQVh8f0mZYJYOZsMT0/view
+.. _ConsensusEngineSDK.pdf: https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc
 .. _20180413-sawtooth-explorer-demo.mp4: https://drive.google.com/file/d/12hBrRSQTaP7jsQGEooPMvpFGSCRmJMY4/view
 .. _20180215-sawtooth-tech-forum.m4a: https://drive.google.com/file/d/1Lr2Ik3HjFU5tODce2chED5oR3Vhci6-G/view
 .. _20171214-sawtooth-tech-forum-trimmed.mp4: https://drive.google.com/file/d/1XE9RuWPaI5en2UgJJqNLrJJcZi0TZuJk/view
