@@ -72,9 +72,9 @@ for build in $buildlist; do
         wget -qN --no-check-certificate "${url}"
         cd $wd
         unzip -qn ./archive/nightly/${repo}/${branch}/html.zip \
-            -d ./archive/nightly/${repo}/
+            -d ./archive/nightly/${repo}/${branch}/
         mkdir -p ./archive/docs/${repo}/nightly/${branch}/
-        cp -rd ./archive/nightly/${repo}/html/* \
+        cp -rd ./archive/nightly/${repo}/${branch}/html/* \
             ./archive/docs/${repo}/nightly/${branch}/
     else
         info "  ${repo}/${branch} up do date"
