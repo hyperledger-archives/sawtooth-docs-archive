@@ -21,10 +21,10 @@ on how to contribute and the guidelines for contributions.
 
 Want to receive updates on Sawtooth? Add your email here:
 
-[Mailing List](https://lists.hyperledger.org/mailman/listinfo/hyperledger-stl
-["Hyperledger Sawtooth Mailing List"){: .button}
+[Mailing List](https://lists.hyperledger.org/g/sawtooth
+"Hyperledger Sawtooth Mailing List"){: .button}
 
 Want to ask questions and chat with other developers?
 
 [RocketChat](https://chat.hyperledger.org/channel/sawtooth
-"RocketChat"){: .button}
+"Hyperledger Sawtooth RocketChat"){: .button}
