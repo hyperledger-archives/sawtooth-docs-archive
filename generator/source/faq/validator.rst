@@ -117,7 +117,7 @@ What files does Sawtooth use?
 ``/var/lib/sawtooth-raft/``
     Optional Raft consensus-specific files.  Present only if you use Raft.  Directory can be changed with ``$SAWTOOTH_RAFT_HOME``
 
-If set these files are placed under directory ``$SAWTOOTH_HOME`` (except files under your home directory, ``~`` ).
+If set these files are placed under directory ``$SAWTOOTH_HOME`` (except files under your home directory, ``~`` ). Detailed configuration information and examples for Sawtooth directories is at ``/etc/sawtooth/path.toml.example``
 
 Why does the validator create large 1TByte files?
 -------------------------------------------------
@@ -204,7 +204,7 @@ The validator has two schedulers--parallel and serial.
 The parallel scheduler gives a performance boost because it allows multiple transactions to be processed at the same time when the transaction inputs/outputs do not conflict.
 The scheduler is specified with the
 ``sawtooth-validator --scheduler {parallel,serial}`` option.
-The current default is ``serial``, but it may change to ``parallel`` in the future.
+The current default is ``serial`` for Sawtooth 1.1 and earlier and ``parallel`` for the (unreleased) Sawtooth nightly build.
 For example:
 ``sawtooth-validator --scheduler parallel -vv`` .
 

@@ -28,47 +28,8 @@ and installs the core packages
     $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
     $ sudo add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/bumper/stable xenial universe'
     $ sudo apt update
-    $ aptitude install sawtooth python3-sawtooth-*
-    $ aptitude search sawtooth
-    i python3-sawtooth-block-info     - ST Block Info Transaction Processor
-    i python3-sawtooth-cli            - Sawtooth CLI
-    i python3-sawtooth-config         -
-    i python3-sawtooth-ias-client     - ST Intel Attestation Service Client
-    i python3-sawtooth-ias-proxy      - ST Intel Attestation Service Proxy
-    i python3-sawtooth-identity       - ST Identity Transaction Processor
-    p python3-sawtooth-integration    - ST Integration
-    i python3-sawtooth-intkey         - ST Intkey Python Example
-    p python3-sawtooth-intkey-tests   - ST Intkey Python Test
-    i python3-sawtooth-manage         - ST Lake Management Library
-    i python3-sawtooth-poet-cli       - ST PoET CLI
-    i python3-sawtooth-poet-common    - ST PoET Common Modules
-    i python3-sawtooth-poet-core      - ST Core Consensus Module
-    p python3-sawtooth-poet-engine    - ST PoET Consensus Engine
-    i python3-sawtooth-poet-families  - ST Transaction Processor Families
-    i python3-sawtooth-poet-sgx       - ST PoET SGX Enclave
-    i python3-sawtooth-poet-simulator - ST PoET Simulator Enclave
-    i python3-sawtooth-rest-api       - ST REST API
-    i python3-sawtooth-sdk            - ST Python SDK
-    i python3-sawtooth-settings       - ST Settings Transaction Processor
-    i python3-sawtooth-signing        - ST Signing Library
-    i python3-sawtooth-validator      - ST Validator
-    i python3-sawtooth-xo             - ST XO Example
-    p python3-sawtooth-xo-tests       - ST XO Python Test
-    i sawtooth                        - ST Distributed Ledger
-    i sawtooth-cxx-sdk                - ST C++ SDK
-    p sawtooth-devmode-engine-rust    - ST DevMode Rust consensu
-    p sawtooth-intkey-tp-go           - ST Intkey TP Go
-    p sawtooth-intkey-workload        - [from Rust crate sawtooth-intkey]
-    p sawtooth-noop-tp-go             - Sawtooth Noop TP Go
-    p sawtooth-pbft-engine            - PBFT consensus algorithm for Sawtooth
-    p sawtooth-raft-engine            - Sawtooth Raft consensus engine
-    p sawtooth-sabre                  - Sawtooth Sabre Transaction Processor
-    p sawtooth-seth-cli               - Sawtooth Seth CLI
-    p sawtooth-seth-rpc               - Sawtooth Seth RPC
-    p sawtooth-seth-tp                - Sawtooth Seth Transaction Processor
-    p sawtooth-smallbank-tp-go        - Sawtooth Smallbank TP Go
-    p sawtooth-smallbank-workload     - [from Rust crate sawtooth-smallb]
-    p sawtooth-xo-tp-go               - Sawtooth Go XO TP
+    $ apt install sawtooth python3-sawtooth-*
+    $ apt search sawtooth
 
 For more, up-to-date installation information see
 https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/installation.html
@@ -138,14 +99,26 @@ This usually occurs when there is no genesis node created. To create, type the f
 
 I get this error when running ``sudo -u sawtooth sawadm genesis config-genesis.batch`` : ``Permission denied``
 --------------------------------------------------------------------------------------------------------------
-The ownership or permission is wrong. To fix it, type:
+Change to a sawtooth user-writable directory before running the command and make sure file `config-genesis.batch` does not already exist: ``cd /tmp; ls config-genesis.batch``
+
+
+I get a ``Key file is not readable`` error when starting ``sudo -u sawtooth sawtooth-validator -vv``
+----------------------------------------------------------------------------------------------------
+The validator key file permissions are wrong. To fix it, type:
 
 .. code:: sh
 
-    $ sudo chown sawtooth:sawtooth /var/lib/sawtooth
-    $ sudo chmod 750 sawtooth:sawtooth /var/lib/sawtooth
-    $ ls -ld /var/lib/sawtooth
-    drwxr-x--- 2 sawtooth sawtooth 4096 Jun  2 14:43 /var/lib/sawtooth
+    $ sudo
+    $ sudo chown root:sawtooth /etc/sawtooth/keys /etc/sawtooth/keys/*
+    $ sudo chmod 755 /etc/sawtooth/keys
+    $ sudo chmod 640 /etc/sawtooth/keys/validator.priv
+    $ sudo chmod 644 /etc/sawtooth/keys/validator.pub
+    $ ls -la /etc/sawtooth/keys
+    drwxr-xr-x 2 root sawtooth 4096 Jan 11 11:35 .
+    -rw-r----- 1 root sawtooth   65 Jan 11 11:35 validator.priv
+    -rw-r--r-- 1 root sawtooth   67 Jan 11 11:35 validator.pub
+
+If the validator key files are missing, type ``sudo sawadm keygen``
 
 How to I delete all blockchain data?
 ------------------------------------
@@ -200,6 +173,26 @@ It could be a file or directory permission problem--try changing the file owners
 Another cause is the file doesn't exist. Create it with ``sawset genesis`` .
 
 
+How do I install Sawtooth on Ubuntu?
+------------------------------------
+Follow the instructions at https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide/ubuntu.html
+
+These instructions are missing steps for installing and starting the DevMode consensus engine. If the consensus engine is not started, no new blocks can be published. The missing steps are:
+
+* After the "Install Sawtooth" step, install the DevMode consensus engine package.
+
+.. code:: sh
+
+    $ sudo apt-get install sawtooth-devmode-engine-rust 
+
+* After "Step 5: Start the Validator", start the DevMode consensus engine
+
+.. code:: sh
+
+    $ sudo -u sawtooth devmode-engine-rust -vv --connect tcp://localhost:5050
+
+* A "Consensus engine registered" message should appear indicating the consensus engine connected with validator TCP port 5050 (for consensus messages).
+
 How do I install Sawtooth on AWS?
 ---------------------------------
 * Sign up for a free AWS Free Tier account, if you don't have an account. The AWS Free Tier is free for qualifying developers. This gives you 1 Micro instance (or any combination of instances up to 750 hours/month) for 12 months. See https://aws.amazon.com/free/
@@ -208,6 +201,7 @@ How do I install Sawtooth on AWS?
   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launch-marketplace-console.html
 * Then follow the instructions for using your Sawtooth AWS instance at
   https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/aws.html
+
 
 How do I use ssh with AWS?
 --------------------------
@@ -268,6 +262,10 @@ Ubuntu 18.04 LTS is supported only in the nightly development packages. Use Ubun
 You can also install Sawtooth with Docker. See:
 https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide/docker.html
 
+If you wish to install the nightly development packages on Ubuntu 18.04 LTS (Bionic), then, for now, specify the individual packages you wish to install instead of parent package ``sawtooth``.  For example, ``sudo apt-get install python3-sawtooth-cli python3-sawtooth-integration python3-sawtooth-rest-api python3-sawtooth-sdk python3-sawtooth-settings python3-sawtooth-signing python3-sawtooth-validator sawtooth-devmode-engine-rust``
+
+For details, see https://jira.hyperledger.org/projects/STL/issues/STL-1465
+
 I get this error installing Sawtooth: ``No matching distribution found for sawtooth_rest_api``
 ----------------------------------------------------------------------------------------------
 You tried to install Sawtooth using Python pip.
@@ -293,6 +291,35 @@ How do I fix this error: ``no transaction processors registered for processor ty
 --------------------------------------------------------------------------------------------------------------
 You start the Settings TP, as follows ``sudo -u sawtooth settings-tp -v`` .
 The Settings TP is always required for all Sawtooth nodes, even if you did not add or change any settings.
+
+I get ``unmet dependencies`` errors on ``python3-sawtooth-poet-cli`` and other packages with ``sudo apt-get install -y sawtooth`` on Ubuntu Xenial
+--------------------------------------------------------------------------------------------------------------------------------------------------
+The Sawtooth PoET packages are not yet available for the unreleased Sawtooth nightly builds on Ubuntu 18.x LTS (Xenial). As a workaround do not install the meta-package ``sawtooth``.  Instead list the Sawtooth packages and install the packages you need. For example:
+
+.. code:: sh
+
+    $ apt search sawtooth # List Sawtooth packages (optional)
+    $ sudo apt-get install python3-sawtooth-cli python3-sawtooth-integration \
+        python3-sawtooth-rest-api python3-sawtooth-sdk \
+        python3-sawtooth-settings python3-sawtooth-signing \
+        python3-sawtooth-validator sawtooth-devmode-engine-rust
+
+I get ``Unable to start validator; sawtooth.consensus.algorithm.name and sawtooth.consensus.algorithm.version must be set in the genesis block`` when installing Sawtooth 1.2 nightly builds
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The installation instructions for "Step 3" at
+https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/ubuntu.html
+are incomplete for Sawtooth nightly builds.
+They work for Sawtooth 1.1, but for nightly builds the consensus engine setting is now required. The correct instructions in Step 3 for nightly builds are:
+
+.. code:: sh
+
+    $ cd /tmp
+    $ sudo -u sawtooth sawset genesis -k /etc/sawtooth/keys/validator.priv
+    $ sudo -u sawtooth sawset proposal create \
+         -k /etc/sawtooth/keys/validator.priv \
+         sawtooth.consensus.algorithm.name=Devmode \
+         sawtooth.consensus.algorithm.version=0.1 -o config.batch
+    $ sudo -u sawtooth sawadm genesis config-genesis.batch config.batch 
 
 .. class:: mininav
 
