@@ -55,7 +55,8 @@ ls ./archive/core/*.gz | xargs -I{} tar --skip-old-files -xzf {} -C ./archive/do
 # NOTE: update /source/docs/versions.json and /source/docs/docs.rst
 info "Retrieving nightlies"
 buildlist="core:master core:1-1 seth:master raft:master sabre:master \
-    supply-chain:master pbft:master sdk-python:master"
+    supply-chain:master pbft:master sdk-javascript:master \
+    sdk-python:master sdk-rust:master"
 for build in $buildlist; do
     repo=$(echo $build | cut -d: -f1)
     branch=$(echo $build | cut -d: -f2)
