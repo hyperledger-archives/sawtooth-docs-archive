@@ -4,28 +4,42 @@
 // Licensed under Creative Commons Attribution 4.0 International License
 // https://creativecommons.org/licenses/by/4.0/
 
-// Discard old builds after 31 days
-properties([[$class: 'BuildDiscarderProperty', strategy:
-        [$class: 'LogRotator', artifactDaysToKeepStr: '',
-        artifactNumToKeepStr: '', daysToKeepStr: '31', numToKeepStr: '']],
-        pipelineTriggers([cron('H 2 * * *')])]);
+pipeline {
+    agent {
+        node {
+            label 'master'
+            customWorkspace "workspace/${env.BUILD_TAG}"
+        }
+    }
 
-node ('master') {
-    timestamps {
-        // Create a unique workspace so Jenkins doesn't reuse an existing one
-        ws("workspace/${env.BUILD_TAG}") {
-            stage("Clone Repo") {
-                checkout scm
+    triggers {
+        cron(env.BRANCH_NAME == 'master' ? 'H 3 * * *' : '')
+    }
+
+    options {
+        timestamps()
+        buildDiscarder(logRotator(daysToKeepStr: '31'))
+    }
+
+    environment {
+        COMPOSE_PROJECT_NAME = sh(returnStdout: true, script: 'printf $BUILD_TAG | sha256sum | cut -c1-64').trim()
+    }
+
+    stages {
+        stage('Check Whitelist') {
+            steps {
+                readTrusted 'bin/whitelist'
+                sh './bin/whitelist "$CHANGE_AUTHOR" /etc/jenkins-authorized-builders'
             }
-
-            if (!(env.BRANCH_NAME == 'master' && env.JOB_BASE_NAME == 'master')) {
-                stage("Check Whitelist") {
-                    readTrusted 'bin/whitelist'
-                    sh './bin/whitelist "$CHANGE_AUTHOR" /etc/jenkins-authorized-builders'
+            when {
+                not {
+                    branch 'master'
                 }
             }
+        }
 
-            stage("Check for Signed-Off Commits") {
+        stage('Check for Signed-Off Commits') {
+            steps {
                 sh '''#!/bin/bash -l
                     if [ -v CHANGE_URL ] ;
                     then
@@ -47,15 +61,25 @@ node ('master') {
                     fi
                 '''
             }
+        }
 
-            stage("Build website") {
+        stage('Build Website') {
+            steps {
                 sh 'BUILDONLY=true docker-compose up'
                 sh 'BUILDONLY=true docker-compose down'
             }
+        }
+    }
 
-            stage("Archive Build artifacts") {
-            archiveArtifacts artifacts: 'generator/archive/htdocs/**'
-            }
+    post {
+        success {
+            archiveArtifacts 'generator/archive/htdocs/**'
+        }
+        aborted {
+            error "Aborted, exiting now"
+        }
+        failure {
+            error "Failed, exiting now"
         }
     }
 }
