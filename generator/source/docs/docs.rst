@@ -26,6 +26,7 @@ Sawtooth Core
 -------------
 
 -  `Latest Release <core/releases/latest/>`__
+-  `Release 1.1.5 <core/releases/1.1.5/>`__
 -  `Release 1.1.4 <core/releases/1.1.4/>`__
 -  `Release 1.1.3 <core/releases/1.1.3/>`__
 -  `Release 1.1.2 <core/releases/1.1.2/>`__
