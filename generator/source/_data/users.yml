@@ -137,3 +137,9 @@
   code_link:
   sawtooth_quote:
   contact:
+- name: Bloxiom
+  use_case: "Financial Transactions"
+  project_link: https://bloxiom.com/
+  code_link:
+  sawtooth_quote: "Banks and brokerages use Bloxiom's solution to allow account holders to set sophisticated controls over their transactions. The rules engine is implemented as a Hyperledger Sawtooth transaction processor."
+  contact: https://bloxiom.com/#request
