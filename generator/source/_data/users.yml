@@ -137,3 +137,10 @@
   code_link:
   sawtooth_quote:
   contact:
+- name: Bloxiom
+  use_case: "Banking and brokerage transactions controls"
+  project_link: https://bloxiom.com/
+  code_link:
+  sawtooth_quote: "“Our solution is used by joint owners of a bank or brokerage account to set controls on transactions that enforce agreements amongst them, such as limits and sign-offs”, said Majed Sidani, CEO, Bloxiom. “We were attracted to Sawtooth by the modularity of the platform which allowed us to build a rules engine as a transaction processor as opposed to layering it on top of a virtual machine as required on other platforms.”"
+  contact: https://bloxiom.com/#request
+  
