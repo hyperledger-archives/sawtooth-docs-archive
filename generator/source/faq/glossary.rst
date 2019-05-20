@@ -273,7 +273,7 @@ zkSNARKS
 
 PREVIOUS_ FAQ_ NEXT_
 
-.. _PREVIOUS: /faq/docker/
+.. _PREVIOUS: /faq/upgrade/
 .. _FAQ: /faq/
 .. _NEXT: /faq/prefixes/
 

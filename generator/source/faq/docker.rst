@@ -227,6 +227,6 @@ PREVIOUS_ FAQ_ NEXT_
 
 .. _PREVIOUS: /faq/rest/
 .. _FAQ: /faq/
-.. _NEXT: /faq/glossary/
+.. _NEXT: /faq/upgrade/
 
 © Copyright 2018, Intel Corporation.
