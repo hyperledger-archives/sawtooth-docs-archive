@@ -33,6 +33,7 @@ Sawtooth Core
 -  `Release 1.0.5 <core/releases/1.0.5/>`__
 -  `Nightly master <core/nightly/master/>`__
 -  `Nightly 1-1 <core/nightly/1-1/>`__
+-  `Nightly 1-2 <core/nightly/1-2/>`__
 
 Sawtooth PBFT
 ---------------------
