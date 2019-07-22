@@ -27,6 +27,9 @@ get_archives(){
     cd $wd/archive
     wget -qNrA gz -nH --no-parent --no-check-certificate \
         http://archive.sawtooth.me/pbft/
+    cd $wd/archive
+    wget -qNrA gz -nH --no-parent --no-check-certificate \
+        http://archive.sawtooth.me/sabre/
     cd $wd
 }
 
@@ -52,6 +55,7 @@ info "Extracting docs"
 mkdir -p ./archive/docs
 ls ./archive/core/*.gz | xargs -I{} tar --skip-old-files -xzf {} -C ./archive/docs/
 ls ./archive/pbft/*.gz | xargs -I{} tar --skip-old-files -xzf {} -C ./archive/docs/
+ls ./archive/sabre/*.gz | xargs -I{} tar --skip-old-files -xzf {} -C ./archive/docs/
 
 # Artifacts are retrieved from build.sawtooth.me for each repo/branch
 # Jenkins creates these with each change to the branch

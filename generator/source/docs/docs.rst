@@ -45,6 +45,8 @@ Sawtooth PBFT
 Sawtooth Sabre
 --------------
 
+-  `Latest Release <sabre/releases/latest/>`__
+-  `Release 0.4.0 <sabre/releases/0.4.0/>`__
 -  `Nightly master <sabre/nightly/master/>`__
 
 Sawtooth Seth
