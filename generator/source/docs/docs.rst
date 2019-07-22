@@ -38,6 +38,8 @@ Sawtooth Core
 Sawtooth PBFT
 ---------------------
 
+-  `Latest Release <pbft/releases/latest/>`__
+-  `Release 1.0.0 <pbft/releases/1.0.0>`__
 -  `Nightly master <pbft/nightly/master/>`__
 
 Sawtooth Sabre
