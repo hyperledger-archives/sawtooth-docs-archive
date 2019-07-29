@@ -16,7 +16,7 @@ RUN apt-get update -q && \
     python-pip \
     unzip && \
     rm -rf /var/lib/apt/lists/* && \
-    pip install docutils pygments && \
+    pip install docutils==0.15.1 pygments && \
     gem install jekyll bundler
 
 COPY Gemfile .
