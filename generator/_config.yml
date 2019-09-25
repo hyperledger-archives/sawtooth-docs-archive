@@ -20,7 +20,7 @@ theme_settings:
   footer_text: >
     <h2>Sawtooth</h2>
     <p>
-      <a href="https://chat.hyperledger.org/channel/sawtooth" target="_blank" title="Rocket Chat">RocketChat</a>
+      <a href="https://chat.hyperledger.org/channel/sawtooth" target="_blank" title="#sawtooth chat channel"">Rocket.Chat</a>
     </p>
     <p>
       <a href="/docs/" target="_blank" title="Documentation">Documentation</a>
@@ -60,7 +60,7 @@ theme_settings:
   stack_exchange:  # Full URL
   steam:
   tumblr:
-  twitter: Hyperledger
+  twitter: \%23HyperledgerSawtooth
   wordpress:
   youtube:
 
