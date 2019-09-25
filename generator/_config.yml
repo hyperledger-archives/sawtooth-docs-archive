@@ -39,7 +39,7 @@ theme_settings:
       <a href="http://www.linuxfoundation.org/terms" target="_blank" title="Terms of Service">Terms of Service</a>
     </p>
     <p>
-      <small class="copyright">Copyright &copy; 2015-2018 contributors to Hyperledger Sawtooth</small>
+      <small class="copyright">Copyright &copy; 2015-2019 contributors to Hyperledger Sawtooth</small>
     </p>
   permalink: /:categories/:year/:month/:day/:release/:title/
   # Icons
