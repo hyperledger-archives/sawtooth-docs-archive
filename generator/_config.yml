@@ -11,7 +11,7 @@ theme_settings:
   title: Hyperledger Sawtooth
   avatar: avatar.png
   gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+  description: "An enterprise-grade solution for distributed ledgers." # used by search engines
 
   # Header and footer text
   header_text: >
