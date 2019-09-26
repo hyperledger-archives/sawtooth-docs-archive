@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+order: 1
 feature-img: "../examples/img/hero-marketplace-bg.jpg"
 # Copyright (c) 2018 Bitwise IO, Inc.
 # Licensed under Creative Commons Attribution 4.0 International License

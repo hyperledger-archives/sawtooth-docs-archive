@@ -2,6 +2,7 @@
 layout: page
 title: Contact
 permalink: /contact/
+order: 6
 feature-img: "../examples/img/hero-bond-bg.jpg"
 # Copyright (c) 2018 Bitwise IO, Inc.
 # Licensed under Creative Commons Attribution 4.0 International License

@@ -2,6 +2,7 @@
 layout: page
 title: Docs
 permalink: /docs/
+order: 3
 feature-img: "../docs/imgs/hero-bg.jpg"
 feat_img_size: small
 # Copyright (c) 2015–2017 Intel Corporation.

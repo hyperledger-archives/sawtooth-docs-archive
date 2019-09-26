@@ -2,6 +2,7 @@
 layout: page
 title: Community
 permalink: /community/
+order: 5
 feature-img: "../examples/img/hero-community-bg.jpg"
 # Copyright (c) 2015-2017, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License

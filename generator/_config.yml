@@ -12,6 +12,7 @@ theme_settings:
   avatar: avatar.png
   gravatar: # Email MD5 hash
   description: "An enterprise-grade solution for distributed ledgers." # used by search engines
+  site_navigation_sort: order
 
   # Header and footer text
   header_text: >
