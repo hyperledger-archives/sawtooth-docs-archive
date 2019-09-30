@@ -19,22 +19,42 @@ theme_settings:
      <h1>Sawtooth</h1>
   header_text_feature_image: ../examples/img/hero-bg.jpg
   footer_text: >
-    <h2>Sawtooth</h2>
+    <p style="font-size: 1.5em;">
+      Hyperledger Sawtooth
+    </p>
     <p>
+      <a href="/" title="Home"><span class="links">Home</span></a>
+      &bull;
+      <a href="/about/" title="About Sawtooth"><span class="links">About</span></a>
+      &bull;
+      <a href="/release/" title="Releases"><span class="links">Releases</span></a>
+      &bull;
+      <a href="/docs/" title="Documentation"><span class="links">Docs</span></a>
+      &bull;
+      <a href="/faq/" title="FAQ"><span class="links">FAQ</span></a>
+      &bull;
+      <a href="/community/" title="Community"><span class="links">Community</span></a>
+      &bull;
+      <a href="/contact/" title="Contact"><span class="links">Contact</span></a>
+    </p>
+    <p>
+      Find us: &nbsp;
+      <a href="https://github.com/hyperledger/sawtooth-core/" target="_blank" title="GitHub"><span  class="links">GitHub</span></a>
+      &bull;
       <a href="https://chat.hyperledger.org/channel/sawtooth" target="_blank" title="#sawtooth chat channel"">Rocket.Chat</a>
+      &bull;
+      <a href="https://twitter.com/search?q=%23HyperledgerSawtooth" target="_blank" title="#sawtooth chat channel"">Twitter</a>
     </p>
     <p>
-      <a href="/docs/" target="_blank" title="Documentation">Documentation</a>
+      Examples: &nbsp;
+      <a href="/examples/seafood.html" target="_blank" title="Seafood Supply Chain Traceability">Seafood Supply Chain Traceability</a>
       &bull;
-      <a href="https://github.com/hyperledger/sawtooth-core/" target="_blank" title="Github">Github</a>
+      <a href="/examples/bond.html" target="_blank" title="Bond Asset Settlement">Bond Asset Settlement</a>
       &bull;
-      <a href="/examples/seafood.html" title="Seafood Supply Chain Traceability">Seafood Supply Chain Traceability</a>
-      &bull;
-      <a href="/examples/bond.html" title="Bond Asset Settlement">Bond Asset Settlement</a>
-      &bull;
-      <a href="/examples/marketplace.html" title="Marketplace Digital Asset Exchange">Marketplace Digital Asset Exchange</a>
+      <a href="/examples/marketplace.html" target="_blank" title="Marketplace Digital Asset Exchange">Marketplace Digital Asset Exchange</a>
     </p>
     <p>
+      Linux Foundation: &nbsp;
       <a href="http://www.linuxfoundation.org/privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
       &bull;
       <a href="http://www.linuxfoundation.org/terms" target="_blank" title="Terms of Service">Terms of Service</a>
