@@ -12,7 +12,7 @@ Sawtooth FAQ: Hyperledger Sawtooth in General
 =============================================
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+TOP_ NEXT_
 
 .. contents::
 
@@ -385,10 +385,9 @@ network.consensus
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+TOP_ NEXT_
 
-.. _PREVIOUS: /faq/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/installation/
 .. _videos: /faq/videos/
 

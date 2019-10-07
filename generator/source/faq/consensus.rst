@@ -13,7 +13,7 @@ Sawtooth FAQ: Consensus Algorithms (including PoET)
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -277,10 +277,10 @@ https://software.intel.com/sites/default/files/managed/7e/3b/ias-api-spec.pdf
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/validator/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/client/
 .. _Settings: /faq/settings/
 

@@ -12,7 +12,7 @@ Appendix: Sawtooth Videos
 =========================
 .. class:: mininav
 
-PREVIOUS_ FAQ_
+PREVIOUS_ TOP_
 
 .. contents::
 
@@ -162,10 +162,10 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_
+PREVIOUS_ TOP_
 
 .. _PREVIOUS: /faq/permissioning/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view
 .. _20180913-sawtooth-tech-forum.mp4: https://drive.google.com/file/d/1jnL4nhYgY7zSqKF-WolNdYQJQa68m0al/view

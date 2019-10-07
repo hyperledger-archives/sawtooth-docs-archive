@@ -13,7 +13,7 @@ Sawtooth FAQ: Upgrading Hyperledger Sawtooth
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -75,10 +75,10 @@ General practice for deploying a Hyperledger Sawtooth application
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/docker/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/glossary/
 
 © Copyright 2018, Intel Corporation.

@@ -13,7 +13,7 @@ Sawtooth FAQ: Client
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -120,10 +120,10 @@ Until Rust and the RustSDK are a bit more mature, I still recommend using a Dock
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/consensus/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/rest/
 .. _Colin McCullough: https://github.com/colincmcc
 

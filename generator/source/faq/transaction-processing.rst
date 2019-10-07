@@ -12,7 +12,7 @@ Sawtooth FAQ: Transaction Processing
 ====================================
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -283,10 +283,10 @@ There will likely be a difference between the publishing and validation executio
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/installation/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/validator/
 
 © Copyright 2018, Intel Corporation.

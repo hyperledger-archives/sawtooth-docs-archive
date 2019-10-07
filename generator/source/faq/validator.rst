@@ -12,7 +12,7 @@ Sawtooth FAQ: Validator
 =======================
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -329,10 +329,10 @@ There is no limit, other than the available storage for a node.
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/transaction-processing/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/consensus/
 
 © Copyright 2018, Intel Corporation.
