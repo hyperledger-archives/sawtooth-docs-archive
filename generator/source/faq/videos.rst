@@ -164,7 +164,7 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
 
 PREVIOUS_ TOP_
 
-.. _PREVIOUS: /faq/permissioning/
+.. _PREVIOUS: /faq/settings/
 .. _TOP: /faq/
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view
 .. _20180927-sawtooth-forum.mp4: https://drive.google.com/file/d/1-XP-DflRJvAekACYv0tAQsbyl2VnN80o/view

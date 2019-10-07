@@ -32,9 +32,9 @@ Refer https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/c
 
 PREVIOUS_ TOP_ NEXT_
 
-.. _PREVIOUS: /faq/settings/
+.. _PREVIOUS: /faq/rest/
 .. _TOP: /faq/
-.. _NEXT: /faq/videos/
+.. _NEXT: /faq/docker/
 
 © Copyright 2018, Intel Corporation.
 

@@ -239,7 +239,7 @@ For example the following removes containers and volumes
 
 PREVIOUS_ TOP_ NEXT_
 
-.. _PREVIOUS: /faq/rest/
+.. _PREVIOUS: /faq/permissioning/
 .. _TOP: /faq/
 .. _NEXT: /faq/upgrade/
 

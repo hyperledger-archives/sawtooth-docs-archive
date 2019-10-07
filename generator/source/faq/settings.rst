@@ -190,6 +190,6 @@ PREVIOUS_ FAQ_ NEXT_
 
 .. _PREVIOUS: /faq/prefixes/
 .. _FAQ: /faq/
-.. _NEXT: /faq/permissioning/
+.. _NEXT: /faq/videos/
 
 © Copyright 2018, Intel Corporation.

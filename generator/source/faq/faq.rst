@@ -26,7 +26,9 @@ Frequently-asked Questions
 - `Sawtooth Consensus Algorithms (including PoET)`_
 - `Sawtooth Client`_
 - `Sawtooth REST API`_
+- `Sawtooth Permissioning`_
 - `Using Docker with Sawtooth`_
+- `Upgrading Sawtooth`_
 
 Appendix
 --------
@@ -59,11 +61,12 @@ NEXT_
 .. _Sawtooth Consensus Algorithms (including PoET): consensus
 .. _Sawtooth Client: client
 .. _Sawtooth REST API: rest
+.. _Sawtooth Permissioning: permissioning
 .. _Using Docker with Sawtooth: docker
+.. _Upgrading Sawtooth: upgrade
 .. _Sawtooth FAQ Glossary: glossary
 .. _Sawtooth Transaction Family Prefixes: prefixes
 .. _Sawtooth Settings: settings
-.. _Sawooth Permissioning: permissioning
 .. _Sawtooth Videos: videos
 .. _GitHub: https://github.com/hyperledger/sawtooth-website
 .. _Developer Certificate of Origin (DCO): https://developercertificate.org/
