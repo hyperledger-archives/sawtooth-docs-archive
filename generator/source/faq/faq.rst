@@ -11,13 +11,13 @@ feat_img_size: small
 Hyperledger Sawtooth FAQ
 ========================
 
-Frequently-asked Questions (FAQ) for Hyperledger Sawtooth.
-Many questions and answers originated from the Sawtooth chat channel at
+Answers to frequently asked questions for Hyperledger Sawtooth.
+Many questions and answers originated from the #sawtooth Rocket.Chat channel at
 https://chat.hyperledger.org/channel/sawtooth
 
 
-Frequently-asked Questions
---------------------------
+Sawtooth FAQ Sections
+---------------------
 
 - `Sawtooth in General`_
 - `Sawtooth Installation and Configuration`_
@@ -30,16 +30,16 @@ Frequently-asked Questions
 - `Using Docker with Sawtooth`_
 - `Upgrading Sawtooth`_
 
-Appendix
---------
+FAQ Appendixes
+--------------
 
 - `Sawtooth FAQ Glossary`_
 - `Sawtooth Transaction Family Prefixes`_
 - `Sawtooth Settings`_
 - `Sawtooth Videos`_
 
-Contributing
-------------
+Contributing to This FAQ
+------------------------
 
 This FAQ is licensed under Creative Commons Attribution 4.0 International
 License. You may obtain a copy of the license at:
