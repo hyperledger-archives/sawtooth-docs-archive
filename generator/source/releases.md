@@ -10,7 +10,7 @@ feat_img_size: small
 # https://creativecommons.org/licenses/by/4.0/
 ---
 
-# Hyperledger Sawtooth
+# Hyperledger Sawtooth releases
 
 [Release 1.1 (Bumper)][bumper-release-notes]
 

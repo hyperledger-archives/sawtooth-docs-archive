@@ -1,14 +1,14 @@
 ---
 hide: true
 layout: page
+title: Hyperledger Sawtooth
 permalink: /
 feature-img: "examples/img/hero-bg.jpg"
+feat_img_size: small
 # Copyright (c) 2018 Bitwise IO, Inc.
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
 ---
-
-# Hyperledger Sawtooth
 
 Hyperledger Sawtooth is an enterprise solution for building, deploying, and
 running distributed ledgers (also called blockchains). It provides an extremely

@@ -13,6 +13,8 @@ feat_img_size: small
 Hyperledger Sawtooth Documentation
 ==================================
 
+Documentation for Hyperledger Sawtooth:
+
 .. class:: mininav
 
 `Sawtooth Core`_
@@ -20,8 +22,6 @@ Hyperledger Sawtooth Documentation
 `Sawtooth Sabre`_
 `Sawtooth Seth`_
 `Sawtooth Supply Chain`_
-
-Documentation for Hyperledger Sawtooth
 
 Sawtooth Core
 -------------
