@@ -11,6 +11,11 @@ feat_img_size: small
 
 # Hyperledger Sawtooth
 
+[Release 1.2 (Chime)][chime-release-notes]
+
+[chime-docs]: https://sawtooth.hyperledger.org/docs/core/releases/latest/
+[chime-release-notes]: chime/
+
 [Release 1.1 (Bumper)][bumper-release-notes]
 
 [bumper-docs]: https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/
