@@ -12,7 +12,7 @@ Sawtooth FAQ: REST API
 ======================
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -130,10 +130,10 @@ It means the command format is correct, but the identifier does not exist.
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/client/
-.. _FAQ: /faq/
-.. _NEXT: /faq/docker/
+.. _TOP: /faq/
+.. _NEXT: /faq/permissioning/
 
 © Copyright 2018, Intel Corporation.

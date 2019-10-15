@@ -13,7 +13,7 @@ Sawtooth FAQ: Permissioning
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -30,11 +30,11 @@ Refer https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/c
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
-.. _PREVIOUS: /faq/settings/
-.. _FAQ: /faq/
-.. _NEXT: /faq/videos/
+.. _PREVIOUS: /faq/rest/
+.. _TOP: /faq/
+.. _NEXT: /faq/docker/
 
 © Copyright 2018, Intel Corporation.
 

@@ -8,8 +8,8 @@ permalink: /faq/settings/
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
 ---
-Appendix: Sawtooth Settings
-===========================
+FAQ Appendix: Configuration Settings
+====================================
 .. class:: mininav
 
 PREVIOUS_ FAQ_ NEXT_
@@ -190,6 +190,6 @@ PREVIOUS_ FAQ_ NEXT_
 
 .. _PREVIOUS: /faq/prefixes/
 .. _FAQ: /faq/
-.. _NEXT: /faq/permissioning/
+.. _NEXT: /faq/videos/
 
 © Copyright 2018, Intel Corporation.

@@ -12,7 +12,7 @@ Sawtooth FAQ: Installation and Configuration
 ============================================
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -325,10 +325,10 @@ They work for Sawtooth 1.1, but for nightly builds the consensus engine setting 
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. _PREVIOUS: /faq/sawtooth/
-.. _FAQ: /faq/
+.. _TOP: /faq/
 .. _NEXT: /faq/transaction-processing/
 
 © Copyright 2018, Intel Corporation.

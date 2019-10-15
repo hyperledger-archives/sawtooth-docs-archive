@@ -8,8 +8,8 @@ permalink: /faq/prefixes/
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
 ---
-Appendix: Sawtooth Transaction Family Prefixes
-==============================================
+FAQ Appendix: Transaction Family Prefixes
+=========================================
 .. class:: mininav
 
 PREVIOUS_ FAQ_ NEXT_

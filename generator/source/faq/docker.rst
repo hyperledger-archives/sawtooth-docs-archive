@@ -13,7 +13,7 @@ Sawtooth FAQ: Using Docker
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
 .. contents::
 
@@ -237,10 +237,10 @@ For example the following removes containers and volumes
 
 .. class:: mininav
 
-PREVIOUS_ FAQ_ NEXT_
+PREVIOUS_ TOP_ NEXT_
 
-.. _PREVIOUS: /faq/rest/
-.. _FAQ: /faq/
+.. _PREVIOUS: /faq/permissioning/
+.. _TOP: /faq/
 .. _NEXT: /faq/upgrade/
 
 © Copyright 2018, Intel Corporation.
