@@ -2,7 +2,8 @@
 layout: page
 title: FAQ
 permalink: /faq/
-feature-img: "../examples/img/hero-faq.png"
+order: 4
+feature-img: "examples/img/hero-bg.jpg"
 feat_img_size: small
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License

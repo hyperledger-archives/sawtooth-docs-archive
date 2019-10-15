@@ -2,6 +2,7 @@
 layout: page
 title: Docs
 permalink: /docs/
+order: 3
 feature-img: "../docs/imgs/hero-bg.jpg"
 feat_img_size: small
 # Copyright (c) 2015–2017 Intel Corporation.
@@ -12,6 +13,8 @@ feat_img_size: small
 Hyperledger Sawtooth Documentation
 ==================================
 
+Documentation for Hyperledger Sawtooth:
+
 .. class:: mininav
 
 `Sawtooth Core`_
@@ -19,8 +22,6 @@ Hyperledger Sawtooth Documentation
 `Sawtooth Sabre`_
 `Sawtooth Seth`_
 `Sawtooth Supply Chain`_
-
-Documentation for Hyperledger Sawtooth
 
 Sawtooth Core
 -------------

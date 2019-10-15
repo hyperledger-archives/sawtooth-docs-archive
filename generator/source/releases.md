@@ -2,6 +2,7 @@
 layout: page
 title: Releases
 permalink: /release/
+order: 2
 feature-img: "examples/img/hero-bg.jpg"
 feat_img_size: small
 # Copyright (c) 2018 Bitwise IO, Inc.
@@ -9,7 +10,7 @@ feat_img_size: small
 # https://creativecommons.org/licenses/by/4.0/
 ---
 
-# Hyperledger Sawtooth
+# Hyperledger Sawtooth releases
 
 [Release 1.1 (Bumper)][bumper-release-notes]
 
