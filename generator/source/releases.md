@@ -13,7 +13,7 @@ feat_img_size: small
 
 [Release 1.1 (Bumper)][bumper-release-notes]
 
-[bumper-docs]: https://sawtooth.hyperledger.org/docs/core/releases/latest/
+[bumper-docs]: https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/
 [bumper-release-notes]: bumper/
 
 [Release 1.0.5 (_Aug 1 2018_)](https://lists.hyperledger.org/g/sawtooth/message/329)

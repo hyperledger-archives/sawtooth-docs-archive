@@ -12,8 +12,8 @@ release-name: bumper
 
 <a href="top"></a>
 
-Hyperledger Sawtooth 1.1 (Bumper) is now available. See the [latest
-documentation](https://sawtooth.hyperledger.org/docs/core/releases/latest/) to
+Hyperledger Sawtooth 1.1 (Bumper) is now available. See the
+[documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/) to
 get started.
 
 This page describes the new and changed features in Hyperledger
@@ -292,7 +292,7 @@ RFC](https://github.com/hyperledger/sawtooth-rfcs/pull/25) for more details.
   five-node network using PoET simulator and a single-node environment using
   dev mode consensus. The Application Developer’s Guide describes how to use
   these example files; see the [Hyperledger Sawtooth
-  documentation](https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide.html).
+  documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/app_developers_guide.html).
 
 [> back to top <](#top)
 
