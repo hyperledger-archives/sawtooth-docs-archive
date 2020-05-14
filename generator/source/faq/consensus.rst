@@ -24,9 +24,9 @@ Devmode (name "Devmode", version 0.1)
 PBFT (name "pbft", version 0.1)
     Leader-based, non-forking consensus algorithm with finality that provides Byzantine Fault Tolerance (BFT). Ideal for smaller, consortium-style networks that do not require open membership.
 PoET CFT (name "PoET", version 0.1)
-    Also known as PoET Simulator. PoET with a simulated SGX environment. Provides CFT similar to some other blockchains. Requires poet-validator-registry TP. Runs on any processor (does not require Intel or SGX). Has Crash Fault Tolerance (CFT), but is not Byzantine Fault Tolerant (BFT)
+    Also known as PoET Simulator. PoET with a simulated Intel SGX environment. Provides CFT similar to some other blockchains. Requires poet-validator-registry TP. Runs on any processor (does not require Intel or Intel SGX). Has Crash Fault Tolerance (CFT), but is not Byzantine Fault Tolerant (BFT)
 PoET SGX (name "PoET", version 0.1)
-    Takes advantage of SGX in order to provide consensus with Byzantine Fault Tolerance (BFT), like PoW algorithms have, but at very low CPU usage. PoET SGX is the only algorithm that has hardware requirements (a processor supporting SGX). Currently supported in Sawtooth 1.0 only.
+    Takes advantage of Intel SGX in order to provide consensus with Byzantine Fault Tolerance (BFT), like PoW algorithms have, but at very low CPU usage. PoET SGX is the only algorithm that has hardware requirements (a processor supporting SGX). Currently supported in Sawtooth 1.0 only.
 Raft (name "raft", version 0.1)
     Consensus algorithm that elects a leader for a term of arbitrary time. Leader replaced if it times-out. Raft is faster than PoET, but is CFT, not BFT. Also Raft does not fork. For Sawtooth Raft is new and still being stabilized.
 
@@ -53,8 +53,8 @@ Does the PoET CFT implement the same consensus algorithm as PoET SGX?
 ---------------------------------------------------------------------
 
 Yes--they are same same consensus algorithm. The difference is the
-PoET CFT also simulates the enclave module, allowing PoET to run on non-SGX
-hardware.
+PoET CFT also simulates the enclave module, allowing PoET to run on
+non-Intel SGX hardware.
 
 For PoET CFT (PoET Simulator), should I generate my own ``simulator_rk_pub.pem`` file or do I use the one in ``/etc/sawtooth/`` ?
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -78,39 +78,40 @@ But you can change consensus after the Sawtooth network has started.
 
 What protections does PoET CFT have, since it is not BFT?
 ---------------------------------------------------------
-It is for systems that do not have SGX and do not require BFT. Both PoET CFT and PoET SGX have tests to guard against bad actors, such as the "Z Test" to check a validator is not winning too frequently. 
-PoET CFT simulates the SGX environment and provides CFT.
-That said, PoET SGX is preferred because of the additional SGX protections for generating the wait time.
+It is for systems that do not have Intel SGX and do not require BFT. Both PoET CFT and PoET SGX have tests to guard against bad actors, such as the "Z Test" to check a validator is not winning too frequently. 
+PoET CFT simulates the Intel SGX environment and provides CFT.
+That said, PoET SGX is preferred because of the additional Intel SGX protections for generating the wait time.
 
-What cloud services offer SGX?
-------------------------------
+What cloud services offer Intel SGX?
+------------------------------------
 
-SGX is available on IBM cloud and Alibaba.
-Early access was available on Microsoft Azure, but not now.
+Intel SGX is available on IBM cloud and Alibaba.
+Microsoft Azure offers Intel SGX on their
+Azure Confidential Computing (ACC) platform.
 
-Does PoET SGX function with SGX on cloud services?
---------------------------------------------------
+Does PoET SGX function with Intel SGX on cloud services?
+--------------------------------------------------------
 
 No. For PoET SGX to function, one also needs Platform Services (PSW), which is not available from any cloud provider.
 Instead, one can use PoET CFT, which is also supported.
-But other software software that requires SGX may be deployed on cloud services.
+But other software software that requires Intel SGX may be deployed on cloud services.
 
-I get this error during PoET SGX registration: "Machine requires update (probably BIOS) for SGX compliance."
-------------------------------------------------------------------------------------------------------------
+I get this error during PoET SGX registration: "Machine requires update (probably BIOS) for Intel SGX compliance."
+------------------------------------------------------------------------------------------------------------------
 
 During EPID provisioning your computer is trying to get an anonymous credential from Intel. If that process is failing one possibility is that there's a network issue like a proxy. A second possibility is that there's some firmware out of date and so the protocol isn't doing what the backend expects it to. You can check for a firmware / BIOS update for that platform.
 
-SGX also needs to be enabled in the BIOS menu.
+Intel SGX also needs to be enabled in the BIOS menu.
 
 Does Sawtooth require a certain processor to be deployed on a network?
 ----------------------------------------------------------------------
 
 No. If you use PoET SGX consensus you need a processor that supports SGX.
 
-Does Sawtooth require SGX?
---------------------------
+Does Sawtooth require Intel SGX?
+--------------------------------
 
-No. SGX is only needed if you use the hardened version of PoET, PoET SGX.
+No. Intel SGX is only needed if you use the hardened version of PoET, PoET SGX.
 We also have a version of PoET that just uses conventional software, PoET CFT,
 which runs on a Sawtooth network with any processor.
 
@@ -134,13 +135,14 @@ https://sawtooth.hyperledger.org/docs/core/releases/latest/architecture/poet.htm
 
 Why is PoET SGX Byzantine Fault Tolerant?
 -----------------------------------------
-Because the PoET waiting time is enforced with an SGX enclave. There is also more defense-in-depth checks, but that doesn't make it BFT. In comparison, Bitcoin's PoW accomplishes the same thing with repeatedly hashing, which is effectively the same thing (although more wasteful) than PoET's trusted timer. For details, see the PoET 1.0 spec in the link above.
+Because the PoET waiting time is enforced with an Intel SGX enclave. There is also more defense-in-depth checks, but that doesn't make it BFT. What makes it BFT is the wait time enforcement with Intel SGX. In comparison, Bitcoin's PoW accomplishes the same thing with repeatedly hashing, which is effectively the same thing (although more wasteful) than PoET's trusted timer. For details, see the PoET 1.0 spec in the link above.
 
 Where is the PoET SGX Enclave configuration file?
 -------------------------------------------------
 
 It is at ``/etc/sawtooth/poet_enclave_sgx.toml`` .
-It is only for configuring PoET SGX Enclave, not the PoET CFT (PoET without SGX).
+It is only for configuring PoET SGX Enclave, not the PoET CFT
+(PoET without Intel SGX).
 A sample file is at
 https://github.com/hyperledger/sawtooth-poet/blob/master/sgx/packaging/poet_enclave_sgx.toml.example
 The configuration is documented at
@@ -189,7 +191,7 @@ your consensus change proposal. Bring in the other nodes, with any consensus-req
 Where can I find information on the proposed PoET2 algorithm?
 -------------------------------------------------------------
 
-PoET2 is different from PoET in that it supports SGX without relying on Intel Platform Services Enclave (PSE), making it suitable in cloud environments.
+PoET2 is different from PoET in that it supports Intel SGX without relying on Intel Platform Services Enclave (PSE), making it suitable in cloud environments.
 PoET2 no longer saves anything across reboots (such as the clock, monotonic counters, or a saved ECDSA keypair).
 The PoET2 SGX enclave still generates a signed, random duration value.
 More details and changes are documented in the PoET2 RFC at
@@ -201,7 +203,7 @@ https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc
 What is the Intel Platform Developers Kit for Blockchain - Ubuntu?
 ------------------------------------------------------------------
 
-The PDK is a small form factor computer with SGX with Ubuntu, Hyperledger Sawtooth, and development software pre-installed. For information, see
+The PDK is a small form factor computer with Intel SGX with Ubuntu, Hyperledger Sawtooth, and development software pre-installed. For information, see
 https://designintools.intel.com/Intel_Platform_Developers_Kit_for_Blockchain_p/q6uidcbkcpdk.htm
 
 Where is the Consensus Engine API documented?
