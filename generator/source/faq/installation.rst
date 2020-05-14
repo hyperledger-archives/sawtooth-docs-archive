@@ -270,7 +270,7 @@ It is just a warning and you can ignore it. Verify the Sawtooth repository was a
 
 I get this error starting Sawtooth on Docker: ``No response from ... beginning heartbeat pings``
 ------------------------------------------------------------------------------------------------
-It means that there has been no message exchange between the validators for 10 seconds. This could be a problem with Raft or PBFT, but not with other consensus engines.
+It means that there has been no message exchange between the validators for 10 seconds.
 
 How do I list sawtooth command line options?
 --------------------------------------------
