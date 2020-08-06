@@ -43,6 +43,9 @@ Sawtooth PBFT
 ---------------------
 
 -  `Latest Release <pbft/releases/latest/>`__
+-  `Release 1.0.3 <pbft/releases/1.0.3>`__
+-  `Release 1.0.2 <pbft/releases/1.0.2>`__
+-  `Release 1.0.1 <pbft/releases/1.0.1>`__
 -  `Release 1.0.0 <pbft/releases/1.0.0>`__
 -  `Nightly master <pbft/nightly/master/>`__
 
