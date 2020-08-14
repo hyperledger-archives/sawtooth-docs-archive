@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 hide: true
 title: Code of Conduct
 permalink: /community/code_of_conduct/

@@ -1,9 +1,9 @@
 ---
 hide: true
-layout: page
+layout: landing_page
 title: Hyperledger Sawtooth
 permalink: /
-feature-img: "examples/img/hero-bg.jpg"
+feature-img: "/assets/hero-bg.jpg"
 feat_img_size: small
 # Copyright (c) 2018 Bitwise IO, Inc.
 # Licensed under Creative Commons Attribution 4.0 International License

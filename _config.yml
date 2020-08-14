@@ -63,11 +63,23 @@ defaults:
         layout: "sidebars"
         sidebar: "examples"
     - scope:
-        path: "docs/0.1"
+        path: "docs/1.2"
         type: "pages"
       values:
         layout: "sidebars"
-        sidebar: "0.1"
+        sidebar: "1.2"
+    - scope:
+        path: "docs/1.1"
+        type: "pages"
+      values:
+        layout: "sidebars"
+        sidebar: "1.1"
+    - scope:
+        path: "docs/1.0"
+        type: "pages"
+      values:
+        layout: "sidebars"
+        sidebar: "1.0"
     - scope:
         path: "community"
         type: "pages"

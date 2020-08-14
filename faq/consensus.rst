@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 hide: true
 tags: [faq]
 title: Sawtooth FAQ - Consensus Algorithms
