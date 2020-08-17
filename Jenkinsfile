@@ -63,17 +63,16 @@ pipeline {
             }
         }
 
-        stage('Build Website') {
+        stage('Lint Website') {
             steps {
-                sh 'BUILDONLY=true docker-compose up'
-                sh 'BUILDONLY=true docker-compose down'
+                sh 'docker-compose -f docker/compose/run-lint.yaml up'
             }
         }
     }
 
     post {
-        success {
-            archiveArtifacts 'generator/archive/htdocs/**'
+        always {
+            sh 'docker-compose -f docker/compose/run-lint.yaml down'
         }
         aborted {
             error "Aborted, exiting now"
