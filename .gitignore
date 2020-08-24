@@ -1,9 +1,2 @@
 .DS_Store
-/generator/_site/*
-/generator/.sass-cache
-/generator/*.complete
-/generator/source/.sass-cache
-/generator/source/_plugins/jekyll-rst/*.pyc
-/generator/archive
-/generator/source/.jekyll-cache/
-Gemfile.lock
+_site
