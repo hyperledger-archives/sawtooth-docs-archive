@@ -53,6 +53,11 @@ Sawtooth Sabre
 --------------
 
 -  `Latest Release <sabre/releases/latest/>`__
+-  `Release 0.6.0 <sabre/releases/0.6.0/>`__
+-  `Release 0.5.2 <sabre/releases/0.5.2/>`__
+-  `Release 0.5.1 <sabre/releases/0.5.1/>`__
+-  `Release 0.5.0 <sabre/releases/0.5.0/>`__
+-  `Release 0.4.2 <sabre/releases/0.4.2/>`__
 -  `Release 0.4.0 <sabre/releases/0.4.0/>`__
 -  `Nightly master <sabre/nightly/master/>`__
 
