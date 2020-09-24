@@ -33,7 +33,7 @@ pipeline {
             }
             when {
                 not {
-                    branch 'master'
+                    branch 'refresh'
                 }
             }
         }
