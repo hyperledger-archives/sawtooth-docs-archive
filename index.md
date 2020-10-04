@@ -17,8 +17,8 @@ shared state between untrusted parties coordinated by consensus algorithms.
 
 # Project Status
 
-This project is an _active_ Hyperledger project. It was proposed to the
+This project is an *active* Hyperledger project. It was proposed to the
 community and documented
 [here](https://docs.google.com/document/d/1j7YcGLJH6LkzvWdOYFIt2kpkVlLEmILErXL6t-Ky2zU).
-Information on what _Active_ entails can be found in the
+Information on what *Active* entails can be found in the
 [Hyperledger Project Lifecycle document](https://wiki.hyperledger.org/display/HYP/Project+Lifecycle).
