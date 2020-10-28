@@ -13,7 +13,7 @@ release-name: chime
 <a href="top"></a>
 
 Hyperledger Sawtooth 1.2 (Chime) is now available.  See the [latest
-documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/) to
+documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.2/) to
 get started.
 
 This page describes the new and changed features in Hyperledger Sawtooth 1.2
@@ -85,18 +85,18 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
 
 - Improved summary of the supported consensus algorithms: PBFT, PoET, Raft, and
   Devmode. See
-  ["Introduction"](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/introduction.html).
+  ["Introduction"](https://sawtooth.hyperledger.org/docs/core/releases/1.2/introduction.html).
 - Complete procedures for configuring PBFT consensus on a Sawtooth node and
   changing network membership. For procedures to configure either PBFT or PoET
  consensus, see:
 - [“Creating a Sawtooth Test Network” (Application Developer’s
-  Guide)](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/app_developers_guide/creating_sawtooth_network.html)
+  Guide)](https://sawtooth.hyperledger.org/docs/core/releases/1.2/app_developers_guide/creating_sawtooth_network.html)
 - [“Setting Up a Sawtooth Network” (System Administrator’s
-  Guide)](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/sysadmin_guide/setting_up_sawtooth_network.html)
+  Guide)](https://sawtooth.hyperledger.org/docs/core/releases/1.2/sysadmin_guide/setting_up_sawtooth_network.html)
 - New Swift and Java tutorials, including SDK reference documentation, for
   writing native mobile client applications for Sawtooth. See the Java and Swift
   links in [“Using the Sawtooth
-  SDKs”](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/app_developers_guide/using_the_sdks.html).
+  SDKs”](https://sawtooth.hyperledger.org/docs/core/releases/1.2/app_developers_guide/using_the_sdks.html).
 - Technical corrections, bug fixes, and general improvements throughout the
   documentation.
 
