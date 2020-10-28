@@ -1,20 +1,13 @@
----
-layout: page
-hide: true
-title: Contributing
-permalink: /community/contributing/
-# Copyright (c) 2015-2017, Intel Corporation.
-# Licensed under Creative Commons Attribution 4.0 International License
-# https://creativecommons.org/licenses/by/4.0/
----
+<!--
+ Copyright (c) 2015-2017, Intel Corporation.
+ Copyright (c) 2020, Walmart Inc.
+ Licensed under Creative Commons Attribution 4.0 International License
+ https://creativecommons.org/licenses/by/4.0/
+-->
 
-------------
-Contributing
-------------
+# Contributing
 
-==========================================
-Ways to Contribute to Hyperledger Sawtooth
-==========================================
+## Ways to Contribute to Hyperledger Sawtooth
 
 Contributions from the development community help improve the capabilities of
 Hyperledger Sawtooth. These contributions are the most effective way to
@@ -29,16 +22,14 @@ Ways you can contribute:
   tests
 
 Hyperledger Sawtooth issues can be found in
-`Using JIRA </community/issue_tracking#using-jira>`_.  Any unassigned items
+[Using JIRA](issue_tracking#using-jira).  Any unassigned items
 are probably still open. When in doubt, ask on RocketChat about a specific
-JIRA issue (see `Joining the Discussion </community/join_the_discussion>`_).
+JIRA issue (see [Joining the Discussion](./join_the_discussion.html)).
 
-==================
-The Commit Process
-==================
+## The Commit Process
 
 Hyperledger Sawtooth is Apache 2.0 licensed and accepts contributions
-via `GitHub <https://github.com/hyperledger/sawtooth-core>`_
+via [GitHub](https://github.com/hyperledger/sawtooth-core)
 pull requests. When contributing code, please follow these guidelines:
 
 * Fork the repository and make your changes in a feature branch
@@ -72,14 +63,14 @@ enhancement. Here are some example scenarios:
 
 Commit messages should follow common Git conventions, such as using the
 imperative mood, separate subject lines, and a line length of 72 characters.
-These rules are well documented in `Chris Beam's blog post
-<https://chris.beams.io/posts/git-commit/#seven-rules>`_.
+These rules are well documented in
+[Chris Beam's blog post](https://chris.beams.io/posts/git-commit/#seven-rules).
 
 **Signed-off-by**
 
 Each commit must include a "Signed-off-by" line in the commit message
 (``git commit -s``). This sign-off indicates that you agree the commit satisfies
-the `Developer Certificate of Origin (DCO) <http://developercertificate.org/>`_.
+the [Developer Certificate of Origin (DCO)](http://developercertificate.org/).
 
 **Commit Email Address**
 
@@ -105,6 +96,3 @@ development panel for the JIRA issue.
 When you make a commit, add the JIRA issue key to the end of the commit message
 or to the branch name. Either method should integrate your commit with the JIRA
 issue that it references.
-
-.. Licensed under Creative Commons Attribution 4.0 International License
-.. https://creativecommons.org/licenses/by/4.0/
