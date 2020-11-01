@@ -389,8 +389,9 @@ be made in files
 * The Intel SGX IAS v3 API is at
 <https://software.intel.com/sites/default/files/managed/7e/3b/ias-api-spec.pdf>
 
-::: {.mininav}
+<!--::: {.mininav}
 [PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
 :::
 
 © Copyright 2018, Intel Corporation.
+-->
