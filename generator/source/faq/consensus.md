@@ -5,6 +5,7 @@
   title: Sawtooth FAQ - Consensus Algorithms
   permalink: /faq/consensus/
   \# Copyright (c) 2018, Intel Corporation.
+  \# © Copyright 2020, Dr Kent G LAU, <kenty@kenty.com>.
   \# Licensed under Creative Commons Attribution 4.0 International License
   \# <https://creativecommons.org/licenses/by/4.0/>
   \-\-->
@@ -394,4 +395,5 @@ be made in files
 :::
 
 © Copyright 2018, Intel Corporation.
+© Copyright 2020, Dr Kent G LAU, <kenty@kenty.com>.
 -->
