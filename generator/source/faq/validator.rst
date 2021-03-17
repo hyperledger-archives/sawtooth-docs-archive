@@ -96,7 +96,7 @@ The sawtooth.validator.transaction_families setting is ignored using dev-mode co
 
 What is the difference between ``sawtooth-validator --peers {list}`` and ``sawtooth-validator --seeds {list}``?
 ---------------------------------------------------------------------------------------------------------------
-There are two peering modes in sawtooth: static and dynamic. The static peering mode requires the ``--peers`` arg to connect to other peer validators. Whereas, in the dynamic peering mode the ``--peers`` if specified will be processed and then use ``--seeds`` for the initial connection to the validator network and to start topology build-out (discovery and connection to more peer validators).
+There are two peering modes in sawtooth: static and dynamic. The peering mode can be specified either using the CLI option or by using the validator config file. The CLI option is ``--peering static`` for the static peering mode and ``--peering dynamic`` for the dynamic peering mode. The static peering mode requires the ``--peers`` arg to connect to other peer validators. When dynamic peering mode is enabled, the `--peers` option will be processed as an initial set of peers, and the `--seeds` option is used as an initial set of peers, as well as used to start discovery of further peer validators.
 
 For static peering do I need to specify all validator nodes, or just some of them?
 ----------------------------------------------------------------------------------
@@ -248,8 +248,12 @@ What does this error mean: ``sawtooth-validator[... ERROR cli] Cannot have a gen
 ------------------------------------------------------------------------------------------------------------------------
 You tried to create a new genesis block when you did not need to (because there already is a genesis block). To solve, this remove file ``/var/lib/sawtooth/genesis.batch.file`` and restart ``sawtooth-validator`` .
 
-I get this error when testing with a lot of validators: ``Max occupancy was not provided by transaction processor: ... Using default max occupancy: 10``
+I get this warning when running a transaction processor: ``Max occupancy was not provided by transaction processor: ... Using default max occupancy: 10``
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+There is no need to worry about this warning message, at least not as a smart contract developer. Max occupancy is the number of transactions that a transaction processor can handle simultaneously. Note that the validator would send transactions to the transaction processor only when all the dependencies are resolved. By default the value is set to 10. If there are more than 10 transactions available, then the validator would wait for the transaction processor's occupancy be available to schedule the execution. This feature prevents the validator being overwhelmed with the requests.
+
+My validator peering requests are not successful
+------------------------------------------------
 You need to set the number of validators if it's over 10.
 For example, in ``/etc/sawtooth/validator.toml`` set ``maximum_peer_connectivity = 50``
 See https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/configuring_sawtooth/validator_configuration_file.html
