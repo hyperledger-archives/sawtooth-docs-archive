@@ -79,3 +79,8 @@ generated on that node.
     [20:07:58.039 [MainThread] core DEBUG] received message of type: TP_PROCESS_REQUEST
     [20:07:58.190 [MainThread] handler INFO] Setting setting sawtooth.validator.transaction_families changed from None to [{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
     ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

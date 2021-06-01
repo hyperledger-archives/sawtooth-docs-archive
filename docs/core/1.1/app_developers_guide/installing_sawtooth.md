@@ -34,3 +34,9 @@ To get started, choose the guide for the platform of your choice.
 ::: toctree
 docker.rst ubuntu.rst aws.rst kubernetes.rst
 :::
+
+<!--
+  note:
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

@@ -63,3 +63,8 @@ need the validator keys for at least three other nodes.
 Sawtooth also includes a network key pair that is used to encrypt
 communication between the validators in a Sawtooth network. This
 off-chain configuration setting is described in a later procedure.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

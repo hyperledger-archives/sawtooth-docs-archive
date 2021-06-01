@@ -37,6 +37,11 @@ configuration and network-wide on-chain permissioning.
 
 # Definitions
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 ## General Definitions
 
 The following list contains architecture-level definitions for Sawtooth

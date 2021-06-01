@@ -33,3 +33,8 @@ role="doc"}, then choose the guide for the platform of your choice.
 about_sawtooth_networks docker_test_network kubernetes_test_network
 ubuntu_test_network
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

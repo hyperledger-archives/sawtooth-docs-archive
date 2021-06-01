@@ -105,3 +105,8 @@ View
     when the primary node is deemed faulty. For more information, see
     `view-changes-choosing-primary-label`{.interpreted-text role="ref"}.
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

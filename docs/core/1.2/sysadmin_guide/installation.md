@@ -87,3 +87,8 @@ system for proof-of-concept or production use in a Sawtooth network.
 > > $ dpkg -l '*sawtooth*'
 > > ```
 > > :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

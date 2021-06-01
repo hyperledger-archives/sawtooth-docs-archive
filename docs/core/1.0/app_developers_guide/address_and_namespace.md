@@ -4,6 +4,11 @@ title: Address and Namespace Design
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Hyperledger Sawtooth stores data within a Merkle Tree. Data is stored in
 leaf nodes, and each node is accessed using an addressing scheme that is
 composed of 35 bytes, represented as 70 hex characters. The recommended

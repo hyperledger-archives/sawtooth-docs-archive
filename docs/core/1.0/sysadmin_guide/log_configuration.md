@@ -4,6 +4,11 @@ title: Log Configuration
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The validator and the Python SDK make it easy to customize the logging
 output. This is done by creating a log config file in
 [TOML](https://github.com/toml-lang/toml) or [YAML](http://yaml.org)

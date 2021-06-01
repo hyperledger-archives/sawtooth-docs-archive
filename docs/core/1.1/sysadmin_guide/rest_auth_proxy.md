@@ -14,6 +14,11 @@ shows how to set up an Apache proxy server for the REST API.
 
 # About Proxying the REST API
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 In general, putting the REST API behind a proxy server works as
 expected. The REST API has the same behavior as if it were communicating
 directly with a client. The notable exception is how URLs are handled;

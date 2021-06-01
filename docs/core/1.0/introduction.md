@@ -25,6 +25,11 @@ Community](#join-the-sawtooth-community).
 
 # About Distributed Ledgers
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 A \"distributed ledger\" is another term for a blockchain. It
 distributes a database (a ledger) of transactions to all participants in
 a network (also called \"peers\" or \"nodes\"). There is no central

@@ -4,6 +4,11 @@ title: Contributing
 
 # Ways to Contribute to Hyperledger Sawtooth
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Contributions from the development community help improve the
 capabilities of Hyperledger Sawtooth. These contributions are the most
 effective way to make a positive impact on the project.

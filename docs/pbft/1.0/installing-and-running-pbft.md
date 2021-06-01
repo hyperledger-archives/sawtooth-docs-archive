@@ -102,3 +102,8 @@ must be installed.
           command: ./target/debug/pbft-engine --connect tcp://validator-0:5050 -vv
           ...
         ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

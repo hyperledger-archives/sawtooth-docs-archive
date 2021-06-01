@@ -31,3 +31,8 @@ The `identity.toml` configuration file has the following option:
     ``` none
     connect = "tcp://localhost:4004"
     ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

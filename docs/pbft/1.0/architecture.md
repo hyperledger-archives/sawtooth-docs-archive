@@ -38,6 +38,11 @@ The following sections describe Sawtooth PBFT architecture:
 
 # Network Overview {#network-overview-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 ## Fault Tolerance
 
 A PBFT network consists of nodes that are ordered from 0 to

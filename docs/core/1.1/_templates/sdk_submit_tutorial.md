@@ -11,6 +11,11 @@ simplifies the process of making changes to the blockchain.
 
 # Creating a Private Key and Signer
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 In order to confirm your identity and sign the information you send to
 the validator, you will need a 256-bit key. Sawtooth uses the secp256k1
 ECDSA standard for signing, which means that almost any set of 32 bytes

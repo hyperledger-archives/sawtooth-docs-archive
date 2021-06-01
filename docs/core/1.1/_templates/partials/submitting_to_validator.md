@@ -77,3 +77,8 @@ output.write(batch_list_bytes)
     --data-binary @intkey.batches \
     "http://rest.api.domain/batches"
 ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

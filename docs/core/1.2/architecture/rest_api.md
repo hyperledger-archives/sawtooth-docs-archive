@@ -26,6 +26,11 @@ submitting transactions and fetching the results.
 
 # Response Envelope
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The REST API uses a JSON envelope to send metadata back to clients in a
 way that is simple to parse and easily customized. All successful
 requests return data in an envelope that may include the requested

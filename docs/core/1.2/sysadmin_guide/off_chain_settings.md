@@ -51,6 +51,11 @@ role="doc"}.
 
 # Configure the Validator {#sysadm-configure-validator-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The following steps configure the validator\'s networking information so
 that the validator advertises itself properly and knows where to search
 for peers. Additional steps specify the peers for this node, change the

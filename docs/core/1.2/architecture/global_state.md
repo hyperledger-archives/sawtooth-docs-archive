@@ -19,6 +19,11 @@ between transaction processors.
 
 # Merkle-Radix Tree Overview {#merkle-radix-overview-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 ## Merkle Hashes
 
 Sawtooth uses an addressable Merkle-Radix tree to store data for

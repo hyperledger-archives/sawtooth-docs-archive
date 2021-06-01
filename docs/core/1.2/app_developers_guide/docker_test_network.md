@@ -28,6 +28,11 @@ This procedure guides you through the following tasks:
 
 # About the Docker Sawtooth Network Environment {#about-sawtooth-nw-env-docker-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This test environment is a network of five Sawtooth nodes.
 
 ![](../images/appdev-environment-multi-node.*){.align-center

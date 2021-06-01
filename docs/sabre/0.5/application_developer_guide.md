@@ -28,6 +28,11 @@ that cargo/rust is already installed.
 
 # Writing A Sabre Smart Contract {#writing-sabre-sm-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The Sabre Smart Contracts use a similar API to the Sawtooth transaction
 processor API. If you are unfamiliar, please take a look at
 <https://sawtooth.hyperledger.org/docs/core/nightly/master/sdks.html>.

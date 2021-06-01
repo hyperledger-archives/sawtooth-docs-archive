@@ -51,3 +51,8 @@ terminology used in the PBFT paper.
 
 For implementation details, see the [rustdoc for Sawtooth
 PBFT](https://sawtooth.hyperledger.org/docs/pbft/nightly/master/pbft_doc/pbft_engine/index.html).
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

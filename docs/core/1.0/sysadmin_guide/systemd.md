@@ -16,6 +16,11 @@ guide](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-
 
 # Viewing Console Output
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 To view the console output that you would see if you ran the components
 manually, run the following command:
 

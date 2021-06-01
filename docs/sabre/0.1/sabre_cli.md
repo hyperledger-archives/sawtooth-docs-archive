@@ -8,6 +8,11 @@ registries and their permissions.
 
 # sabre
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 `sabre` is the top level command for Sabre. It contains the following
 subcommands: `cr`, `upload`, `ns`, `perm`, and `exec`. The subcommands
 have options and arguments that control their behavior. All subcommands

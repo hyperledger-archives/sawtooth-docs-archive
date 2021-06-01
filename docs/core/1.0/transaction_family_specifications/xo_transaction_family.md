@@ -4,6 +4,11 @@ title: XO Transaction Family
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The XO transaction family allows users to play a simple board game known
 variously as *tic-tac-toe*, *noughts and crosses*, and *XO*.
 

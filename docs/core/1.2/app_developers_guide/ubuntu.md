@@ -27,6 +27,11 @@ implements your application\'s business logic.
 
 # About the Ubuntu Test Node Environment
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This Ubuntu environment is a single Sawtooth node that is running a
 validator, a REST API, the Devmode consensus engine, and three
 transaction processors. The environment uses

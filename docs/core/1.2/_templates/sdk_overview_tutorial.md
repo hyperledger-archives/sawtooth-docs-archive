@@ -10,6 +10,11 @@ set lowercase_lang = \'rust\' %} {% endif %}
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This tutorial shows how to use the Sawtooth {{ language }} SDK to
 develop a simple application (also called a transaction family). A
 transaction family includes these components:

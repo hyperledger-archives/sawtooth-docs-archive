@@ -50,3 +50,8 @@ The available SDKs are in the following repositories:
 -   JavaScript: <https://github.com/hyperledger/sawtooth-sdk-javascript>
 -   Java: <https://github.com/hyperledger/sawtooth-sdk-java>
 -   C++: <https://github.com/hyperledger/sawtooth-sdk-cxx>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

@@ -29,6 +29,11 @@ This procedure guides you through the following tasks:
 
 # About the Kubernetes Sawtooth Network Environment
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This test environment is a network of five Sawtooth nodes. This
 environment uses [Minikube](https://kubernetes.io/docs/setup/minikube/)
 to deploy Sawtooth as a containerized application in a local Kubernetes

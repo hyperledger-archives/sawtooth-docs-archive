@@ -4,6 +4,11 @@ title: SDK API Reference
 
 # Python
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 ::: toctree
 Transaction Processor \<sdks/python_sdk/processor.rst>
 

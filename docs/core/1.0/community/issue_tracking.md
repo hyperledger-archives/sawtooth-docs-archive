@@ -8,6 +8,11 @@ already reported the issue.
 
 # Using JIRA {#jira}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Hyperledger Sawtooth uses JIRA as our issue tracking system:
 
 <https://jira.hyperledger.org/projects/STL>

@@ -27,3 +27,8 @@ app_developers_guide/address_and_namespace
 app_developers_guide/namespace_restriction
 app_developers_guide/event_subscriptions
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

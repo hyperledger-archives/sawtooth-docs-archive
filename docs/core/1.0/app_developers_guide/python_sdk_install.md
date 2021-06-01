@@ -4,6 +4,11 @@ title: Python SDK Installation
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The Python SDK is installed automatically when you install Hyperledger
 Sawtooth by following the instructions in
 `installing_sawtooth`{.interpreted-text role="doc"}. This tutorial

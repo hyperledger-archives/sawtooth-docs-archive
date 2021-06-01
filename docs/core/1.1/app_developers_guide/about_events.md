@@ -54,6 +54,11 @@ role="doc"}.
 
 # Event Namespace
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 By convention, event names use the transaction family as a prefix, such
 as `xo/create` for a create event from the XO transaction family.
 

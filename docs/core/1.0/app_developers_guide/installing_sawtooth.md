@@ -22,3 +22,8 @@ of the installation and usage guides below.
 ::: toctree
 docker.rst ubuntu.rst aws.rst
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

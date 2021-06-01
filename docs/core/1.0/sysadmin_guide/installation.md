@@ -41,3 +41,8 @@ Update your package lists and install Sawtooth:
 $ sudo apt-get update
 $ sudo apt-get install -y sawtooth
 ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

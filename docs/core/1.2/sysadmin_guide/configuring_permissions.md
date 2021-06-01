@@ -42,6 +42,11 @@ information, see \"Setting the Allowed Transaction Types (Optional)\".
 
 # Transactor Key Permissioning {#transactor-key-permissioning-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 A running protected network needs a mechanism for limiting which
 transactors are allowed to submit batches and transactions to the
 validators. There are two different methods for defining the transactors

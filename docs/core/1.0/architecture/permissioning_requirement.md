@@ -33,6 +33,11 @@ node from peering, ensuring that only known nodes can join the network.
 
 # Definitions
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 ## General Definitions
 
 The following define general components and concepts related to

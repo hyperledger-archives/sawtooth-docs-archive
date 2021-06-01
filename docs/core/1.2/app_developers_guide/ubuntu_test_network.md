@@ -40,6 +40,11 @@ These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 
 # About the Ubuntu Sawtooth Network Environment {#about-sawtooth-nw-env-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This test environment is a network of several Sawtooth nodes. The
 following figure shows a network with five nodes.
 

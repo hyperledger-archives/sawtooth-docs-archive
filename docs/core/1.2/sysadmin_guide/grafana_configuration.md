@@ -28,6 +28,11 @@ not describe these steps.
 
 # Prerequisites
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 -   Docker Engine must be installed
 
 -   One or more Sawtooth nodes must be configured and in a runnable

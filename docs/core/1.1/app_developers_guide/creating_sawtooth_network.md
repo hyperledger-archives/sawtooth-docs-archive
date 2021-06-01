@@ -40,6 +40,11 @@ To get started, choose the guide for the platform of your choice:
 
 # About Sawtooth Networks
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 A Sawtooth network has the following requirements:
 
 -   Each host system (physical computer, virtual machine, set of Docker

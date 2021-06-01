@@ -19,6 +19,11 @@ service using TOML.
 
 # About Sawtooth Log Files
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 If there is no log configuration file provided, Sawtooth creates an
 error log and a debug log by default. These files are stored in the log
 directory (`log_dir`), which is `/var/log/sawtooth` by default. However,

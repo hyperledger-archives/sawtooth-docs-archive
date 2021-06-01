@@ -4,6 +4,11 @@ title: Sabre Transaction Family
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Sawtooth Sabre is a transaction family which implements on-chain smart
 contracts executed in a WebAssembly virtual machine.
 

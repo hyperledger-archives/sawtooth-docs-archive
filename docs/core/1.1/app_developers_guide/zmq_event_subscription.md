@@ -44,6 +44,11 @@ context.add_event(
 
 # Step 1: Construct a Subscription
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 An application can use the `EventSubscription` protobuf message to
 construct an event subscription. For example, in the `sawtooth`
 namespace, the application could subscribe to either a `block-commit` or

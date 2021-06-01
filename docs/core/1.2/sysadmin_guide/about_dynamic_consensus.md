@@ -54,6 +54,11 @@ network.
 
 # Configuring Consensus for a New Network
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 To configure the initial consensus, create a consensus proposal for the
 `genesis block`{.interpreted-text role="term"}, then start the consensus
 engine and any transaction processors that are required by that

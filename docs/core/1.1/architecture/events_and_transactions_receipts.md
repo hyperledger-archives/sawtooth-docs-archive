@@ -17,6 +17,11 @@ width="80.0%"}
 
 # Events {#events-reference-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Events are represented with the following protobuf message:
 
 ``` protobuf

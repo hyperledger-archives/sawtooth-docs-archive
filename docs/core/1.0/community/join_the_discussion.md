@@ -4,6 +4,11 @@ title: Joining the Discussion
 
 # Chat
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Hyperledger Sawtooth RocketChat is the place to go for real-time chat
 about everything from quick help to involved discussions.
 

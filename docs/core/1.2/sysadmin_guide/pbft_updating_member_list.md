@@ -9,3 +9,8 @@ after the containing block has been committed.
 
 See `adding-a-pbft-node-label`{.interpreted-text role="ref"} for this
 procedure.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

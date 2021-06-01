@@ -29,3 +29,8 @@ sysadmin_guide/configuring_permissions
 sysadmin_guide/grafana_configuration sysadmin_guide/configure_sgx
 sysadmin_guide/configuring_sawtooth
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

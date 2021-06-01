@@ -13,3 +13,8 @@ code](https://github.com/hyperledger/sawtooth-sdk-go).
 > Use [godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) to extract
 > and build the Go SDK reference.
 > :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

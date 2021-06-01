@@ -22,6 +22,11 @@ role="doc"}.
 
 # Requirements
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 To subscribe to Sawtooth events, a client application can use any
 language that provides the following items:
 

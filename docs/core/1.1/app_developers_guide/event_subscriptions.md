@@ -46,3 +46,8 @@ method. For more information, see
 about_events.rst about_event_subscriptions.rst
 zmq_event_subscription.rst web_socket_event_subscription.rst
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

@@ -13,6 +13,11 @@ copious Python 3 examples.
 
 # Creating Private and Public Keys
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 In order to sign your Transactions, you will need a 256-bit private key.
 Sawtooth uses the secp256k1 ECDSA standard for signing, which means that
 almost any set of 32 bytes is a valid key. A common way to generate one,

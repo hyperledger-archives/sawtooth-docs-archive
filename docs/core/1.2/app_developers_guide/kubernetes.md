@@ -37,6 +37,11 @@ for the other tutorials in this guide,
 
 # Prerequisites
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 This application development environment requires
 [kubectl](https://kubernetes.io/docs/concepts/overview/object-management-kubectl/overview/)
 and [Minikube](https://kubernetes.io/docs/setup/minikube/) with a

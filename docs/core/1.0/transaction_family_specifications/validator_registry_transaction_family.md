@@ -4,6 +4,11 @@ title: Validator Registry Transaction Family
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The validator registry transaction family provides a way to add new
 validators to the network.
 

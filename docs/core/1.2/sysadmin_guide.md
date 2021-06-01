@@ -40,3 +40,8 @@ sysadmin_guide/about_dynamic_consensus
 sysadmin_guide/pbft_adding_removing_node.rst
 sysadmin_guide/configuring_sawtooth
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

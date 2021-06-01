@@ -95,3 +95,8 @@ who submitted the proposal. For information on configuring more complex
 voting schemes, see
 `/transaction_family_specifications/settings_transaction_family`{.interpreted-text
 role="doc"}.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

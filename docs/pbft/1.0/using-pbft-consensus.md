@@ -46,3 +46,8 @@ documentation:
     Node](https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/setting_up_sawtooth_poet-sim.html)
     explains how to create a Sawtooth network with PBFT consensus, plus
     how to add or remove nodes for an existing network.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

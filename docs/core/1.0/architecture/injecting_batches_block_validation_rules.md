@@ -22,6 +22,11 @@ examples of inter-transaction validation would be:
 
 # BatchInjector Interface
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The BatchInjector class supports injecting transactions into blocks:
 
 ``` python

@@ -26,3 +26,8 @@ actual Python development should typically use the
 ::: toctree
 ../\_autogen/txn_submit_tutorial
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

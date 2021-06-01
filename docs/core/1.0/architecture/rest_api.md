@@ -20,6 +20,11 @@ more complicated, ZMQ/Protobuf interface.
 
 # Open API Specification
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The REST API is comprehensively documented using the [OpenAPI
 specification](http://swagger.io/specification/) (fka Swagger),
 formatted as a YAML file. This documentation provides a single source of

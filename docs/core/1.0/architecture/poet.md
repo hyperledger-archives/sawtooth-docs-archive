@@ -4,6 +4,11 @@ title: PoET 1.0 Specification
 
 # Introduction
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The Proof of Elapsed Time (PoET) Consensus method offers a solution to
 the Byzantine Generals Problem that utilizes a "trusted execution
 environment" to improve on the efficiency of present solutions such as

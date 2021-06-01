@@ -216,3 +216,8 @@ channel](https://chat.hyperledger.org/channel/sawtooth).
 After verifying that Sawtooth is running correctly, you can continue
 with the optional configuration and customization steps that are
 described in the following procedures.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

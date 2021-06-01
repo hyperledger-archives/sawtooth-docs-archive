@@ -4,6 +4,11 @@ title: Introduction to the XO Transaction Family
 
 # What is XO?
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 *XO* is an example transaction family contained within the Sawtooth SDK.
 It is an implementation of the popular game *Tic-tac-toe* (otherwise
 known as *Noughts and Crosses* or *X\'s and O\'s*).

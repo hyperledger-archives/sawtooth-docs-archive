@@ -263,3 +263,8 @@ When this command finishes, the genesis block is complete.
 
 The settings in the genesis block will be available after the first node
 has started and the genesis block has been committed.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

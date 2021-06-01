@@ -17,6 +17,11 @@ application to play a game of tic-tac-toe on the blockchain.
 
 # About the XO Transaction Family
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The XO transaction family defines the data model and business logic for
 playing tic-tac-toe on the blockchain by submitting transactions for
 [create]{.title-ref}, [take]{.title-ref}, and [delete]{.title-ref}

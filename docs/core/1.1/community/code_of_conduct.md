@@ -6,6 +6,11 @@ International License \# <https://creativecommons.org/licenses/by/4.0/>
 
 # Code of Conduct
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 When participating, please be respectful and courteous.
 
 Hyperledger Sawtooth uses the [Hyperledger Project Code of

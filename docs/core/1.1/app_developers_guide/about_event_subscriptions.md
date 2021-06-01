@@ -20,6 +20,11 @@ filter or filters in each subscription.
 
 # Event Filters
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 An event filter operates on event attributes. A filter specifies an
 attribute key, a \"match string\", and a filter type.
 

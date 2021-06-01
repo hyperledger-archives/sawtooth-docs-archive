@@ -4,6 +4,11 @@ title: PoET Validator Registry Transaction Family
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The PoET Validator Registry transaction family provides a way to add new
 validators to a network using `PoET consensus`{.interpreted-text
 role="term"}.

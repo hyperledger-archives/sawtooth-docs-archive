@@ -6,6 +6,11 @@ Commons Attribution 4.0 International License \#
 
 # Community
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Welcome to the Sawtooth community!
 
 For help topics, we recommend joining us on Chat (link below).

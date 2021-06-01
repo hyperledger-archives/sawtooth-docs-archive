@@ -31,6 +31,11 @@ transaction families may implement the appropriate business logic.
 
 # Scheduling within the Validator
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The sawtooth-validator process has two major components which use
 schedulers to calculate state changes and the resulting Merkle hashes
 based on transaction processing: the Chain Controller and the Block

@@ -15,3 +15,8 @@ javascript_sdk python_sdk rust_sdk Using the Swift SDK:
 sawtooth-swift-sdk documentation
 \<<https://sawtooth.hyperledger.org/docs/sdk-swift/nightly/master/>\>
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

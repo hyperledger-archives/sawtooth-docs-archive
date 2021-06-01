@@ -11,6 +11,11 @@ validator.
 
 # Communication with the Validator
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 First, let\'s look at what happens when the XO transaction \'create
 game000\' is processed. Communication between the validator and a
 transaction processor (TP) takes place in six steps:

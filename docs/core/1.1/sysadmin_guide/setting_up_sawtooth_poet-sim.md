@@ -51,3 +51,8 @@ These instructions have been tested on Ubuntu 16.04 only.
 installation.rst generating_keys.rst creating_genesis_block.rst
 off_chain_settings.rst systemd.rst testing_sawtooth.rst
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

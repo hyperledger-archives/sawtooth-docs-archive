@@ -15,3 +15,8 @@ We recommend using ZMQ for event subscription, as described in
 
 For information on using web sockets, see
 `../rest_api/state_delta_websockets`{.interpreted-text role="doc"}.
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

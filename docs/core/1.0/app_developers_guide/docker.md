@@ -18,6 +18,11 @@ writing clients which use Sawtooth\'s REST API.
 
 # Overview of Sawtooth Components
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 A running Sawtooth network consists of the following applications or
 processes:
 

@@ -15,6 +15,11 @@ change, it updates its local list of PBFT members to match the new list.
 
 # Adding a PBFT Node {#adding-a-pbft-node-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 To add a new node to an existing PBFT network, you will install and
 configure the node, start it and wait for it to catch up with the rest
 of the network. Next, the administrator of an existing node will update

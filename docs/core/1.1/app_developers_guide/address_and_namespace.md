@@ -14,6 +14,11 @@ non-colliding byte arrays of a fixed length.
 
 # Address Components
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 An address begins with a namespace prefix of six hex characters
 representing three bytes. The rest of the address, 32 bytes represented
 as 64 hex characters, can be calculated in various ways. However,

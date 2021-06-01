@@ -44,3 +44,8 @@ system for proof-of-concept or production use in a Sawtooth network.
     $ sudo apt-get update
     $ sudo apt-get install -y sawtooth python3-sawtooth-poet-engine
     ```
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

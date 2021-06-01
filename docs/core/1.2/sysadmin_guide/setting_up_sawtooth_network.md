@@ -62,3 +62,8 @@ installation.rst generating_keys.rst creating_genesis_block.rst
 off_chain_settings.rst systemd.rst testing_sawtooth.rst
 pbft_updating_member_list.rst
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

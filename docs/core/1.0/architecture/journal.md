@@ -34,6 +34,11 @@ and responsibilities of a consensus algorithm.
 
 # The BlockStore
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The BlockStore contains all the blocks in the current block chain, that
 is the list of blocks from the current chain head back to the Genesis
 blocks. Blocks from forks are not included in the BlockStore. The

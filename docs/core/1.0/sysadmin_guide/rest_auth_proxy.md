@@ -13,6 +13,11 @@ implemented externally.
 
 # Forwarding URL Info with Headers
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 For the most part putting the REST API behind a proxy server should just
 work. The majority of what it does will work equally well whether or not
 it is communicating directly with a client. The notable exceptions being

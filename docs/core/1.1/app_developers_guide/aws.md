@@ -34,6 +34,11 @@ implements your application\'s business logic.
 
 # About the Application Development Environment
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The AWS application development environment is a single validator node
 that is running a validator, a REST API, and three transaction
 processors. This environment uses Developer mode (dev mode) consensus

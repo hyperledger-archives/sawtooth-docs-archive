@@ -11,6 +11,11 @@ Sawtooth PBFT is configured in two ways:
 
 # PBFT Command-Line Options {#cli-options-label}
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 Sawtooth PBFT uses command-line options to provide local configuration.
 These options only affect the local behavior of a PBFT node, not the
 network as a whole. The PBFT consensus engine, `pbft-engine`, has the

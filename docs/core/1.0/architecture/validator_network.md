@@ -19,6 +19,11 @@ receive messages.
 
 # Services
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 The choice of 0MQ provides considerable flexibility in both available
 connectivity patterns and the underlying capabilities of the transport
 layer (IPv4, IPv6, etc.)

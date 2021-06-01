@@ -10,3 +10,8 @@ architecture/permissioning_requirement
 architecture/injecting_batches_block_validation_rules
 architecture/events_and_transactions_receipts
 :::
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->

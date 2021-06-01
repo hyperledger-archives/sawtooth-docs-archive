@@ -4,6 +4,11 @@ title: Identity Transaction Family
 
 # Overview
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 On-chain permissioning is desired for transactor key and validator key
 permissioning. This feature requires that authorized participants for
 each role be stored. Currently, the only form of identification on the

@@ -10,6 +10,11 @@ set short_lang = \'rust\' %} {% endif %}
 
 # Transaction Processor: Creating a Transaction Handler
 
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
 A transaction processor has two top-level components:
 
 -   Processor class. The SDK provides a general-purpose processor class.
