@@ -1,0 +1,13 @@
+---
+title: Transaction Family Specifications
+---
+
+::: toctree
+transaction_family_specifications/settings_transaction_family.rst
+transaction_family_specifications/identity_transaction_family.rst
+transaction_family_specifications/blockinfo_transaction_family.rst
+transaction_family_specifications/integerkey_transaction_family.rst
+transaction_family_specifications/xo_transaction_family.rst
+transaction_family_specifications/validator_registry_transaction_family.rst
+transaction_family_specifications/smallbank_transaction_family.rst
+:::
