@@ -1,14 +1,10 @@
----
-title: Glossary
----
-
-::: glossary
+# Glossary
 
 Block
 
 :   Part of the
     [blockchain](https://en.wikipedia.org/wiki/Block%20chain) that
-    contains one or more operations (called [transactions]{.title-ref})
+    contains one or more operations (called *transactions*)
     and a link to the previous block.
 
 Client
@@ -22,7 +18,7 @@ Consensus API
 
 :   Sawtooth component that abstracts consensus-related interactions
     between the validator and a consensus engine. The consensus API
-    allows [dynamic consensus]{.title-ref}, a feature that allows a
+    allows *dynamic consensus*, a feature that allows a
     choice of consensus for a Sawtooth network.
 
 Consensus engine
@@ -37,21 +33,20 @@ Consensus seal
 
 Leader
 
-:   See `primary node`{.interpreted-text role="term"}.
+:   See [primary node](#primary-node)
 
 Member node
 
-:   Sawtooth node that participates in PBFT consensus. Membership is
-    controlled by the on-chain setting
-    `sawtooth.consensus.pbft.members`. Each member node is either a
-    `primary node`{.interpreted-text role="term"} or a
-    `secondary node`{.interpreted-text role="term"}.
+:   Sawtooth node that participates in PBFT consensus. Membership is controlled
+    by the on-chain setting `sawtooth.consensus.pbft.members`. Each member node
+    is either a [primary node](#primary-node) or a [secondary
+    node](#secondary-node).
 
 Message
 
 :   Consensus-related information that nodes send to each other. For
-    more information, see `consensus-messages-label`{.interpreted-text
-    role="ref"}.
+    more information, see [Consensus Messages]({% link
+    docs/1.2/pbft/architecture.md %}#consensus-messages-label).
 
 Node
 
@@ -61,35 +56,32 @@ Node
 
     The [original PBFT
     paper](http://pmg.csail.mit.edu/papers/osdi99.pdf) uses the terms
-    [server]{.title-ref} or [replica]{.title-ref} instead of
-    [node]{.title-ref}.
+    *server* or *replica* instead of *node*.
 
-Primary node
+Primary node <a name="primary-node"></a>
 
 :   Node that directs the consensus process for the network. (The other
     nodes in the network participate as secondary nodes.) The primary
     node creates each block and publishes it to the network, then starts
     the consensus process for the block.
 
-Secondary node
+Secondary node <a name="secondary-node"></a>
 
 :   Auxiliary node used for consensus. A Sawtooth network using PBFT
-    consensus has one `primary node`{.interpreted-text role="term"}; all
+    consensus has one [primary node](#primary-node); all
     other nodes are secondary nodes.
 
     The [original PBFT
     paper](http://pmg.csail.mit.edu/papers/osdi99.pdf) uses the term
-    [backup]{.title-ref} instead of [secondary node]{.title-ref}.
+    *backup* instead of *secondary node*.
 
 Transaction processor
 
-:   Sawtooth component that validates transactions and updates state
-    based on rules defined by the associated [transaction
-    family]{.title-ref}. (These rules specify the business logic, also
-    called a [smart contract]{.title-ref}, for the transaction
-    processor.) For more information, see [\"Transaction Family
-    Specifications\" in the Hyperledger Sawtooth
-    documentation](https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications.html).
+:   Sawtooth component that validates transactions and updates state based on
+    rules defined by the associated *transaction family*. (These rules specify
+    the business logic, also called a *smart contract*, for the transaction
+    processor.) For more information, see [Transaction Family Specifications]({%
+    link docs/1.2/transaction_family_specification/index.md %}).
 
 Validator
 
@@ -102,9 +94,9 @@ View
 :   The period of time when the current primary node is in charge. The
     view changes at regular intervals (controlled by the on-chain
     setting `sawtooth.consensus.pbft.forced_view_change_interval`), and
-    when the primary node is deemed faulty. For more information, see
-    `view-changes-choosing-primary-label`{.interpreted-text role="ref"}.
-:::
+    when the primary node is deemed faulty. For more information, see [View
+    Changes: Choosing a New Primary]({% link docs/1.2/pbft/architecture.md
+    %}#view-changes-choosing-primary-label).
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
