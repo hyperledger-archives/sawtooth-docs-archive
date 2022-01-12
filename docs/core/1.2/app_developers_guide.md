@@ -1,32 +1,28 @@
----
-title: Application Developer\'s Guide
----
+# Application Developer's Guide
+
 
 This guide describes how to develop applications which run on top of the
-Hyperledger Sawtooth `core platform<Sawtooth core>`{.interpreted-text
-role="term"}, primarily through the use of Sawtooth\'s provided SDKs and
-`REST API`{.interpreted-text role="term"}.
+Hyperledger Sawtooth `core platform<Sawtooth core>`, primarily through the
+use of Sawtooth's provided SDKs and `REST API`.
 
 Topics include an overview of
-`Sawtooth transaction families<transaction family>`{.interpreted-text
-role="term"}, setting up an application development environment,
-learning Sawtooth concepts with an example client, and tutorials on
-using the Sawtooth SDKs to write the business logic for your
+`Sawtooth transaction families<transaction family>`setting up an application
+development environment, learning Sawtooth concepts with an example client, and
+tutorials on using the Sawtooth SDKs to write the business logic for your
 application.
 
 Sawtooth provides SDKs in several languages, including Python,
 Javascript, Go, C++, Java, and Rust. This guide has tutorials for using
 the Go, Javascript, and Python SDKs.
 
-::: toctree
-app_developers_guide/overview app_developers_guide/installing_sawtooth
-app_developers_guide/creating_sawtooth_network.rst
-app_developers_guide/intro_xo_transaction_family
-app_developers_guide/using_the_sdks app_developers_guide/no_sdk
-app_developers_guide/address_and_namespace
-app_developers_guide/namespace_restriction
-app_developers_guide/event_subscriptions
-:::
+* [Installing Sawtooth]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%})
+* [Creating a Sawtooth Network]({% link docs/1.2/app_developers_guide/creating_sawtooth_network.md%})
+* [XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
+* [Using the SDKs]({% link docs/1.2/app_developers_guide/using_the_sdks.md%})
+* [Using no SDKs]({% link docs/1.2/app_developers_guide/no_sdk.md%})
+* [Address and Namespace]({% link docs/1.2/app_developers_guide/address_and_namespace.md%})
+* [Namespace Restrictions]({% link docs/1.2/app_developers_guide/namespace_restriction.md%})
+* [Event Subscriptions]({% link docs/1.2/app_developers_guide/event_subscriptions.md%})
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
