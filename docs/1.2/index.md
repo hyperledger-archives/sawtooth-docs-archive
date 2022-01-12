@@ -65,9 +65,8 @@ same blockchain. Sawtooth allows these design decisions to be made in
 the transaction-processing layer, which allows multiple types of
 applications to exist in the same instance of the blockchain network.
 
-Each application defines the custom
-`transaction processors<transaction processor>` for its unique requirements.
-Sawtooth provides several example `transaction families<transaction family>` to
+Each application defines the custom transaction processors for its unique
+requirements. Sawtooth provides several example transaction families to
 serve as models for low-level functions (such as maintaining chain-wide settings
 and storing on-chain permissions) and for specific applications such as
 performance analysis and storing block information.
@@ -75,7 +74,7 @@ performance analysis and storing block information.
 Transaction processor SDKs are available in multiple languages to
 streamline creation of new contract languages, including Python,
 JavaScript, Go, C++, Java, and Rust. A provided REST API simplifies
-client development by adapting `validator<validator>` communication to standard
+client development by adapting validator communication to standard
 HTTP/JSON.
 
 ## Private Networks with the Sawtooth Permissioning Features
@@ -191,8 +190,8 @@ For more information, see
 [Sysadmin Guide]({% link docs/1.2/sysadmin_guide/index.md %})
 
 In a Sawtooth application, the data model and transaction language are
-implemented in a `transaction family<transaction family>`,
-which runs on a Sawtooth node as a `transaction processor`.
+implemented in a transaction family, which runs on a Sawtooth node as a
+transaction processor.
 
 While most application developers will build custom transaction families
 that reflect the unique requirements of their ledgers, Sawtooth provides
@@ -200,7 +199,7 @@ several core transaction families as models:
 
 > -   IntegerKey - Used for testing deployed ledgers.
 > -   Settings - Provides a reference implementation for storing
->     `on-chain configuration settings<on-chain setting>`
+>     on-chain configuration settings.
 > -   Identity - Handles on-chain permissioning for transactor and
 >     validator keys to streamline managing identities for lists of
 >     public keys.
@@ -261,11 +260,11 @@ Specifications]({% link docs/1.2/transaction_family_specification/index.md %})
 ## Try Hyperledger Sawtooth
 
 The Sawtooth documentation explains how to set up a local
-`validator` for demonstrating Sawtooth functionality and testing an application.
+validator for demonstrating Sawtooth functionality and testing an application.
 Once running, you will be able to submit new transactions and fetch the
 resulting state and block data from the blockchain using HTTP and the Sawtooth
-`REST API`. These methods apply to the included example
-`transaction families<transaction family>`, as well as to any transaction
+REST API. These methods apply to the included example
+transaction families, as well as to any transaction
 families you might write yourself.
 
 Sawtooth can be run from a pre-built Docker container, from a Kubernetes
@@ -301,7 +300,7 @@ Guide]({% link docs/1.2/app_developers_guide/index.md %}),
 
 See the [Architecture]({% link docs/1.2/architecture/index.md %}) for information on
 `Sawtooth core` features such as `global state`, transactions and
-`batches<batch>` (the atomic unit of state change in Sawtooth), permissioning,
+batches (the atomic unit of state change in Sawtooth), permissioning,
 the validator network, the event system, and more.
 
 ## Get the Sawtooth Software
