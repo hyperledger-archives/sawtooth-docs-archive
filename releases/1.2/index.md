@@ -11,11 +11,7 @@ documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/) to
 get started.
 
 This page describes the new and changed features in Hyperledger Sawtooth 1.2
-(since release 1.1).  Information is organized in the following categories:
-
-- [New Features](#new-features)
-- [Non-Breaking Changes](#non-breaking-changes)
-- [Documentation Changes](#documentation-changes)
+(since release 1.1).
 
 ## New Features
 

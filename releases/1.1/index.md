@@ -10,18 +10,7 @@ Hyperledger Sawtooth 1.1 (Bumper) is now available. See the
 get started.
 
 This page describes the new and changed features in Hyperledger
-Sawtooth 1.1 (since release 1.0). Information is organized in the following
-categories:
-
-- [Core Sawtooth Components](#core-sawtooth-components)
-- [Consensus](#consensus): Includes the new consensus API, changes to existing
-  consensus algorithm implementations, and support for new consensus algorithms
-- [Documentation](#documentation)
-- [Smart Contract Engines](#smart-contract-engines)
-- [DevOps and CI](#devops-and-ci): Describes changes to the project's build
-  tools and continuous integration process
-- [Website](#website): Includes the Sawtooth website content, structure, and
-  website development processes
+Sawtooth 1.1 (since release 1.0).
 
 ## Core Sawtooth Components
 
