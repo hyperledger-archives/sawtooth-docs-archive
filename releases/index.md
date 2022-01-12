@@ -1,5 +1,4 @@
 ---
-title: Sawtooth Releases
 redirect_to: /releases/1.2/
 ---
 
