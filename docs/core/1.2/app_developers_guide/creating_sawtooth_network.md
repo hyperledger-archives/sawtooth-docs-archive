@@ -1,24 +1,19 @@
----
-title: Creating a Sawtooth Test Network
----
+# Creating a Sawtooth Test Network
 
 This section describes how to create a Sawtooth network for an
 application development environment. Each node is similar to the
-single-node environment described
-`earlier in this guide <installing_sawtooth>`{.interpreted-text
-role="doc"}, but the network uses a consensus algorithm that is
+single-node environment described earlier in this guide in [Installing
+Sawtooth]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}),
+but the network uses a consensus algorithm that is
 appropriate for a Sawtooth network (instead of Devmode consensus). For
-more information, see `about_sawtooth_networks`{.interpreted-text
-role="doc"}.
+more information, see [About Sawtooth
+Networks]({% link docs/1.2/app_developers_guide/about_sawtooth_networks.md %})
 
-::: note
-::: title
-Note
-:::
-
-For a single-node test environment, see
-`installing_sawtooth`{.interpreted-text role="doc"}.
-:::
+> Note
+>
+> For a single-node test environment, see
+> [Installing
+> Sawtooth]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %})
 
 Use the procedures in this section to create a Sawtooth test network
 using prebuilt [Docker](https://www.docker.com/) containers, a
@@ -26,13 +21,18 @@ using prebuilt [Docker](https://www.docker.com/) containers, a
 your computer, or a native [Ubuntu](https://www.ubuntu.com/)
 installation.
 
-To get started, read `about_sawtooth_networks`{.interpreted-text
-role="doc"}, then choose the guide for the platform of your choice.
+To get started, read [About Sawtooth
+Networks]({% link docs/1.2/app_developers_guide/about_sawtooth_networks.md %}),
+then choose the guide for the platform of your choice.
 
-::: toctree
-about_sawtooth_networks docker_test_network kubernetes_test_network
-ubuntu_test_network
-:::
+* [About Sawtooth
+Networks]({% link docs/1.2/app_developers_guide/about_sawtooth_networks.md %})
+* [Docker Test
+Network]({% link docs/1.2/app_developers_guide/docker_test_network.md %})
+* [Kubernetes Test
+ Network]({% link docs/1.2/app_developers_guide/kubernetes_test_network.md %})
+* [Ubuntu Test
+Network]({% link docs/1.2/app_developers_guide/ubuntu_test_network.md %})
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
