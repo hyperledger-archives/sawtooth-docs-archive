@@ -1,6 +1,4 @@
----
-title: Subscribing to Events
----
+# Subscribing to Events
 
 As blocks are committed to the blockchain, an application developer may
 want to receive information on events such as the creation of a new
@@ -28,23 +26,18 @@ Marketplace](https://github.com/hyperledger/sawtooth-marketplace)
 repository.
 
 This section describes the structure of events and event subscriptions,
-then explains how to use the validator\'s [ZeroMQ](http://zeromq.org)
+then explains how to use the validator's [ZeroMQ](http://zeromq.org)
 messaging protocol (also called ZMQ or 0MQ) to subscribe to events.
 
-::: note
-::: title
-Note
-:::
+>
+> Note
+>
+> Web applications can also subscribe to events with a web socket
+> connection to the REST API, but there are several limitations for this
+> method. For more information, see
+> [Web Socket Event Subscription](#about-web-sockets-and-event-subscriptions)
 
-Web applications can also subscribe to events with a web socket
-connection to the REST API, but there are several limitations for this
-method. For more information, see
-`web_socket_event_subscription`{.interpreted-text role="doc"}.
-:::
-
----
-title: About Sawtooth Events
----
+## About Sawtooth Events
 
 Sawtooth events occur when blocks are committed \-\-- that is, the
 validator broadcasts events when a commit operation succeeds \-\-- and
@@ -66,7 +59,7 @@ It is important to define meaningful event attributes, so that the
 attributes can be used to filter event subscriptions. Note that although
 attributes are not required, an event filter cannot operate on an event
 without attributes. For more information, see
-`about_event_subscriptions`{.interpreted-text role="doc"}.
+[About Event Subscriptions](#about-event-subscriptions).
 
 Events are represented with the following protobuf message:
 
@@ -92,16 +85,10 @@ The `event_type` field (the name of the event) is used to determine how
 opaque (application-specific) data has been serialized and what
 transparent event attributes to expect.
 
-For more information, see
-`/architecture/events_and_transactions_receipts`{.interpreted-text
-role="doc"}.
+For more information, see [Events and Transaction
+Receipts]({% link docs/1.2/architecture/events_and_transactions_receipts.md %}).
 
-# Event Namespace
-
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
+## Event Namespace
 
 By convention, event names use the transaction family as a prefix, such
 as `xo/create` for a create event from the XO transaction family.
@@ -111,7 +98,7 @@ Core Sawtooth events are prefixed with `sawtooth/`. The core events are:
 > -   `sawtooth/block-commit`
 > -   `sawtooth/state-delta`
 
-## sawtooth/block-commit
+### sawtooth/block-commit
 
 A `sawtooth/block-commit` event occurs when a block is committed. This
 event contains information about the block, such as the block ID, block
@@ -130,7 +117,7 @@ Event {
 }
 ```
 
-## sawtooth/state-delta
+### sawtooth/state-delta
 
 A `sawtooth/state-delta` occurs when a block is committed. This event
 contains all state changes that occurred at a given address for that
@@ -147,7 +134,7 @@ Event {
 Note that the addresses that match the filter are in the attributes.
 Changed values are part of the event data.
 
-# Example: An Application-specific Event
+### Example: An Application-specific Event
 
 The XO transaction family could define an `xo/create` event that is sent
 when a game has been created. The following examples show a simple
@@ -155,54 +142,52 @@ when a game has been created. The following examples show a simple
 
 Python example:
 
-> ``` python
-> context.add_event(
->     "xo/create", {
->         'name': name,
->         'creator': signer_public_key
-> })
-> ```
+```python
+context.add_event(
+    "xo/create", {
+        'name': name,
+         'creator': signer_public_key
+ })
+```
 
 Go example:
 
-> ``` go
-> attributes := make([]processor.Attribute, 2)
-> attributes = append(attributes, processor.Attribute{
->   Key:   "name",
->   Value: name,
-> })
-> attributes = append(attributes, processor.Attribute(
->   Key:   "creator",
->   Value: signer_public_key,
-> })
-> var empty []byte
-> context.AddEvent(
->   "xo/create",
->   attributes,
->   empty)
-> ```
+```
+ attributes := make([]processor.Attribute, 2)
+ attributes = append(attributes, processor.Attribute{
+   Key:   "name",
+   Value: name,
+ })
+ attributes = append(attributes, processor.Attribute(
+   Key:   "creator",
+   Value: signer_public_key,
+ })
+ var empty []byte
+ context.AddEvent(
+   "xo/create",
+   attributes,
+   empty)
+```
 
 JavaScript example:
 
-> ``` javascript
-> context.addEvent(
->   'xo/create',
->   [['name', name], ['creator', signer_public_key]],
->   null)
-> ```
+```javascript
+ context.addEvent(
+   'xo/create',
+   [['name', name], ['creator', signer_public_key]],
+   null)
+```
 
 Rust example:
 
-> ``` rust
-> context.add_event(
->   "xo/create".to_string(),
->   vec![("name".to_string(), name), ("creator".to_string(), signer_public_key)],
->   vec![].as_slice())
-> ```
+```rust
+ context.add_event(
+   "xo/create".to_string(),
+   vec![("name".to_string(), name), ("creator".to_string(), signer_public_key)],
+   vec![].as_slice())
+```
 
----
-title: About Event Subscriptions
----
+## About Event Subscriptions
 
 An application can use event subscriptions to tell the validator to
 supply information about changes to the blockchain.
@@ -220,12 +205,7 @@ will be received. Note, however, that you can have multiple
 subscriptions at a time, so you will receive all events that pass the
 filter or filters in each subscription.
 
-# Event Filters
-
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
+### Event Filters
 
 An event filter operates on event attributes. A filter specifies an
 attribute key, a \"match string\", and a filter type.
@@ -276,7 +256,7 @@ all). The following filter types are supported:
     example, because it doesn\'t match all three attribute values above.
     The match string `[ad][be]*[cf]` would succeed.
 
-# Event Subscription Protobuf
+### Event Subscription Protobuf
 
 Event subscriptions are submitted and serviced over a ZMQ socket using
 the validator\'s messaging protocol.
@@ -336,12 +316,10 @@ message ClientEventsSubscribeResponse {
 
 When subscribing to events, an application can optionally request
 \"event catch-up\" by sending a list of block IDs along with the
-subscription. For more information, see
-`event-catch-up-label`{.interpreted-text role="ref"}.
+subscription. For more information, see [Requesting Event
+Catch-Up](#requesting-event-catch-up).
 
----
-title: About Web Sockets and Event Subscriptions
----
+## About Web Sockets and Event Subscriptions
 
 Applications can subscribe to events by using a web socket connection to
 the REST API, but there are several limitations:
@@ -354,12 +332,10 @@ the REST API, but there are several limitations:
 We recommend using ZMQ for event subscription, as described in
 `zmq_event_subscription`{.interpreted-text role="doc"}.
 
-For information on using web sockets, see
-`../rest_api/state_delta_websockets`{.interpreted-text role="doc"}.
+For information on using web sockets, see [State Delta
+WebSockets]({% link docs/1.2/rest_api/state_delta_websockets.md%}).
 
----
-title: Using ZMQ to Subscribe to Events
----
+## Using ZMQ to Subscribe to Events
 
 Client applications can subscribe to Hyperledger Sawtooth events using
 the validator\'s [ZMQ](http://zeromq.org) messaging protocol. The
@@ -378,17 +354,14 @@ for event subscription. It also describes the following operations:
 -   Requesting event catch-up
 -   Unsubscribing to events
 
-::: note
-::: title
-Note
-:::
 
-This procedure uses Python examples to show how to subscribe to events.
-The process is similar for any imperative programming language that
-meets these requirements. A client application can use any language that
-provides a ZMQ library and a protobuf library. In addition, the required
-Sawtooth protobuf messages must be compiled for the chosen language.
-:::
+> Note
+>
+> This procedure uses Python examples to show how to subscribe to events.
+> The process is similar for any imperative programming language that
+> meets these requirements. A client application can use any language that
+> provides a ZMQ library and a protobuf library. In addition, the required
+> Sawtooth protobuf messages must be compiled for the chosen language.
 
 The following steps assume that the XO transaction family has a `create`
 event that is sent when a game has been created, as in this example:
@@ -401,12 +374,8 @@ context.add_event(
 })
 ```
 
-# Step 1: Construct a Subscription
+### Step 1: Construct a Subscription
 
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
 
 An application can use the `EventSubscription` protobuf message to
 construct an event subscription. For example, in the `sawtooth`
@@ -442,7 +411,7 @@ tutorial:
 -   Python: `/_autogen/sdk_TP_tutorial_python`{.interpreted-text
     role="doc"}
 
-# Step 2: Submit the Event Subscription
+### Step 2: Submit the Event Subscription
 
 After constructing a subscription, submit the subscription request to
 the validator. The following example connects to the validator using
@@ -469,16 +438,7 @@ msg = Message(
 socket.send_multipart([msg.SerializeToString()])
 ```
 
-::: note
-::: title
-Note
-:::
-
-For information about `ClientEventsSubscribeRequest`, see
-`about_event_subscriptions`{.interpreted-text role="doc"}.
-:::
-
-# Step 3: Receiving the Response
+### Step 3: Receiving the Response
 
 After submitting the subscription request, wait for a response from the
 validator. The validator will return a response indicating whether the
@@ -509,20 +469,16 @@ if response.status != ClientEventsSubscribeResponse.OK:
   return
 ```
 
-# Step 4: Listening for Events
+### Step 4: Listening for Events
 
 After the event subscription request has been sent and accepted, events
 will arrive on the ZMQ socket. The application must start listening for
 these events.
 
-::: note
-::: title
-Note
-:::
-
-In order to limit network traffic, individual events are wrapped in an
-event list message before being sent.
-:::
+> Note
+>
+> In order to limit network traffic, individual events are wrapped in an
+> event list message before being sent.
 
 The following example listens for events and prints them indefinitely.
 
@@ -547,7 +503,7 @@ while True:
     print(event)
 ```
 
-# Correlating Events to Blocks {#correlate-events-to-blocks-label}
+### Correlating Events to Blocks
 
 An event originates from a specific block. That is, an event is sent to
 the subscriber only when the block is committed and state is updated. As
@@ -562,23 +518,20 @@ All lists of `block-commit` events received from the validator will
 contain only a single `block-commit` event for the block that the events
 came from.
 
-::: important
-::: title
-Important
-:::
 
-For forking networks, we recommend subscribing to `block-commit` events
-in order to watch for network forks and react appropriately. Without a
-subscription to `block-commit` events, there is no way to determine
-whether a fork has occurred.
+> Important
+>
+> For forking networks, we recommend subscribing to `block-commit` events
+> in order to watch for network forks and react appropriately. Without a
+> subscription to `block-commit` events, there is no way to determine
+> whether a fork has occurred.
+>
+> In addition, the best practice is to wait to react to these events until
+> a number of blocks have been committed on the given fork. This provides
+> some confidence that you won\'t need to revert those changes because you
+> switched to a different fork.
 
-In addition, the best practice is to wait to react to these events until
-a number of blocks have been committed on the given fork. This provides
-some confidence that you won\'t need to revert those changes because you
-switched to a different fork.
-:::
-
-# Requesting Event Catch-Up {#event-catch-up-label}
+### Requesting Event Catch-Up
 
 An event subscription can request \"event catch-up\" information on all
 historical events that have occurred since the creation of a specific
@@ -590,15 +543,12 @@ last block ID that a client has seen. If blocks have been committed
 after that block, the missed events will be sent in the order they would
 have occurred.
 
-::: note
-::: title
-Note
-:::
 
-Block IDs are available in `sawtooth/block-commit` events. In order to
-correlate event catch-up information, the application must subscribe to
-`sawtooth/block-commit` events, as described in the previous section.
-:::
+> Note
+>
+> Block IDs are available in `sawtooth/block-commit` events. In order to
+> correlate event catch-up information, the application must subscribe to
+> `sawtooth/block-commit` events, as described in the previous section.
 
 The validator performs the following actions to bring the client up to
 date:
@@ -608,13 +558,10 @@ date:
 3.  Sends historical events from all blocks since the most recent block,
     one block at a time
 
-::: note
-::: title
-Note
-:::
-
-The subscription fails if no blocks on the current chain are sent.
-:::
+> Note
+>
+>
+> The subscription fails if no blocks on the current chain are sent.
 
 The following example submits a subscription request that includes event
 catch-up.
@@ -642,11 +589,11 @@ socket.send_multipart([msg.SerializeToString()])
 ```
 
 If a fork occurred in a missed event, one or more known block IDs may be
-\"gone\". In this case, use the information in
-`correlate-events-to-blocks-label`{.interpreted-text role="ref"} to
+\"gone\". In this case, use the information in [Correlating Event to
+Blocks](#correlating-events-to-blocks) to
 determine the current state of the blockchain.
 
-# Unsubscribing to Events
+### Unsubscribing to Events
 
 To unsubscribe to events, send a `ClientEventsUnsubscribeRequest` with
 no arguments, wait for the response, then close the ZMQ socket.
