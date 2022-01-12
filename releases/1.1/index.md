@@ -1,15 +1,9 @@
----
-hide: true
-title: Hyperledger Sawtooth 1.1 (Bumper)
-permalink: /release/bumper/
-release: 1.1
-release-name: bumper
-# Copyright (c) 2018 Bitwise IO, Inc.
-# Licensed under Creative Commons Attribution 4.0 International License
-# https://creativecommons.org/licenses/by/4.0/
----
-
-<a href="top"></a>
+# Hyperledger Sawtooth 1.1 (Bumper)
+<!--
+  Copyright (c) 2018 Bitwise IO, Inc.
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
 
 Hyperledger Sawtooth 1.1 (Bumper) is now available. See the
 [documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/) to

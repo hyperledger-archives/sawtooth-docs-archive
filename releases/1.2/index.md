@@ -1,15 +1,10 @@
----
-hide: true
-title: Hyperledger Sawtooth 1.2 (Chime)
-permalink: /release/chime/
-release: 1.2
-release-name: chime
-# Copyright (c) 2019 Cargill Incorporated
-# Licensed under Creative Commons Attribution 4.0 International License
-# https://creativecommons.org/licenses/by/4.0/
----
+# Hyperledger Sawtooth 1.2
 
-<a href="top"></a>
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
 
 Hyperledger Sawtooth 1.2 (Chime) is now available.  See the [latest
 documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/) to
@@ -21,8 +16,6 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
 - [New Features](#new-features)
 - [Non-Breaking Changes](#non-breaking-changes)
 - [Documentation Changes](#documentation-changes)
-
-# Hyperledger Sawtooth 1.2
 
 ## New Features
 
