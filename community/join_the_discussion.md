@@ -15,11 +15,7 @@ everything from quick help to involved discussions.
 For general Hyperledger Sawtooth discussions, join the
 [#sawtooth](https://chat.hyperledger.org/channel/sawtooth).
 
-For Hyperledger Sawtooth Consensus discussions, join the
-[#sawtooth-consensus](https://chat.hyperledger.org/channel/sawtooth-consensus)
-channel.
-
 ## Mailing Lists
 
 The Hyperledger Sawtooth mailing list is hosted by the Hyperledger Project:
-[hyperledger-stl Mailing List](http://lists.hyperledger.org/mailman/listinfo/hyperledger-stl)
+[sawtooth Mailing List](https://lists.hyperledger.org/g/sawtooth)

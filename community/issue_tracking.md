@@ -1,6 +1,7 @@
 <!--
  Copyright (c) 2015-2017, Intel Corporation.
  Copyright (c) 2020, Walmart Inc.
+ Copyright 2022 Cargill Incorporated
  Licensed under Creative Commons Attribution 4.0 International License
  https://creativecommons.org/licenses/by/4.0/
 -->
@@ -11,24 +12,23 @@ A great way to contribute is by reporting issues. Before reporting an issue,
 please review the current open issues to see if someone has already reported
 the issue.
 
-## Using JIRA
+## Github Issues
 
-Hyperledger Sawtooth uses JIRA as our issue tracking system:
+Hyperledger Sawtooth uses Github Issues as our issue tracking system. The
+issues are tied to the repository in which the related code resides. For
+example:
 
-[https://jira.hyperledger.org/projects/STL](https://jira.hyperledger.org/projects/STL)
-
-If you want to contribute to Hyperledger Sawtooth quickly, we have a list of
-issues that will help you get involved right away. See the open Sawtooth issues:
-
-[https://jira.hyperledger.org/issues/?filter=10612](https://jira.hyperledger.org/issues/?filter=10612)
+* [sawtooth-core](https://github.com/hyperledger/sawtooth-core/issues) - Issues
+    related to the validator, REST API, etc.
+* [sawtooth-docs](https://github.com/hyperledger/sawtooth-docs/issues) - Issues
+    related to content on the website.
 
 ## How to Report an Issue
 
-To report issues, log into [jira.hyperledger.org](https://jira.hyperledger.org),
-which requires a [Linux Foundation Account](https://identity.linuxfoundation.org/).
-
-Create issues in JIRA under the Hyperledger Sawtooth project,
-which uses the ``STL`` JIRA key.
+To report issues, find the related Sawtooth GitHub repository and open an issue
+there.  If in doubt, open an issue against the
+[sawtooth-core](https://github.com/hyperledger/sawtooth-core/issues)
+repository.
 
 When reporting an issue, please provide as much detail as possible about how
 to reproduce it. If possible, explain how to reproduce the issue.

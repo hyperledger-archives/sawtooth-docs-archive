@@ -22,9 +22,9 @@ Ways you can contribute:
   tests
 
 Hyperledger Sawtooth issues can be found in
-[Using JIRA](issue_tracking#using-jira).  Any unassigned items
+[Github Issues](issue_tracking).  Any unassigned items
 are probably still open. When in doubt, ask on RocketChat about a specific
-JIRA issue (see [Joining the Discussion](./join_the_discussion.html)).
+issue (see [Joining the Discussion](./join_the_discussion.html)).
 
 ## The Commit Process
 
@@ -85,14 +85,3 @@ A pull request cannot merged until it has passed these status checks:
 * The build must pass on Jenkins
 * The PR must be approved by at least two reviewers without any
   outstanding requests for changes
-
-**Integrating GitHub Commits with JIRA**
-
-You can link JIRA issues to your commits, which  will integrate
-developer activity with the associated issue. JIRA uses the issue key to
-associate the commit with the issue, so that the commit can be summarized in the
-development panel for the JIRA issue.
-
-When you make a commit, add the JIRA issue key to the end of the commit message
-or to the branch name. Either method should integrate your commit with the JIRA
-issue that it references.
