@@ -1,5 +1,4 @@
 ---
-layout: page
 hide: true
 title: Hyperledger Sawtooth 1.1 (Bumper)
 permalink: /release/bumper/
