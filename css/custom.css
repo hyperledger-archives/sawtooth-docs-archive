@@ -50,6 +50,12 @@ img {
     border-color: var(--sawtooth-blue);
 }
 
+blockquote {
+    background-color: var(--light-gray);
+    border-radius: 5px;
+    padding: 10px;
+}
+
 /* Header */
 
 #header {
