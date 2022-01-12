@@ -1,14 +1,17 @@
-\-\--layout: page hide: true tags: \[appendix\] title: \"Appendix:
-Sawtooth Settings\" permalink: /faq/settings/ \# Copyright (c) 2018,
-Intel Corporation. \# Licensed under Creative Commons Attribution 4.0
-International License \# <https://creativecommons.org/licenses/by/4.0/>
-\-\--FAQ Appendix: Configuration Settings
-==================================== .. class:: mininav
+---
+layout: default
+hide: true
+tags: [appendix]
+title: "Appendix: Sawtooth Settings"
+permalink: /faq/settings/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+
+# FAQ Appendix: Configuration Settings
 
 [PREVIOUS](/faq/prefixes/) [FAQ](/faq/) [NEXT](/faq/videos/)
-
-::: contents
-:::
 
 This is an unofficial list of some Transaction Family (TF) settings.
 There is no central registry, most or all of these can be found on
@@ -288,8 +291,6 @@ transactor.transaction_signer.xo
 
 :   Public keys of authorized xo TF signers
 
-::: mininav
 [PREVIOUS](/faq/prefixes/) [FAQ](/faq/) [NEXT](/faq/videos/)
-:::
 
 © Copyright 2018, Intel Corporation.
