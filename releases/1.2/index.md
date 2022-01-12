@@ -1,28 +1,17 @@
----
-hide: true
-title: Hyperledger Sawtooth 1.2 (Chime)
-permalink: /release/chime/
-release: 1.2
-release-name: chime
-# Copyright (c) 2019 Cargill Incorporated
-# Licensed under Creative Commons Attribution 4.0 International License
-# https://creativecommons.org/licenses/by/4.0/
----
+# Hyperledger Sawtooth 1.2
 
-<a href="top"></a>
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
 
 Hyperledger Sawtooth 1.2 (Chime) is now available.  See the [latest
 documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/) to
 get started.
 
 This page describes the new and changed features in Hyperledger Sawtooth 1.2
-(since release 1.1).  Information is organized in the following categories:
-
-- [New Features](#new-features)
-- [Non-Breaking Changes](#non-breaking-changes)
-- [Documentation Changes](#documentation-changes)
-
-# Hyperledger Sawtooth 1.2
+(since release 1.1).
 
 ## New Features
 
@@ -43,8 +32,6 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
   This feature is backward compatible via the use of a protocol version indicator.
 - All core transaction families are compatible with [Sawtooth Sabre release
   0.4](https://sawtooth.hyperledger.org/docs/sabre/releases/0.4.0/).
-
-[> back to top <](#top)
 
 ## Non-breaking changes
 
@@ -78,8 +65,6 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
 - Long-lived futures are expired when awaiting network message replies.
 - Logs now have fewer duplicate log messages.
 
-[> back to top <](#top)
-
 ## Documentation changes
 
 - Improved summary of the supported consensus algorithms: PBFT, PoET, Raft, and
@@ -98,5 +83,3 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
   SDKs”](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/app_developers_guide/using_the_sdks.html).
 - Technical corrections, bug fixes, and general improvements throughout the
   documentation.
-
-[> back to top <](#top)

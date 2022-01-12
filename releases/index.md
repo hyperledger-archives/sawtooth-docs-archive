@@ -1,6 +1,6 @@
 ---
 title: Sawtooth Releases
-redirect_to: /release/chime/
+redirect_to: /releases/1.2/
 ---
 
 <!--
