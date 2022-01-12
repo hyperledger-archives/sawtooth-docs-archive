@@ -37,8 +37,6 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
 - All core transaction families are compatible with [Sawtooth Sabre release
   0.4](https://sawtooth.hyperledger.org/docs/sabre/releases/0.4.0/).
 
-[> back to top <](#top)
-
 ## Non-breaking changes
 
 - PoET has the following patches:
@@ -71,8 +69,6 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
 - Long-lived futures are expired when awaiting network message replies.
 - Logs now have fewer duplicate log messages.
 
-[> back to top <](#top)
-
 ## Documentation changes
 
 - Improved summary of the supported consensus algorithms: PBFT, PoET, Raft, and
@@ -91,5 +87,3 @@ This page describes the new and changed features in Hyperledger Sawtooth 1.2
   SDKs”](https://sawtooth.hyperledger.org/docs/core/releases/1.2.3/app_developers_guide/using_the_sdks.html).
 - Technical corrections, bug fixes, and general improvements throughout the
   documentation.
-
-[> back to top <](#top)

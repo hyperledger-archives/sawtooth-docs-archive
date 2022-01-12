@@ -101,8 +101,6 @@ categories:
   [separate repositories](https://github.com/hyperledger?utf8=%E2%9C%93&q=sawtooth-sdk&type=&language=).
 - PoET has been moved to [a new repository](https://github.com/hyperledger/sawtooth-poet).
 
-[> back to top <](#top)
-
 ## Consensus
 
 Hyperledger Sawtooth 1.1 includes a new consensus interface that enables
@@ -164,8 +162,6 @@ issues with the original protocol. See the RFCs for more details:
 
 Sawtooth PBFT is still in the prototype phase and is under active development.
 
-[> back to top <](#top)
-
 ## Documentation
 
 In addition to updates for Hyperledger Sawtooth 1.1 features, technical
@@ -209,7 +205,6 @@ following changes and improvements.
 
 - New glossary of Sawtooth terminology.
 
-[> back to top <](#top)
 ## Smart Contract Engines
 
 ### Sawtooth Seth
@@ -252,7 +247,6 @@ already-written Rust transaction processors to a Sabre smart contract.
 
 **Note:** Sabre is currently at version 0.1 and is under active development.
 
-[> back to top <](#top)
 ## DevOps and CI
 
 ### Build System Improvements
@@ -285,7 +279,6 @@ RFC](https://github.com/hyperledger/sawtooth-rfcs/pull/25) for more details.
   these example files; see the [Hyperledger Sawtooth
   documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/app_developers_guide.html).
 
-[> back to top <](#top)
 ## Website
 
 The Sawtooth website,
@@ -304,8 +297,6 @@ we plan to:
 - Automate the website build and deployment, based on the model for Sawtooth
 - Apply consistent formatting throughout the site
   PRs
-
-[> back to top <](#top)
 
 ---
 
