@@ -1,4 +1,5 @@
 # Copyright (c) 2018-2019 Bitwise IO, Inc.
+# Copyright 2022 Cargill Incorporated
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
 version: "3.7"
@@ -22,3 +23,14 @@ services:
         rm -rf  _site
         jekyll serve --config ./_config.yml
       "
+
+  sawtooth-docs-apache:
+    container_name: sawtooth-docs-apache
+    image: sawtooth-docs-apache
+    build:
+      dockerfile: docker/sawtooth-docs-apache
+      context: .
+    ports:
+      - 8080:80
+    volumes:
+      - .:/project
