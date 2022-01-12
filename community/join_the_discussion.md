@@ -18,4 +18,4 @@ For general Hyperledger Sawtooth discussions, join the
 ## Mailing Lists
 
 The Hyperledger Sawtooth mailing list is hosted by the Hyperledger Project:
-[hyperledger-stl Mailing List](http://lists.hyperledger.org/mailman/listinfo/hyperledger-stl)
+[sawtooth Mailing List](https://lists.hyperledger.org/g/sawtooth)
