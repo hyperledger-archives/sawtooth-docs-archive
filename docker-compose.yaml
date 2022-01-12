@@ -21,7 +21,7 @@ services:
     entrypoint:  |
       bash -c "
         rm -rf  _site
-        jekyll serve --config ./_config.yml
+        jekyll serve --config ./_config.yml,./_config_dev.yml
       "
 
   sawtooth-docs-apache:
