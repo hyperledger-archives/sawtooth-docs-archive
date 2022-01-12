@@ -2,14 +2,13 @@
 
 
 This guide describes how to develop applications which run on top of the
-Hyperledger Sawtooth `core platform<Sawtooth core>`, primarily through the
+Hyperledger Sawtooth core platform, primarily through the
 use of Sawtooth's provided SDKs and `REST API`.
 
-Topics include an overview of
-`Sawtooth transaction families<transaction family>`setting up an application
-development environment, learning Sawtooth concepts with an example client, and
-tutorials on using the Sawtooth SDKs to write the business logic for your
-application.
+Topics include an overview of Sawtooth transaction families setting up an
+application development environment, learning Sawtooth concepts with an example
+client, and tutorials on using the Sawtooth SDKs to write the business logic for
+your application.
 
 Sawtooth provides SDKs in several languages, including Python,
 Javascript, Go, C++, Java, and Rust. This guide has tutorials for using
