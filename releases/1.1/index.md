@@ -23,9 +23,9 @@ categories:
 - [Website](#website): Includes the Sawtooth website content, structure, and
   website development processes
 
-# Core Sawtooth Components
+## Core Sawtooth Components
 
-## New Features
+### New Features
 
 - The consensus API has been completely redesigned. Consensus has been moved to
   a separate process, called a “consensus engine”. See [Hyperledger Sawtooth
@@ -45,7 +45,7 @@ categories:
 - The gossip protocol used by Sawtooth is now versioned to support
   backwards-compatible upgrades in the future.
 
-## Major Improvements
+### Major Improvements
 
 - The Rust SDK has matured. It now includes libraries for signing, writing
   transaction processors, and writing consensus engines, along with supporting
@@ -57,7 +57,7 @@ categories:
 - The ChainController and BlockPublisher have been substantially refactored to
   be more modular and support validating blocks in parallel.
 
-## Minor Improvements
+### Minor Improvements
 
 - Transaction processors can now report the maximum number of transactions that
   they can handle at a time. The validator will only request that many
@@ -74,7 +74,7 @@ categories:
 - The parallel scheduler has been refactored to use a generic `PredecessorTree`
   data structure.
 
-## Bug Fixes
+### Bug Fixes
 
 - Fixed a bad internal configuration that allowed the Completer and
   ChainController to get out of sync about which blocks were in the system
@@ -91,7 +91,7 @@ categories:
 - Only broadcast to peers that have completed authorization
 - Ensured that candidate blocks are only built in the BlockPublisher thread
 
-## Upgrade Considerations
+### Upgrade Considerations
 
 - The consensus setting `sawtooth.consensus.algorithm` setting has been
   deprecated and no longer has an effect. Instead, use the settings
@@ -103,7 +103,7 @@ categories:
 
 [> back to top <](#top)
 
-# Consensus
+## Consensus
 
 Hyperledger Sawtooth 1.1 includes a new consensus interface that enables
 features like language independence for consensus algorithms. Consensus
@@ -126,7 +126,7 @@ RFC](https://github.com/hyperledger/sawtooth-rfcs/pull/4) for more details.
   - New [Raft consensus engine](https://github.com/hyperledger/sawtooth-raft),
     based on the Raft consensus algorithm.
 
-## Sawtooth PoET
+### Sawtooth PoET
 
 The Sawtooth Proof of Elapsed Time (PoET) consensus can be deployed as a pure
 Python application using a simulated enclave, called PoET simulator, or with a
@@ -140,7 +140,7 @@ enclave, called PoET-SGX.
   implementation of poet and its TEE enclave, which is anticipated for a point
   release in the near future.
 
-## Sawtooth Raft
+### Sawtooth Raft
 
 Hyperledger Sawtooth 1.1 supports a developer preview of [Sawtooth
 Raft](https://github.com/hyperledger/sawtooth-raft), a Rust implementation of
@@ -150,7 +150,7 @@ the new consensus API.
 
 Sawtooth Raft is still in the prototype phase and is under active development.
 
-## Sawtooth PBFT
+### Sawtooth PBFT
 
 The Hyperledger Sawtooth 1.1 release includes the [Sawtooth PBFT consensus
 engine](https://github.com/hyperledger/sawtooth-pbft). Sawtooth PBFT is based
@@ -166,13 +166,13 @@ Sawtooth PBFT is still in the prototype phase and is under active development.
 
 [> back to top <](#top)
 
-# Documentation
+## Documentation
 
 In addition to updates for Hyperledger Sawtooth 1.1 features, technical
 corrections, and bug fixes throughout, the Sawtooth documentation has the
 following changes and improvements.
 
-## Application Developer’s Guide
+### Application Developer’s Guide
 
 - Improved procedures for running a single Sawtooth node with Docker, Ubuntu,
   or AWS, plus a new Kubernetes procedure. See [Setting Up a Sawtooth
@@ -184,12 +184,12 @@ following changes and improvements.
 - Improved and expanded tutorials for using the Sawtooth JavaScript, Go, and
   Python SDKs, plus a new Rust version. See [Using the Sawtooth SDKs](https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/using_the_sdks.html).
 
-## API References
+### API References
 
 - New Rust SDK documentation; see
   [Rust SDK API Reference](https://sawtooth.hyperledger.org/docs/core/nightly/master/sdks.html#rust).
 
-## System Administrator’s Guide
+### System Administrator’s Guide
 
 - Improved procedure for setting up a Sawtooth network with PoET simulator
   consensus, including new steps to change off-chain settings and test the
@@ -201,19 +201,18 @@ following changes and improvements.
 - New procedure to configure Sawtooth to display Grafana metrics. See [Using
   Grafana to Display Sawtooth Metrics](https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/grafana_configuration.html).
 
-## Architecture Guide
+### Architecture Guide
 
 - General improvements and a new architecture overview.
 
-## Glossary
+### Glossary
 
 - New glossary of Sawtooth terminology.
 
 [> back to top <](#top)
+## Smart Contract Engines
 
-# Smart Contract Engines
-
-## Sawtooth Seth
+### Sawtooth Seth
 
 Hyperledger Sawtooth 1.1 continues to support [Sawtooth
 Seth](https://github.com/hyperledger/sawtooth-seth), an Ethereum-compatible
@@ -238,7 +237,7 @@ in this release:
   contract listing.
 - This release includes Dockerfiles suitable for publishing to Docker Hub.
 
-## Sawtooth Sabre
+### Sawtooth Sabre
 
 Hyperledger Sawtooth 1.1 supports [Sawtooth
 Sabre](https://github.com/hyperledger/sawtooth-sabre), a transaction family
@@ -254,10 +253,9 @@ already-written Rust transaction processors to a Sabre smart contract.
 **Note:** Sabre is currently at version 0.1 and is under active development.
 
 [> back to top <](#top)
+## DevOps and CI
 
-# DevOps and CI
-
-## Build System Improvements
+### Build System Improvements
 
 - The `bin/build_all` script and related build scripts have been replaced with
   `docker-compose`.
@@ -272,14 +270,14 @@ RFC](https://github.com/hyperledger/sawtooth-rfcs/pull/25) for more details.
 
 **Note**: Requires Docker Engine 18.02.0 or later.
 
-## Docker
+### Docker
 
 - Each component now has "installed" Dockerfiles that utilize multi-stage
   builds. These Dockerfiles are suitable for publishing to a docker registry.
 
 **Note**: Requires Docker Engine 18.02.0 or later.
 
-## Kubernetes
+### Kubernetes
 
 - This release includes example files for two Kubernetes deployments: A
   five-node network using PoET simulator and a single-node environment using
@@ -288,8 +286,7 @@ RFC](https://github.com/hyperledger/sawtooth-rfcs/pull/25) for more details.
   documentation](https://sawtooth.hyperledger.org/docs/core/releases/1.1.5/app_developers_guide.html).
 
 [> back to top <](#top)
-
-# Website
+## Website
 
 The Sawtooth website,
 [sawtooth.hyperledger.org](https://sawtooth.hyperledger.org), has been updated
