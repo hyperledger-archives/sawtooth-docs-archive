@@ -1,6 +1,4 @@
----
-title: Introduction
----
+# Introduction
 
 Hyperledger Sawtooth is an enterprise blockchain platform for building
 distributed ledger applications and networks. The design philosophy
