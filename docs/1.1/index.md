@@ -1,6 +1,4 @@
----
-title: Introduction
----
+# Introduction
 
 Hyperledger Sawtooth is an enterprise blockchain platform for building
 distributed ledger applications and networks. The design philosophy
@@ -66,19 +64,16 @@ the transaction-processing layer, which allows multiple types of
 applications to exist in the same instance of the blockchain network.
 
 Each application defines the custom
-`transaction processors<Transaction processor>`{.interpreted-text
-role="term"} for its unique requirements. Sawtooth provides several
-example `transaction families<Transaction family>`{.interpreted-text
-role="term"} to serve as models for low-level functions (such as
+transaction processors for its unique requirements. Sawtooth provides several
+example transaction families to serve as models for low-level functions (such as
 maintaining chain-wide settings and storing on-chain permissions) and
 for specific applications such as performance analysis and storing block
 information.
 
 Transaction processor SDKs are available in multiple languages to
 streamline creation of new contract languages, including Python,
-JavaScript, Go, C++, Java, and Rust. A provided REST API simplifies
-client development by adapting `validator<Validator>`{.interpreted-text
-role="term"} communication to standard HTTP/JSON.
+JavaScript, Go, C++, Java, and Rust. A provided REST API simplifies client
+development by adapting validator communication to standard HTTP/JSON.
 
 ## Private Networks with the Sawtooth Permissioning Features
 
@@ -158,23 +153,16 @@ Sawtooth currently supports these consensus implementations:
 > -   Dev mode, a simplified random-leader algorithm that is useful for
 >     development and testing.
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.0/introduction.rst ======= ..
-\_sample-transaction-families-label:
-
-\>\>\>\>\>\>\> core/1-1:docs/core/1.1/introduction.rst Sample
-Transaction Families
-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+## Sample Transaction Families
 
 In Sawtooth, the data model and transaction language are implemented in
-a `transaction family<Transaction family>`{.interpreted-text
-role="term"}. While we expect users to build custom transaction families
+a transaction family. While we expect users to build custom transaction families
 that reflect the unique requirements of their ledgers, we provide
 several core transaction families as models:
 
 > -   IntegerKey - Used for testing deployed ledgers.
 > -   Settings - Provides a reference implementation for storing
->     `on-chain configuration settings<On-chain setting>`{.interpreted-text
->     role="term"}.
+>     on-chain configuration settings.
 > -   Identity - Handles on-chain permissioning for transactor and
 >     validator keys to streamline managing identities for lists of
 >     public keys.
@@ -189,7 +177,8 @@ Additional transaction families provide models for specific areas:
 >     configurable number of historic blocks.
 
 For more information, see
-`transaction_family_specifications`{.interpreted-text role="doc"}.
+[Transaction Family
+Specifications]({% link docs/1.1/transaction_family_specification/index.md %})
 
 # Real-world Application Examples
 
@@ -197,8 +186,8 @@ For more information, see
 >     [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe). The XO
 >     transaction family includes create and take transactions, with an
 >     `xo` command that allows two participants to play the game. For
->     more information, see
->     `/app_developers_guide/intro_xo_transaction_family`{.interpreted-text
+>     more information, see [XO Transaction
+>     Family]({% link docs/1.1/app_developers_guide/intro_xo_transaction_family.md %}).
 >     role="doc"}.
 > -   Sawtooth Supply Chain: Demonstrates how to trace the provenance
 >     and other contextual information of any asset. Supply Chain
@@ -229,23 +218,19 @@ For more information, see
 ## Try Hyperledger Sawtooth
 
 The Sawtooth documentation explains how to set up a local
-`validator<Validator>`{.interpreted-text role="term"} for demonstrating
-Sawtooth functionality and testing an application. Once running, you
-will be able to submit new transactions and fetch the resulting state
-and block data from the blockchain using HTTP and the Sawtooth
-`REST API`{.interpreted-text role="term"}. These methods apply to the
-included example
-`transaction families<Transaction family>`{.interpreted-text
-role="term"}, as well as to any transaction families you might write
-yourself.
+validator for demonstrating Sawtooth functionality and testing an
+application. Once running, you will be able to submit new transactions
+and fetch the resulting state and block data from the blockchain using
+HTTP and the Sawtooth REST API. These methods apply to the included
+example transaction families, as well as to any transaction families you
+might write yourself.
 
 Sawtooth validators can be run from pre-built Docker containers,
 installed natively using Ubuntu 16.04, or launched in AWS from the AWS
 Marketplace.
 
-To get started, see
-`/app_developers_guide/installing_sawtooth`{.interpreted-text
-role="doc"}.
+To get started, see [Installing
+Sawtooth]({% link docs/1.1/app_developers_guide/installing_sawtooth.md %}).
 
 ## Develop a Custom Application
 
@@ -262,20 +247,19 @@ applications which run on top of the Sawtooth platform. In addition, you
 can write smart contracts in Solidity for use with the Seth transaction
 family.
 
-For more information, see `app_developers_guide`{.interpreted-text
-role="doc"}, `sdks`{.interpreted-text role="doc"}, and
-`rest_api`{.interpreted-text role="doc"}.
+For more information, see [App Developers
+Guide]({% link docs/1.1/app_developers_guide/index.md %}),
+[SDKs]({% link docs/1.1/sdks/index.md %}), and
+[REST API]({% link docs/1.1/rest_api/index.md %}).
 
 # Participating in Core Development
 
 ## Learn about Sawtooth Architecture
 
-See the `/architecture`{.interpreted-text role="doc"} for information on
-`Sawtooth core`{.interpreted-text role="term"} features such as
-`global state<Global state>`{.interpreted-text role="term"},
-transactions and `batches<Batch>`{.interpreted-text role="term"} (the
-atomic unit of state change in Sawtooth), permissioning, the validator
-network, the event system, and more.
+See the [Architecture]({% link docs/1.1/architecture/index.md %}) for
+information on `Sawtooth core` features such as `global state`, transactions and
+batches (the atomic unit of state change in Sawtooth), permissioning,
+the validator network, the event system, and more.
 
 ## Get the Sawtooth Software
 
@@ -310,8 +294,9 @@ ledger.
 
 Sawtooth is an open source project under the Hyperledger umbrella. We
 welcome working with individuals and companies interested in advancing
-distributed ledger technology. Please see `/community`{.interpreted-text
-role="doc"} for ways to become a part of the Sawtooth community.
+distributed ledger technology. Please see
+[Community]({% link community/index.md %}) for ways to become a part of the
+Sawtooth community.
 
 # Acknowledgements
 
