@@ -1,17 +1,19 @@
-\-\--layout: page hide: true tags: \[faq\] title: Sawtooth FAQ -
-Hyperledger Sawtooth in General permalink: /faq/sawtooth/ \# Copyright
-(c) 2018, Intel Corporation. \# Licensed under Creative Commons
-Attribution 4.0 International License \#
-<https://creativecommons.org/licenses/by/4.0/> \-\--Sawtooth FAQ:
-Hyperledger Sawtooth in General
-============================================= .. class:: mininav
+---
+layout: default
+hide: true
+tags: [faq]j
+title: Sawtooth FAQ - Hyperledger Sawtooth in General
+permalink: /faq/sawtooth/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+
+# Sawtooth FAQ: Hyperledger Sawtooth in General
 
 [TOP](/faq/) [NEXT](/faq/installation/)
 
-::: contents
-:::
-
-# What is Sawtooth?
+## What is Sawtooth?
 
 Hyperledger Sawtooth is a modular enterprise blockchain platform for
 building, deploying, and running distributed ledgers. The design
@@ -22,7 +24,7 @@ which targets large distributed validator populations with minimal
 resource consumption. No special hardware is required to run Sawtooth or
 PoET.
 
-# What are some useful Sawtooth links?
+## What are some useful Sawtooth links?
 
 Sawtooth introduction
 
@@ -68,7 +70,7 @@ Sawtooth FAQ
 
 :   <https://github.com/danintel/sawtooth-faq>
 
-# Where are some good introductory videos?
+## Where are some good introductory videos?
 
 Hyperledger Sawtooth 1.0: Market Significance & Technical Overview (Hyperledger, 2018, 61:27) (free registration required):
 
@@ -83,13 +85,13 @@ You can find several more here:
 
 :   <https://www.youtube.com/results?search_query=Hyperledger+Sawtooth>
 
-# Where are some good advanced videos?
+## Where are some good advanced videos?
 
 A list of Hyperledger Sawtooth [videos](/faq/videos/) (mostly Sawtooth
 Technical Forum recordings) are at
 <https://github.com/danintel/sawtooth-faq/blob/master/settings.rst>
 
-# What courses are available on Hyperledger Sawtooth?
+## What courses are available on Hyperledger Sawtooth?
 
 -   B9Lab has a five-week Sawtooth Developer training course. See
     <https://academy.b9lab.com/courses/B9lab/current-sawtooth-course>
@@ -110,13 +112,13 @@ Technical Forum recordings) are at
     Administrator (CHSA) course. See
     <https://www.blockchaineducators.org/hyperledger/>
 
-# What Sawtooth exams are available?
+## What Sawtooth exams are available?
 
 A Certified Hyperledger Sawtooth Administrator (CHSA) exam is available
 at
 <https://www.hyperledger.org/resources/training/hyperledger-sawtooth-certification>
 
-# Are there any example applications based on Sawtooth?
+## Are there any example applications based on Sawtooth?
 
 A simple application that implements a cookie jar showing just the Sawtooth API:
 
@@ -134,7 +136,7 @@ An example application that shows how to exchange quantities of customized \"Ass
 
 :   <https://github.com/hyperledger/sawtooth-marketplace>
 
-# Are there any live demos of a Sawtooth Application?
+## Are there any live demos of a Sawtooth Application?
 
 Yes. A Sawtooth Supply Chain demo, AssetTrack is at
 <https://demo.bitwise.io/> . Another demo, for tracking fish, is at
@@ -143,7 +145,7 @@ Yes. A Sawtooth Supply Chain demo, AssetTrack is at
 is at <https://provenance.sawtooth.me/> . The source and docs are at
 <https://github.com/hyperledger/sawtooth-marketplace/>
 
-# What is the Hyperledger Sawtooth Application Developers Forum?
+## What is the Hyperledger Sawtooth Application Developers Forum?
 
 It is to provide opportunities to discuss technical application
 development questions with developers experienced with Hyperledger
@@ -153,7 +155,7 @@ Thursday at 2pm India Time. For details and current contact information
 for both forums, see <https://chat.hyperledger.org/channel/sawtooth> for
 details.
 
-# What is the difference between Hyperledger and Sawtooth?
+## What is the difference between Hyperledger and Sawtooth?
 
 -   Sawtooth (or Hyperledger Sawtooth) is a blockchain implementation
     initially contributed by Intel Corporation and now maintained by the
@@ -169,7 +171,7 @@ details.
     technologies. It is a global collaboration, hosted by The Linux
     Foundation\" See <https://www.hyperledger.org/>.
 
-# What is the difference between Sawtooth, Sawtooth Lake, and Hyperledger Sawtooth?
+## What is the difference between Sawtooth, Sawtooth Lake, and Hyperledger Sawtooth?
 
 Sawtooth Lake was Intel\'s original code name for its blockchain
 research project, named after a lake in the Sawtooth Mountains of
@@ -178,7 +180,7 @@ Hyperledger consortium, the name was changed to Hyperledger Sawtooth.
 Sawtooth is just shorthand for Hyperledger Sawtooth and are the same
 thing.
 
-# What is the difference between Hyperledger Sawtooth and Hyperledger Fabric?
+## What is the difference between Hyperledger Sawtooth and Hyperledger Fabric?
 
 Hyperledger Sawtooth and Fabric are two independent implementations of a
 blockchain under the Linux Foundation\'s Hyperledger Blockchain project.
@@ -202,7 +204,7 @@ Here are some differences:
 
 Based on <https://www.skcript.com/svr/hyperledger-fabric-to-sawtooth>
 
-# What differentiates Sawtooth from other blockchains?
+## What differentiates Sawtooth from other blockchains?
 
 This includes:
 
@@ -217,13 +219,13 @@ This includes:
 For more on Sawtooth differentiation and philosophy, see
 <https://www.hyperledger.org/blog/2016/11/02/meet-sawtooth-lake>
 
-# Should I use Sawtooth or other blockchain software for my application?
+## Should I use Sawtooth or other blockchain software for my application?
 
 You should look for existing blockchain platforms that will fit your use
 case, sort them out by features, maturity (are they production ready?),
 and community support. We hope Sawtooth fits your needs.
 
-# How does a blockchain differ from a database?
+## How does a blockchain differ from a database?
 
 -   A database has one master copy. A blockchain has multiple
     authoritative copies
@@ -231,12 +233,12 @@ and community support. We hope Sawtooth fits your needs.
     are immutable and cannot be undone after a commit
 -   A database must have a trusted central authority
 
-# Does Sawtooth focus on developing blockchain solutions for sustainable fishing?
+## Does Sawtooth focus on developing blockchain solutions for sustainable fishing?
 
 No. The Seafood Supply Chain application is a proof-of-concept. Sawtooth
 is a general-purpose enterprise blockchain platform.
 
-# What does an immutable blockchain mean?
+## What does an immutable blockchain mean?
 
 It means that blocks already committed cannot be \"undone\" or deleted.
 The block\'s transactions are in the blockchain forever. The only way to
@@ -252,14 +254,14 @@ This is different from immutable variables. The difference is that with
 blockchain *transactions* are immutable. With some programming languages
 (such as Rust), *variables* are immutable.
 
-# How do I tell what version of Sawtooth is running?
+## How do I tell what version of Sawtooth is running?
 
 ``` sh
 $ sawtooth --version
 sawtooth-cli (Hyperledger Sawtooth) version 1.1.2
 ```
 
-# What\'s the difference between the `sawtooth`, `sawadm`, `sawnet`, and `sawset` commands?
+## What\'s the difference between the `sawtooth`, `sawadm`, `sawnet`, and `sawset` commands?
 
 `sawadm`
 
@@ -285,24 +287,24 @@ sawtooth-cli (Hyperledger Sawtooth) version 1.1.2
 For more information, see the Sawtooth CLI Command Reference at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/cli.html>
 
-# Must software developed with Sawtooth be open source?
+## Must software developed with Sawtooth be open source?
 
 IANAL; however, Sawtooth is released under the Apache 2 license, a
 permissive license, and so should be able to be used in both open and
 closed source applications.
 
-# Can I copy a Sawtooth Core source file to include with my project?
+## Can I copy a Sawtooth Core source file to include with my project?
 
 Yes, if you follow the Apache 2 license terms, which include requiring
 preserving copyright and license notices. Sawtooth depends on other
 runtime software that has separate terms.
 
-# I get a usage error running `sawnet peers` or `sawnet list-blocks`
+## I get a usage error running `sawnet peers` or `sawnet list-blocks`
 
 These commands were added after the Sawtooth 1.0.5 release and are not
 available in earlier releases.
 
-# How do I detect a forked blockchain in a Sawtooth network?
+## How do I detect a forked blockchain in a Sawtooth network?
 
 Use [sawnet compare-chains]{.title-ref} and look for a different set of
 block(s) at the head of the chains. This is distinct from the case where
@@ -312,26 +314,26 @@ partitioned and cannot fully communicate. It can also be the result of a
 bug in transaction processing (for example, transactions don\'t
 serialize in a deterministic way).
 
-# What does `Failed to reach common ancestor` mean from `sawnet compare-chains`?
+## What does `Failed to reach common ancestor` mean from `sawnet compare-chains`?
 
 It means the blockchains have no blocks in common, including the genesis
 block. This usually happens when a second node is added with its own
 genesis node. Only the first node in a Sawtooth network should be
 created with a genesis block.
 
-# Does Hyperledger Composer support Sawtooth?
+## Does Hyperledger Composer support Sawtooth?
 
 No. IBM has also reduced Composer development to maintenance mode. See:
 <https://lists.hyperledger.org/g/composer/message/125>
 
-# Does Hyperledger Explorer support Sawtooth?
+## Does Hyperledger Explorer support Sawtooth?
 
 No, not now. There is a Sawtooth Explorer at
 <https://github.com/hyperledger/sawtooth-explorer> It may or may not be
 merged with Hyperledger Explorer in the future. Sawtooth Explorer
 provides visibility into the Sawtooth blockchain for node operators.
 
-# How do I setup and use Sawtooth Explorer?
+## How do I setup and use Sawtooth Explorer?
 
 -   Install, configure, and run Hyperledger Sawtooth
 -   Clone Sawtooth Explorer with
@@ -350,18 +352,18 @@ provides visibility into the Sawtooth blockchain for node operators.
 -   More details are at
     <https://github.com/hyperledger/sawtooth-explorer>
 
-# How do I report a bug?
+## How do I report a bug?
 
 Use the JIRA bug tracking system at
 <https://jira.hyperledger.org/projects/STL/issues/STL-51?filter=allopenissues>
 You need an account, which you create with the Linux foundation at
 <https://identity.linuxfoundation.org/>, then login with that account.
 
-# How do I report a security bug?
+## How do I report a security bug?
 
 For security bugs only, send an email to <security@hyperledger.org>
 
-# What encryption algorithms are used by Sawtooth?
+## What encryption algorithms are used by Sawtooth?
 
 -   Transaction signing with ECDSA 256-bit key using curve secp256k1
     (same as Bitcoin)
@@ -371,7 +373,7 @@ For security bugs only, send an email to <security@hyperledger.org>
 -   PoET uses AES-GCM to encrypt its monotonic counter
 -   Names are hashed with SHA-512 or SHA-256
 
-# Can you explain Global State with an example?
+## Can you explain Global State with an example?
 
 Global state is where sawtooth and TPs read/write blockchain data.
 Examples are a-plenty if you look at the github repo examples (intkey,
@@ -392,7 +394,7 @@ state will contain the balance in the different accounts corresponding
 at the current point in time, after all transactions in the chain have
 been processed.
 
-# What is the difference between the Merkle Radix Trie and the blockchain?
+## What is the difference between the Merkle Radix Trie and the blockchain?
 
 The blockchain itself just stores transactions, not state, so reading
 the data in the last block does not say much by itself. Data in the
@@ -403,14 +405,14 @@ One can easily identify if something changed when the root hash changes.
 The Merkle Trie addressing allows quick retrieval at an address and
 partial queries of address prefixes.
 
-# Are 32-byte IDs within a transaction family large enough to avoid collisions?
+## Are 32-byte IDs within a transaction family large enough to avoid collisions?
 
 Yes. If they are being generated with a random distribution, the chances
 are vanishingly rare. A UUID is only 16-bytes and if you generated a
 billion per second, it would take 100 years before you would expect 50%
 odds of a collision.
 
-# Why is Sawtooth capable of supporting large network populations of nodes?
+## Why is Sawtooth capable of supporting large network populations of nodes?
 
 One of the reasons is the homogeneous nature of Sawtooth Nodes. You
 don\'t have different nodes with specialized functions, so it\'s easy to
@@ -420,13 +422,13 @@ efficient in small networks and you\'ll likely get much better
 performance with other mechanisms in a small network, but PoET handles
 large populations easily.
 
-# Is there a Sawtooth security evaluation?
+## Is there a Sawtooth security evaluation?
 
 Yes. This is a pre-1.0 release audit, that was required to be a part of
 the Linux Foundation\'s Hyperledger project. See
 <https://www.hyperledger.org/blog/2018/05/22/hyperledger-sawtooth-security-audit>
 
-# Are there any examples of Sawtooth permissions?
+## Are there any examples of Sawtooth permissions?
 
 -   off-chain permissioning is in `/etc/sawtooth/validator.toml` (see
     `validator.toml.example` )
@@ -445,11 +447,11 @@ the Linux Foundation\'s Hyperledger project. See
     Identity Transaction Processor, documented at
     <https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/identity_transaction_family.html>
 
-# Does Sawtooth restore state when a peer restarts or when a peer is out-of-sync with the network?
+## Does Sawtooth restore state when a peer restarts or when a peer is out-of-sync with the network?
 
 Yes.
 
-# When content at an address is changed several times by the transactions in a block, what appears in the state (Merkle Tree)?
+## When content at an address is changed several times by the transactions in a block, what appears in the state (Merkle Tree)?
 
 The only thing that hits state is the aggregate (final) set of address
 changes due to the transactions in the block. If multiple transactions
@@ -457,7 +459,7 @@ in a single block modify an address, there will only be one \'set\'. You
 could see the transaction level changes in the receipts if you needed
 to.
 
-# In order to create a Sawtooth application, do I need to clone and modify the entire `sawtooth-core` repository?
+## In order to create a Sawtooth application, do I need to clone and modify the entire `sawtooth-core` repository?
 
 No. It can be done that way, but it\'s not recommended. All you need to
 write is the client application and the Transaction Processor. The core
@@ -474,7 +476,7 @@ simple sample applications that are in standalone source repositories:
     This will be the example in a future edX.org course on Sawtooth app
     development
 
-# What is Sawtooth *global state agreement*?
+## What is Sawtooth *global state agreement*?
 
 Sawtooth writes state to a verifiable structure called a *Radix Merkle
 Trie* and the verification part (the root hash) is included in the
@@ -492,7 +494,7 @@ a production network, but it is also helpful during development. Running
 applications over test networks can help identify nondeterminism and
 that will only be apparent if you form consensus over state.
 
-# How can CPU vulnerabilities such as Spectre and Meltdown impact Sawtooth?
+## How can CPU vulnerabilities such as Spectre and Meltdown impact Sawtooth?
 
 Sawtooth is a CPU-agnostic blockchain platform. It includes an optional
 TEE/SGX feature which enhances BFT protections for PoET. PoET is
@@ -515,7 +517,7 @@ transactions. If it does the other nodes will just reject those
 transactions and the associated block(s) and they will not commit
 network-wide.
 
-# Are Docker containers required to run Sawtooth?
+## Are Docker containers required to run Sawtooth?
 
 Docker is a quick and easy way to get Sawtooth up and running. However,
 unlike other Hyperledger ledgers, Sawtooth does not require Docker.
@@ -543,19 +545,19 @@ commands in a `Dockerfile` as follows:
 -   Start your application client (see `CMD` in your client
     `Dockerfile`)
 
-# What cloud services support Sawtooth Blockchain?
+## What cloud services support Sawtooth Blockchain?
 
 AWS offers Sawtooth, and other cloud providers plan to offer Sawtooth on
 their cloud service.
 
-# Does Sawtooth support Ethereum?
+## Does Sawtooth support Ethereum?
 
 Yes, through Seth, Sawtooth\'s Ethereum-compatible Transaction
 Processor. It implements a Ethereum Virtual Machine (EVM) so Seth can
 run Ethereum Dapps written in Solidity. Seth uses Hyperledger Burrow as
 the code base.
 
-# Does Sawtooth use blockchain mining?
+## Does Sawtooth use blockchain mining?
 
 No. There is no inherent need to incentivize miners in a
 private/permissioned blockchain. Part of the permissioned model is that
@@ -565,7 +567,7 @@ you are asking strangers to verify the data for you. In that case you
 probably do need to incentivize them somehow, and a currency is a common
 way to do so.
 
-# What is the \"head node\" or \"master node\" in Sawtooth?
+## What is the \"head node\" or \"master node\" in Sawtooth?
 
 Sawtooth has no concept of a \"head node\" or \"master node\". Once
 multiple nodes are up and running, each node has the same genesis block
@@ -573,7 +575,7 @@ multiple nodes are up and running, each node has the same genesis block
 on the network has no special meaning, other than being the node that
 created the genesis block.
 
-# What is a Sawtooth Role?
+## What is a Sawtooth Role?
 
 A Role is a set if permissions. Identities could be assigned one or more
 roles. A role is a convenient shorthand because role(s) can be assigned
@@ -581,7 +583,7 @@ to several identities rather than tediously assigning individual
 permissions to each identity. See
 <https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/configuring_permissions.html>
 
-# What Sawtooth Roles are defined?
+## What Sawtooth Roles are defined?
 
 transactor
 
@@ -607,8 +609,6 @@ network.consensus
 
 :   nodes authorized to broadcast new blocks with Gossip
 
-::: mininav
 [TOP](/faq/) [NEXT](/faq/installation/)
-:::
 
 © Copyright 2018, Intel Corporation.
