@@ -1,18 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Installation and Configuration
-permalink: /faq/installation/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Installation and Configuration
-
-[PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
-[NEXT](/faq/transaction-processing/)
 
 ## How do I list and install Sawtooth packages?
 
@@ -404,8 +396,3 @@ $ sudo -u sawtooth sawset proposal create \
      sawtooth.consensus.algorithm.version=0.1 -o config.batch
 $ sudo -u sawtooth sawadm genesis config-genesis.batch config.batch 
 ```
-
-[PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
-[NEXT](/faq/transaction-processing/)
-
-© Copyright 2018, Intel Corporation.

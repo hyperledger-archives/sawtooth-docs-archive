@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Permissioning
-permalink: /faq/permissioning/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Permissioning
-
-[PREVIOUS](/faq/rest/) [TOP](/faq/) [NEXT](/faq/docker/)
 
 ## How to solve this error `Wait timed out! Policy was not committed... PENDING` when `sawtooth identity policy create` is run?
 
@@ -26,7 +19,3 @@ to permissioning, follow these steps:
 Refer
 <https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/configuring_permissions.html>
 for detailed information.
-
-[PREVIOUS](/faq/rest/) [TOP](/faq/) [NEXT](/faq/docker/)
-
-© Copyright 2018, Intel Corporation.

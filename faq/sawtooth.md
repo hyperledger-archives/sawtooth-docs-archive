@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Hyperledger Sawtooth in General
-permalink: /faq/sawtooth/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Hyperledger Sawtooth in General
-
-[TOP](/faq/) [NEXT](/faq/installation/)
 
 ## What is Sawtooth?
 
@@ -608,7 +601,3 @@ network
 network.consensus
 
 :   nodes authorized to broadcast new blocks with Gossip
-
-[TOP](/faq/) [NEXT](/faq/installation/)
-
-© Copyright 2018, Intel Corporation.

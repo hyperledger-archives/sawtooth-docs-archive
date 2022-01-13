@@ -1,18 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Validator
-permalink: /faq/validator/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Validator
-
-[PREVIOUS](/faq/transaction-processing/) [TOP](/faq/)
-[NEXT](/faq/consensus/)
 
 ## What validation does the validator do?
 
@@ -452,8 +444,3 @@ are no storage volumes mapped to the VM.
 ## What are the maximum number of blocks in a Sawtooth blockchain?
 
 There is no limit, other than the available storage for a node.
-
-[PREVIOUS](/faq/transaction-processing/) [TOP](/faq/)
-[NEXT](/faq/consensus/)
-
-© Copyright 2018, Intel Corporation.

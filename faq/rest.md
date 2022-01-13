@@ -1,16 +1,9 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - REST
-API permalink: /faq/rest/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 # Sawtooth FAQ: REST API
-
-[PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
 
 ## What\'s the difference between the `sawtooth-rest-api --bind` and `--connect` options?
 
@@ -177,7 +170,3 @@ Sawtooth to remove that check.
 
 It means the command format is correct, but the identifier does not
 exist.
-
-[PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
-
-© Copyright 2018, Intel Corporation.

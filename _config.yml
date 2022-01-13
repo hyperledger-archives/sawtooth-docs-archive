@@ -81,6 +81,12 @@ defaults:
         layout: "sidebars"
         sidebar: "1.0"
     - scope:
+        path: "faq"
+        type: "pages"
+      values:
+        layout: "sidebars"
+        sidebar: "faq"
+    - scope:
         path: "community"
         type: "pages"
       values:

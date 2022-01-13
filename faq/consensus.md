@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Consensus Algorithms
-permalink: /faq/consensus/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Consensus Algorithms (including PoET)
-
-[PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
 
 ## What consensus algorithms does Sawtooth support?
 
@@ -344,7 +337,3 @@ be made in files
 
 The Intel SGX IAS v3 API is at
 <https://software.intel.com/sites/default/files/managed/7e/3b/ias-api-spec.pdf>
-
-[PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
-
-© Copyright 2018, Intel Corporation.

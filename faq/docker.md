@@ -1,9 +1,4 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Using Docker
-permalink: /faq/docker/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
@@ -11,9 +6,7 @@ permalink: /faq/docker/
 
 # Sawtooth FAQ: Using Docker
 
-[PREVIOUS](/faq/permissioning/) [TOP](/faq/) [NEXT](/faq/upgrade/)
-
-# Can I run Sawtooth without Docker?
+## Can I run Sawtooth without Docker?
 
 Yes.
 
@@ -244,7 +237,3 @@ well and not just down the containers. For example the following removes
 containers and volumes
 
     docker-compose down -v
-
-[PREVIOUS](/faq/permissioning/) [TOP](/faq/) [NEXT](/faq/upgrade/)
-
-© Copyright 2018, Intel Corporation.

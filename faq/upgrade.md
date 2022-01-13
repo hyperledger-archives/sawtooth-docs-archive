@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Upgrading Hyperledger Sawtooth
-permalink: /faq/upgrade/
 # Copyright (c) 2019, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License 
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Upgrading Hyperledger Sawtooth
-
-[PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
 
 ## Points to consider while upgrading Hyperledger Sawtooth
 
@@ -68,7 +61,3 @@ again.
     size depends on the rate at which blocks are published. Client
     should consider this queue full case at validator end and retry the
     same transaction when the validator is able to handle.
-
-[PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
-
-© Copyright 2018, Intel Corporation.

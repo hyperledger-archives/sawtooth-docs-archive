@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Transaction Processing
-permalink: /faq/transaction-processing/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Transaction Processing
-
-[PREVIOUS](/faq/installation/) [TOP](/faq/) [NEXT](/faq/validator/)
 
 ## Does a client send a transaction request to all the validators in the network?
 
@@ -375,7 +368,3 @@ serialize the same. You should log the contents of [entries]{.title-ref}
 prior to setState calls in your transaction processor. There will likely
 be a difference between the publishing and validation executions of the
 transaction (they always need to be identical)
-
-[PREVIOUS](/faq/installation/) [TOP](/faq/) [NEXT](/faq/validator/)
-
-© Copyright 2018, Intel Corporation.

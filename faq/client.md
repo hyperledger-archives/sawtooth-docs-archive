@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [faq]
-title: Sawtooth FAQ - Client
-permalink: /faq/client/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # Sawtooth FAQ: Client
-
-[PREVIOUS](/faq/consensus/) [TOP](/faq/) [NEXT](/faq/rest/)
 
 ## What is a Sawtooth Client?
 
@@ -162,7 +155,3 @@ McCullough](https://github.com/colincmcc) gives these steps:
 Until Rust and the RustSDK are a bit more mature, I still recommend
 using a Docker container for development to avoid any MS Windows
 troubles. You can reach me at <hello@colinmac.me> with any questions.
-
-[PREVIOUS](/faq/consensus/) [TOP](/faq/) [NEXT](/faq/rest/)
-
-© Copyright 2018, Intel Corporation.

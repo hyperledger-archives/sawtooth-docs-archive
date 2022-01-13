@@ -1,17 +1,10 @@
 ---
-layout: default
-hide: true
-tags: [appendix]
-title: Appendix - Sawtooth Transaction Family Prefixes
-permalink: /faq/prefixes/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
 ---
 
 # FAQ Appendix: Transaction Family Prefixes
-
-[PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
 
 This is an unofficial list of some Transaction Family (TF) prefixes.
 There is no central registry, most or all of these TFs are found on
@@ -65,7 +58,3 @@ For base TF specifications, see
 | pub_key                                  | Protobuf        | a23be1                    | REMME REMChain                                                                                                                                                                                                  |
 | bitagora- ballots                        | JSON            | b42861                    | Bitagora voting ballot                                                                                                                                                                                          |
 | bitagora- polls                          | JSON            | 154f9c                    | Bitagora voting polls                                                                                                                                                                                           |
-
-[PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
-
-© Copyright 2018, Intel Corporation.
