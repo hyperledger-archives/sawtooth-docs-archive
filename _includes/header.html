@@ -16,9 +16,6 @@
             {% assign dir = page.dir | slice: 0, 5 %}
             <a class="nav-link{% if dir == '/faq/' %} active{% endif %}" href="{% link faq/index.md %}"><span>FAQ</span></a>
         </li><li class="nav-item">
-            {% assign dir = page.dir | slice: 0, 10 %}
-            <a class="nav-link{% if dir == '/examples/' %} active{% endif %}" href="{% link examples/index.md %}"><span>Examples</span></a>
-        </li><li class="nav-item">
             {% assign dir = page.dir | slice: 0, 11 %}
             <a class="nav-link{% if dir == '/community/' %} active{% endif %}" href="{% link community/index.md %}"><span>Community</span></a>
         </li></ul>
