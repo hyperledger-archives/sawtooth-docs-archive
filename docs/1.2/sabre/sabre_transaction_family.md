@@ -1,8 +1,6 @@
----
-title: Sabre Transaction Family
----
+# Sabre Transaction Family
 
-# Overview
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -17,14 +15,14 @@ major browsers. It is well-suited for the purposes of smart contract
 execution due to its sandboxed design, growing popularity, and tool
 support.
 
-# State
+## State
 
 All Sabre objects are serialized using Protocol Buffers before being
 stored in state. Theses objects include namespace registries, contract
 registries, and contracts. All objects are stored in a list to handle
 hash collisions.
 
-## NamespaceRegistry
+### NamespaceRegistry
 
 A namespace is a state address prefix used to identify a portion of
 state. The NamespaceRegistry stores the namespace, the owners of the
@@ -64,7 +62,7 @@ message NamespaceRegistryList {
 }
 ```
 
-## ContractRegistry {#TPdoc-ContractRegistry-label}
+### ContractRegistry {#TPdoc-ContractRegistry-label}
 
 ContractRegistry keeps track of versions of the Sabre contract and the
 list of owners. A ContractRegistry is uniquely identified by the name of
@@ -104,7 +102,7 @@ message ContractRegistryList {
 }
 ```
 
-## Contract
+### Contract
 
 A Contract represents the Sabre smart contract. It is uniquely
 identified by its name and version number. The contract also contains
@@ -131,7 +129,7 @@ message ContractList {
 }
 ```
 
-## Smart Permission
+### Smart Permission
 
 A smart permission is an executable piece of WebAssembly code. A smart
 permission is named, and associated with an organization created via the
@@ -139,11 +137,11 @@ Pike transaction processor.
 
 A smart permission is defined with three fields:
 
--   name: the name of the smart permission function as defined by a
+-   `name`: the name of the smart permission function as defined by a
     `CreateContractAction`
--   function: a byte array that stores the executable code of the smart
+-   `function`: a byte array that stores the executable code of the smart
     permission
--   org_id: The identifier of the organization to which the smart
+-   `org_id`: The identifier of the organization to which the smart
     permission function belongs. This organization is created via the
     Pike transaction processor
 
@@ -155,12 +153,12 @@ message SmartPermission {
 }
 ```
 
-## Smart Permission List
+### Smart Permission List
 
 Smart Permissions whose addresses collide are stored in a smart
 permission list. A smart permission list contains one field:
 
--   smart_permissions: a list of smart permissions
+-   `smart_permissions`: a list of smart permissions
 
 ``` protobuf
 message SmartPermissionList {
@@ -168,41 +166,41 @@ message SmartPermissionList {
 }
 ```
 
-## Addressing
+### Addressing
 
 Sabre objects are stored under 4 namespaces:
 
-> -   `00ec00`: Namespace for NamespaceRegistry
-> -   `00ec01`: Namespace for ContractRegistry
-> -   `00ec02`: Namespace for Contracts
-> -   `00ec03`: Namespace for Smart Permissions
+-   `00ec00`: Namespace for NamespaceRegistry
+-   `00ec01`: Namespace for ContractRegistry
+-   `00ec02`: Namespace for Contracts
+-   `00ec03`: Namespace for Smart Permissions
 
 The remaining 64 characters of the object\'s address is the following:
 
-:   -   NamespaceRegistry: the first 64 characters of the hash of the
-        first 6 characters of the namespaces.
-    -   ContractRegistry: the first 64 characters of the hash of the
-        name.
-    -   Contract: the first 64 characters of the hash of
-        \"name,version\"
-    -   Smart Permission: first 6 characters of the hash of the
-        organization ID and the first 58 characters of the hash of the
-        smart permission name.
+-   NamespaceRegistry: the first 64 characters of the hash of the
+    first 6 characters of the namespaces.
+-   ContractRegistry: the first 64 characters of the hash of the
+    name.
+-   Contract: the first 64 characters of the hash of
+    \"name,version\"
+-   Smart Permission: first 6 characters of the hash of the
+    organization ID and the first 58 characters of the hash of the
+    smart permission name.
 
 For example, the address for a contract with name \"example\" and
 version \"1.0\" address would be:
 
-``` pycon
+```
 >>> '00ec02' + get_hash("example,1.0")
 '00ec0248a8e00e3fbca83815668ec5eee730023e6eb61b03b54e8cae1729bf5a0bec64'
 ```
 
-# Transaction Payload and Execution
+## Transaction Payload and Execution
 
 Below, the different payload actions are defined along with the inputs
 and outputs that are required in the transaction header.
 
-## SabrePayload
+### SabrePayload
 
 A SabrePayload contains an action enum and the associated action
 payload. This allows for the action payload to be dispatched to the
@@ -253,7 +251,7 @@ message SabrePayload {
 }
 ```
 
-## CreateContractAction
+### CreateContractAction
 
 Creates a contract and updates the associated contract registry.
 
@@ -290,21 +288,17 @@ The outputs for CreateContractAction must include:
 -   the address for the new contract
 -   the address for the contract registry
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> These inputs/outputs are for the general Sawtooth transaction. They are
+> required for any transaction, whether it is a Sabre transaction or a
+> transaction of any other transaction family. However, the inputs/outputs
+> fields in the `CreateContractAction`, above, are not related to the ones
+> listed in the Sawtooth transaction. The `CreateContractAction`
+> inputs/outputs are used to enforce namespace permissions for the
+> contract.
 
-These inputs/outputs are for the general Sawtooth transaction. They are
-required for any transaction, whether it is a Sabre transaction or a
-transaction of any other transaction family. However, the inputs/outputs
-fields in the `CreateContractAction`, above, are not related to the ones
-listed in the Sawtooth transaction. The `CreateContractAction`
-inputs/outputs are used to enforce namespace permissions for the
-contract.
-:::
-
-## DeleteContractAction
+### DeleteContractAction
 
 Delete a contract and remove its entry from the associated contract
 registry.
@@ -335,7 +329,7 @@ The outputs for DeleteContractAction must include:
 -   the address for the contract
 -   the address for the contract registry
 
-## ExecuteContractAction
+### ExecuteContractAction
 
 Execute the contract.
 
@@ -385,7 +379,7 @@ The outputs for ExecuteContractAction must include:
 -   the addresses for every namespace registry required to check the
     provided contract outputs
 
-## CreateContractRegistryAction
+### CreateContractRegistryAction
 
 Create a contract registry with no version.
 
@@ -419,7 +413,7 @@ The outputs for CreateContractRegistryAction must include:
 
 -   the address for the contract registry
 
-## DeleteContractRegistryAction
+### DeleteContractRegistryAction
 
 Deletes a contract registry if there are no versions.
 
@@ -445,7 +439,7 @@ The outputs for DeleteContractRegistryAction must include:
 
 -   the address for the contract registry
 
-## UpdateContractRegistryOwnersAction
+### UpdateContractRegistryOwnersAction
 
 Update the contract registry\'s owners list.
 
@@ -472,7 +466,7 @@ The outputs for UpdateContractRegistryOwnersAction must include:
 
 -   the address for the contract registry
 
-## CreateNamespaceRegistryAction
+### CreateNamespaceRegistryAction
 
 Creates a namespace registry with no permissions.
 
@@ -500,7 +494,7 @@ The outputs for CreateNamespaceRegistryAction must include:
 
 -   the address for the namespace registry
 
-## DeleteNamespaceRegistryAction
+### DeleteNamespaceRegistryAction
 
 Deletes a namespace registry if it does not contains any permissions.
 
@@ -526,7 +520,7 @@ The outputs for DeleteNamespaceRegistryAction must include:
 
 -   the address for the namespace registry
 
-## UpdateNamespaceRegistryOwnersAction
+### UpdateNamespaceRegistryOwnersAction
 
 Update the namespace registry\'s owners list.
 
@@ -554,7 +548,7 @@ The outputs for UpdateNamespaceRegistryOwnersAction must include:
 
 -   the address for the namespace registry
 
-## CreateNamespaceRegistryPermissionAction
+### CreateNamespaceRegistryPermissionAction
 
 Adds a permission entry into a namespace registry for the associated
 namespace.
@@ -590,7 +584,7 @@ The outputs for CreateNamespaceRegistryPermissionAction must include:
 
 -   the address for the namespace registry
 
-## DeleteNamespaceRegistryPermissionAction
+### DeleteNamespaceRegistryPermissionAction
 
 Delete a permission entry in a namespace registry for the associated
 namespace.
@@ -617,7 +611,7 @@ The outputs for DeleteNamespaceRegistryPermissionAction must include:
 
 -   the address for the namespace registry
 
-## CreateSmartPermissionAction
+### CreateSmartPermissionAction
 
 This operation loads a smart permission into Global State. The bytes
 provided are compiled smart permission code. org_id is the Organization
@@ -637,7 +631,7 @@ message CreateSmartPermissionAction {
 }
 ```
 
-## UpdateSmartPermissionAction
+### UpdateSmartPermissionAction
 
 This operation updates the bytes of smart permission function stored in
 Global State. Only an agent that holds an admin role for the included
@@ -653,7 +647,7 @@ message UpdateSmartPermissionAction {
 }
 ```
 
-## DeleteSmartPermissionAction
+### DeleteSmartPermissionAction
 
 This operation deletes an existing smart permission function stored in
 Global State. Only an agent that holds an admin role for the included
@@ -668,18 +662,18 @@ message DeleteSmartPermissionAction {
 }
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The required inputs and outputs are defined for each action payload
 above.
 
-## Dependencies
+### Dependencies
 
 No dependencies.
 
-## Family
+### Family
 
 -   family_name: \"sabre\"
 -   family_version: \"0.3\"

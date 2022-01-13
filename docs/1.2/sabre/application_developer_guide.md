@@ -1,6 +1,4 @@
----
-title: Sabre Application Developer\'s Guide
----
+# Sabre Application Developer\'s Guide
 
 The guide covers development of Sabre smart contracts which can be
 stored on chain and executed using the Sabre Transaction Processor.
@@ -17,16 +15,12 @@ smart contract written in rust called intkey-multiply. This smart
 contract will take intkey values, multiply them, and store the new
 intkey key value pair in the intkey state.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> This guide assumes familiarity with Sawtooth Transaction Processors and
+> that cargo/rust is already installed.
 
-This guide assumes familiarity with Sawtooth Transaction Processors and
-that cargo/rust is already installed.
-:::
-
-# Writing A Sabre Smart Contract {#writing-sabre-sm-label}
+## Writing A Sabre Smart Contract {#writing-sabre-sm-label}
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -39,7 +33,7 @@ processor API. If you are unfamiliar, please take a look at
 
 Include the Sabre SDK in the dependencies list of the Cargo.toml file.
 
-``` none
+```toml
 [dependencies]
 sabre-sdk = {git = "https://github.com/hyperledger/sawtooth-sabre"}
 ```
@@ -55,29 +49,23 @@ use sabre_sdk::TpProcessRequest;
 use sabre_sdk::{WasmPtr, execute_entrypoint};
 ```
 
--   ApplyError: Used to raise an InvalidTransaction or an InternalError
+ApplyError
+: Used to raise an InvalidTransaction or an InternalError
 
--   
+TransactionHandler
+: Mimics the Sawtooth SDK TransactionHandler and should be used when writing a
+  smart contract that can also function as a Transaction Processor.
 
-    TransactionHandler: Mimics the Sawtooth SDK TransactionHandler and should be
+TpProcessRequest
+: Mimics the TpProcessRequest used by the Transaction Processor API. The
+  payload, header and signer can be retrieved from this struct.
 
-    :   used when writting a smart contract that can also function as a
-        Transaction Processor.
+WasmPtr
+: Pointer to location in executor memory.
 
--   
-
-    TpProcessRequest: Mimics the TpProcessRequest used by the Transaction
-
-    :   Processor API. The payload, header and signer can be retrieved
-        from this struct.
-
--   WasmPtr: Pointer to location in executor memory.
-
--   
-
-    execute_entrypoint: Required by the entrypoint function used by the wasm
-
-    :   interpreter to execute the contract.
+execute_entrypoint
+: Required by the entrypoint function used by the WASM Interpreter to execute
+  the contract.
 
 Every smart contract must contain an entrypoint function and an apply
 function that can be passed into execute_entrypoint.
@@ -107,7 +95,7 @@ fn main() {
 }
 ```
 
-## Converting a Transaction Processor to a Smart Contract
+### Converting a Transaction Processor to a Smart Contract
 
 Due to the similar API used for the Sabre SDK and the Sawtooth
 Transaction Processor SDK it is very simple to convert an existing
@@ -125,7 +113,7 @@ processors dependencies should go under
 
 The following is an example for intkey-multiply
 
-``` none
+```toml
 [package]
 name = "intkey-multiply"
 version = "0.1.0"
@@ -235,26 +223,22 @@ pub unsafe fn entrypoint(payload: WasmPtr, signer: WasmPtr, signature: WasmPtr) 
 }
 ```
 
-::: note
-::: title
-Note
-:::
-
-Though the goal is compatibility with the transaction processor API, it
-is not always trivial to compile commonly used Rust dependencies into
-Wasm. This may improve over time as Wasm popularity grows, or it may
-persist into the future.
-
-For example, cbor-codec, cbor crate used in the intkey transaction
-processor, does not compile into wasm and serde_cbor is missing libm
-dependencies at runtime. To bypass this, custom intkey cbor encode and
-decode functions had to be written for intkey multiply.
-:::
+> **Note**
+>
+> Though the goal is compatibility with the transaction processor API, it
+> is not always trivial to compile commonly used Rust dependencies into
+> Wasm. This may improve over time as Wasm popularity grows, or it may
+> persist into the future.
+>
+> For example, cbor-codec, cbor crate used in the intkey transaction
+> processor, does not compile into wasm and serde_cbor is missing libm
+> dependencies at runtime. To bypass this, custom intkey cbor encode and
+> decode functions had to be written for intkey multiply.
 
 For the full intkey-multiply example look at
 sawtooth-sabre/example/intkey_multiply/processor
 
-# Logging in a Sabre Smart Contract {#logging-in-smart-contracts}
+## Logging in a Sabre Smart Contract {#logging-in-smart-contracts}
 
 The Sabre SDK provides log macros that match the provided log macros
 from the [log
@@ -274,7 +258,7 @@ info!(
 For debugging purposes, add a log statement to the final match statement
 in the apply method:
 
-``` 
+```rust
 #[cfg(target_arch = "wasm32")]
 // Sabre apply must return a bool
 fn apply(
@@ -299,9 +283,9 @@ smart contracts. For example, if the Sabre transaction processor has a
 log level of `info` a `debug` statement in a smart contract will not be
 logged.
 
-# Compiling the Contract {#compiling-smart-contract-label}
+## Compiling the Contract {#compiling-smart-contract-label}
 
-## Rust
+### Rust
 
 To compile your smart contract into wasm you need to use Rust\'s nightly
 tool chain and need to add target wasm32-unknown-unknown.
@@ -319,27 +303,23 @@ sawtooth-sabre/example/intkey_multiply/processor:
 $ cargo build --target wasm32-unknown-unknown --release
 ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> The compiled Wasm file is going to be quite large due to the fact that
+> Rust does not have a proper linker yet. Here are a few simple things you
+> can do to help reduce the size.
+>
+> -   Compile in Release mode (`--release`)
+> -   Remove any `"{:?}"` from any format strings, as this pulls in a
+>     bunch of stuff
+> -   Use this script to reduce the size
+>     <https://www.hellorust.com/news/native-wasm-target.html>
 
-The compiled Wasm file is going to be quite large due to the fact that
-Rust does not have a proper linker yet. Here are a few simple things you
-can do to help reduce the size.
+### AssemblyScript
 
--   Compile in \--release mode
--   Remove any \"{:?}\" from any format strings, as this pulls in a
-    bunch of stuff
--   Use this script to reduce the size
-    <https://www.hellorust.com/news/native-wasm-target.html>
-:::
+#### Using asinit
 
-## AssemblyScript
-
-### Using asinit
-
-[asinit]{.title-ref} is a tool for initializing an AssemblyScript
+*asinit* is a tool for initializing an AssemblyScript
 project. Run the following to create a new AssemblyScript project.
 
 ``` console
@@ -347,28 +327,28 @@ $ npm install --save-dev assemblyscript
 $ npx asinit .
 ```
 
-Then, edit the [package.json]{.title-ref} to generate WebAssembly that
-imports [abort]{.title-ref}.
+Then, edit the *package.json* to generate WebAssembly that
+imports *abort*.
 
 ``` json
 {
-"name": "my-sc-project",
-"version": "0.0.1",
-"main": "assembly/index.ts",
-"types": "build/index.d.ts",
-"scripts": {
-"build:tsd": "asc assembly/index.ts -d build/index.d.ts",
-"asbuild:optimized": "asc assembly/index.ts \
--b build/optimized.wasm \
--t build/optimized.wat \
---sourceMap \
---importMemory \
---noAssert \
---use abort= \
---validate \
---optimize",
-"asbuild": "npm run asbuild:optimized && npm run build:tsd"
-}
+    "name": "my-sc-project",
+    "version": "0.0.1",
+    "main": "assembly/index.ts",
+    "types": "build/index.d.ts",
+    "scripts": {
+        "build:tsd": "asc assembly/index.ts -d build/index.d.ts",
+        "asbuild:optimized": "asc assembly/index.ts \
+        -b build/optimized.wasm \
+        -t build/optimized.wat \
+        --sourceMap \
+        --importMemory \
+        --noAssert \
+        --use abort= \
+        --validate \
+        --optimize",
+        "asbuild": "npm run asbuild:optimized && npm run build:tsd"
+    }
 }
 ```
 
@@ -378,7 +358,7 @@ Build a project run the following
 npm run asbuild
 ```
 
-### Without asinit
+#### Without asinit
 
 In order to produce Sawtooth Sabre compatible WebAssembly install
 AssemblyScript Compiler (asc) and run the following command.
@@ -397,7 +377,7 @@ $ asc assembly/index.ts \
     --optimize
 ```
 
-# Running a Sabre Smart Contract
+## Running a Sabre Smart Contract
 
 The previous section described an example smart contract,
 `intkey-multiply`, and explained how to compile it into WebAssembly
@@ -413,33 +393,29 @@ that starts Sawtooth Sabre in Docker containers, plus another Compose
 file that adds the required containers for the example `intkey-multiply`
 environment.
 
-## Prerequisites
+### Prerequisites
 
 This procedure requires a compiled `intkey-multiply.wasm` smart
-contract, as described in `writing-sabre-sm-label`{.interpreted-text
-role="ref"}. The Docker Compose file in this procedure sets up shared
-volumes so that the `.wasm` file can be shared between your host system
-and the appropriate Docker containers.
+contract, as described in [Writing a Sabre Smart
+Contract](#writing-sabre-sm-label). The Docker Compose file in this procedure
+sets up shared volumes so that the `.wasm` file can be shared between your host
+system and the appropriate Docker containers.
 
-::: tip
-::: title
-Tip
-:::
-
-If you do not already have a compiled `intkey-multiply.wasm` file, do
-the following steps before starting this procedure:
-
--   Clone the sawtooth-sabre repository.
--   Compile the example smart contract, `intkey-multiply`, as described
-    in `compiling-smart-contract-label`{.interpreted-text role="ref"}.
-:::
+> **Tip**
+>
+> If you do not already have a compiled `intkey-multiply.wasm` file, do
+> the following steps before starting this procedure:
+>
+> -   Clone the sawtooth-sabre repository.
+> -   Compile the example smart contract, `intkey-multiply`, as described
+>     in [Compiling the Contract](#compiling-smart-contract-label).
 
 This procedure also requires the namespace prefixes for your contract\'s
 inputs and outputs (areas of state that the smart contract will read
 from and write to). For the `intkey-multiply` example, the required
 namespace prefixes are included in the example contract definition file.
 
-## Step 1: Start Sawtooth Sabre with Docker
+### Step 1: Start Sawtooth Sabre with Docker
 
 In this step, you will start a Sawtooth node that is running a
 validator, REST API, and three transaction processors: Settings,
@@ -454,14 +430,10 @@ IntegerKey (intkey), and Sabre.
     $ docker-compose -f docker-compose.yaml -f example/intkey_multiply/docker-compose.yaml up
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Startup takes a long time, because the Compose file runs
-    `cargo build` on the Rust components.
-    :::
+    > **Note**
+    >
+    > Startup takes a long time, because the Compose file runs
+    > `cargo build` on the Rust components.
 
     The first `docker-compose.yaml` file sets up the Sawtooth
     environment:
@@ -485,19 +457,18 @@ IntegerKey (intkey), and Sabre.
     The rest of this procedure will use other terminal windows. This
     terminal window will continue to display Sawtooth log messages.
 
-## Step 2: Create Initial Values for the Smart Contract
+### Step 2: Create Initial Values for the Smart Contract
 
 In this step, you will use the `sabre-shell` container to set initial
 values in state for your contract.
 
-The `intkey-multiply` smart contract executes the simple function
-[A=B\*C]{.title-ref}. This contract requires existing [B]{.title-ref}
-and [C]{.title-ref} values from state, then stores the result
-[A]{.title-ref} in state. This example also requires a payload file that
-identifies these values by key name.
+The `intkey-multiply` smart contract executes the simple function `A=B\*C`. This
+contract requires existing `B` and `C` values from state, then stores the result
+`A` in state. This example also requires a payload file that identifies these
+values by key name.
 
 In this step, you will use the `intkey set` command to submit
-transactions that store the initial values in \"intkey state\" (the
+transactions that store the initial values in "intkey state" (the
 namespace used by the IntegerKey transaction family).
 
 1.  Open a new terminal window and connect to the `sabre-shell` Docker
@@ -529,7 +500,7 @@ namespace used by the IntegerKey transaction family).
 
 5.  Log out of the `sabre-shell` container.
 
-## Step 3: Generate the Payload File
+### Step 3: Generate the Payload File
 
 In this step, you will use the `intkey-multiply` command to generate a
 payload file for your smart contract. This payload file is required when
@@ -562,7 +533,7 @@ executing the `intkey-multiply` smart contract.
 
 4.  Log out of the `intkey-multiply-cli` container.
 
-## Step 4: Create a Contract Registry
+### Step 4: Create a Contract Registry
 
 In this step, you will use the `sabre-cli` container to create a
 contract registry for the `intkey-multiply` smart contract.
@@ -570,20 +541,16 @@ contract registry for the `intkey-multiply` smart contract.
 Each smart contract requires a contract registry so that Sabre can keep
 track of the contract\'s versions and owners. A contract registry has
 the same name as its contract and has one or more owners. For more
-information, see `TPdoc-ContractRegistry-label`{.interpreted-text
-role="ref"}.
+information, see [Contact Registry]({% link
+docs/1.2/sabre/sabre_transaction_family.md %}#TPdoc-ContractRegistry-label).
 
-::: note
-::: title
-Note
-:::
-
-Only a Sawtooth administrator (defined in the
-`sawtooth.swa.administrators` setting) can create a contract registry
-and set the initial owner or owners. The example Docker Compose file
-sets up root as a Sawtooth administrator and shares the root keys
-between the validator container and the `sabre-cli` container.
-:::
+> **Note**
+>
+> Only a Sawtooth administrator (defined in the
+> `sawtooth.swa.administrators` setting) can create a contract registry
+> and set the initial owner or owners. The example Docker Compose file
+> sets up root as a Sawtooth administrator and shares the root keys
+> between the validator container and the `sabre-cli` container.
 
 1.  Connect to the `sabre-cli` container.
 
@@ -617,7 +584,7 @@ Once the contract registry is created, any contract registry owner can
 add and delete versions of the contract. An owner can also delete an
 empty contract registry.
 
-## Step 5. Upload the Contract Definition File
+### Step 5. Upload the Contract Definition File
 
 In this step, you will continue to use the `sabre-cli` container to
 upload a contract definition file for the `intkey-multiply` smart
@@ -637,7 +604,7 @@ file, `intkey_multiply.yaml`.
 
 2.  Ensure that this file has the following contents:
 
-    ``` none
+    ```yaml
     name: intkey_multiply
     version: '1.0'
     wasm: processor/target/wasm32-unknown-unknown/release/intkey-multiply.wasm
@@ -666,21 +633,17 @@ file, `intkey_multiply.yaml`.
     # sabre upload --filename ../example/intkey_multiply/intkey_multiply.yaml --url http://rest-api:9708
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Only a Sawtooth administrator or contract registry owner can upload
-    a new or updated smart contract.
-    :::
+    > **Note**
+    >
+    > Only a Sawtooth administrator or contract registry owner can upload
+    > a new or updated smart contract.
 
     By default, the signing key name is set to your public key (root in
     this example). Use the `--key` option to specify a different signing
     key name. For more information on command options, run
     `sabre upload --help`.
 
-## Step 6. Create a Namespace Registry and Set Contract Permissions
+### Step 6. Create a Namespace Registry and Set Contract Permissions
 
 In this step, you will continue to use the `sabre-cli` container to
 create a namespace registry, then set the namespace read and write
@@ -691,18 +654,14 @@ area in state that the contract will read from and write to. You must
 also grant explicit namespace read and write permissions to the
 contract.
 
-::: note
-::: title
-Note
-:::
-
-Only a Sawtooth administrator (defined in the
-`sawtooth.swa.administrators` setting) can create a namespace registry
-and set the initial owner or owners. Once the namespace registry is
-created, any namespace registry owner can change and delete contract
-permissions. An owner can also delete an empty namespace registry (one
-with no contract permissions).
-:::
+> **Note**
+>
+> Only a Sawtooth administrator (defined in the
+> `sawtooth.swa.administrators` setting) can create a namespace registry
+> and set the initial owner or owners. Once the namespace registry is
+> created, any namespace registry owner can change and delete contract
+> permissions. An owner can also delete an empty namespace registry (one
+> with no contract permissions).
 
 1.  Copy your public key.
 
@@ -757,7 +716,7 @@ with no contract permissions).
     namespace (`cad11d`). For more information on command options, run
     `sabre perm --help`.
 
-## Step 7. Execute the Smart Contract
+### Step 7. Execute the Smart Contract
 
 At this point, all required items are in place for the `intkey-multiply`
 smart contract:
@@ -792,15 +751,11 @@ container to check the results.
     contract\'s inputs and outputs are set to the intkey namespace
     (`1cf126`).
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The `sabre exec` command requires namespace prefixes or addresses
-    that are at least 6 characters long. For more information on command
-    options, run `sabre exec --help`.
-    :::
+    > **Note**
+    >
+    > The `sabre exec` command requires namespace prefixes or addresses
+    > that are at least 6 characters long. For more information on command
+    > options, run `sabre exec --help`.
 
 2.  To check the results, connect to the `sabre-shell` container in a
     separate terminal window.
@@ -821,22 +776,18 @@ container to check the results.
 
 4.  Log out of the `sabre-shell` docker container.
 
-## Step 8: Stop the Sawtooth Environment
+### Step 8: Stop the Sawtooth Environment
 
 When you are done using this Sawtooth Sabre environment, use this
 procedure to stop and reset the environment.
 
-::: important
-::: title
-Important
-:::
-
-Any work done in this environment will be lost once the container exits,
-unless it is stored under the `/project` directory. To keep your work in
-other areas, you would need to take additional steps, such as mounting a
-host directory into the container. See the [Docker
-documentation](https://docs.docker.com/) for more information.
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once the container exits,
+> unless it is stored under the `/project` directory. To keep your work in
+> other areas, you would need to take additional steps, such as mounting a
+> host directory into the container. See the [Docker
+> documentation](https://docs.docker.com/) for more information.
 
 1.  Log out of the `sabre-cli` container and any other open containers.
 
@@ -846,13 +797,9 @@ documentation](https://docs.docker.com/) for more information.
 3.  After all containers have shut down, run this `docker-compose`
     command:
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This command deletes all values in state.
-    :::
+    > **Note**
+    >
+    > This command deletes all values in state.
 
     ``` console
     $ docker-compose -f docker-compose.yaml -f example/intkey_multiply/docker-compose.yaml down
