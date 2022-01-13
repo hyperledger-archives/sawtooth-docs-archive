@@ -16,7 +16,7 @@ build: docker-build
 
 docker-build:
     docker build \
-        -t hyperledger/sawtooth-website \
+        -t hyperledger/sawtooth-website:refresh \
         -f ci/website.dockerfile \
         .
 
