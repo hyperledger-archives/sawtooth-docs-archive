@@ -6,8 +6,6 @@
 
 # FAQ Appendix: Sawtooth Glossary
 
-[PREVIOUS](/faq/upgrade/) [FAQ](/faq/) [NEXT](/faq/prefixes/)
-
 ## See Also
 
 Sawtooth Glossary
@@ -611,5 +609,3 @@ zkSNARKS
 
 :   Zero Knowledge Succinct Non-interactive Arguments of Knowledge,
     which allow proof of correctness, given public and private input
-
-[PREVIOUS](/faq/upgrade/) [FAQ](/faq/) [NEXT](/faq/prefixes/)

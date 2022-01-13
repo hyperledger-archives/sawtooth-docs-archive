@@ -5,8 +5,6 @@
 ---
 # Sawtooth FAQ: REST API
 
-[PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
-
 ## What\'s the difference between the `sawtooth-rest-api --bind` and `--connect` options?
 
 `sawtooth-rest-api --bind` (`-B`)
@@ -172,5 +170,3 @@ Sawtooth to remove that check.
 
 It means the command format is correct, but the identifier does not
 exist.
-
-[PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)

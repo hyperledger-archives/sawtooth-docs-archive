@@ -6,8 +6,6 @@
 
 # FAQ Appendix: Sawtooth Videos
 
-[PREVIOUS](/faq/settings/) [TOP](/faq/)
-
 # Selected YouTube Videos
 
 ## 2019 YouTube Videos
@@ -171,5 +169,3 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
 
 :   [20170622-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1TGdfMjJlT0Qtb0U/view)
     (starts at 12:00)
-
-[PREVIOUS](/faq/settings/) [TOP](/faq/)

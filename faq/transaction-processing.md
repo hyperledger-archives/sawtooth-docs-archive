@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Transaction Processing
 
-[PREVIOUS](/faq/installation/) [TOP](/faq/) [NEXT](/faq/validator/)
-
 ## Does a client send a transaction request to all the validators in the network?
 
 No, it would just need to send the batch to one validator, then that
@@ -370,5 +368,3 @@ serialize the same. You should log the contents of [entries]{.title-ref}
 prior to setState calls in your transaction processor. There will likely
 be a difference between the publishing and validation executions of the
 transaction (they always need to be identical)
-
-[PREVIOUS](/faq/installation/) [TOP](/faq/) [NEXT](/faq/validator/)

@@ -6,8 +6,6 @@
 
 # FAQ Appendix: Transaction Family Prefixes
 
-[PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
-
 This is an unofficial list of some Transaction Family (TF) prefixes.
 There is no central registry, most or all of these TFs are found on
 GitHub ( <https://github.com/> especially
@@ -60,5 +58,3 @@ For base TF specifications, see
 | pub_key                                  | Protobuf        | a23be1                    | REMME REMChain                                                                                                                                                                                                  |
 | bitagora- ballots                        | JSON            | b42861                    | Bitagora voting ballot                                                                                                                                                                                          |
 | bitagora- polls                          | JSON            | 154f9c                    | Bitagora voting polls                                                                                                                                                                                           |
-
-[PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)

@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Consensus Algorithms (including PoET)
 
-[PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
-
 ## What consensus algorithms does Sawtooth support?
 
 Devmode (name \"Devmode\", version 0.1)
@@ -339,5 +337,3 @@ be made in files
 
 The Intel SGX IAS v3 API is at
 <https://software.intel.com/sites/default/files/managed/7e/3b/ias-api-spec.pdf>
-
-[PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)

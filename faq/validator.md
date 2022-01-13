@@ -6,9 +6,6 @@
 
 # Sawtooth FAQ: Validator
 
-[PREVIOUS](/faq/transaction-processing/) [TOP](/faq/)
-[NEXT](/faq/consensus/)
-
 ## What validation does the validator do?
 
 At a high-level, the Validator verifies the following:
@@ -447,6 +444,3 @@ are no storage volumes mapped to the VM.
 ## What are the maximum number of blocks in a Sawtooth blockchain?
 
 There is no limit, other than the available storage for a node.
-
-[PREVIOUS](/faq/transaction-processing/) [TOP](/faq/)
-[NEXT](/faq/consensus/)

@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Permissioning
 
-[PREVIOUS](/faq/rest/) [TOP](/faq/) [NEXT](/faq/docker/)
-
 ## How to solve this error `Wait timed out! Policy was not committed... PENDING` when `sawtooth identity policy create` is run?
 
 There is a possibility that rest-api is down or identity-tp is not
@@ -21,5 +19,3 @@ to permissioning, follow these steps:
 Refer
 <https://sawtooth.hyperledger.org/docs/core/nightly/master/sysadmin_guide/configuring_permissions.html>
 for detailed information.
-
-[PREVIOUS](/faq/rest/) [TOP](/faq/) [NEXT](/faq/docker/)

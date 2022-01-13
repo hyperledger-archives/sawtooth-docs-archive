@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Client
 
-[PREVIOUS](/faq/consensus/) [TOP](/faq/) [NEXT](/faq/rest/)
-
 ## What is a Sawtooth Client?
 
 It is an application that communicates with the Sawtooth Validator,
@@ -157,5 +155,3 @@ McCullough](https://github.com/colincmcc) gives these steps:
 Until Rust and the RustSDK are a bit more mature, I still recommend
 using a Docker container for development to avoid any MS Windows
 troubles. You can reach me at <hello@colinmac.me> with any questions.
-
-[PREVIOUS](/faq/consensus/) [TOP](/faq/) [NEXT](/faq/rest/)

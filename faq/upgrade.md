@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Upgrading Hyperledger Sawtooth
 
-[PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
-
 ## Points to consider while upgrading Hyperledger Sawtooth
 
 This is applicable to upgrade from version 1.0.X to 1.1.X
@@ -63,5 +61,3 @@ again.
     size depends on the rate at which blocks are published. Client
     should consider this queue full case at validator end and retry the
     same transaction when the validator is able to handle.
-
-[PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)

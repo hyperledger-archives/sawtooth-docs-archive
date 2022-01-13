@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Using Docker
 
-[PREVIOUS](/faq/permissioning/) [TOP](/faq/) [NEXT](/faq/upgrade/)
-
 # Can I run Sawtooth without Docker?
 
 Yes.
@@ -239,5 +237,3 @@ well and not just down the containers. For example the following removes
 containers and volumes
 
     docker-compose down -v
-
-[PREVIOUS](/faq/permissioning/) [TOP](/faq/) [NEXT](/faq/upgrade/)

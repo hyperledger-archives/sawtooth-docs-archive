@@ -6,9 +6,6 @@
 
 # Sawtooth FAQ: Installation and Configuration
 
-[PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
-[NEXT](/faq/transaction-processing/)
-
 ## How do I list and install Sawtooth packages?
 
 The following setups the Sawtooth stable repository, lists the packages,
@@ -399,6 +396,3 @@ $ sudo -u sawtooth sawset proposal create \
      sawtooth.consensus.algorithm.version=0.1 -o config.batch
 $ sudo -u sawtooth sawadm genesis config-genesis.batch config.batch 
 ```
-
-[PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
-[NEXT](/faq/transaction-processing/)

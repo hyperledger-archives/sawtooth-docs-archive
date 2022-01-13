@@ -42,5 +42,3 @@ Each commit must include a `Signed-off-by:` in the commit message
 (`git commit -s`). This sign-off means you agree the commit satisfies
 the [Developer Certificate of Origin
 (DCO)](https://developercertificate.org/).\]
-
-[NEXT](/faq/sawtooth/)

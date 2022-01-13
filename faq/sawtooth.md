@@ -6,8 +6,6 @@
 
 # Sawtooth FAQ: Hyperledger Sawtooth in General
 
-[TOP](/faq/) [NEXT](/faq/installation/)
-
 ## What is Sawtooth?
 
 Hyperledger Sawtooth is a modular enterprise blockchain platform for
@@ -603,5 +601,3 @@ network
 network.consensus
 
 :   nodes authorized to broadcast new blocks with Gossip
-
-[TOP](/faq/) [NEXT](/faq/installation/)

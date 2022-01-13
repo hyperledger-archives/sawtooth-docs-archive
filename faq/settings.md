@@ -6,8 +6,6 @@
 
 # FAQ Appendix: Configuration Settings
 
-[PREVIOUS](/faq/prefixes/) [FAQ](/faq/) [NEXT](/faq/videos/)
-
 This is an unofficial list of some Transaction Family (TF) settings.
 There is no central registry, most or all of these can be found on
 github.
@@ -285,5 +283,3 @@ transactor.transaction_signer.validator_registry
 transactor.transaction_signer.xo
 
 :   Public keys of authorized xo TF signers
-
-[PREVIOUS](/faq/prefixes/) [FAQ](/faq/) [NEXT](/faq/videos/)
