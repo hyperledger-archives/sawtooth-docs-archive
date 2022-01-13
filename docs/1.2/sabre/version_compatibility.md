@@ -1,6 +1,4 @@
----
-title: Sabre and Sawtooth Version Compatibility
----
+# Sabre and Sawtooth Version Compatibility
 
 The following table shows the compatible versions of the Sabre
 transaction processor, Sabre SDK, and Sawtooth Rust SDK. It also shows
@@ -16,52 +14,77 @@ the Docker tag for the Sabre transaction processor image.
 > -   The Sawtooth Rust SDK versions are the Crate versions of the Rust
 >     library that should be set in the Cargo.toml file.
 
-+----------+---------+---------+--------+-----------------------------+
-| Sabre    | Sabre   | Docker  | Sa     | Changes                     |
-| Tra      | SDK     | Tag     | wtooth |                             |
-| nsaction |         |         | Rust   |                             |
-| P        |         |         | SDK    |                             |
-| rocessor |         |         |        |                             |
-+==========+=========+=========+========+=============================+
-| 0.0      | 0.1     | 0.1     | > 0.2  |                             |
-+----------+---------+---------+--------+-----------------------------+
-| 0.2      | 0.2     | 0.2     | > 0.3  | -   Transaction context is  |
-|          |         |         |        |     a trait                 |
-|          |         |         |        | -   API has new             |
-|          |         |         |        |     get_state_entry to get  |
-|          |         |         |        |     one entry and           |
-|          |         |         |        |     get_state_entries to    |
-|          |         |         |        |     get multiple entries    |
-|          |         |         |        |     (plus corresponding     |
-|          |         |         |        |     functions for set and   |
-|          |         |         |        |     delete)                 |
-+----------+---------+---------+--------+-----------------------------+
-| 0.3      | 0.3     | 0.3     | > 0.3  | -   Adds native rust        |
-|          |         |         |        |     implementation of the   |
-|          |         |         |        |     proto messages to the   |
-|          |         |         |        |     Sabre SDK and is used   |
-|          |         |         |        |     by the Sabre            |
-|          |         |         |        |     Transaction Processor.  |
-|          |         |         |        | -   Adds no-op logging      |
-|          |         |         |        |     macros to the Sabre SDK |
-+----------+---------+---------+--------+-----------------------------+
-| 0.4      | 0.4     | 0.4     | > 0.3  | -   Replaces the no-op log  |
-|          |         |         |        |     macros with macros that |
-|          |         |         |        |     will marshal the log    |
-|          |         |         |        |     back to the Sabre       |
-|          |         |         |        |     Transaction Processor   |
-|          |         |         |        |     where it will be        |
-|          |         |         |        |     logged.                 |
-+----------+---------+---------+--------+-----------------------------+
-| 0.5      | 0.5     | 0.5     | > 0.3  | -   Replaces all            |
-|          |         |         |        |     [\                      |
-|          |         |         |        | *ActionBuilder]{.title-ref} |
-|          |         |         |        |     errors with a single    |
-|          |         |         |        |     ActionBuildError and    |
-|          |         |         |        |     adds the                |
-|          |         |         |        |     [into_p                 |
-|          |         |         |        | ayload_builder]{.title-ref} |
-|          |         |         |        |     method to all           |
-|          |         |         |        |     [\*A                    |
-|          |         |         |        | ctionBuilders]{.title-ref}. |
-+----------+---------+---------+--------+-----------------------------+
+<table>
+<thead>
+<tr>
+<th>Sabre Transaction Processor</th>
+<th>Sabre SDK</th>
+<th>Docker</th>
+<th>Sawtooth Rust SDK</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0</td>
+<td>0.1</td>
+<td>0.1</td>
+<td>&gt; 0.2</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+    <td>0.2</td>
+    <td>0.2</td>
+    <td>0.2</td>
+    <td>&gt; 0.3</td>
+    <td>
+        <ul>
+            <li>Transaction context is a trait</li>
+            <li>API has new `get_state_entry` to get one entry and
+                `get_state_entries` to get multiple entries (plus corresponding
+                functions for set and delete)</li>
+        </ul>
+    </td>
+</tr>
+<tr>
+    <td>0.3</td>
+    <td>0.3</td>
+    <td>0.3</td>
+    <td>&gt; 0.3</td>
+    <td>
+        <ul>
+            <li>Adds native rust implementation of the proto messages to the
+                Sabre SDK and is used by the Sabre Transaction Processor.</li>
+            <li>Adds no-op logging macros to the Sabre SDK</li>
+        </ul>
+    </td>
+</tr>
+<tr>
+    <td>0.4</td>
+    <td>0.4</td>
+    <td>0.4</td>
+    <td>&gt; 0.3</td>
+    <td>
+        <ul>
+            <li>Replaces the no-op log macros with macros that will marshal the
+                log back to the Sabre Transaction Processor where it will be
+                logged.</li>
+        </ul>
+    </td>
+</tr>
+<tr>
+    <td>0.5</td>
+    <td>0.5</td>
+    <td>0.5</td>
+    <td>&gt; 0.3</td>
+    <td>
+        <ul>
+            <li>Replaces all <em>ActionBuilder</em> errors with a single
+                <code>ActionBuildError</code> and adds the
+                <code>into_payload_builder</code> method to all
+                <em>ActionBuilders</em>.</li>
+        </ul>
+    </td>
+</tr>
+</tbody>
+</table>
