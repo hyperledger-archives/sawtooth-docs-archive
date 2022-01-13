@@ -6,7 +6,7 @@
 
 # Sawtooth FAQ: Using Docker
 
-# Can I run Sawtooth without Docker?
+## Can I run Sawtooth without Docker?
 
 Yes.
 

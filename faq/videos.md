@@ -6,8 +6,6 @@
 
 # FAQ Appendix: Sawtooth Videos
 
-# Selected YouTube Videos
-
 ## 2019 YouTube Videos
 
 Hyperledger Sawtooth Application Development Overview using \"SimpleWallet\" (57:18, Dan Anderson, Intel, 2019)
@@ -96,12 +94,6 @@ Why Enterprises Should Be Moving Blockchain Forward. Ep. 576 (9:51, Mike Reed, I
 Where We\'ve Been and Where We\'re going \-- Intel\'s Blockchain Journey. Ep. 559 (11:05, Mike Reed, Intel, 2017)
 
 :   <https://connectedsocialmedia.com/16112/where-weve-been-and-where-were-going-intels-blockchain-journey-intel-chip-chat-episode-559/>
-
-## Sawtooth Technical Forum
-
-This is an list of recordings of past Hyperledger Sawtooth Technical
-Forums. Most are in mp4 (video) format, but a few are available in audio
-only (m4a).
 
 ## 2018 Sawtooth Technical Forum
 
