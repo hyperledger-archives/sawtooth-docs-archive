@@ -1,15 +1,18 @@
-\-\--layout: page hide: true tags: \[faq\] title: Sawtooth FAQ - REST
-API permalink: /faq/rest/ \# Copyright (c) 2018, Intel Corporation. \#
-Licensed under Creative Commons Attribution 4.0 International License \#
-<https://creativecommons.org/licenses/by/4.0/> \-\--Sawtooth FAQ: REST
-API ====================== .. class:: mininav
+---
+layout: default
+hide: true
+tags: [faq]
+title: Sawtooth FAQ - REST
+API permalink: /faq/rest/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+# Sawtooth FAQ: REST API
 
 [PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
 
-::: contents
-:::
-
-# What\'s the difference between the `sawtooth-rest-api --bind` and `--connect` options?
+## What\'s the difference between the `sawtooth-rest-api --bind` and `--connect` options?
 
 `sawtooth-rest-api --bind` (`-B`)
 
@@ -21,12 +24,12 @@ API ====================== .. class:: mininav
 :   specifies where your rest-api can reach to the validator. The
     default is <http://localhost:4004>
 
-# Is the REST API at TCP port 8080 or 8008?
+## Is the REST API at TCP port 8080 or 8008?
 
 TCP Port 8008. It was 8080 before the 1.0 release and old examples and
 diagrams may use the old port number.
 
-# What REST API commands are available?
+## What REST API commands are available?
 
 Use localhost to access the REST API from the Validator Docker container
 or from where the Validator is running. For example, to get state
@@ -104,7 +107,7 @@ GET /peers
 For more information, see the Sawtooth REST API Reference at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/rest_api.html>
 
-# What is a transaction receipt?
+## What is a transaction receipt?
 
 Transaction receipts are transaction execution information that is not
 stored in state, such as how the transaction changed state, transaction
@@ -114,7 +117,7 @@ empty, but can be added by the TP with `context.add_receipt_data()` To
 access transaction receipts, use the REST API. For more information, see
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/architecture/events_and_transactions_receipts.html#transaction-receipts>
 
-# How do I retrieve a transaction receipt?
+## How do I retrieve a transaction receipt?
 
 Use the REST API. Here\'s a sample request (The ID is the transaction
 ID, listed with [sawtooth transaction list]{.title-ref}):
@@ -128,28 +131,28 @@ For more than 15 IDs, use `POST /receipts` . For Receipts REST API
 details, see `receipts` at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/rest_api/endpoint_specs.html>
 
-# What does this error mean: `[... DEBUG route_handlers] Received CLIENT_STATE_GET_RESPONSE response from validator with status NO_RESOURCE`?
+## What does this error mean: `[... DEBUG route_handlers] Received CLIENT_STATE_GET_RESPONSE response from validator with status NO_RESOURCE`?
 
 It means the transaction processor for this transaction is not running.
 
-# What does this REST API error mean: `The submitted BatchList was rejected by the validator. It was poorly formed, or has an invalid signature`
+## What does this REST API error mean: `The submitted BatchList was rejected by the validator. It was poorly formed, or has an invalid signature`
 
 Most likey you are not putting the transaction into a batch or the batch
 in a batchlist for posting to the REST API. This is required, even for a
 single transaction.
 
-# I am getting this error: `Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8008/batches?wait. (Reason: CORS header 'Access-Control-Allow-Origin' missing).`
+## I am getting this error: `Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8008/batches?wait. (Reason: CORS header 'Access-Control-Allow-Origin' missing).`
 
 The Sawtooth REST API doesn\'t support CORS. To allow cross-origin
 access to the Sawtooth API, put it behind a proxy.
 
-# What does this error mean: `Request failed with status code 429`
+## What does this error mean: `Request failed with status code 429`
 
 To avoid DDoS attacks (too many requests from a single source), Sawtooth
 has a mechanism called \"backpressure test\" which avoids such things as
 excessive network traffic and excessive Sawtooth transactions.
 
-# What is the back pressure test?
+## What is the back pressure test?
 
 Back pressure is a flow-control technique to help prevent DoS attacks.
 It results in a `Status.QUEUE_FULL` client batch submit response or a
@@ -159,7 +162,7 @@ work. The number of batches that validator can accept is based on a
 multiplier, QUEUE_MULTIPLIER (currently 10, formerly 2), times a rolling
 average of the number of published batches.
 
-# Can I disable the back pressure test?
+## Can I disable the back pressure test?
 
 No. There isn\'t a way to disable that currently because it\'s
 determined based on a multiplier of the publishing rate of the network.
@@ -170,13 +173,11 @@ this feature it is trivial to do a client-based attack which overwhelms
 the network creating a DoS. You would have to make a custom build of
 Sawtooth to remove that check.
 
-# What does this error mean from sawset: `There is no resource with the identifier`?
+## What does this error mean from sawset: `There is no resource with the identifier`?
 
 It means the command format is correct, but the identifier does not
 exist.
 
-::: mininav
 [PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
-:::
 
 © Copyright 2018, Intel Corporation.

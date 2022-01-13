@@ -1,17 +1,19 @@
-\-\--layout: page hide: true tags: \[appendix\] title: Appendix -
-Glossary permalink: /faq/glossary/ \# Copyright (c) 2018, Intel
-Corporation. \# Licensed under Creative Commons Attribution 4.0
-International License \# <https://creativecommons.org/licenses/by/4.0/>
-\-\--FAQ Appendix: Sawtooth Glossary ===============================
+---
+layout: default
+hide: true
+tags: [appendix]
+title: Appendix - Glossary
+permalink: /faq/glossary/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
 
-::: mininav
+# FAQ Appendix: Sawtooth Glossary
+
 [PREVIOUS](/faq/upgrade/) [FAQ](/faq/) [NEXT](/faq/prefixes/)
-:::
 
-::: contents
-:::
-
-# See Also
+## See Also
 
 Sawtooth Glossary
 
@@ -25,7 +27,7 @@ PoET Definitions
 
 :   <https://sawtooth.hyperledger.org/docs/core/releases/latest/architecture/poet.html#definitions>
 
-# Glossary
+## Glossary
 
 Address (aka State Address)
 
@@ -615,8 +617,6 @@ zkSNARKS
 :   Zero Knowledge Succinct Non-interactive Arguments of Knowledge,
     which allow proof of correctness, given public and private input
 
-::: mininav
 [PREVIOUS](/faq/upgrade/) [FAQ](/faq/) [NEXT](/faq/prefixes/)
-:::
 
 © Copyright 2018, Intel Corporation.

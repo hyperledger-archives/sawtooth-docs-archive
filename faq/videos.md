@@ -1,18 +1,21 @@
-\-\--layout: page hide: true tags: \[appendix\] title: Appendix -
-Sawtooth Videos permalink: /faq/videos/ \# Copyright (c) 2018, Intel
-Corporation. \# Licensed under Creative Commons Attribution 4.0
-International License \# <https://creativecommons.org/licenses/by/4.0/>
-\-\--FAQ Appendix: Sawtooth Videos ============================= ..
-class:: mininav
+---
+layout: default
+hide: true
+tags: [appendix]
+title: Appendix - Sawtooth Videos
+permalink: /faq/videos/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+
+# FAQ Appendix: Sawtooth Videos
 
 [PREVIOUS](/faq/settings/) [TOP](/faq/)
 
-::: contents
-:::
-
 # Selected YouTube Videos
 
-# 2019 YouTube Videos
+## 2019 YouTube Videos
 
 Hyperledger Sawtooth Application Development Overview using \"SimpleWallet\" (57:18, Dan Anderson, Intel, 2019)
 
@@ -22,7 +25,7 @@ Hyperledger Sawtooth Performance Metrics with Grafana (28:00, Dan Anderson, Inte
 
 :   <https://youtu.be/YBd7PJlNRSQ>
 
-# 2018 YouTube Videos
+## 2018 YouTube Videos
 
 Hyperledger Sawtooth Release 1.1 (34:28, Dan Anderson, Intel, 2018)
 
@@ -77,7 +80,7 @@ Introducción a Hyperledger VII - Sawtooth (Español) (7:36, Sergio Torres, Bloc
 
 :   <https://youtu.be/_YkKaDXLVPg>
 
-# 2017 YouTube Videos
+## 2017 YouTube Videos
 
 Vision for Hyperledger\'s Sawtooth Distributed Ledger (2:03, Dan Middleton, Intel, 2017)
 
@@ -87,13 +90,13 @@ Introduction to Hyperledger Sawtooth (Seafood Supply Chain) (3:40, Hyperledger, 
 
 :   <https://youtu.be/8nrVlICgiYM>
 
-# Hyperledger Videos
+## Hyperledger Videos
 
 Hyperledger Sawtooth 1.0: Market Significance and Technical Overview. Free registration required (61:27, Dan Middleton, Intel, 2018)
 
 :   <https://gateway.on24.com/wcc/gateway/linux/1101876/1585244/hyperledger-sawtooth-v10-market-significance-and-technical-overview>
 
-# Intel Chip Chat Audio
+## Intel Chip Chat Audio
 
 Revolutionizing Identity Management with \[Sawtooth\] Blockchain. Ep. 612 (8:33, Chris Spanton, T-Mobile, 2018)
 
@@ -107,13 +110,13 @@ Where We\'ve Been and Where We\'re going \-- Intel\'s Blockchain Journey. Ep. 55
 
 :   <https://connectedsocialmedia.com/16112/where-weve-been-and-where-were-going-intels-blockchain-journey-intel-chip-chat-episode-559/>
 
-# Sawtooth Technical Forum
+## Sawtooth Technical Forum
 
 This is an list of recordings of past Hyperledger Sawtooth Technical
 Forums. Most are in mp4 (video) format, but a few are available in audio
 only (m4a).
 
-# 2018 Sawtooth Technical Forum
+## 2018 Sawtooth Technical Forum
 
 Located at
 <https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc>
@@ -174,7 +177,7 @@ Sawtooth Rust SDK (Peter Schwarz, Bitwise)
 :   [20180215-sawtooth-tech-forum.m4a](https://drive.google.com/file/d/1Lr2Ik3HjFU5tODce2chED5oR3Vhci6-G/view)
     (audio only; starts at 23:40)
 
-# 2017 Sawtooth Technical Forum
+## 2017 Sawtooth Technical Forum
 
 Located at
 <https://drive.google.com/drive/folders/12HLBKfFEF09eKhjqkvtTStejx4ZD8btW>
@@ -239,8 +242,6 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
 :   [20170622-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1TGdfMjJlT0Qtb0U/view)
     (starts at 12:00)
 
-::: mininav
 [PREVIOUS](/faq/settings/) [TOP](/faq/)
-:::
 
 © Copyright 2018, Intel Corporation.

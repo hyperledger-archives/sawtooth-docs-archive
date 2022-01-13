@@ -1,18 +1,20 @@
-\-\--layout: page hide: true tags: \[faq\] title: Sawtooth FAQ -
-Installation and Configuration permalink: /faq/installation/ \#
-Copyright (c) 2018, Intel Corporation. \# Licensed under Creative
-Commons Attribution 4.0 International License \#
-<https://creativecommons.org/licenses/by/4.0/> \-\--Sawtooth FAQ:
-Installation and Configuration
-============================================ .. class:: mininav
+---
+layout: default
+hide: true
+tags: [faq]
+title: Sawtooth FAQ - Installation and Configuration
+permalink: /faq/installation/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+
+# Sawtooth FAQ: Installation and Configuration
 
 [PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
 [NEXT](/faq/transaction-processing/)
 
-::: contents
-:::
-
-# How do I list and install Sawtooth packages?
+## How do I list and install Sawtooth packages?
 
 The following setups the Sawtooth stable repository, lists the packages,
 and installs the core packages (sawtooth, python3-sawtooth-cli,
@@ -29,7 +31,7 @@ $ apt search sawtooth
 For more, up-to-date installation information see
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/installation.html>
 
-# How do I edit Sawtooth settings?
+## How do I edit Sawtooth settings?
 
 With `.toml` configuration files in `/etc/sawtooth` . Examples are in
 the directory as `.toml.example` . For details, see
@@ -71,14 +73,14 @@ Configuration files include:
 
 More transaction-processor specific configuration files may be present.
 
-# I get this error installing Ubuntu packages: `Could not get lock /var/lib/dpkg/lock`
+## I get this error installing Ubuntu packages: `Could not get lock /var/lib/dpkg/lock`
 
 The file lock is probably left over from a previous failed install. The
 solution is `sudo rm  /var/lib/dpkg/lock` . This assumes you\'re not
 multitasking and installing something else in another terminal on the
 same host.
 
-# I get this error installing `sawtooth-cxx-sdk`: `Depends: protobuf but it is not installable`
+## I get this error installing `sawtooth-cxx-sdk`: `Depends: protobuf but it is not installable`
 
 The C++ SDK package is in the nightly repository. Until the package
 dependency is fixed, here\'s a workaround to force an install:
@@ -92,28 +94,28 @@ $ sudo dpkg -i  sawtooth-cxx-sdk_1.1.1.dev808_amd64.deb
 $ pkg contents sawtooth-cxx-sdk
 ```
 
-# I get this error when running `sawtooth setting list` or `xo list` : `Error 503: Service Unavailable`
+## I get this error when running `sawtooth setting list` or `xo list` : `Error 503: Service Unavailable`
 
 This usually occurs when there is no genesis node created. To create,
 type the following:
 
 ``` sh
-# Create the genesis node:
+## Create the genesis node:
 sawtooth keygen
 sawset genesis
 sudo -u sawtooth sawadm genesis config-genesis.batch
-# Start the validator:
+## Start the validator:
 sudo sawadm keygen
 sudo -u sawtooth sawtooth-validator -vv
 ```
 
-# I get this error when running `sudo -u sawtooth sawadm genesis config-genesis.batch` : `Permission denied`
+## I get this error when running `sudo -u sawtooth sawadm genesis config-genesis.batch` : `Permission denied`
 
 Change to a sawtooth user-writable directory before running the command
 and make sure file [config-genesis.batch]{.title-ref} does not already
 exist: `cd /tmp; ls config-genesis.batch`
 
-# I get a `Key file is not readable` error when starting `sudo -u sawtooth sawtooth-validator -vv`
+## I get a `Key file is not readable` error when starting `sudo -u sawtooth sawtooth-validator -vv`
 
 The validator key file permissions are wrong. To fix it, type:
 
@@ -131,29 +133,29 @@ drwxr-xr-x 2 root sawtooth 4096 Jan 11 11:35 .
 
 If the validator key files are missing, type `sudo sawadm keygen`
 
-# How to I delete all blockchain data?
+## How to I delete all blockchain data?
 
 Type the following: `sudo -u sawtooth rm -rf /var/lib/sawtooth/*` This
 deletes the entire database\--for development and purposes.
 
-# How do I delete or change a specific block in the blockchain?
+## How do I delete or change a specific block in the blockchain?
 
 You cannot delete blocks\--they are immutable by design. You can create
 a new transaction (or block of transactions) that reverse a previous
 transaction.
 
-# I get a usage error running `sawnet peers` or `sawnet list-blocks`
+## I get a usage error running `sawnet peers` or `sawnet list-blocks`
 
 You should upgrade to the current release. These commands were added
 after the Sawtooth 1.0.4 release and are not available in earlier
 releases.
 
-# How can I change on-chain settings without deleting the blockchain?
+## How can I change on-chain settings without deleting the blockchain?
 
 Use the `sawset` command. This allows you to change settings such as
 maximum batches per block or target wait time.
 
-# I got error `gpg: keyserver receive failed: keyserver error` when executing `sudo apt-key adv --keyserver hkp://keyserver...`
+## I got error `gpg: keyserver receive failed: keyserver error` when executing `sudo apt-key adv --keyserver hkp://keyserver...`
 
 This error means your machine couldn\'t add the supplied key to trusted
 list. This key is later used to authenticate and get sawtooth package.
@@ -163,7 +165,7 @@ in the command to solve this issue. For example,
 `sudo apt-key adv --keyserver-options http-proxy=http://[username:password]@<proxyserver>:<port> --keyserver hkp://keyse...`
 (notice usage of flag `--keyserver-options` here).
 
-# What does this error mean `repository ... xenial InRelease' doesn't support architecture 'i386'`?
+## What does this error mean `repository ... xenial InRelease' doesn't support architecture 'i386'`?
 
 Following could be possibilities:
 
@@ -175,19 +177,19 @@ Following could be possibilities:
     example,
     `sudo add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu.....'`.
 
-# I get this error running `sawset`: `ModuleNotFoundError: No module named 'colorlog'`
+## I get this error running `sawset`: `ModuleNotFoundError: No module named 'colorlog'`
 
 Something went wrong with installing Python dependencies or they were
 removed. In this case, install `colorlog` with
 `sudo apt install python3-colorlog` or with`pip3 install colorlog`
 
-# I get this error starting Sawtooth: `lmdb.DiskError: /var/lib/sawtooth/poet-key-state-03efb2aa.lmdb: No space left on device`
+## I get this error starting Sawtooth: `lmdb.DiskError: /var/lib/sawtooth/poet-key-state-03efb2aa.lmdb: No space left on device`
 
 Besides the obvious problem of no disk space, it could be your OS or
 filesystem does not support sparse files. The LMDB databases used by
 Sawtooth are 1TB sparse (mostly unallocated) files.
 
-# I get this error when running `sawtooth sawadm genesis config-genesis.batch`: `Processing config-genesis.batch... Error: Unable to read config-genesis.batch`
+## I get this error when running `sawtooth sawadm genesis config-genesis.batch`: `Processing config-genesis.batch... Error: Unable to read config-genesis.batch`
 
 This error can occur when there is no sawtooth user and group. This
 should have been done by the package `postinst` script. To add, type
@@ -202,7 +204,7 @@ move it to a sawtooth-writable directory. For example
 Another cause is the file doesn\'t exist. Create it with
 `sawset genesis` .
 
-# How do I install Sawtooth on Ubuntu?
+## How do I install Sawtooth on Ubuntu?
 
 Follow the instructions at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide/ubuntu.html>
@@ -229,7 +231,7 @@ $ sudo -u sawtooth devmode-engine-rust -vv --connect tcp://localhost:5050
     the consensus engine connected with validator TCP port 5050 (for
     consensus messages).
 
-# How do I install Sawtooth on AWS?
+## How do I install Sawtooth on AWS?
 
 -   Sign up for a free AWS Free Tier account, if you don\'t have an
     account. The AWS Free Tier is free for qualifying developers. This
@@ -243,7 +245,7 @@ $ sudo -u sawtooth devmode-engine-rust -vv --connect tcp://localhost:5050
 -   Then follow the instructions for using your Sawtooth AWS instance at
     <https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/aws.html>
 
-# How do I use ssh with AWS?
+## How do I use ssh with AWS?
 
 By default ssh access to AWS instances are disabled. To enable, first
 paste the contents of your public key, at `~/.ssh/id_rsa.pub` , to
@@ -257,7 +259,7 @@ Select the `Inbound` tab and `Edit`. Add `SSH` (TCP port 22) and Source
 the instance (Actions \--\> InstanceState \--\> Reboot) to get it to
 work.
 
-# How to I build Sawtooth from source?
+## How to I build Sawtooth from source?
 
 Use `git` to download the source, then `build_all` to build. Type
 `./bin/build_all` for options. For example: .. code:: sh
@@ -269,7 +271,7 @@ Use `git` to download the source, then `build_all` to build. Type
 For details, see
 <https://github.com/hyperledger/sawtooth-core/blob/master/BUILD.md>
 
-# How do I install Sawtooth on FreeBSD?
+## How do I install Sawtooth on FreeBSD?
 
 Sawtooth is supported for Ubuntu Linux with binary packages. For other
 other \*IX-like systems, including FreeBSD, you can build from source.
@@ -279,7 +281,7 @@ The following blog may help:
 status of the FreeBSD Sawtooth port:
 <https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228581>
 
-# I get this error while installing Sawtooth: `Error starting userland proxy: listen tcp 0.0.0.0:8080: bind: address already in use`
+## I get this error while installing Sawtooth: `Error starting userland proxy: listen tcp 0.0.0.0:8080: bind: address already in use`
 
 You already have a program running that uses TCP port 8080. Either kill
 it or change the port you use to something else. To find the process(es)
@@ -287,7 +289,7 @@ that have port 8080 open, type `sudo lsof -t -i:8080` Then kill the
 processes. Check again that they have not restarted. Also check that
 they are not Docker containers that have restarted.
 
-# I get this error after setting up a Sawtooth network: `Can't send message PING_RESPONSE back to ... because connection OutboundConnectionThread- tcp://192.168.0.100:8800 not in dispatcher`
+## I get this error after setting up a Sawtooth network: `Can't send message PING_RESPONSE back to ... because connection OutboundConnectionThread- tcp://192.168.0.100:8800 not in dispatcher`
 
 The usual problem when you get this message is configuring the peer
 endpoints
@@ -315,7 +317,7 @@ endpoints
     instead of 127.0.0.1 (localhost only). Be careful doing this as may
     open up this port to external networks.
 
-# I get `unmet dependencies` errors installing Sawtooth on Ubuntu 18.04 LTS.
+## I get `unmet dependencies` errors installing Sawtooth on Ubuntu 18.04 LTS.
 
 Ubuntu 18.04 LTS is supported only in the nightly development packages.
 Use Ubuntu 16.04 LTS for the stable release packages. You can also
@@ -330,13 +332,13 @@ install instead of parent package `sawtooth`. For example,
 For details, see
 <https://jira.hyperledger.org/projects/STL/issues/STL-1465>
 
-# I get this error installing Sawtooth: `No matching distribution found for sawtooth_rest_api`
+## I get this error installing Sawtooth: `No matching distribution found for sawtooth_rest_api`
 
 You tried to install Sawtooth using Python pip. I don\'t know if this
 could work. I know installing Sawtooth using Ubuntu/Debian installation
 tools (such as apt, apt-get, dpkg, aptitude) works OK.
 
-# I get this error with `add-apt-repository`: Couldn\'t connect to accessibility bus: Failed to connect to socket . . . Connection refused
+## I get this error with `add-apt-repository`: Couldn\'t connect to accessibility bus: Failed to connect to socket . . . Connection refused
 
 It is just a warning and you can ignore it. Verify the Sawtooth
 repository was added in `/etc/apt/sources.list` The cause is the command
@@ -344,19 +346,19 @@ tried to start a graphic display (probably over SSH) when it was not
 available. A workaround to remove the warning is to add
 `export NO_AT_BRIDGE=1` to `~/.bashrc`
 
-# I get this error starting Sawtooth on Docker: `No response from ... beginning heartbeat pings`
+## I get this error starting Sawtooth on Docker: `No response from ... beginning heartbeat pings`
 
 This means there is a problem with the genesis node and peer nodes
 connecting.
 
-# How do I list sawtooth command line options?
+## How do I list sawtooth command line options?
 
 For the Sawtooth CLIs (sawadm, sawset, sawnet, sawtooth), append `-h`
 after the command to list subcommands (for example, `sawadm -h` ). For
 the Sawtooth subcommands, append `-h` after the subcommand (for example,
 `sawadm keygen -h` ).
 
-# Why do I get a `No module named ...` error running a Sawtooth program?
+## Why do I get a `No module named ...` error running a Sawtooth program?
 
 The `No module named` error occurs in Python when a Python module is
 missing. The usual fix is to install the corresponding Python package.
@@ -364,13 +366,13 @@ Something you need to prepend `python3-` to the name. So, for example,
 if you get a `No module named 'netifaces'` error, install the missing
 package with something like `apt install python3-netifaces`
 
-# How do I fix this error: `no transaction processors registered for processor type sawtooth_settings` ??
+## How do I fix this error: `no transaction processors registered for processor type sawtooth_settings` ??
 
 You start the Settings TP, as follows `sudo -u sawtooth settings-tp -v`
 . The Settings TP is always required for all Sawtooth nodes, even if you
 did not add or change any settings.
 
-# I get `unmet dependencies` errors on `python3-sawtooth-poet-cli` and other packages with `sudo apt-get install -y sawtooth` on Ubuntu Xenial
+## I get `unmet dependencies` errors on `python3-sawtooth-poet-cli` and other packages with `sudo apt-get install -y sawtooth` on Ubuntu Xenial
 
 The Sawtooth PoET packages are not yet available for the unreleased
 Sawtooth nightly builds on Ubuntu 18.x LTS (Xenial). As a workaround do
@@ -385,7 +387,7 @@ $ sudo apt-get install python3-sawtooth-cli python3-sawtooth-integration \
     python3-sawtooth-validator sawtooth-devmode-engine-rust
 ```
 
-# I get `Unable to start validator; sawtooth.consensus.algorithm.name and sawtooth.consensus.algorithm.version must be set in the genesis block` when installing Sawtooth 1.2 nightly builds
+## I get `Unable to start validator; sawtooth.consensus.algorithm.name and sawtooth.consensus.algorithm.version must be set in the genesis block` when installing Sawtooth 1.2 nightly builds
 
 The installation instructions for \"Step 3\" at
 <https://sawtooth.hyperledger.org/docs/core/nightly/master/app_developers_guide/ubuntu.html>
@@ -403,9 +405,7 @@ $ sudo -u sawtooth sawset proposal create \
 $ sudo -u sawtooth sawadm genesis config-genesis.batch config.batch 
 ```
 
-::: mininav
 [PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
 [NEXT](/faq/transaction-processing/)
-:::
 
 © Copyright 2018, Intel Corporation.

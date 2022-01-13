@@ -1,18 +1,19 @@
-\-\--layout: default hide: true tags: \[faq\] title: Sawtooth FAQ -
-Consensus Algorithms permalink: /faq/consensus/ \# Copyright (c) 2018,
-Intel Corporation. \# Licensed under Creative Commons Attribution 4.0
-International License \# <https://creativecommons.org/licenses/by/4.0/>
-\-\--Sawtooth FAQ: Consensus Algorithms (including PoET)
-===================================================
+---
+layout: default
+hide: true
+tags: [faq]
+title: Sawtooth FAQ - Consensus Algorithms
+permalink: /faq/consensus/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
 
-::: mininav
+# Sawtooth FAQ: Consensus Algorithms (including PoET)
+
 [PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
-:::
 
-::: contents
-:::
-
-# What consensus algorithms does Sawtooth support?
+## What consensus algorithms does Sawtooth support?
 
 Devmode (name \"Devmode\", version 0.1)
 
@@ -49,7 +50,7 @@ Raft (name \"raft\", version 0.1)
     is CFT, not BFT. Also Raft does not fork. For Sawtooth Raft is new
     and still being stabilized.
 
-# Will Sawtooth support more consensus algorithms in the future?
+## Will Sawtooth support more consensus algorithms in the future?
 
 Yes. With pluggable consensus, the idea is to have a meaningful set of
 consensus algorithms so the \"best fit\" can be applied to an
@@ -59,31 +60,31 @@ stabilized. Others are being planned.
 REMME.io has independently implemented Algorand Byzantine Agreement on
 Sawtooth.
 
-# Where is Raft documented?
+## Where is Raft documented?
 
 <https://sawtooth.hyperledger.org/docs/raft/nightly/master/> To use,
 basically set `sawtooth.consensus.algorithm` to `raft` and
 `sawtooth.consensus.raft.peers` to a list of peer nodes (network public
 keys).
 
-# Does the PBFT implementation follow the original paper?
+## Does the PBFT implementation follow the original paper?
 
 Yes, it follows the original 1999 Castro and Liskov paper with some
 modifications and optimizations.
 
-# Does the PoET CFT implement the same consensus algorithm as PoET SGX?
+## Does the PoET CFT implement the same consensus algorithm as PoET SGX?
 
 Yes\--they are same same consensus algorithm. The difference is the PoET
 CFT also simulates the enclave module, allowing PoET to run on non-SGX
 hardware.
 
-# For PoET CFT (PoET Simulator), should I generate my own `simulator_rk_pub.pem` file or do I use the one in `/etc/sawtooth/` ?
+## For PoET CFT (PoET Simulator), should I generate my own `simulator_rk_pub.pem` file or do I use the one in `/etc/sawtooth/` ?
 
 No, you use the one that is installed. It must match the private key
 that is in the PoET Simulator. The public key is needed to verify
 attestation verification reports from PoET.
 
-# What is unpluggable consensus?
+## What is unpluggable consensus?
 
 Sawtooth supports unpluggable consensus, meaning you can change the
 consensus algorithm on the fly, at a block boundary. Changing consensus
@@ -91,12 +92,12 @@ on the fly means it is done without stopping validators, flushing state,
 or starting over with a new genesis block. It is also called Dynamic
 Consensus.
 
-# Can my Sawtooth network have validators with a mixture of PoET SGX and PoET CFT?
+## Can my Sawtooth network have validators with a mixture of PoET SGX and PoET CFT?
 
 No. You need to pick one consensus for all nodes. But you can change
 consensus after the Sawtooth network has started.
 
-# What protections does PoET CFT have, since it is not BFT?
+## What protections does PoET CFT have, since it is not BFT?
 
 It is for systems that do not have SGX and do not require BFT. Both PoET
 CFT and PoET SGX have tests to guard against bad actors, such as the \"Z
@@ -105,19 +106,19 @@ simulates the SGX environment and provides CFT. That said, PoET SGX is
 preferred because of the additional SGX protections for generating the
 wait time.
 
-# What cloud services offer SGX?
+## What cloud services offer SGX?
 
 SGX is available on IBM cloud and Alibaba. Early access was available on
 Microsoft Azure, but not now.
 
-# Does PoET SGX function with SGX on cloud services?
+## Does PoET SGX function with SGX on cloud services?
 
 No. For PoET SGX to function, one also needs Platform Services (PSW),
 which is not available from any cloud provider. Instead, one can use
 PoET CFT, which is also supported. But other software software that
 requires SGX may be deployed on cloud services.
 
-# I get this error during PoET SGX registration: \"Machine requires update (probably BIOS) for SGX compliance.\"
+## I get this error during PoET SGX registration: \"Machine requires update (probably BIOS) for SGX compliance.\"
 
 During EPID provisioning your computer is trying to get an anonymous
 credential from Intel. If that process is failing one possibility is
@@ -128,22 +129,22 @@ for that platform.
 
 SGX also needs to be enabled in the BIOS menu.
 
-# Does Sawtooth require a certain processor to be deployed on a network?
+## Does Sawtooth require a certain processor to be deployed on a network?
 
 No. If you use PoET SGX consensus you need a processor that supports
 SGX.
 
-# Does Sawtooth require SGX?
+## Does Sawtooth require SGX?
 
 No. SGX is only needed if you use the hardened version of PoET, PoET
 SGX. We also have a version of PoET that just uses conventional
 software, PoET CFT, which runs on a Sawtooth network with any processor.
 
-# How is PoET duration time computed?
+## How is PoET duration time computed?
 
 It is `duration = random_float(0,1) * local_mean_wait_time`
 
-# Why does PoET use exponentially-distributed random variable function instead of a uniform function?
+## Why does PoET use exponentially-distributed random variable function instead of a uniform function?
 
 That is to minimize the number of \"collisions\" in the distribution of
 a given round of wait timers generated by the population, where
@@ -154,11 +155,11 @@ is determined by examining the last N blocks. In an ideal world, you
 want a distribution where one and only one random wait time is around
 the desired inter block duration, and then there is a decent sized gap.
 
-# Where is PoET 1.0 Specification?
+## Where is PoET 1.0 Specification?
 
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/architecture/poet.html>
 
-# Why is PoET SGX Byzantine Fault Tolerant?
+## Why is PoET SGX Byzantine Fault Tolerant?
 
 Because the PoET waiting time is enforced with an SGX enclave. There is
 also more defense-in-depth checks, but that doesn\'t make it BFT. In
@@ -167,7 +168,7 @@ hashing, which is effectively the same thing (although more wasteful)
 than PoET\'s trusted timer. For details, see the PoET 1.0 spec in the
 link above.
 
-# Where is the PoET SGX Enclave configuration file?
+## Where is the PoET SGX Enclave configuration file?
 
 It is at `/etc/sawtooth/poet_enclave_sgx.toml` . It is only for
 configuring PoET SGX Enclave, not the PoET CFT (PoET without SGX). A
@@ -176,13 +177,13 @@ sample file is at
 The configuration is documented at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/configuring_sawtooth/poet_sgx_enclave_configuration_file.html>
 
-# I run `sudo -u sawtooth poet registration create . . .` and get `Permission denied: 'poet_genesis.batch'` error
+## I run `sudo -u sawtooth poet registration create . . .` and get `Permission denied: 'poet_genesis.batch'` error
 
 Change to a sawtooth user-writable directory before running the command
 and make sure file [poet_genesis.batch]{.title-ref} does not already
 exist: `cd /tmp; ls poet_genesis.batch`
 
-# What does `Consensus not ready to build candidate block` mean?
+## What does `Consensus not ready to build candidate block` mean?
 
 This message is usually an innocuous information message. It usually
 means that the validator isn\'t yet registered in the validator registry
@@ -205,7 +206,7 @@ initial launch. You can relax these parameters (see
 [Settings](/faq/settings/) in this FAQ) or, easier yet, relaunch the
 network.
 
-# What does `Failed to create wait certificate: Cannot create wait certificate because timer has timed out` mean?
+## What does `Failed to create wait certificate: Cannot create wait certificate because timer has timed out` mean?
 
 It means too much time has elapsed between the creation of the wait
 timer and the attempt to finalize the block and create the wait
@@ -217,7 +218,7 @@ message is kind of unusual. In versions of Sawtooth before 1.0, we
 waited until the entire schedule executed, which could be quite long
 running, and this message was quite common.
 
-# How do I change the Sawtooth consensus algorithm?
+## How do I change the Sawtooth consensus algorithm?
 
 -   Install the software package containing the consensus engine you
     wish to use on all nodes, if it is not already installed.
@@ -235,14 +236,14 @@ Here is an example that changes the consensus to Raft:
 
 :   `sawset proposal create --url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv  \ sawtooth.consensus.algorithm=raft sawtooth.consensus.raft.peers=\ '["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631", \ "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa"]'`
 
-# How do I change the consensus algorithm for a network that has forked?
+## How do I change the consensus algorithm for a network that has forked?
 
 Bring the network down to one node with the preferred blocks and submit
 your consensus change proposal. Bring in the other nodes, with any
 consensus-required TPs running (for example, PoET requires the Validator
 Registry TP).
 
-# Where can I find information on the proposed PoET2 algorithm?
+## Where can I find information on the proposed PoET2 algorithm?
 
 PoET2 is different from PoET in that it supports SGX without relying on
 Intel Platform Services Enclave (PSE), making it suitable in cloud
@@ -255,21 +256,21 @@ presentation (2018-08-23) is at
 <https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc>
 (starting at 7:45)
 
-# What is the Intel Platform Developers Kit for Blockchain - Ubuntu?
+## What is the Intel Platform Developers Kit for Blockchain - Ubuntu?
 
 The PDK is a small form factor computer with SGX with Ubuntu,
 Hyperledger Sawtooth, and development software pre-installed. For
 information, see
 <https://designintools.intel.com/Intel_Platform_Developers_Kit_for_Blockchain_p/q6uidcbkcpdk.htm>
 
-# Where is the Consensus Engine API documented?
+## Where is the Consensus Engine API documented?
 
 At <https://github.com/hyperledger/sawtooth-rfcs/pull/4> See also the
 \"Sawtooth Consensus Engines\" video at
 20180426-sawtooth-tech-forum.mp4, starting at 10:00, in directory
 <https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc>
 
-# What are the minimum number of nodes needed for PoET?
+## What are the minimum number of nodes needed for PoET?
 
 PoET needs at least 3 nodes, but works best with at least 5 nodes. This
 is to avoid Z Test failures (a node winning too frequently). In
@@ -277,7 +278,7 @@ production, to keep a blockchain safe, more nodes are always better,
 regardless of the consensus. 10 nodes are good for internal testing. For
 production, have 2 nodes per identity.
 
-# Can PoET be configured for small networks?
+## Can PoET be configured for small networks?
 
 Yes, for development purposes. For production purposes, consider using
 another consensus algorithm. For example, Raft or PBFT handles a small
@@ -291,7 +292,7 @@ for small test networks (say, \< \~12 nodes) with:
     sawtooth.poet.key_block_claim_limit= 100000
     sawtooth.poet.ztest_minimum_win_count=999999999
 
-# How should peer nodes be distributed?
+## How should peer nodes be distributed?
 
 Blockchain achieves fault tolerance by having its state (data)
 completely duplicated among the peer nodes. Best practice means
@@ -300,20 +301,20 @@ Distributing nodes on virtual machines sharing the same host does
 nothing to guard against hardware faults. Distributing nodes at the same
 site does not protect against site outages.
 
-# Can I restrict what validator nodes win consensus?
+## Can I restrict what validator nodes win consensus?
 
 No. Every peer node validates blocks and every peer node can publish a
 block. You can write your own plugin consensus module to restrict what
 peer nodes win. Or modify an existing consensus module to experiment.
 
-# How do I restart a consensus engine?
+## How do I restart a consensus engine?
 
 First stop the validator, then restart the consensus engine. If you
 leave the validator engine running, it will not connect to the restarted
 consensus engine. See
 <https://jira.hyperledger.org/projects/STL/issues/STL-1465>
 
-# Do I start the consensus engine before or after the validator?
+## Do I start the consensus engine before or after the validator?
 
 The consensus engine can start before or after the validator. The
 preferred order is to start the validator first, then the consensus
@@ -321,7 +322,7 @@ engine. If you start the consensus engine before the validator, the
 consensus engine will retry connecting to the validator (through TCP
 port 5050) until it the consensus engine is successful.
 
-# What can cause a fork with PoET?
+## What can cause a fork with PoET?
 
 In PoET, forks occur due to a network partition, the size of the
 network, the time it takes to transfer and validate blocks across the
@@ -332,7 +333,7 @@ TPs don't really affect forks, unless they have a severe impact on the
 validation duration of the block. However, unresolvable forks due to
 non-determinism, are likely a TP problem.
 
-# How do I fix PoET using Intel SGX IAS API version 2, which is end of life?
+## How do I fix PoET using Intel SGX IAS API version 2, which is end of life?
 
 For those who are trying to use PoET SGX with IAS, you need to move to
 the IAS API v3 interface. Basically just go through and change the IAS
@@ -344,8 +345,6 @@ be made in files
 The Intel SGX IAS v3 API is at
 <https://software.intel.com/sites/default/files/managed/7e/3b/ias-api-spec.pdf>
 
-::: mininav
 [PREVIOUS](/faq/validator/) [TOP](/faq/) [NEXT](/faq/client/)
-:::
 
 © Copyright 2018, Intel Corporation.

@@ -1,19 +1,19 @@
-\-\--layout: page hide: true tags: \[faq\] title: Sawtooth FAQ -
-Upgrading Hyperledger Sawtooth permalink: /faq/upgrade/ \# Copyright (c)
-2019, Intel Corporation. \# Licensed under Creative Commons Attribution
-4.0 International License \#
-<https://creativecommons.org/licenses/by/4.0/> \-\--Sawtooth FAQ:
-Upgrading Hyperledger Sawtooth
-============================================
+---
+layout: default
+hide: true
+tags: [faq]
+title: Sawtooth FAQ - Upgrading Hyperledger Sawtooth
+permalink: /faq/upgrade/
+# Copyright (c) 2019, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License 
+# <https://creativecommons.org/licenses/by/4.0/>
+---
 
-::: mininav
+# Sawtooth FAQ: Upgrading Hyperledger Sawtooth
+
 [PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
-:::
 
-::: contents
-:::
-
-# Points to consider while upgrading Hyperledger Sawtooth
+## Points to consider while upgrading Hyperledger Sawtooth
 
 This is applicable to upgrade from version 1.0.X to 1.1.X
 
@@ -48,19 +48,19 @@ when the upgrade happens. Client can consider this as validator service
 unavailable and retry the transactions when the validator service is up
 again.
 
-# Transaction Processor upgrades
+## Transaction Processor upgrades
 
 -   Maintain old versions of transaction processors, even though clients
     are not sending transactions to the old version. This is required so
     that when a new validator is added to the network and it needs to
     catch up with earlier published blocks.
 
-# Consensus engine upgrades
+## Consensus engine upgrades
 
 -   Maintain older version of consensus engines for a newly added node
     in the network, to catch up with the earlier blocks.
 
-# General practice for deploying a Hyperledger Sawtooth application
+## General practice for deploying a Hyperledger Sawtooth application
 
 -   Transactions may be rejected by a validator if the input rate is
     higher than what a validator can handle in its queue. The queue
@@ -69,8 +69,6 @@ again.
     should consider this queue full case at validator end and retry the
     same transaction when the validator is able to handle.
 
-::: mininav
 [PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
-:::
 
 © Copyright 2018, Intel Corporation.

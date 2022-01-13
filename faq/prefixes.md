@@ -1,15 +1,17 @@
-\-\--layout: page hide: true tags: \[appendix\] title: Appendix -
-Sawtooth Transaction Family Prefixes permalink: /faq/prefixes/ \#
-Copyright (c) 2018, Intel Corporation. \# Licensed under Creative
-Commons Attribution 4.0 International License \#
-<https://creativecommons.org/licenses/by/4.0/> \-\--FAQ Appendix:
-Transaction Family Prefixes ========================================= ..
-class:: mininav
+---
+layout: default
+hide: true
+tags: [appendix]
+title: Appendix - Sawtooth Transaction Family Prefixes
+permalink: /faq/prefixes/
+# Copyright (c) 2018, Intel Corporation.
+# Licensed under Creative Commons Attribution 4.0 International License
+# <https://creativecommons.org/licenses/by/4.0/>
+---
+
+# FAQ Appendix: Transaction Family Prefixes
 
 [PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
-
-::: contents
-:::
 
 This is an unofficial list of some Transaction Family (TF) prefixes.
 There is no central registry, most or all of these TFs are found on
@@ -31,121 +33,39 @@ headers are serialized with Protobuf.
 For base TF specifications, see
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/>
 
-+-------------+---------+-------+-------------------------------------+
-| TRANSACTION | SERIAL- | P     | PREFIX ENCODING                     |
-| FAMILY NAME | IZATION | REFIX |                                     |
-+=============+=========+=======+=====================================+
-| settings    | P       | 0     | Validator settings. Only required   |
-|             | rotobuf | 00000 | TF                                  |
-+-------------+---------+-------+-------------------------------------+
-| identity    | P       | 0     | Validator Identity for TP/Validator |
-|             | rotobuf | 0001d | keys                                |
-+-------------+---------+-------+-------------------------------------+
-| sawtooth    | P       | 6     | PoET Validator Registry. Used by    |
-| \_validator | rotobuf | a4372 | PoET consensus to track other       |
-| \_registry  |         |       | validators. See note above about    |
-|             |         |       | hash prefix .                       |
-+-------------+---------+-------+-------------------------------------+
-| blockinfo   | P       | 0     | Validator Block Info. Used for SETH |
-|             | rotobuf | 0b10c |                                     |
-|             |         |       | 00b10c00 metadata namespace info    |
-|             |         |       | about other namespaces              |
-|             |         |       |                                     |
-|             |         |       | 00b10c01 block info namespace       |
-|             |         |       | historic block info                 |
-|             |         |       |                                     |
-|             |         |       | 00b10c0100\....00\<block \# in hex> |
-|             |         |       | info on block at block \#           |
-+-------------+---------+-------+-------------------------------------+
-| sabre       | P       | 0     | WebAssembly VM: NamespaceRegistry   |
-|             | rotobuf | 0ec00 |                                     |
-|             |         |       | Wasm: ContractRegistry              |
-|             |         | 0     |                                     |
-|             |         | 0ec01 | Wasm: Contracts                     |
-|             |         |       |                                     |
-|             |         | 0     |                                     |
-|             |         | 0ec02 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| seth        | P       | a     | SETH (Sawtooth Ethereum VM)         |
-|             | rotobuf | 68b06 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| pdo\_       | P       | a     | Private Data Objects (PDO) Contract |
-| contract\_  | rotobuf | a2a93 | Instance Registry                   |
-| instance\_  |         |       |                                     |
-| registry    |         |       |                                     |
-+-------------+---------+-------+-------------------------------------+
-| pdo\_       | P       | 0     | Private Data Objects (PDO) Contract |
-| contract\_  | rotobuf | b936f | Enclave Registry                    |
-| enclave\_   |         |       |                                     |
-| registry    |         |       |                                     |
-+-------------+---------+-------+-------------------------------------+
-| ccl\_       | P       | d     | Private Data Objects (PDO)          |
-| contract\_  | rotobuf | b13a2 | Coordination and Commit Log (CCL)   |
-| contract\_  |         |       | Contract State Registry             |
-| state\_     |         |       |                                     |
-| registry    |         |       |                                     |
-+-------------+---------+-------+-------------------------------------+
-| > \*\*SOME  | TFs\*\* |       |                                     |
-| > EXAMPLE   |         |       |                                     |
-+-------------+---------+-------+-------------------------------------+
-| battleship  | JSON    | 6     | Battleship example game             |
-|             |         | e10df |                                     |
-+-------------+---------+-------+-------------------------------------+
-| intkey      | CBOR    | 1     | Integer Key. Full production        |
-|             |         | cf126 | example                             |
-+-------------+---------+-------+-------------------------------------+
-| smallbank   | P       | 3     | Small Bank example app              |
-|             | rotobuf | 32514 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| xo          | C       | 5     | Tic-tac-toe example game            |
-|             | SV-UTF8 | b7349 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| s           | P       | 3     | Asset (Fish) Supply Chain example   |
-| upply_chain | rotobuf | 400de | app                                 |
-+-------------+---------+-------+-------------------------------------+
-| marketplace | P       | c     | Marketplace example app             |
-|             | rotobuf | d6744 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| transfer-   | JS      | 1     | Simple Tuna Supply Chain app. Used  |
-| chain       | ON-UTF8 | 9d832 | for edX LFS171x class               |
-+-------------+---------+-------+-------------------------------------+
-| s           | C       | 7     | Simple Wallet minimal example       |
-| implewallet | SV-UTF8 | e2664 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| cookiejar   | C       | a     | Cookie Jar minimal example          |
-|             | SV-UTF8 | 4d219 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| simple\_    | P       | 5     | Simple Supply example used for      |
-| supply      | rotobuf | d6af4 | future edX LFS201 class             |
-+-------------+---------+-------+-------------------------------------+
-| pirate-talk | UTF8    | a     | Pirate Talk minimal example         |
-|             |         | aaaaa |                                     |
-+-------------+---------+-------+-------------------------------------+
-| c           | raw     | 1     | Cookie Maker minimal example        |
-| ookie-maker |         | a5312 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| > \*\*SOME  | ARTY    | ION   |                                     |
-| > THIRD-P   | PRODUCT | TF    |                                     |
-|             |         | s\*\* |                                     |
-+-------------+---------+-------+-------------------------------------+
-| rbac        | P       | 8     | T-Mobile NEXT Identity Platform     |
-|             | rotobuf | 563d0 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| s           | P       | d     | Primechain Blockchain-eKYC bank     |
-| awtoothekyc | rotobuf | bf420 | records                             |
-+-------------+---------+-------+-------------------------------------+
-| pub_key     | P       | a     | REMME REMChain                      |
-|             | rotobuf | 23be1 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| bitagora-   | JSON    | b     | Bitagora voting ballot              |
-| ballots     |         | 42861 |                                     |
-+-------------+---------+-------+-------------------------------------+
-| bitagora-   | JSON    | 1     | Bitagora voting polls               |
-| polls       |         | 54f9c |                                     |
-+-------------+---------+-------+-------------------------------------+
+[//]: # (TODO: Apply styling to table)
 
-::: mininav
+|          TRANSACTION FAMILY NAME         | SERIAL- IZATION |           PREFIX          |                                                                                                 PREFIX ENCODING                                                                                                 |
+|:----------------------------------------:|:---------------:|:-------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| settings                                 | Protobuf        | 000000                    | Validator settings.  Only required TF                                                                                                                                                                           |
+| identity                                 | Protobuf        | 00001d                    | Validator Identity for TP/Validator keys                                                                                                                                                                        |
+| sawtooth _validator _registry            | Protobuf        | 6a4372                    | PoET Validator Registry. Used by PoET consensus to track other validators. See note above about hash prefix .                                                                                                   |
+| blockinfo                                | Protobuf        | 00b10c                    | Validator Block Info.  Used for SETH   00b10c00 metadata namespace info about other namespaces   00b10c01 block info namespace historic block info   00b10c0100....00<block # in hex> info on block at block #  |
+| sabre                                    | Protobuf        | 00ec00   00ec01   00ec02  | WebAssembly VM: NamespaceRegistry   Wasm: ContractRegistry   Wasm: Contracts                                                                                                                                    |
+| seth                                     | Protobuf        | a68b06                    | SETH (Sawtooth Ethereum VM)                                                                                                                                                                                     |
+| pdo_ contract_ instance_ registry        | Protobuf        | aa2a93                    | Private Data Objects (PDO) Contract Instance Registry                                                                                                                                                           |
+| pdo_ contract_ enclave_ registry         | Protobuf        | 0b936f                    | Private Data Objects (PDO) Contract Enclave Registry                                                                                                                                                            |
+| ccl_ contract_ contract_ state_ registry | Protobuf        | db13a2                    | Private Data Objects (PDO) Coordination and Commit Log (CCL) Contract State Registry                                                                                                                            |
+| SOME EXAMPLE TFs                         |                 |                           |                                                                                                                                                                                                                 |
+| battleship                               | JSON            | 6e10df                    | Battleship example game                                                                                                                                                                                         |
+| intkey                                   | CBOR            | 1cf126                    | Integer Key. Full production example                                                                                                                                                                            |
+| smallbank                                | Protobuf        | 332514                    | Small Bank example app                                                                                                                                                                                          |
+| xo                                       | CSV-UTF8        | 5b7349                    | Tic-tac-toe example game                                                                                                                                                                                        |
+| supply_chain                             | Protobuf        | 3400de                    | Asset (Fish) Supply Chain example app                                                                                                                                                                           |
+| marketplace                              | Protobuf        | cd6744                    | Marketplace example app                                                                                                                                                                                         |
+| transfer- chain                          | JSON-UTF8       | 19d832                    | Simple Tuna Supply Chain app. Used for edX LFS171x class                                                                                                                                                        |
+| simplewallet                             | CSV-UTF8        | 7e2664                    | Simple Wallet minimal example                                                                                                                                                                                   |
+| cookiejar                                | CSV-UTF8        | a4d219                    | Cookie Jar minimal example                                                                                                                                                                                      |
+| simple_ supply                           | Protobuf        | 5d6af4                    | Simple Supply example used for future edX LFS201 class                                                                                                                                                          |
+| pirate-talk                              | UTF8            | aaaaaa                    | Pirate Talk minimal example                                                                                                                                                                                     |
+| cookie-maker                             | raw             | 1a5312                    | Cookie Maker minimal example                                                                                                                                                                                    |
+| SOME THIRD-PARTY PRODUCTION TFs          |                 |                           |                                                                                                                                                                                                                 |
+| rbac                                     | Protobuf        | 8563d0                    | T-Mobile NEXT Identity Platform                                                                                                                                                                                 |
+| sawtoothekyc                             | Protobuf        | dbf420                    | Primechain Blockchain-eKYC bank records                                                                                                                                                                         |
+| pub_key                                  | Protobuf        | a23be1                    | REMME REMChain                                                                                                                                                                                                  |
+| bitagora- ballots                        | JSON            | b42861                    | Bitagora voting ballot                                                                                                                                                                                          |
+| bitagora- polls                          | JSON            | 154f9c                    | Bitagora voting polls                                                                                                                                                                                           |
+
 [PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
-:::
 
 © Copyright 2018, Intel Corporation.
