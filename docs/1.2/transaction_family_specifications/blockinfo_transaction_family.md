@@ -1,8 +1,7 @@
----
-title: BlockInfo Transaction Family
----
+# BlockInfo Transaction Family
 
-# Overview
+
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -19,27 +18,24 @@ previous blocks.
 The Blockinfo transaction family provides a way for storing information
 about a configurable number of historic blocks.
 
-::: note
-::: title
-Note
-:::
+>
+> **Note**
+>
+> BlockInfo transactions should only be added to a block by a BlockInfo
+> Injector and validation rules should ensure that only one transaction of
+> this type is included at the beginning of the block. For more
+> information, see [Injecting Batches and On-Chain Block Validation
+> Rules]({% link docs/1.2/architecture/injecting_batches_block_validation_rules.md%}).
+> It is important to note that the data written to state by
+> this transaction family cannot be trusted unless both the injector and
+> validation rules are enabled.
 
-BlockInfo transactions should only be added to a block by a BlockInfo
-Injector and validation rules should ensure that only one transaction of
-this type is included at the beginning of the block. For more
-information, see `Injecting Batches and On-Chain Block Validation Rules
-<../architecture/injecting_batches_block_validation_rules>`{.interpreted-text
-role="doc"}. It is important to note that the data written to state by
-this transaction family cannot be trusted unless both the injector and
-validation rules are enabled.
-:::
-
-# State
+## State
 
 This section describes in detail how block information is stored and
 addressed using the blockinfo transaction family.
 
-## Address
+### Address
 
 The top-level namespace of this transaction family is 00b10c. This
 namespace is further subdivided based on the next two characters as
@@ -71,20 +67,10 @@ characters. The procedure is as follows:
 For example, in Python the address could be constructed with:
 
 ``` pycon
+  >>> \'00b10c01\' + hex(block_num)[2:].zfill(62))
 ```
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.0/transaction_family_specifications/blockinfo_transaction_family.rst
-
-:   \>\>\> \'00b10c01\' + hex(block_num)\[2:\].zfill(62))
-
-=======
-
-:   \>\>\> \'00b10c00\' + hex(block_num)\[2:\].zfill(62)
-
-\>\>\>\>\>\>\>
-core/1-2:docs/core/1.2/transaction_family_specifications/blockinfo_transaction_family.rst
-
-## BlockInfo
+### BlockInfo
 
 BlockInfoConfig will store the following information:
 
@@ -127,7 +113,7 @@ message BlockInfo {
 }
 ```
 
-# Transaction Payload
+## Transaction Payload
 
 BlockInfo transaction family payloads are defined by the following
 protocol buffers code:
@@ -145,9 +131,9 @@ message BlockInfoTxn {
 }
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The inputs for BlockInfo family transactions must include:
 
@@ -159,16 +145,16 @@ The outputs for BlockInfo family transactions must include:
 -   the address of the BlockInfoConfig
 -   the BlockInfo namespace
 
-## Dependencies
+### Dependencies
 
 None.
 
-## Family
+### Family
 
 -   family_name: \"block_info\"
 -   family_version: \"1.0\"
 
-# Execution
+## Execution
 
 Processor execution will use the following procedure:
 
@@ -215,7 +201,7 @@ blocks, delete the oldest BlockInfo message from state.
 Write the most recent block number, oldest block number, and target
 number of blocks to the config zero-address.
 
-## Timestamps
+### Timestamps
 
 Handling timestamps in a distributed network is a difficult task because
 peers may not have synchronized clocks. The "clock" of the network may
