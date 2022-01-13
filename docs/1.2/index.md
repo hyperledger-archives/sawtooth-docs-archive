@@ -187,6 +187,8 @@ for these algorithms:
 For more information, see
 [Sysadmin Guide]({% link docs/1.2/sysadmin_guide/index.md %})
 
+## Sample Transaction Families
+
 In a Sawtooth application, the data model and transaction language are
 implemented in a transaction family, which runs on a Sawtooth node as a
 transaction processor.
