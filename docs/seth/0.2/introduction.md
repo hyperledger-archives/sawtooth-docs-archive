@@ -2,6 +2,8 @@
 title: Introduction
 ---
 
+# Introduction
+
 The primary goal of the Sawtooth-Ethereum integration project,
 affectionately dubbed \"Seth\", is to add support for running Ethereum
 Virtual Machine smart contracts to the Hyperledger Sawtooth platform. In
@@ -17,12 +19,9 @@ API](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
 Seth is composed of three components:
 
-1.  The `seth <seth-cli-reference-label>`{.interpreted-text role="ref"}
-    client
-2.  The `seth-tp <seth-tp-reference-label>`{.interpreted-text
-    role="ref"} transaction processor
-3.  The `seth-rpc <seth-rpc-reference-label>`{.interpreted-text
-    role="ref"} server
+1.  The [seth](./cli_reference#seth-cli-reference-label) client
+2.  The [seth-tp](./cli_reference#seth-tp-reference-label) transaction processor
+3.  The [seth-rpc](./cli_reference#seth-rpc-reference-label) server
 
 The `seth` client is the user-facing CLI tool for interacting with a
 Sawtooth network that has Seth deployed on it. The `seth-tp` transaction
@@ -63,13 +62,9 @@ some differences to be aware of:
     these instructions will attempt to read from state at the addresses
     defined by that family.
 
-::: note
-::: title
-Note
-:::
-
-Code documentation can be [found here](../cargo/seth/index.html).
-:::
+>**Note**
+>
+> Code documentation can be [found here](../cargo/seth/index.html).
 
 <!--
   Copyright 2017 Intel Corporation
