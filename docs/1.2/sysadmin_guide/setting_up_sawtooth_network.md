@@ -3,13 +3,12 @@
 In this section, you will configure a network of Sawtooth nodes with
 either Sawtooth PBFT consensus or PoET simulator consensus.
 
--   `Sawtooth PBFT consensus <PBFT consensus>`{.interpreted-text
-    role="term"} provides Byzantine fault tolerance for a network with
-    restricted membership. PBFT requires at least four nodes.
--   `PoET simulator consensus <PoET consensus>`{.interpreted-text
-    role="term"} is designed for a system without a Trusted Execution
-    Environment (TEE). Sawtooth PoET requires a minimum of three nodes,
-    but works best with at least four or five nodes.
+- [Sawtooth PBFT consensus]({% link docs/1.2/glossary.md %}) provides Byzantine
+  fault tolerance for a network with restricted membership. PBFT requires at
+  least four nodes.
+- [PoET simulator consensus]({% link docs/1.2/glossary.md %}) is designed for a
+  system without a Trusted Execution Environment (TEE). Sawtooth PoET requires a
+  minimum of three nodes, but works best with at least four or five nodes.
 
 For more information on the supported consensus types, or to learn how
 to change the consensus later, see
@@ -30,16 +29,19 @@ required on the minimum set of nodes in the initial network.
 Each node in this Sawtooth network runs a validator, a REST API, and the
 following transaction processors:
 
--   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-    role="doc"} (`settings-tp`)
--   `Identity <../transaction_family_specifications/identity_transaction_family>`{.interpreted-text
-    role="doc"} (`identity-tp`)
--   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
-    role="doc"} (`intkey-tp-python`) \-- optional, but used to test
-    basic Sawtooth functionality
--   (PoET only)
-    `PoET Validator Registry <../transaction_family_specifications/validator_registry_transaction_family>`{.interpreted-text
-    role="doc"} (`poet-validator-registry-tp`)
+- [Settings]({% link
+  docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
+  (`settings-tp`)
+- [Identity]({% link
+  docs/1.2/transaction_family_specifications/identity_transaction_family.md %})
+  (`identity-tp`)
+- [IntegerKey]({% link
+  docs/1.2/transaction_family_specifications/integerkey_transaction_family.md
+  %}) (`intkey-tp-python`) - optional, but used to test basic Sawtooth
+  functionality
+- (PoET only) [PoET Validator Registry]({% link
+  docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md
+  %}) (`poet-validator-registry-tp`)
 
 > **Important**
 >
@@ -162,7 +164,7 @@ system for proof-of-concept or production use in a Sawtooth network.
     > `/etc/sawtooth/keys/validator.priv` and
     > `/etc/sawtooth/keys/validator.pub`. However, settings in the path
     > configuration file could change this location; see
-    > `../sysadmin_guide/configuring_sawtooth/path_configuration_file`{.interpreted-text role="doc"}.
+    > [Path Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
 
 Sawtooth also includes a network key pair that is used to encrypt
 communication between the validators in a Sawtooth network. This
@@ -229,8 +231,7 @@ in the initial network.
     > in the following steps. In theory, some of these commands could use
     > a different key, but configuring multiple keys is a complicated
     > process that is not shown in this procedure. For more information,
-    > see `/sysadmin_guide/adding_authorized_users`{.interpreted-text
-    > role="doc"}.
+    > see [Adding Authorized Users for Settings Proposals]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md %}).
 
 4.  Create a batch to initialize the consensus settings.
 
@@ -422,16 +423,16 @@ files to change the following Sawtooth settings:
 It also explains how to configure a non-default REST API URL for the
 Sawtooth commands.
 
-See `configuring_sawtooth`{.interpreted-text role="doc"} for detailed
-information on the settings in each configuration file.
+See [About Sawtooth Configuration Files]({% link
+docs/1.2/sysadmin_guide/configuring_sawtooth.md %}) for detailed information on
+the settings in each configuration file.
 
 > **Note**
 >
 > This procedure assumes that the configuration directory is
 > `/etc/sawtooth/`. If your system uses a different location, change this
 > path in the commands below. For more information, see
-> `configuring_sawtooth/path_configuration_file`{.interpreted-text
-> role="doc"}.
+> [Path Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
 
 ### Configure the Validator {#sysadm-configure-validator-label}
 
@@ -517,9 +518,9 @@ scheduler type (optional), and create a network key.
     For example, a public network using an open-membership consensus
     algorithm should use dynamic peering, while a consortium network
     or network using a fixed-membership consensus algorithm should
-    use static peering. For more information, see
-    `configuring_sawtooth/validator_configuration_file`{.interpreted-text
-    role="doc"}.
+    use static peering. For more information, see [Validator Configuration
+    File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md
+    %}#validator_configuration_file).
 
     > **Note**
     >
@@ -560,8 +561,8 @@ scheduler type (optional), and create a network key.
 
 5.  (Optional) Set the scheduler type to either `parallel` (the default)
     or `serial`. For more information, see
-    `arch-iterative-sched-label`{.interpreted-text role="ref"} in the
-    Architecture Guide.
+    [Iterative Scheduling]({% link docs/1.2/architecture/scheduling.md
+    %}#arch-iterative-sched-label) in the Architecture Guide.
 
     ``` ini
     scheduler = 'parallel'
@@ -640,10 +641,10 @@ scheduler type (optional), and create a network key.
 >
 > To learn how to use the `[role]` and `[permissions]` settings to control
 > validator and user access to the network, see
-> `configuring_permissions`{.interpreted-text role="doc"}.
+> [Configuring Validator and Transactor Permissions]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %})
 >
 > For information about the `opentsdb_` settings, see
-> `grafana_configuration`{.interpreted-text role="doc"}.
+> [Using Grafana to Display Sawtooth Metrics]({% link docs/1.2/sysadmin_guide/grafana_configuration.md %}).
 
 ### Configure the REST API {#rest-api-bind-address-label}
 
@@ -698,8 +699,8 @@ If the REST API on this node is not at the default location, you can set
 the URL in the CLI configuration file. Otherwise, you would have to use
 the `--url` option with each Sawtooth command.
 
-For more information, see
-`configuring_sawtooth/cli_configuration`{.interpreted-text role="doc"}.
+For more information, see [Sawtooth CLI Configuration File]({% link
+docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#cli_configuration).
 
 1.  Create the CLI configuration file by copying the example file.
 
@@ -835,7 +836,8 @@ displayed on the console if you ran the components manually.
   ```
 
 Additional logging output can be found in `/var/log/sawtooth/`. For more
-information, see `log_configuration`{.interpreted-text role="doc"}.
+information, see [Log Configuration File]({% link
+docs/1.2/sysadmin_guide/log_configuration.md %}).
 
 ### Stop or Restart the Sawtooth Services {#stop-restart-sawtooth-services-label}
 
@@ -900,9 +902,9 @@ the following procedures.
 
 ### Test a single node
 
-After `starting Sawtooth services <systemd>`{.interpreted-text
-role="doc"} on one node, you can use any or all of the following
-commands to test basic Sawtooth functionality.
+After [starting Sawtooth services](#testing-sawtooth-functionality) on one node,
+you can use any or all of the following commands to test basic Sawtooth
+functionality.
 
 - Confirm that the REST API is reachable.
 
@@ -953,7 +955,7 @@ commands to test basic Sawtooth functionality.
   0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
   ```
 
-  Block 0 is the `genesis block`{.interpreted-text role="term"}. The
+  Block 0 is the [genesis block]({% link docs/1.2/glossary.md %}). The
   other two blocks contain the initial transactions for on-chain
   settings, such as setting the consensus algorithm.
 
@@ -980,8 +982,7 @@ commands to test basic Sawtooth functionality.
      >
      > You can use the `sawset proposal create` command to change this
      > setting. For more information, see
-     > `/sysadmin_guide/pbft_adding_removing_node`{.interpreted-text
-     > role="doc"}.
+     > [Adding or Removing a PBFT Node]({% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md %}).
 
 ### Test the network
 
@@ -1030,8 +1031,8 @@ have joined the network before continuing.
 
    If there are problems, check the validator and REST API
    configuration files for errors in the IP addresses, ports, or peer
-   settings. For more information, see
-   `configuring_sawtooth`{.interpreted-text role="doc"}.
+   settings. For more information, see [About Sawtooth Configuration Files]({%
+   link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}).
 
 3. Make sure that new blocks of transactions are added to the
    blockchain.
@@ -1070,7 +1071,8 @@ have joined the network before continuing.
 
    If there is a problem, examine the logs for the validator, REST API,
    and transaction processors for possible clues. For more information,
-   see `log_configuration`{.interpreted-text role="doc"}.
+   see [Log Configuration File]({% link
+   docs/1.2/sysadmin_guide/log_configuration.md %}).
 
 > **Tip**
 >
