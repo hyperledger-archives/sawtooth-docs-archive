@@ -1,7 +1,7 @@
 ---
 layout: default
 hide: true
-tags: [faq]j
+tags: [faq]
 title: Sawtooth FAQ - Hyperledger Sawtooth in General
 permalink: /faq/sawtooth/
 # Copyright (c) 2018, Intel Corporation.
