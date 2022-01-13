@@ -1,8 +1,6 @@
----
-title: Settings Transaction Family
----
+# Settings Transaction Family
 
-# Overview
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -29,22 +27,18 @@ that can make changes and multiple authorized keys. In the case of
 multiple keys, a configuration setting controls how many nodes must vote
 to make a change.
 
-::: note
-::: title
-Note
-:::
+> Note
+>
+> While usable in a production sense, this transaction family also serves
+> as a reference specification and implementation. The authorization
+> scheme here provides a simple voting mechanism; another authorization
+> scheme may be better in practice. Implementations which use a different
+> authorization scheme can replace this implementation by adhering to the
+> same addressing scheme and content format for settings. (For example,
+> the location of PoET settings can not change, or the PoET consensus
+> module will not be able to find them.)
 
-While usable in a production sense, this transaction family also serves
-as a reference specification and implementation. The authorization
-scheme here provides a simple voting mechanism; another authorization
-scheme may be better in practice. Implementations which use a different
-authorization scheme can replace this implementation by adhering to the
-same addressing scheme and content format for settings. (For example,
-the location of PoET settings can not change, or the PoET consensus
-module will not be able to find them.)
-:::
-
-# State
+## State
 
 This section describes in detail how settings are stored and addressed
 using the Settings transaction family.
@@ -53,42 +47,34 @@ The setting data consists of setting/value pairs. A setting is the name
 for the item of configuration data. The value is the data in the form of
 a string.
 
-## Settings
+### Settings
 
 Settings are namespaced using dots:
 
-  Setting (Examples)                              Value
-  ----------------------------------------------- -------
-  sawtooth.poet.target_wait_time                  5
-  sawtooth.validator.max_transactions_per_block   1000
+  |Setting (Examples)                            |Value |
+  |----------------------------------------------|------|
+  | sawtooth.poet.target_wait_time               | 5    |
+  | sawtooth.validator.max_transactions_per_block|1000  |
 
 The Settings transaction family uses the following settings for its own
 configuration:
 
-  -----------------------------------------------------------------------------------------
-  Setting (Settings)                          Value Description
-  ------------------------------------------- ---------------------------------------------
-  sawtooth.settings.vote.authorized_keys      List of public keys allowed to propose and
-                                              vote on settings changes
 
-  sawtooth.settings.vote.approval_threshold   Minimum number of votes required to accept or
-                                              reject a proposal (default: 1)
+  |Setting (Settings)                        | Value Description                          |
+  -------------------------------------------|---------------------------------------------
+  |sawtooth.settings.vote.authorized_keys    | List of public keys allowed to propose and vote on settings changes|
+  |sawtooth.settings.vote.approval_threshold |Minimum number of votes required to accept or reject a proposal (default: 1) |
+  |sawtooth.settings.vote.proposals          |A list of proposals to make settings changes(see note) |
 
-  sawtooth.settings.vote.proposals            A list of proposals to make settings changes
-                                              (see note)
-  -----------------------------------------------------------------------------------------
 
-::: note
-::: title
-Note
-:::
+> Note
+>
+>
+>  *sawtooth.settings.vote.proposals* is a base64 encoded string of the
+> protobuf message *SettingCandidates*. This setting cannot be modified by
+> a proposal or a vote.
 
-*sawtooth.settings.vote.proposals* is a base64 encoded string of the
-protobuf message *SettingCandidates*. This setting cannot be modified by
-a proposal or a vote.
-:::
-
-## Definition of Setting Entries
+### Definition of Setting Entries
 
 The following protocol buffers definition defines setting entries:
 
@@ -106,7 +92,7 @@ message Setting {
 }
 ```
 
-## sawtooth.settings.vote.proposals
+### sawtooth.settings.vote.proposals
 
 The setting \'sawtooth.settings.vote.proposals\' is stored as defined by
 the following protocol buffers definition. The value returned by this
@@ -141,18 +127,16 @@ message SettingCandidates {
 }
 ```
 
-## Addressing
+### Addressing
 
 When a setting is read or changed, it is accessed by addressing it using
 the following algorithm:
 
 Setting keys are broken into four parts, based on the dots in the
-string. For example, the address for the key [a.b.c]{.title-ref} is
-computed based on [a]{.title-ref}, [b]{.title-ref}, [c]{.title-ref} and
-the empty string. A longer key, for example [a.b.c.d.e]{.title-ref}, is
-still broken into four parts, but the remaining pieces are in the last
-part: [a]{.title-ref}, [b]{.title-ref}, [c]{.title-ref} and
-[d.e]{.title-ref}.
+string. For example, the address for the key `a.b.c` is
+computed based on `a`, `b`, `c` and the empty string. A longer key, for example
+`a.b.c.d.e`, is still broken into four parts, but the remaining pieces are in
+the last part: `a`, `b`, `c` and `d.e`.
 
 Each of these pieces has a short hash computed (the first 16 characters
 of its SHA256 hash in hex) and is joined into a single address, with the
@@ -169,7 +153,7 @@ like this:
     '000000a87cb5eafdcca6a8b79606fb3afea5bdab274474a6aa82c1c0cbf0fbcaf64c0b'
 ```
 
-# Transaction Payload
+## Transaction Payload
 
 Setting transaction family payloads are defined by the following
 protocol buffers code:
@@ -227,9 +211,9 @@ message SettingVote {
 }
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The inputs for config family transactions must include:
 
@@ -243,16 +227,16 @@ The outputs for config family transactions must include:
 -   the address of *sawtooth.settings.vote.proposals*
 -   the address of the setting being changed
 
-## Dependencies
+### Dependencies
 
 None.
 
-## Family
+### Family
 
 -   family_name: \"sawtooth_settings\"
 -   family_version: \"1.0\"
 
-# Execution
+## Execution
 
 Initially, the transaction processor gets the current values of
 *sawtooth.settings.vote.authorized_keys* from the state.

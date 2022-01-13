@@ -1,8 +1,6 @@
----
-title: IntegerKey Transaction Family
----
+# IntegerKey Transaction Family
 
-# Overview
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -24,7 +22,7 @@ entry will be set to the value specified in the transaction request. The
 \'inc\' and \'dec\' verbs are used to change the value of existing
 entries in the state dictionary.
 
-# State
+## State
 
 This section describes in detail how IntegerKey transaction information
 is stored and addressed.
@@ -47,7 +45,7 @@ cbor.dumps({
 -   Valid *Values* must be integers in the range of 0 through 2^32^ - 1
     (32-bit unsigned int)
 
-## Addressing
+### Addressing
 
 IntegerKey data is stored in the state dictionary using addresses which
 are generated from the IntegerKey namespace prefix and the unique name
@@ -66,16 +64,12 @@ For example, an IntegerKey address could be generated as follows:
 '1cf126cc488cca4cc3565a876f6040f8b73a7b92475be1d0b1bc453f6140fba7183b9a'
 ```
 
-::: note
-::: title
-Note
-:::
+> Note
+>
+> Due to the possibility of hash collisions, there may be multiple *Names*
+> in the state dictionary with the same address.
 
-Due to the possibility of hash collisions, there may be multiple *Names*
-in the state dictionary with the same address.
-:::
-
-# Transaction Payload
+## Transaction Payload
 
 IntegerKey transaction request payloads are defined by the following
 CBOR data format:
@@ -93,9 +87,9 @@ cbor.dumps({
 })
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The inputs for IntegerKey family transactions must include:
 
@@ -105,7 +99,7 @@ The outputs for IntegerKey family transactions must include:
 
 -   Address of the *Name* being changed or added
 
-## Dependencies
+### Dependencies
 
 -   List of transaction *header_signatures* that are required
     dependencies and must be processed prior to processing this
@@ -117,12 +111,12 @@ is ordered before the corresponding \'set\' transaction (without listing
 the \'set\' transaction as a dependency), they will be considered
 invalid (because *Name* will not exist when they are processed).
 
-## Family
+### Family
 
 -   family_name: \"intkey\"
 -   family_version: \"1.0\"
 
-# Execution
+## Execution
 
 The IntegerKey transaction processor receives a transaction request and
 a state dictionary.
