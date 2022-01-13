@@ -1,8 +1,6 @@
----
-title: Smart Permissions
----
+# Smart Permissions
 
-# Abstract
+## Abstract
 
 Supply chain applications require organization-specific permissioning
 business logic; however, existing distributed ledger systems do not
@@ -11,26 +9,25 @@ business logic. This paper describes a software architecture and design
 for implementing such a permissioning system for distributed ledger
 applications using Hyperledger Sawtooth and WebAssembly.
 
-# Background
+## Background
 
 Blockchain and distributed ledgers are a natural building block for
 supply chain applications, primarily due to cross-organization data
 sharing with no central trusted entity.
 
-::: todo
-High-level description of supply chain applications on distributed
-ledgers.
-:::
+> *TODO*
+>
+> High-level description of supply chain applications on distributed ledgers.
 
-::: todo
-Description of Permissioning within supply chain applications.
-:::
+> *TODO*
+>
+> Description of Permissioning within supply chain applications.
 
-::: todo
-Describe smart contracts and transaction processors.
-:::
+> *TODO*
+>
+> Describe smart contracts and transaction processors.
 
-# Smart Permission Functions
+## Smart Permission Functions
 
 Smart permission functions (SPFs) are business logic implemented in a
 programming language, stored in a distributed ledger\'s global state,
@@ -51,27 +48,27 @@ organization-specific set of permissions. A typical usage of this is an
 organizational Smart Permission Function called from within a smart
 contract.
 
-## Implementation and Compilation
+### Implementation and Compilation
 
 The Pike SDK provides an easy framework for implementing SPFs in Rust,
 including the SmartPermissionFunction trait. Other languages may be used
 for implementing SPFs as well, as long as they can be compiled into
 WASM.
 
-::: todo
-Provide an example SPF implementation here
-:::
+> *TODO*
+>
+> Provide an example SPF implementation here
 
 The above can be compiled using the following commands:
 
-::: todo
-Instructions for compiling the SPF.
-:::
+> *TODO*
+>
+> Instructions for compiling the SPF.
 
 The resulting WASM file contains compiled SPF, which is ready to be
 submitted to the Sawtooth network as a transaction.
 
-## Storage and Retrieval
+### Storage and Retrieval
 
 Smart Permission Functions are stored in Global State. The pike command
 is used to create SPF-related transactions, submit those transactions to
@@ -82,10 +79,10 @@ application, may be added in the future.
 A Pike SDK provides a framework for retrieving and evaluating SPFs
 within the context of a Sawtooth transaction processor.
 
-## Evaluation
+### Evaluation
 
 An application uses the permission system to answer a boolean question,
-\"Is the current operation permitted?\", with various inputs:
+"Is the current operation permitted?", with various inputs:
 
 -   transactor public key
 -   permission-specific function parameters
