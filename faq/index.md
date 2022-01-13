@@ -1,10 +1,4 @@
 ---
-layout: default
-Title: FAQ
-permalink: /faq/
-order: 4
-feature-img: "examples/img/hero-bg.jpg"
-feat_img_size: small
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>

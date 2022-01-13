@@ -1,9 +1,4 @@
 ---
-layout: default
-hide: true
-tags: [appendix]
-title: "Appendix: Sawtooth Settings"
-permalink: /faq/settings/
 # Copyright (c) 2018, Intel Corporation.
 # Licensed under Creative Commons Attribution 4.0 International License
 # <https://creativecommons.org/licenses/by/4.0/>
