@@ -1,6 +1,4 @@
----
-title: Address and Namespace Design
----
+# Address and Namespace Design
 
 Hyperledger Sawtooth stores data in a Merkle-Radix tree. Data is stored
 in leaf nodes, and each node is accessed using an addressing scheme that
@@ -12,7 +10,7 @@ family defining the namespace, and does not need to involve hashing.
 Hashing is a useful way to deterministically generate likely
 non-colliding byte arrays of a fixed length.
 
-# Address Components
+## Address Components
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -25,14 +23,13 @@ as 64 hex characters, can be calculated in various ways. However,
 certain guidelines should be followed when creating addresses, and
 specific requirements must be met.
 
-![Address and Namespace Design](../images/address_namespace.*){.align-center
-width="100.0%"}
+<img alt="Address and Namespace Design" src="/images/1.2/address_namespace.png">
 
 The address must be deterministic: that is, any validator or client that
 needs to calculate the address must be able to calculate the same
 address, every time, when given the same inputs.
 
-# Namespace Prefix
+## Namespace Prefix
 
 All data under a namespace prefix follows a consistent address and data
 encoding/serialization scheme that is determined by the transaction
@@ -51,7 +48,7 @@ Alternatively, a namespace prefix can utilize an arbitrary scheme. The
 current Settings transaction family uses a prefix of '000000', for
 example.
 
-# Address Construction
+## Address Construction
 
 The rest of the address, or remaining 32 bytes (64 hex characters), must
 be calculated using a defined deterministic encoding format. Each
@@ -63,9 +60,7 @@ on the requirements of the transaction family.
 
 ## Simple Example - IntegerKey
 
-For a description of the IntegerKey Transaction family, see
-`/transaction_family_specifications/integerkey_transaction_family`{.interpreted-text
-role="doc"}.
+See [IntegerKey Transaction family]({%link docs/1.2/transaction_family_specification/integerkey_transaction_family.md%}) for more information.
 
 The transaction family prefix is:
 
@@ -88,7 +83,7 @@ processed and included in a block.
 
 This address would also be used to retrieve the data.
 
-# More Complex Addressing Schemes
+## More Complex Addressing Schemes
 
 For a more complex example, let's use a hypothetical transaction family
 which stores information on different object types for a widget. The
@@ -119,6 +114,5 @@ transaction family's requirements in mind.
 
 ## Settings Transaction Family Example
 
-See the
-`/transaction_family_specifications/settings_transaction_family`{.interpreted-text
-role="doc"} for another more complex addressing scheme.
+See the [Settings Transactions family]({%link docs/1.2/transaction_family_specification/settings_transaction_family.md%}) for
+another more complex addressing scheme.
