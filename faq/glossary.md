@@ -613,5 +613,3 @@ zkSNARKS
     which allow proof of correctness, given public and private input
 
 [PREVIOUS](/faq/upgrade/) [FAQ](/faq/) [NEXT](/faq/prefixes/)
-
-© Copyright 2018, Intel Corporation.

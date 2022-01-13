@@ -62,5 +62,3 @@ For base TF specifications, see
 | bitagora- polls                          | JSON            | 154f9c                    | Bitagora voting polls                                                                                                                                                                                           |
 
 [PREVIOUS](/faq/glossary/) [FAQ](/faq/) [NEXT](/faq/settings/)
-
-© Copyright 2018, Intel Corporation.

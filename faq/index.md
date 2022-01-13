@@ -44,5 +44,3 @@ the [Developer Certificate of Origin
 (DCO)](https://developercertificate.org/).\]
 
 [NEXT](/faq/sawtooth/)
-
-© Copyright 2018, Intel Corporation.

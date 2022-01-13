@@ -159,5 +159,3 @@ using a Docker container for development to avoid any MS Windows
 troubles. You can reach me at <hello@colinmac.me> with any questions.
 
 [PREVIOUS](/faq/consensus/) [TOP](/faq/) [NEXT](/faq/rest/)
-
-© Copyright 2018, Intel Corporation.

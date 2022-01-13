@@ -402,5 +402,3 @@ $ sudo -u sawtooth sawadm genesis config-genesis.batch config.batch
 
 [PREVIOUS](/faq/sawtooth/) [TOP](/faq/)
 [NEXT](/faq/transaction-processing/)
-
-© Copyright 2018, Intel Corporation.

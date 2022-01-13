@@ -605,5 +605,3 @@ network.consensus
 :   nodes authorized to broadcast new blocks with Gossip
 
 [TOP](/faq/) [NEXT](/faq/installation/)
-
-© Copyright 2018, Intel Corporation.

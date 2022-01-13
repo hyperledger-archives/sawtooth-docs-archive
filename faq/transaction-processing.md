@@ -372,5 +372,3 @@ be a difference between the publishing and validation executions of the
 transaction (they always need to be identical)
 
 [PREVIOUS](/faq/installation/) [TOP](/faq/) [NEXT](/faq/validator/)
-
-© Copyright 2018, Intel Corporation.

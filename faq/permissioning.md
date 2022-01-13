@@ -23,5 +23,3 @@ Refer
 for detailed information.
 
 [PREVIOUS](/faq/rest/) [TOP](/faq/) [NEXT](/faq/docker/)
-
-© Copyright 2018, Intel Corporation.

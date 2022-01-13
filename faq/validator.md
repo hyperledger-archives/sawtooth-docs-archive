@@ -450,5 +450,3 @@ There is no limit, other than the available storage for a node.
 
 [PREVIOUS](/faq/transaction-processing/) [TOP](/faq/)
 [NEXT](/faq/consensus/)
-
-© Copyright 2018, Intel Corporation.

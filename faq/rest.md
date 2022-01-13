@@ -174,5 +174,3 @@ It means the command format is correct, but the identifier does not
 exist.
 
 [PREVIOUS](/faq/client/) [TOP](/faq/) [NEXT](/faq/permissioning/)
-
-© Copyright 2018, Intel Corporation.

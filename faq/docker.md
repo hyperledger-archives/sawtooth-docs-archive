@@ -241,5 +241,3 @@ containers and volumes
     docker-compose down -v
 
 [PREVIOUS](/faq/permissioning/) [TOP](/faq/) [NEXT](/faq/upgrade/)
-
-© Copyright 2018, Intel Corporation.

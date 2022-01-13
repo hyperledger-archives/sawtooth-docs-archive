@@ -287,5 +287,3 @@ transactor.transaction_signer.xo
 :   Public keys of authorized xo TF signers
 
 [PREVIOUS](/faq/prefixes/) [FAQ](/faq/) [NEXT](/faq/videos/)
-
-© Copyright 2018, Intel Corporation.

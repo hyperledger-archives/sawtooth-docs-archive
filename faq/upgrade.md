@@ -65,5 +65,3 @@ again.
     same transaction when the validator is able to handle.
 
 [PREVIOUS](/faq/docker/) [TOP](/faq/) [NEXT](/faq/glossary/)
-
-© Copyright 2018, Intel Corporation.

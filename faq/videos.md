@@ -238,5 +238,3 @@ PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
     (starts at 12:00)
 
 [PREVIOUS](/faq/settings/) [TOP](/faq/)
-
-© Copyright 2018, Intel Corporation.
