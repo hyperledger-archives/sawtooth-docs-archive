@@ -85,12 +85,6 @@ Introduction to Hyperledger Sawtooth (Seafood Supply Chain) (3:40, Hyperledger, 
 
 :   <https://youtu.be/8nrVlICgiYM>
 
-## Hyperledger Videos
-
-Hyperledger Sawtooth 1.0: Market Significance and Technical Overview. Free registration required (61:27, Dan Middleton, Intel, 2018)
-
-:   <https://gateway.on24.com/wcc/gateway/linux/1101876/1585244/hyperledger-sawtooth-v10-market-significance-and-technical-overview>
-
 ## Intel Chip Chat Audio
 
 Revolutionizing Identity Management with \[Sawtooth\] Blockchain. Ep. 612 (8:33, Chris Spanton, T-Mobile, 2018)
@@ -112,13 +106,6 @@ Forums. Most are in mp4 (video) format, but a few are available in audio
 only (m4a).
 
 ## 2018 Sawtooth Technical Forum
-
-Located at
-<https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc>
-
-Sawtooth Build and Package Improvements (Ryan Beck-Buysse, Bitwise)
-
-:   20181025
 
 REMME REMChain (Roman Kravchenko, Eugene Babichenko, and Andrii Fedotov, REMME)
 
@@ -159,8 +146,6 @@ Sawtooth Consensus Engines (Adam Ludvik, Bitwise)
 
 :   [20180426-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/1W_4rnlrgO211BOkQVh8f0mZYJYOZsMT0/view)
     (starts at 10:00)
-    [ConsensusEngineSDK.pdf](https://drive.google.com/drive/folders/0B_NJV6eJXAA1VnFUakRzaG1raXc)
-    (slides)
 
 Sawtooth Explorer Demo (Joe Wright, PokitDok)
 
@@ -174,63 +159,13 @@ Sawtooth Rust SDK (Peter Schwarz, Bitwise)
 
 ## 2017 Sawtooth Technical Forum
 
-Located at
+More located at
 <https://drive.google.com/drive/folders/12HLBKfFEF09eKhjqkvtTStejx4ZD8btW>
 
 Sawtooth API 1.0 Stabilization (Adam Ludvik, Bitwise)
 
 :   [20171214-sawtooth-tech-forum-trimmed.mp4](https://drive.google.com/file/d/1XE9RuWPaI5en2UgJJqNLrJJcZi0TZuJk/view)
     (starts at 0:00)
-
-Sawtooth Events (Adam Ludvik, Bitwise)
-
-:   [20171102-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1ODFrbjhINWpCZHM/view)
-    (starts at 15:00)
-
-Tractable Commodities with Sawtooth Supply Chain (Zac Delventhal, Bitwise)
-
-:   [20171019-sawtooth-tech-forum-2.mp4](https://drive.google.com/file/d/0ByXbfT5DHjNjRDhiUFYzc011VHM/view)
-    (starts at 0:00)
-
-OpenSSL Key with Seth (Adam Ludvik, Bitwise)
-
-:   [20171019-sawtooth-tech-forum-2.mp4](https://drive.google.com/file/d/0ByXbfT5DHjNjRDhiUFYzc011VHM/view)
-    (starts at 36:00)
-
-Transactor Key and Validator Key Permissioning (Andrea Gunderson, Bitwise)
-
-:   [20171005-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1R3BLQlZsM2xMMTg/view)
-    (starts at 0:00)
-
-Sawtooth Unit Testing with the Mock Validator (Ryan Banks, Bitwise)
-
-:   [20170914-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1cGpQaTZ1dTIySFE/view)
-    (starts at 13:20)
-
-Hyperledger Burrow (Adam Ludvik, Bitwise, and Benjamin Bollen, Monax)
-
-:   [20170608-sawtooth-tech-forum.mp3](https://drive.google.com/file/d/0B_NJV6eJXAA1WElXd2JXNW1jbVU/view)
-    (audio only; starts at 15:00)
-
-Sawtooth Blockchain App Development with Javascript (Zac Delventhal, Bitwise))
-
-:   [20170831-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1OWNGMlM5blZHMUE/view)
-    (starts at 44:00)
-
-Sawtooth State Delta Subscriptions (Peter Schwarz, Bitwise)
-
-:   [20170727-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1b0FzQTd5NHpnd1U/view)
-    (starts at 10:50)
-
-Sawtooth Serial and Parallel Scheduler (Boyd Johnson, Bitwise)
-
-:   [20170713-sawtooth-tech-forum.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1aGlVemNUSEFiZEU/view)
-    (starts at 12:50)
-
-Hyperledger Composer (Simon Stone, IBM)
-
-:   [20170629-composer-sawtooth.mp4](https://drive.google.com/file/d/0B_NJV6eJXAA1OHFkMW82UlJNaXc/view)
-    (starts at 13:00)
 
 PoET Consensus on Sawtooth Lake (Jamie Jason, Intel)
 
