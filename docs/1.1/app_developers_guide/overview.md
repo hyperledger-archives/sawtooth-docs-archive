@@ -1,6 +1,4 @@
----
-title: Transaction Family Overview
----
+# Transaction Family Overview
 
 Sawtooth separates the application level from the core system level with
 transaction families, which allows application developers to write in
@@ -9,12 +7,11 @@ transaction families for its unique requirements.
 
 A transaction family includes these components:
 
--   A transaction processor to define the business logic for your
-    application
--   A data model to record and store data
--   A client to handle the client logic for your application
+- A transaction processor to define the business logic for your application
+- A data model to record and store data
+- A client to handle the client logic for your application
 
-See `../transaction_family_specifications`{.interpreted-text role="doc"}
+See [transaction family specifications]({% link docs/1.1/transaction_family_specification/index.md %})
 for a list of example transaction families. Sawtooth provides these
 examples to serve as models for low-level functions (such as maintaining
 chain-wide settings and storing on-chain permissions) and for specific
