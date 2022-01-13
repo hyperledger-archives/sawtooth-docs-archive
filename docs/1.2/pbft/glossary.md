@@ -81,7 +81,7 @@ Transaction processor
     rules defined by the associated *transaction family*. (These rules specify
     the business logic, also called a *smart contract*, for the transaction
     processor.) For more information, see [Transaction Family Specifications]({%
-    link docs/1.2/transaction_family_specification/index.md %}).
+    link docs/1.2/transaction_family_specifications/index.md %}).
 
 Validator
 

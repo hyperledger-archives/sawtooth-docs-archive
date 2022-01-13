@@ -24,7 +24,7 @@ The XO transaction family defines the data model and business logic for
 playing tic-tac-toe on the blockchain by submitting transactions for
 [create]{.title-ref}, [take]{.title-ref}, and [delete]{.title-ref}
 actions. For more information, see [XO Transaction
-Family]({% link docs/1.2/transaction_family_specification/xo_transaction_family.md%})
+Family]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
 
 The XO transaction family includes:
 
@@ -53,7 +53,7 @@ In tic-tac-toe, two players take turns marking spaces on a 3x3 grid.
 See [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe) for more
 information on playing tic-tac-toe. For the detailed business logic of
 game play, see \"Execution\" in [XO Transaction
-Family]({% link docs/1.2/transaction_family_specification/xo_transaction_family.md%})
+Family]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
 
 ## Playing XO with the xo Client
 

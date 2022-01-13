@@ -225,7 +225,7 @@ Sawtooth platform:
 
 For more information, see
 [Transaction Family
-Specifications]({% link docs/1.2/transaction_family_specification/index.md %})
+Specifications]({% link docs/1.2/transaction_family_specifications/index.md %})
 
 # Real-world Application Examples
 
