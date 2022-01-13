@@ -1,42 +1,36 @@
----
-title: Creating a Sawtooth Network
----
+# Creating a Sawtooth Network
 
 This procedure describes how to create a Sawtooth network with multiple
 validator nodes. It creates an application development environment that
 is similar to the single-node environment in
-`installing_sawtooth`{.interpreted-text role="doc"}, but with a
-different consensus mechanism to support additional nodes.
+[Installing Sawtooth](installing_sawtooth), but with a different
+consensus mechanism to support additional nodes.
 
 You can install and run a multiple-node Sawtooth application development
 environment on one of the following platforms:
 
--   Docker: Run a Sawtooth network from prebuilt
-    [Docker](https://www.docker.com/) containers.
--   Ubuntu: Install Sawtooth natively using [Ubuntu
-    16.04](https://www.ubuntu.com/). You will add a node to an existing
-    application development environment that is described in
-    `ubuntu`{.interpreted-text role="doc"}, but you will delete all
-    existing blockchain data, including the genesis block.
--   Kubernetes: Run a Sawtooth network in a
-    [Kubernetes](https://kubernetes.io) cluster inside a virtual machine
-    on your computer.
+- Docker: Run a Sawtooth network from prebuilt
+  [Docker](https://www.docker.com/) containers.
+- Ubuntu: Install Sawtooth natively using [Ubuntu
+  16.04](https://www.ubuntu.com/). You will add a node to an existing
+  application development environment that is described in
+  [Using Ubuntu for Your Development Environment](ubuntu), but you will
+  delete all existing blockchain data, including the genesis block.
+- Kubernetes: Run a Sawtooth network in a
+  [Kubernetes](https://kubernetes.io) cluster inside a virtual machine
+  on your computer.
 
-::: note
-::: title
-Note
-:::
-
-The guides in this chapter set up an environment with multiple Sawtooth
-validator nodes. For a single-node environment, see
-`installing_sawtooth`{.interpreted-text role="doc"}.
-:::
+> **Note**
+>
+> The guides in this chapter set up an environment with multiple
+> Sawtooth validator nodes. For a single-node environment, see
+> [Installing Sawtooth](installing_sawtooth).
 
 To get started, choose the guide for the platform of your choice:
 
--   `proc-multi-docker-label`{.interpreted-text role="ref"}
--   `proc-multi-ubuntu-label`{.interpreted-text role="ref"}
--   `proc-multi-kube-label`{.interpreted-text role="ref"}
+- [Docker](#proc-multi-docker-label)
+- [Ubuntu](#proc-multi-ubuntu-label)
+- [Kubernetes](#proc-multi-kube-label)
 
 # About Sawtooth Networks
 
@@ -47,40 +41,36 @@ To get started, choose the guide for the platform of your choice:
 
 A Sawtooth network has the following requirements:
 
--   Each host system (physical computer, virtual machine, set of Docker
-    containers, or Kubernetes pod) must run one validator, an optional
-    REST API, and an identical set of transaction processors.
+- Each host system (physical computer, virtual machine, set of Docker
+  containers, or Kubernetes pod) must run one validator, an optional
+  REST API, and an identical set of transaction processors.
 
-    This environment includes the Sawtooth REST API on all validator
-    nodes. However, an application could provide a custom REST API (or
-    no REST API). See [Sawtooth Supply
-    Chain](https://github.com/hyperledger/sawtooth-supply-chain) for an
-    example of a custom REST API.
+  This environment includes the Sawtooth REST API on all validator
+  nodes. However, an application could provide a custom REST API (or
+  no REST API). See [Sawtooth Supply
+  Chain](https://github.com/hyperledger/sawtooth-supply-chain) for an
+  example of a custom REST API.
 
--   Each validator node must advertise a routable address. The Docker
-    and Kubernetes platforms provide preconfigured settings. For the
-    Ubuntu platform, you must follow the instructions in this procedure
-    to provide this information when starting the validator.
+- Each validator node must advertise a routable address. The Docker
+  and Kubernetes platforms provide preconfigured settings. For the
+  Ubuntu platform, you must follow the instructions in this procedure
+  to provide this information when starting the validator.
 
--   The authorization type must be the same on all nodes: either `trust`
-    (default) or `challenge`. This application development environment
-    uses `trust` authorization.
+- The authorization type must be the same on all nodes: either `trust`
+  (default) or `challenge`. This application development environment
+  uses `trust` authorization.
 
--   The genesis block is created for the first validator node only. It
-    includes on-chain configuration settings that will be available to
-    the new validator nodes once they join the network.
+- The genesis block is created for the first validator node only. It
+  includes on-chain configuration settings that will be available to
+  the new validator nodes once they join the network.
 
-::: note
-::: title
-Note
-:::
-
-The first validator node on the network has no special meaning, other
-than being the node that created the genesis block. Sawtooth has no
-concept of a \"head node\" or \"master node\". Once multiple nodes are
-up and running, each node has the same genesis block and treats all
-other nodes as peers.
-:::
+> **Note**
+>
+> The first validator node on the network has no special meaning, other
+> than being the node that created the genesis block. Sawtooth has no
+> concept of a \"head node\" or \"master node\". Once multiple nodes are
+> up and running, each node has the same genesis block and treats all
+> other nodes as peers.
 
 # Docker: Start a Multiple-node Sawtooth Network {#proc-multi-docker-label}
 
@@ -93,8 +83,10 @@ Registry).
 
 The following figure shows an example network with two validator nodes:
 
-![](../images/appdev-environment-multi-node.*){.align-center
-width="100.0%"}
+
+![]({% link docs/1.1/images/appdev-environment-multi-node.svg %}
+"Multi node sawtooth network")
+
 
 Like the single-node environment, this environment uses serial
 transaction processing and static peering. However, it has the following
@@ -103,34 +95,32 @@ differences:
 -   PoET simulator consensus instead of dev mode, because dev mode\'s
     random-leader consensus is not recommended for multi-node or
     production networks. Sawtooth offers two versions of
-    `PoET`{.interpreted-text role="term"} consensus. PoET-SGX relies on
-    Intel Software Guard Extensions (SGX) to implement a leader-election
-    lottery system. PoET simulator provides the same consensus algorithm
-    on an SGX simulator.
+    PoET consensus. PoET-SGX relies on Intel Software Guard Extensions
+    (SGX) to implement a leader-election lottery system. PoET simulator
+    provides the same consensus algorithm on an SGX simulator.
 -   An additional transaction processor, PoET Validator Registry,
     handles PoET settings for a multiple-node network.
 
 ## Prerequisites
 
 This procedure assumes that you have already created a single-node
-environment, as described in `docker`{.interpreted-text role="doc"}.
-Refer to the previous procedure for more information on each step.
+environment, as described in [docker](docker). Refer to the previous
+procedure for more information on each step.
 
 If the single-node environment is still running, shut it down. Enter
 CTRL-c from the window where you originally ran `docker-compose up`,
 then run the following command from your host system:
 
-``` console
+```
 $ docker-compose -f sawtooth-default.yaml down
 ```
 
-For more information, see `stop-sawtooth-docker-label`{.interpreted-text
-role="ref"}.
+For more information, see [Step 9: Stop the Sawtooth Environment](docker#stop-sawtooth-docker-label)
 
 ## Step 1: Download the Docker Compose File
 
 Download the Docker Compose file for a multiple-node network,
-[sawtooth-default-poet.yaml](./sawtooth-default-poet.yaml). Save this
+[sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-poet.yaml). Save this
 file in the same directory as the single-node compose file
 (`sawtooth-default.yaml`).
 
@@ -139,38 +129,38 @@ file in the same directory as the single-node compose file
 1.  Use the following command to start the multiple-node Sawtooth
     network:
 
-    ``` console
+    ```
     user@host$ docker-compose -f sawtooth-default-poet.yaml up
     ```
 
-2.  This Compose file creates five validator nodes, numbered from 0 to
-    4. Note the container names for the Sawtooth components on each
+2.  This Compose file creates five validator nodes, numbered from 0 to 4.
+    Note the container names for the Sawtooth components on each
     node:
 
     `validator-0`:
 
-    > -   `sawtooth-validator-default-0`
-    > -   `sawtooth-rest-api-default-0`
-    > -   `sawtooth-settings-tp-default-0`
-    > -   `sawtooth-intkey-tp-python-default-0`
-    > -   `sawtooth-xo-tp-python-default-0`
-    > -   `sawtooth-poet-validator-registry-tp-0`
+    - `sawtooth-validator-default-0`
+    - `sawtooth-rest-api-default-0`
+    - `sawtooth-settings-tp-default-0`
+    - `sawtooth-intkey-tp-python-default-0`
+    - `sawtooth-xo-tp-python-default-0`
+    - `sawtooth-poet-validator-registry-tp-0`
 
     `validator-1`:
 
-    > -   `sawtooth-validator-default-1`
-    > -   `sawtooth-rest-api-default-1`
-    > -   `sawtooth-settings-tp-default-1`
-    > -   `sawtooth-intkey-tp-python-default-1`
-    > -   `sawtooth-xo-tp-python-default-1`
-    > -   `sawtooth-poet-validator-registry-tp-1`
+    - `sawtooth-validator-default-1`
+    - `sawtooth-rest-api-default-1`
+    - `sawtooth-settings-tp-default-1`
+    - `sawtooth-intkey-tp-python-default-1`
+    - `sawtooth-xo-tp-python-default-1`
+    - `sawtooth-poet-validator-registry-tp-1`
 
     \... and so on.
 
 3.  Note that there is only one shell container for this Docker
     environment:
 
-    > -   `sawtooth-shell-default`
+    - `sawtooth-shell-default`
 
 ## Step 3: Verify Connectivity
 
@@ -178,7 +168,7 @@ You can connect to a Docker container, such as
 `sawtooth-poet-validator-registry-tp-0`, then use the following `ps`
 command to verify that the component is running.
 
-``` console
+```
 # ps --pid 1 fw
 PID TTY      STAT   TIME COMMAND
 1 ?        Ssl    0:04 python3 /project/sawtooth-core/bin/poet-validator-registry-tp -C tcp://validator-0:4004
@@ -193,22 +183,22 @@ PID TTY      STAT   TIME COMMAND
     `sawtooth-shell-default`. This command specifies the container name
     and port for the first node\'s REST API.
 
-    > ``` console
-    > $ curl http://sawtooth-rest-api-default-0:8008/peers
-    > ```
+    ```
+    $ curl http://sawtooth-rest-api-default-0:8008/peers
+    ```
 
     If this query returns a 503 error, the nodes have not yet peered
     with the Sawtooth network. Repeat the query until you see output
     that resembles the following example:
 
-    > ``` console
-    > {
-    >     "data": [
-    >     "tcp://validator-1:8800",
-    >   ],
-    >   "link": "http://rest-api:8008/peers"
-    > }
-    > ```
+    ```
+    {
+        "data": [
+        "tcp://validator-1:8800",
+      ],
+      "link": "http://rest-api:8008/peers"
+    }
+    ```
 
 2.  (Optional) You can also connect to a validator container, such as
     `sawtooth-validator-default-0`, and run the following Sawtooth
@@ -223,9 +213,9 @@ PID TTY      STAT   TIME COMMAND
 
     Use the shell container to run the following command.
 
-    > ``` console
-    > # intkey set --url http://sawtooth-rest-api-default-0:8008 MyKey 999
-    > ```
+    ```
+    # intkey set --url http://sawtooth-rest-api-default-0:8008 MyKey 999
+    ```
 
 4.  Watch for this transaction to appear on the second validator node.
     The following command requests the value of `MyKey` from the REST
@@ -233,10 +223,10 @@ PID TTY      STAT   TIME COMMAND
 
     Use the shell container to run the following command.
 
-    > ``` console
-    > # intkey show --url http://sawtooth-rest-api-default-1:8008 MyKey
-    > MyKey: 999
-    > ```
+    ```
+    # intkey show --url http://sawtooth-rest-api-default-1:8008 MyKey
+    MyKey: 999
+    ```
 
 ## Step 5. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-docker-label}
 
@@ -250,11 +240,10 @@ environment: IntegerKey, Settings, XO, and Validator Registry.
 Transaction-type restrictions are an on-chain setting, so this
 configuration change is applied to all validators.
 
-The `Settings transaction processor
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} handles on-chain configuration settings. You will use the
-`sawset` command to create and submit a batch of transactions containing
-the configuration change.
+The [Settings transaction processor](../transaction_family_specification/settings_transaction_family)
+handles on-chain configuration settings. You will use the `sawset`
+command to create and submit a batch of transactions containing the
+configuration change.
 
 Use the following steps to create and submit a batch containing the new
 on-chain setting.
@@ -263,14 +252,14 @@ on-chain setting.
     (`sawtooth-validator-default-0`). The next command requires the
     validator key that was generated in that container.
 
-    ``` console
+    ```
     % docker exec -it sawtooth-validator-default-0 bash
     ```
 
 2.  Run the following command from the validator container to check the
     setting change.
 
-    ``` console
+    ```
     # sawset proposal create --url http://sawtooth-rest-api-default-0:8008 --key /etc/sawtooth/keys/validator.priv \
     sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
     ```
@@ -279,8 +268,7 @@ on-chain setting.
     JSON array that specifies the family name and version of each
     allowed transaction processor (defined in the transaction header of
     each family\'s
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"}).
+    [transaction family specification](../transaction_family_specification/index).
 
 3.  After this command runs, a `TP_PROCESS_REQUEST` message appears in
     the Settings transaction processor log.
@@ -292,7 +280,7 @@ on-chain setting.
     connects to the Settings transaction processor on the first node
     (`sawtooth-settings-tp-default-0`).
 
-    ``` console
+    ```
     % docker exec -it sawtooth-settings-tp-default-0 bash
     # tail /var/log/sawtooth/settings-*-debug.log
      .
@@ -307,13 +295,13 @@ on-chain setting.
     the network; this example uses the REST API on the first validator
     node.
 
-    ``` console
+    ```
     # sawtooth settings list --url http://sawtooth-rest-api-default-0:8008
     ```
 
     The output should be similar to this example:
 
-    ``` console
+    ```
     sawtooth.consensus.algorithm: poet
     sawtooth.poet.initial_wait_time: 15
     sawtooth.poet.key_block_claim_limit: 100000
@@ -333,7 +321,7 @@ If you need to stop or reset the multiple-node Sawtooth environment,
 enter CTRL-c in the window where you ran `docker-compose up`, then run
 the following command from your host system:
 
-``` console
+```
 user@host$ docker-compose -f sawtooth-default-poet.yaml down
 ```
 
@@ -341,18 +329,18 @@ user@host$ docker-compose -f sawtooth-default-poet.yaml down
 
 This procedure describes how to add a second validator node to an
 existing single-node application development environment, as described
-in `ubuntu`{.interpreted-text role="doc"}. You will stop the Sawtooth
-components on the first node and delete the existing blockchain data,
-then create a new genesis block that specifies PoET simulator consensus
-and related settings. All nodes on the network will run four transaction
-processors (Settings, IntegerKey, XO, and PoET Validator Registry).
+in [ubuntu](ubuntu). You will stop the Sawtooth components on the first
+node and delete the existing blockchain data, then create a new genesis
+block that specifies PoET simulator consensus and related settings. All
+nodes on the network will run four transaction processors (Settings,
+IntegerKey, XO, and PoET Validator Registry).
 
 ## About the Sawtooth Network Environment
 
 The following figure shows an example network with two validator nodes:
 
-![](../images/appdev-environment-two-nodes.*){.align-center
-width="100.0%"}
+![]({% link docs/1.1/images/appdev-environment-two-nodes.svg %}
+"Two node sawtooth network")
 
 Like the single-node environment, this environment uses serial
 transaction processing and static peering. However, it has the following
@@ -361,10 +349,9 @@ differences:
 -   PoET simulator consensus instead of dev mode, because dev mode\'s
     random-leader consensus is not recommended for multi-node or
     production networks. Sawtooth offers two versions of
-    `PoET`{.interpreted-text role="term"} consensus. PoET-SGX relies on
-    Intel Software Guard Extensions (SGX) to implement a leader-election
-    lottery system. PoET simulator provides the same consensus algorithm
-    on an SGX simulator.
+    `PoET` consensus. PoET-SGX relies on Intel Software Guard Extensions
+    (SGX) to implement a leader-election lottery system. PoET simulator
+    provides the same consensus algorithm on an SGX simulator.
 -   An additional transaction processor, PoET Validator Registry,
     handles PoET settings for a multiple-node network.
 
@@ -373,7 +360,7 @@ differences:
 This procedure assumes that you have created a working (runnable)
 validator node with a validator, REST API, and the Settings, IntegerKey,
 and XO transaction processors. For more information, see
-`ubuntu`{.interpreted-text role="doc"}.
+[ubuntu](ubuntu).
 
 For each validator node that will be on your network, gather the
 following information:
@@ -405,7 +392,7 @@ should be. `ifconfig` displays the network interfaces on your host
 system, along with additional information about the interfaces. For
 example:
 
-``` console
+```
 $ ifconfig
 eth0      Link encap:Ethernet  HWaddr ...
           inet addr:...  Bcast:...  Mask:255.255.0.0
@@ -463,11 +450,11 @@ Reference](http://api.zeromq.org/4-2:zmq-tcp).
 ## Step 1: Configure the Network on the First Node
 
 This step assumes an existing application development environment as
-described in `ubuntu`{.interpreted-text role="doc"}.
+described in [ubuntu](ubuntu).
 
 1.  If the first validator node is running, stop the Sawtooth components
     (validator, REST API, and transaction processors), as described in
-    `stop-sawtooth-ubuntu-label`{.interpreted-text role="ref"}.
+    [Step 12: Stop Sawtooth Components](ubuntu#stop-sawtooth-ubuntu-label)
 
 2.  Delete any existing blockchain data by removing all files from
     `/var/lib/sawtooth/`.
@@ -477,7 +464,7 @@ described in `ubuntu`{.interpreted-text role="doc"}.
 
 4.  Ensure that the required user and validator keys exist:
 
-    ``` console
+    ```
     $ ls ~/.sawtooth/keys/
     {yourname}.priv    {yourname}.pub
 
@@ -486,13 +473,13 @@ described in `ubuntu`{.interpreted-text role="doc"}.
     ```
 
     If these key files do not exist, create them as described in
-    `generate-user-key-ubuntu`{.interpreted-text role="ref"} and
-    `generate-root-key-ubuntu`{.interpreted-text role="ref"}.
+    [Step 2: Generate a User Key](ubuntu#generate-user-key-ubuntu) and
+    [Step 4: Generate the Root Key for the Validator](ubuntu#generate-root-key-ubuntu).
 
 5.  Create a batch to initialize the Settings transaction family in the
     genesis block.
 
-    ``` console
+    ```
     $ sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch
     ```
 
@@ -500,7 +487,7 @@ described in `ubuntu`{.interpreted-text role="doc"}.
     command sets the consensus algorithm to PoET simulator, and then
     applies the required settings.
 
-    ``` console
+    ```
     $ sawset proposal create -k /etc/sawtooth/keys/validator.priv \
     -o config.batch \
     sawtooth.consensus.algorithm.name=PoET \
@@ -514,14 +501,14 @@ described in `ubuntu`{.interpreted-text role="doc"}.
     Registry. Without this command, the validator would not be able to
     publish any blocks.
 
-    ``` console
+    ```
     $ poet registration create -k /etc/sawtooth/keys/validator.priv -o poet.batch
     ```
 
 8.  (Optional) Create a batch to configure optional PoET settings. This
     example shows the default settings.
 
-    ``` console
+    ```
     $ sawset proposal create -k /etc/sawtooth/keys/validator.priv \
     -o poet-settings.batch \
     sawtooth.poet.target_wait_time=5 \
@@ -532,16 +519,16 @@ described in `ubuntu`{.interpreted-text role="doc"}.
 9.  Combine the previously created batches into a single genesis batch
     that will be committed in the genesis block.
 
-    ``` console
+    ```
     $ sawadm genesis config-genesis.batch config.batch poet.batch poet-settings.batch
     ```
 
 10. Use the following command to start the validator on the first node.
     Substitute your actual values for the component and network bind
     strings, public endpoint string, and peer list, as described in
-    `prereqs-multi-ubuntu-label`{.interpreted-text role="ref"}.
+    [Prerequisites](#prereqs-multi-ubuntu-label).
 
-    ``` console
+    ```
     $ sudo -u sawtooth sawtooth-validator \
     --bind component:{component-bind-string} \
     --bind network:{network-bind-string} \
@@ -554,45 +541,40 @@ described in `ubuntu`{.interpreted-text role="doc"}.
     endpoint `192.0.2.0:8800` (a TEST-NET-1 example address), and one
     peer at the public endpoint `203.0.113.0:8800`.
 
-    > ``` console
-    > $ sudo -u sawtooth sawtooth-validator \
-    > --bind component:tcp://127.0.0.1:4004 \
-    > --bind network:tcp://192.0.2.0:8800 \
-    > --endpoint tcp://192.0.2.0:8800 \
-    > --peers tcp://203.0.113.0:8800
-    > ```
+    ```
+    $ sudo -u sawtooth sawtooth-validator \
+    --bind component:tcp://127.0.0.1:4004 \
+    --bind network:tcp://192.0.2.0:8800 \
+    --endpoint tcp://192.0.2.0:8800 \
+    --peers tcp://203.0.113.0:8800
+    ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Specify multiple peers in a comma-separated list, as in this
-    example:
-
+    > **Note**
+    >
+    > Specify multiple peers in a comma-separated list, as in this
+    > example:
     > ``` none
     > --peers tcp://203.0.113.0:8800,198.51.100.0:8800
     > ```
-    :::
 
 11. Open a separate terminal window and start the REST API on the first
     validator node.
 
-    ``` console
+    ```
     $ sudo -u sawtooth sawtooth-rest-api -v
     ```
 
     If necessary, use the `--connect` option to specify a non-default
     value for the validator\'s component bind address and port, as
-    described in `prereqs-multi-ubuntu-label`{.interpreted-text
-    role="ref"}. The following example shows the default value:
+    described in [Prerequisites](#prereqs-multi-ubuntu-label). The
+    following example shows the default value:
 
     > ``` none
     > $ sudo -u sawtooth sawtooth-rest-api -v --connect 127.0.0.1:4004
     > ```
 
-    For more information, see `start-rest-api-label`{.interpreted-text
-    role="ref"}.
+    For more information, see
+    [Step 7: Start the REST API](ubuntu#start-rest-api-label)
 
 12. Start the transaction processors on the first validator node. Open a
     separate terminal window to start each component.
@@ -601,46 +583,41 @@ described in `ubuntu`{.interpreted-text role="doc"}.
     command, if necessary, to specify a non-default value for
     validator\'s component bind address and port.
 
-    ``` console
+    ```
     $ sudo -u sawtooth settings-tp -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth intkey-tp-python -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth xo-tp-python -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth poet-validator-registry-tp -v
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
+    > **Note**
+    >
+    > This network requires the Settings transaction processor,
+    > `settings-tp`, and the PoET Validator Registry transaction
+    > processor, `poet-validator-registry-tp`. The other transaction
+    > processors (`intkey-tp-python` and `xo-tp-python`) are not required,
+    > but are used for the other tutorials in this guide. Note that each
+    > node in the network must run the same transaction processors.
 
-    This network requires the Settings transaction processor,
-    `settings-tp`, and the PoET Validator Registry transaction
-    processor, `poet-validator-registry-tp`. The other transaction
-    processors (`intkey-tp-python` and `xo-tp-python`) are not required,
-    but are used for the other tutorials in this guide. Note that each
-    node in the network must run the same transaction processors.
-    :::
-
-    For more information, see `start-tps-label`{.interpreted-text
-    role="ref"}.
+    For more information, see [Step 8: Start the Transaction Processors](ubuntu#start-tps-label)
 
 ## Step 2: Set Up the Second Validator Node {#install-second-val-ubuntu-label}
 
 1.  Install Sawtooth on the second node, as described in Step 1 of
-    `ubuntu`{.interpreted-text role="doc"}.
+    [ubuntu](ubuntu).
 
 2.  Create your user key:
 
-    ``` console
+    ```
     $ sawtooth keygen
     writing file: /home/{yourname}/.sawtooth/keys/{yourname}.priv
     writing file: /home/{yourname}/.sawtooth/keys/{yourname}.pub
@@ -648,7 +625,7 @@ described in `ubuntu`{.interpreted-text role="doc"}.
 
 3.  Create the root key for the validator:
 
-    ``` console
+    ```
     $ sudo sawadm keygen
     writing file: /etc/sawtooth/keys/validator.priv
     writing file: /etc/sawtooth/keys/validator.pub
@@ -666,9 +643,9 @@ node.
     following command to start the validator. Use the actual values for
     the component and network bind strings, public endpoint string, and
     peer list, as described in
-    `prereqs-multi-ubuntu-label`{.interpreted-text role="ref"}.
+    [prerequisites](#prereqs-multi-ubuntu-label).
 
-    ``` console
+    ```
     $ sudo -u sawtooth sawtooth-validator \
     --bind component:{component-bind-string} \
     --bind network:{network-bind-string} \
@@ -681,45 +658,40 @@ node.
     endpoint `203.0.113.0:8800` (a TEST-NET-3 example address), and a
     peer (the first node) at the public endpoint `192.0.2.0:8800`.
 
-    > ``` console
-    > $ sudo -u sawtooth sawtooth-validator \
-    > --bind component:tcp://127.0.0.1:4004 \
-    > --bind network:tcp://203.0.113.0:8800 \
-    > --endpoint tcp://203.0.113.0:8800 \
-    > --peers tcp://192.0.2.0:8800
-    > ```
+    ```
+    $ sudo -u sawtooth sawtooth-validator \
+    --bind component:tcp://127.0.0.1:4004 \
+    --bind network:tcp://203.0.113.0:8800 \
+    --endpoint tcp://203.0.113.0:8800 \
+    --peers tcp://192.0.2.0:8800
+    ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Specify multiple peers in a comma-separated list, as in this
-    example:
-
+    > **Note**
+    >
+    > Specify multiple peers in a comma-separated list, as in this
+    > example:
     > ``` none
     > --peers tcp://192.0.2.0:8800,tcp://198.51.100.0:8800
     > ```
-    :::
 
 2.  Open a separate terminal window and start the REST API on the second
     validator node.
 
-    ``` console
+    ```
     $ sudo -u sawtooth sawtooth-rest-api -v
     ```
 
     If necessary, use the `--connect` option to specify a non-default
     value for the validator\'s component bind address and port, as
-    described in `prereqs-multi-ubuntu-label`{.interpreted-text
-    role="ref"}. The following example shows the default value:
+    described in [Prerequisites](#prereqs-multi-ubuntu-label). The
+    following example shows the default value:
 
     > ``` none
     > $ sudo -u sawtooth sawtooth-rest-api -v --connect 127.0.0.1:4004
     > ```
 
-    For more information, see `start-rest-api-label`{.interpreted-text
-    role="ref"}.
+    For more information, see
+    [Step 7: Start the REST API](ubuntu.html#start-rest-api-label)
 
 3.  Start the transaction processors on the second validator node. Open
     a separate terminal window to start each component.
@@ -728,35 +700,32 @@ node.
     command, if necessary, to specify a non-default value for
     validator\'s component bind address and port.
 
-    ::: important
-    ::: title
-    Important
-    :::
 
-    Start the same transaction processors that are running on the first
-    validator node. For example, if you chose not to start
-    `intkey-tp-python` and `xo-tp-python` on the first node, do not
-    start them on this node.
-    :::
+    > **Important**
+    >
+    > Start the same transaction processors that are running on the
+    > first validator node. For example, if you chose not to start
+    > `intkey-tp-python` and `xo-tp-python` on the first node, do not
+    > start them on this node.
 
-    ``` console
+    ```
     $ sudo -u sawtooth settings-tp -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth intkey-tp-python -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth xo-tp-python -v
     ```
 
-    ``` console
+    ```
     $ sudo -u sawtooth poet-validator-registry-tp -v
     ```
 
-    For more information, see `start-tps-label`{.interpreted-text
-    role="ref"}.
+    For more information, see
+    [Step 8: Start the Transaction Processors](ubuntu#start-tps-label).
 
 If you have additional nodes in the network, repeat this step on those
 nodes.
@@ -769,34 +738,30 @@ nodes.
     Open a terminal window on the first validator node and run the
     following command.
 
-    > ``` console
-    > $ curl http://localhost:8008/peers
-    > ```
+    ```
+    $ curl http://localhost:8008/peers
+    ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This environment runs a local REST API on each validator node. For a
-    node that is not running a local REST API, you must replace
-    `localhost:8008` with the externally advertised IP address and port.
-    (Non-default values are set with the `--bind` option when starting
-    the REST API.)
-    :::
+    > **Note**
+    >
+    > This environment runs a local REST API on each validator node. For a
+    > node that is not running a local REST API, you must replace
+    > `localhost:8008` with the externally advertised IP address and port.
+    > (Non-default values are set with the `--bind` option when starting
+    > the REST API.)
 
     If this query returns a 503 error, the nodes have not yet peered
     with the Sawtooth network. Repeat the query until you see output
     that resembles the following example:
 
-    > ``` console
-    > {
-    >     "data": [
-    >     "tcp://validator-1:8800",
-    >   ],
-    >   "link": "http://rest-api:8008/peers"
-    > }
-    > ```
+    ```
+    {
+        "data": [
+        "tcp://validator-1:8800",
+      ],
+      "link": "http://rest-api:8008/peers"
+    }
+    ```
 
 2.  (Optional) You can also run the following Sawtooth commands on a
     validator node to show the other nodes on the network.
@@ -811,7 +776,7 @@ nodes.
     Run the following command in a terminal window on the first
     validator node.
 
-    > ``` console
+    > ```
     > $ intkey set MyKey 999
     > ```
 
@@ -822,7 +787,7 @@ nodes.
     Open a terminal window on the second validator node to run the
     following command.
 
-    > ``` console
+    > ```
     > $ intkey show MyKey
     > MyKey: 999
     > ```
@@ -839,9 +804,8 @@ environment: IntegerKey, Settings, XO, and Validator Registry.
 Transaction-type restrictions are an on-chain setting, so this
 configuration change is applied to all validators.
 
-The `Settings transaction processor
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} handles on-chain configuration settings. You can use the
+The [Settings transaction processor](../transaction_family_specifications/settings_transaction_family)
+handles on-chain configuration settings. You can use the
 `sawset` command to create and submit a batch of transactions containing
 the configuration change.
 
@@ -855,7 +819,7 @@ on-chain setting.
 2.  Use the `sawset` command to create and submit a batch of
     transactions containing the configuration change.
 
-    ``` console
+    ```
     # sawset proposal create --key /etc/sawtooth/keys/validator.priv \
     sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
     ```
@@ -864,8 +828,7 @@ on-chain setting.
     JSON array that specifies the family name and version of each
     allowed transaction processor (defined in the transaction header of
     each family\'s
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"}).
+    [transaction family specification](../transaction_family_specifications/index)
 
 3.  After this command runs, a `TP_PROCESS_REQUEST` message appears in
     the log for the Settings transaction processor.
@@ -882,13 +845,13 @@ on-chain setting.
 
 4.  Run the following command to check the setting change.
 
-    ``` console
+    ```
     # sawtooth settings list
     ```
 
     The output should be similar to this example:
 
-    ``` console
+    ```
     sawtooth.consensus.algorithm.name: PoET
     sawtooth.consensus.algorithm.version: 0.1
     sawtooth.poet.initial_wait_time: 15
@@ -913,23 +876,19 @@ This environment uses
 Sawtooth as a containerized application in a local Kubernetes cluster
 inside a virtual machine (VM) on your computer.
 
-::: note
-::: title
-Note
-:::
-
-This environment has five Sawtooth validator nodes. For a single-node
-environment, see `installing_sawtooth`{.interpreted-text role="doc"}.
-:::
+> **Note**
+>
+> This environment has five Sawtooth validator nodes. For a single-node
+> environment, see [installing_sawtooth](installing_sawtooth).
 
 This procedure walks you through the following tasks:
 
-> -   Installing `kubectl` and Minikube
-> -   Starting Minikube
-> -   Starting Sawtooth in a Kubernetes cluster
-> -   Connecting to the Sawtooth shell containers
-> -   Verifying network and blockchain functionality
-> -   Stopping Sawtooth and deleting the Kubernetes cluster
+- Installing `kubectl` and Minikube
+- Starting Minikube
+- Starting Sawtooth in a Kubernetes cluster
+- Connecting to the Sawtooth shell containers
+- Verifying network and blockchain functionality
+- Stopping Sawtooth and deleting the Kubernetes cluster
 
 ## Prerequisites
 
@@ -941,17 +900,12 @@ supported VM hypervisor, such as VirtualBox.
 ## About the Kubernetes Sawtooth Network Environment
 
 This environment is a network of five Sawtooth node. Each node has a
-`validator`{.interpreted-text role="term"}, a
-`REST API`{.interpreted-text role="term"}, and four
-`transaction processors<transaction processor>`{.interpreted-text
-role="term"}. This environment uses
-`PoET mode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"},
-`serial transaction processing <../architecture/scheduling>`{.interpreted-text
-role="doc"}, and static peering (all-to-all)
+`validator`, a `REST API`, and four `transaction processors`. This
+environment uses `PoET mode consensus`, `serial transaction processing,
+and static peering (all-to-all)
 
-![](../images/appdev-environment-multi-node-kube.*){.align-center
-width="100.0%"}
+![]({% link docs/1.1/images/appdev-environment-multi-node-kube.svg %}
+"Multi node Kubernetes sawtooth network")
 
 The Kubernetes cluster has a pod for each Sawtooth node. On each pod,
 there are containers for each Sawtooth component. The Sawtooth nodes are
@@ -963,38 +917,31 @@ to view pod status, container names, Sawtooth log files, and more.
 
 This example environment includes the following transaction processors:
 
-> -   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
->     role="doc"} handles Sawtooth\'s on-chain settings. The Settings
->     transaction processor, `settings-tp`, is required for this
->     environment.
-> -   `PoET Validator Registry <../transaction_family_specifications/validator_registry_transaction_family>`{.interpreted-text
->     role="doc"} configures PoET consensus and handles a network with
->     multiple validators.
-> -   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
->     role="doc"} is a basic application (also called transaction
->     family) that introduces Sawtooth functionality. The
->     `sawtooth-intkey-tp-python` transaction processor works with the
->     `int-key` client, which has shell commands to perform
->     integer-based transactions.
-> -   `XO <../transaction_family_specifications/xo_transaction_family>`{.interpreted-text
->     role="doc"} is a simple application for playing a game of
->     tic-tac-toe on the blockchain. The `sawtooth-xo-tp-python`
->     transaction processor works with the `xo` client, which has shell
->     commands to define players and play a game. XO is described in a
->     later tutorial.
+> - [Settings](../transaction_family_specification/settings_transaction_family)
+>   handles Sawtooth\'s on-chain settings. The Settings
+>   transaction processor, `settings-tp`, is required for this
+>   environment.
+> - [PoET Validator Registry](../transaction_family_specification/validator_registry_transaction_family)
+>   configures PoET consensus and handles a network with multiple
+>   validators.
+> - [IntegerKey](../transaction_family_specifications/integerkey_transaction_family)
+>   is a basic application (also called transaction family) that
+>   introduces Sawtooth functionality. The `sawtooth-intkey-tp-python`
+>   transaction processor works with the `int-key` client, which has
+>   shell commands to perform integer-based transactions.
+> - [XO](../transaction_family_specifications/xo_transaction_family) is
+>   a simple application for playing a game of tic-tac-toe on the
+>   blockchain. The `sawtooth-xo-tp-python` transaction processor works
+>   with the `xo` client, which has shell commands to define players and
+>   play a game. XO is described in a later tutorial.
 
-::: note
-::: title
-Note
-:::
 
-Sawtooth provides the Settings transaction processor as a reference
-implementation. In a production environment, you must always run the
-Settings transaction processor or an equivalent that supports the
-`Sawtooth methodology for storing on-chain configuration settings
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> Sawtooth provides the Settings transaction processor as a reference
+> implementation. In a production environment, you must always run the
+> Settings transaction processor or an equivalent that supports the
+> [Sawtooth methodology for storing on-chain configuration settings](../transaction_family_specification/settings_transaction_family)
 
 ## Step 1: Install kubectl and Minikube
 
@@ -1047,13 +994,13 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
 
 1.  Start Minikube.
 
-    ``` console
+    ```
     $ minikube start
     ```
 
 2.  Start Minikube\'s \"Hello, World\" test cluster, `hello-minikube`.
 
-    ``` console
+    ```
     $ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --port=8080
 
     $ kubectl expose deployment hello-minikube --type=NodePort
@@ -1061,7 +1008,7 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
 
 3.  Check the list of pods.
 
-    ``` console
+    ```
     $ kubectl get pods
     ```
 
@@ -1076,7 +1023,7 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
 
 5.  Remove the `hello-minikube` cluster.
 
-    ``` console
+    ```
     $ kubectl delete services hello-minikube
 
     $ kubectl delete deployment hello-minikube
@@ -1086,7 +1033,7 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
 
 Download the Kubernetes configuration (kubeconfig) file for a Sawtooth
 network,
-[sawtooth-kubernetes-default-poet.yaml](./sawtooth-kubernetes-default-poet.yaml).
+[sawtooth-kubernetes-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/kubernetes/sawtooth-kubernetes-default-poet.yaml).
 
 This kubeconfig file creates a Sawtooth network with five pods, each
 running a Sawtooth validator node. The pods are numbered from 0 to 4.
@@ -1097,16 +1044,11 @@ communicate correctly.
 
 ## Step 4: Start the Sawtooth Cluster
 
-::: note
-::: title
-Note
-:::
-
-The Kubernetes configuration file handles the Sawtooth startup steps
-such as generating keys and creating a genesis block. To learn about the
-full Sawtooth startup process, see `ubuntu`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> The Kubernetes configuration file handles the Sawtooth startup steps
+> such as generating keys and creating a genesis block. To learn about the
+> full Sawtooth startup process, see [ubuntu](ubuntu)
 
 Use these steps to start the Sawtooth network:
 
@@ -1115,7 +1057,7 @@ Use these steps to start the Sawtooth network:
 
 2.  Make sure that Minikube is running.
 
-    ``` console
+    ```
     $ minikube status
     minikube: Running
     cluster: Running
@@ -1126,8 +1068,7 @@ Use these steps to start the Sawtooth network:
 
 3.  Start Sawtooth in a local Kubernetes cluster.
 
-    ::: {#restart-kube-label}
-    ``` console
+    ```
     $ kubectl apply -f sawtooth-kubernetes-default-poet.yaml
     deployment.extensions/sawtooth-0 created
     service/sawtooth-0 created
@@ -1140,111 +1081,97 @@ Use these steps to start the Sawtooth network:
     deployment.extensions/sawtooth-4 created
     service/sawtooth-4 created
     ```
-    :::
 
 4.  (Optional) Start the Minikube dashboard.
 
-    ``` console
+    ```
     $ minikube dashboard
     ```
 
     This command opens the dashboard in your default browser. The
     overview page shows the Sawtooth deployment, pods, and replica sets.
 
-::: important
-::: title
-Important
-:::
-
-Any work done in this environment will be lost once you stop Minikube
-and delete the Sawtooth cluster. In order to use this environment for
-application development, or to start and stop Sawtooth nodes (and pods),
-you would need to take additional steps, such as defining volume
-storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once you stop Minikube
+> and delete the Sawtooth cluster. In order to use this environment for
+> application development, or to start and stop Sawtooth nodes (and pods),
+> you would need to take additional steps, such as defining volume
+> storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
 ## Step 5: Confirm Network and Blockchain Functionality {#confirm-func-kube-label}
 
 1.  Connect to the shell container on the first pod.
 
-    > ``` none
-    > $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-shell -- bash
+    ``` none
+    $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-shell -- bash
+
+    root@sawtooth-0#
+    ```
+
+    > **Note**
     >
-    > root@sawtooth-0#
-    > ```
-
-    ::: note
-    ::: title
-    Note
-    :::
-
-    In this procedure, the prompt `root@sawtooth-0#` marks the commands
-    that should be run on the Sawtooth node in pod 0. (The actual prompt
-    is similar to `root@sawtooth-0-5ff6d9d578-5w45k:/#`.)
-    :::
+    > In this procedure, the prompt `root@sawtooth-0#` marks the commands
+    > that should be run on the Sawtooth node in pod 0. (The actual prompt
+    > is similar to `root@sawtooth-0-5ff6d9d578-5w45k:/#`.)
 
 2.  Display the list of blocks on the Sawtooth blockchain.
 
-    > ``` none
-    > root@sawtooth-0# sawtooth block list
-    > ```
+    ``` none
+    root@sawtooth-0# sawtooth block list
+    ```
 
     The output will be similar to this example:
 
-    > ``` console
-    > NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
-    > 2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
-    > 1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
-    > 0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
-    > ```
+    ```
+    NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
+    2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
+    1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
+    0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
+    ```
 
-    Block 0 is the `genesis block`{.interpreted-text role="term"}. The
-    other two blocks contain transactions for on-chain settings, such as
-    setting PoET consensus.
+    Block 0 is the genesis block. The other two blocks contain
+    transactions for on-chain settings, such as setting PoET consensus.
 
 3.  In a separate terminal window, connect to a different pod (such as
     pod 1) and verify that it has joined the Sawtooth network.
 
-    > ``` none
-    > $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-1/{print $1}') --container sawtooth-shell -- bash
+    ``` none
+    $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-1/{print $1}') --container sawtooth-shell -- bash
+    
+    root@sawtooth-1#
+    ```
+
+    > **Note**
     >
-    > root@sawtooth-1#
-    > ```
-
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The prompt `root@sawtooth-1#` marks the commands that should be run
-    on the Sawtooth node in pod 1.
-    :::
+    > The prompt `root@sawtooth-1#` marks the commands that should be run
+    > on the Sawtooth node in pod 1.
 
 4.  Display the list of blocks on the second pod.
 
-    > ``` none
-    > root@sawtooth-1# sawtooth block list
-    > ```
+    ``` none
+    root@sawtooth-1# sawtooth block list
+    ```
 
     You should see the same list of blocks with the same block IDs, as
     in this example:
 
-    > ``` console
-    > NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
-    > 2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
-    > 1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
-    > 0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
-    > ```
+    ```
+    NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
+    2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
+    1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
+    0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
+    ```
 
 5.  (Optional) You can repeat the previous two steps on the other pods
     to verify that they have the same block list. To connect to a
     different pod, replace the [N]{.title-ref} (in `sawtooth-N`) in the
     following command with the pod number. command:
 
-    > ``` none
-    > $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-N/{print $1}') --container sawtooth-shell -- bash
-    > ```
+    ``` none
+    $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-N/{print $1}') --container sawtooth-shell -- bash
+    ```
 
 6.  (Optional) You can also connect to the shell container of any pod,
     and run the following Sawtooth commands to show the other nodes on
@@ -1261,21 +1188,21 @@ documentation](https://kubernetes.io/docs/home/) for more information.
         to submit a transaction on the first validator node. This
         example sets a key named `MyKey` to the value 999.
 
-        > ``` console
-        > root@sawtooth-0# intkey set MyKey 999
-        > {
-        >   "link":
-        >   "http://127.0.0.1:8008/batch_statuses?id=1b7f121a82e73ba0e7f73de3e8b46137a2e47b9a2d2e6566275b5ee45e00ee5a06395e11c8aef76ff0230cbac0c0f162bb7be626df38681b5b1064f9c18c76e5"
-        >   }
-        > ```
+        ```
+        root@sawtooth-0# intkey set MyKey 999
+        {
+          "link":
+          "http://127.0.0.1:8008/batch_statuses?id=1b7f121a82e73ba0e7f73de3e8b46137a2e47b9a2d2e6566275b5ee45e00ee5a06395e11c8aef76ff0230cbac0c0f162bb7be626df38681b5b1064f9c18c76e5"
+          }
+        ```
 
     b.  From the shell container on a different pod (such as pod 1),
         check that the value has been changed on that validator node.
 
-        > ``` console
-        > root@sawtooth-1# intkey show MyKey
-        > MyKey: 999
-        > ```
+        ```
+        root@sawtooth-1# intkey show MyKey
+        MyKey: 999
+        ```
 
 8.  You can check whether a Sawtooth component is running by connecting
     to a different container, then running the `ps` command. The
@@ -1286,7 +1213,7 @@ documentation](https://kubernetes.io/docs/home/) for more information.
     container (`sawtooth-poet-validator-registry-tp`), then displays the
     list of running process.
 
-    ``` console
+    ```
     $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-3/{print $1}') --container sawtooth-poet-validator-registry-tp -- bash
 
     root@sawtooth-3# ps --pid 1 fw
@@ -1301,10 +1228,9 @@ For more ways to test basic functionality, see the Kubernetes section of
 \"Setting Up a Sawtooth Application Development Environment\".
 
 -   To use Sawtooth client commands to view block information and check
-    state data, see `sawtooth-client-kube-label`{.interpreted-text
-    role="ref"}.
+    state data, see [Step 6: Use Sawtooth Commands as a Client](kubernetes#sawtooth-client-kube-label).
 -   For information on the Sawtooth logs, see
-    `examine-logs-kube-label`{.interpreted-text role="ref"}.
+    [Step 8: Examine Sawtooth Logs](kubernetes#examine-logs-kube-label).
 
 ## Step 6. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-kube-label}
 
@@ -1318,11 +1244,10 @@ environment: IntegerKey, Settings, XO, and Validator Registry.
 Transaction-type restrictions are an on-chain setting, so this
 configuration change is applied to all validators.
 
-The `Settings transaction processor
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} handles on-chain configuration settings. You can use the
-`sawset` command to create and submit a batch of transactions containing
-the configuration change.
+The [Settings transaction processor](../transaction_family_specifications/settings_transaction_family)
+handles on-chain configuration settings. You can use the `sawset`
+command to create and submit a batch of transactions containing the
+configuration change.
 
 Use the following steps to create and submit a batch containing the new
 setting.
@@ -1331,14 +1256,14 @@ setting.
     (`sawtooth-0-{xxxxxxxx}`). The next command requires the validator
     key that was generated in that container.
 
-    ``` console
+    ```
     $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-validator -- bash
     root@sawtooth-0#
     ```
 
 2.  Run the following command from the validator container:
 
-    ``` console
+    ```
     root@sawtooth-0# sawset proposal create --key /etc/sawtooth/keys/validator.priv sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
     ```
 
@@ -1346,8 +1271,7 @@ setting.
     JSON array that specifies the family name and version of each
     allowed transaction processor (defined in the transaction header of
     each family\'s
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"}).
+    [transaction family specification](../transaction_family_specifications/index).
 
 3.  After this command runs, a `TP_PROCESS_REQUEST` message appears in
     the log for the Settings transaction processor.
@@ -1357,8 +1281,7 @@ setting.
         a.  From the Overview page, scroll to the list of pods and click
             on any pod name.
 
-        b.  On the pod page, click `LOGS`{.interpreted-text
-            role="guilabel"} (in the top right).
+        b.  On the pod page, click `LOGS` (in the top right).
 
         c.  On the pod\'s log page, select logs from
             `sawtooth-settings-tp`, then scroll to the bottom of the
@@ -1374,7 +1297,7 @@ setting.
         Settings log file has a unique string in the name.) The messages
         will resemble this example:
 
-        ``` none
+        ```
         .
         .
         .
@@ -1385,13 +1308,13 @@ setting.
 4.  Run the following command to check the setting change. You can use
     any container, such as a shell or another validator container.
 
-    ``` console
+    ```
     root@sawtooth-1# sawtooth settings list
     ```
 
     The output should be similar to this example:
 
-    ``` console
+    ```
     sawtooth.consensus.algorithm.name: PoET
     sawtooth.consensus.algorithm.version: 0.1
     sawtooth.poet.initial_wait_time: 15
@@ -1410,23 +1333,20 @@ setting.
 
 Use the following commands to stop and reset the Sawtooth network.
 
-::: important
-::: title
-Important
-:::
 
-Any work done in this environment will be lost once you delete the
-Sawtooth pods. To keep your work, you would need to take additional
-steps, such as defining volume storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once you delete the
+> Sawtooth pods. To keep your work, you would need to take additional
+> steps, such as defining volume storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
 1.  Log out of all Sawtooth containers.
 
 2.  Stop Sawtooth and delete the pods. Run the following command from
     the same directory where you saved the configuration file.
 
-    ``` console
+    ```
     $ kubectl delete -f sawtooth-kubernetes-default-poet.yaml
     deployment.extensions "sawtooth-0" deleted
     service "sawtooth-0" deleted
@@ -1442,7 +1362,7 @@ documentation](https://kubernetes.io/docs/home/) for more information.
 
 3.  Stop the Minikube cluster.
 
-    ``` console
+    ```
     $ minikube stop
     Stopping local Kubernetes cluster...
     Machine stopped.
@@ -1450,7 +1370,7 @@ documentation](https://kubernetes.io/docs/home/) for more information.
 
 4.  Delete the Minikube cluster, VM, and all associated files.
 
-    ``` console
+    ```
     $ minikube delete
     Deleting local Kubernetes cluster...
     Machine deleted.
