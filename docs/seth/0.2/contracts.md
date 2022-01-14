@@ -2,6 +2,8 @@
 title: Contracts
 ---
 
+# Contracts
+
 Once you have an account created, you can use it to deploy EVM smart
 contracts. To demonstrate how to deploy and call contracts, we will be
 using the following Solidity contract, which is based loosely on the
@@ -41,7 +43,7 @@ You can also use the copy already existing in the repo:
     cd sawtooth-seth/
     cp contracts/examples/simple_intkey/simple_intkey.sol contracts/contract.sol
 
-# Compiling Contracts
+## Compiling Contracts {#compiling-contracts}
 
 <!--
   Copyright 2017 Intel Corporation
@@ -79,7 +81,7 @@ contract and run:
 Save the blob of hex-encoded bytes somewhere as we are going to use it
 in the next step.
 
-# Deploying Contracts
+## Deploying Contracts {#deploying-contracts}
 
 Now that we have an account and a compiled contract, we can deploy the
 contract with:
@@ -103,20 +105,15 @@ and a contract is short for \"contract account\". That is, they are
 actually both accounts, but a contract account is an account with a
 contract that is owned by another account.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+>If you lose the address of your contract, you can get a list of the addresses
+>that would have been derived for your contract based on the nonce of the account
+>used to create it with `seth contract list {alias}`. For more info, see the
+>beginning of [Ethereum Quirks and
+>Vulns](http://martin.swende.se/blog/Ethereum_quirks_and_vulns.html).
 
-If you lose the address of your contract, you can get a list of the
-addresses that would have been derived for your contract based on the
-nonce of the account used to create it with
-`seth contract list {alias}`. For more info, see the beginning of
-[Ethereum Quirks and
-Vulns](http://martin.swende.se/blog/Ethereum_quirks_and_vulns.html).
-:::
-
-# Calling Contracts
+## Calling Contracts {#calling-contracts}
 
 To call the deployed contract we need the address where the contract is
 deployed and the input data for the contract call. The address was
