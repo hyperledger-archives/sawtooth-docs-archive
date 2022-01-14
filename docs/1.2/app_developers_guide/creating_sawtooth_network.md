@@ -129,7 +129,7 @@ engine, and the following transaction processors:
     [Intro XO Transaction
     Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 -   (PoET only)
-    [PoET Validator Registry]{%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
+    [PoET Validator Registry]({%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
      (`poet-validator-registry-tp`): Configures PoET consensus and handles a
      network with multiple nodes.
 
@@ -479,23 +479,17 @@ environment.
         user@host$ docker-compose -f sawtooth-default-poet.yaml down
         ```
 
----
-title: Using Kubernetes for a Sawtooth Test Network
----
+## Using Kubernetes for a Sawtooth Test Network
 
 This procedure describes how to use [Kubernetes](https://kubernetes.io/)
 to create a network of five Sawtooth nodes for an application
 development environment. Each node is a Kubernetes pod containing a set
 of containers for a validator and related Sawtooth components.
 
-::: note
-::: title
-Note
-:::
-
-For a single-node environment, see
-`installing_sawtooth`{.interpreted-text role="doc"}.
-:::
+> **Note**
+>
+> For a single-node environment, see [Installing
+> Sawtooth]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%})
 
 This procedure guides you through the following tasks:
 
@@ -508,7 +502,7 @@ This procedure guides you through the following tasks:
 > -   Configuring the allowed transaction types (optional)
 > -   Stopping Sawtooth and deleting the Kubernetes cluster
 
-# About the Kubernetes Sawtooth Network Environment
+### About the Kubernetes Sawtooth Network Environment
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -524,73 +518,58 @@ The Kubernetes cluster has a pod for each Sawtooth node. On each pod,
 there are containers for each Sawtooth component. The Sawtooth nodes are
 connected in an all-to-all peering relationship.
 
-![](../images/appdev-environment-multi-node-kube.*){.align-center
-width="100.0%"}
+<img alt="Appdev Environment Multi-Node Kube" src="/images/1.2/appdev-environment-multi-node-kube.svg">
 
-Each node in this Sawtooth network runs a `validator`{.interpreted-text
-role="term"}, a `REST API`{.interpreted-text role="term"}, a consensus
-engine, and the following
-`transaction processors<transaction processor>`{.interpreted-text
-role="term"}:
+Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:
 
--   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-    role="doc"} (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
-    role="doc"} (`intkey-tp-python`): Demonstrates basic Sawtooth
-    functionality. The associated `intkey` client includes shell
+-   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+    Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   `XO <../transaction_family_specifications/xo_transaction_family>`{.interpreted-text
-    role="doc"} (`sawtooth-xo-tp-python`: Simple application for playing
-    a game of tic-tac-toe on the blockchain. The assocated `xo` client
+-   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+    a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
-    `intro_xo_transaction_family`{.interpreted-text role="doc"}.
+    [Intro XO Transaction
+    Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 -   (PoET only)
-    `PoET Validator Registry <../transaction_family_specifications/validator_registry_transaction_family>`{.interpreted-text
-    role="doc"} (`poet-validator-registry-tp`): Configures PoET
-    consensus and handles a network with multiple nodes.
+    [PoET Validator Registry]({%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
+     (`poet-validator-registry-tp`): Configures PoET consensus and handles a
+     network with multiple nodes.
 
-::: important
-::: title
-Important
-:::
+> Important
+>
+> Each node in a Sawtooth network must run the same set of transaction
+> processors.
 
-Each node in a Sawtooth network must run the same set of transaction
-processors.
-:::
-
-Like the `single-node test environment <kubernetes>`{.interpreted-text
-role="doc"}, this environment uses parallel transaction processing and
+Like the [single-node test environment
+kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#kubernetes),
+this environment uses parallel transaction processing and
 static peering. However, it uses a different consensus algorithm
 (Devmode consensus is not recommended for a network). You can choose
 either PBFT or PoET consensus.
 
--   `PBFT consensus`{.interpreted-text role="term"} provides a
-    voting-based consensus algorithm with Byzantine fault tolerance
-    (BFT) that has finality (does not fork).
+-   PBFT consensus provides a voting-based consensus algorithm with
+    Byzantine fault tolerance (BFT) that has finality (does not fork).
 
--   `PoET consensus`{.interpreted-text role="term"} provides a
-    leader-election lottery system that can fork. This network uses PoET
-    simulator consensus, which is also called [PoET CFT]{.title-ref}
-    because it is crash fault tolerant.
+-   PoET consensus provides a leader-election lottery system that can fork.
+    This network uses PoET simulator consensus, which is also called
+    PoET CFT because it is crash fault tolerant.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The other type of PoET consensus, PoET-SGX, relies on Intel Software
-    Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
-    CFT provides the same consensus algorithm on an SGX simulator.
-    :::
+    > **Note**
+    >
+    > The other type of PoET consensus, PoET-SGX, relies on Intel Software
+    > Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
+    > CFT provides the same consensus algorithm on an SGX simulator.
 
 The first node creates the genesis block, which specifies the initial
 on-chain settings for the network configuration. The other nodes access
 those settings when they join the network.
 
-# Prerequisites
+### Prerequisites
 
 -   This environment requires
     [kubectl](https://kubernetes.io/docs/concepts/) and
@@ -598,12 +577,13 @@ those settings when they join the network.
     supported VM hypervisor, such as
     [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 -   If you created a
-    `single-node Kubernetes environment <kubernetes>`{.interpreted-text
-    role="doc"} that is still running, shut it down and delete the
+    [single-node Kubernetes environment
+    kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}) that is still running, shut it down and delete the
     Minikube cluster, VM, and associated files. For more information,
-    see `stop-sawtooth-kube-label`{.interpreted-text role="ref"}.
+    see [Stop the Sawtooth Kubernetes
+    Cluster]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#stop-sawtooth-kube-label)
 
-# Step 1: Install kubectl and minikube
+### Step 1: Install kubectl and minikube
 
 This step summarizes the Kubernetes installation procedures. For more
 information, see the [Kubernetes
@@ -644,7 +624,7 @@ documentation](https://kubernetes.io/docs/tasks/).
         && chmod +x minikube && sudo mv minikube /usr/local/bin/
         ```
 
-# Step 2: Start Minikube
+### Step 2: Start Minikube
 
 1.  Start Minikube.
 
@@ -694,7 +674,7 @@ documentation](https://kubernetes.io/docs/tasks/).
         $ kubectl delete deployment hello-minikube
         ```
 
-# Step 3: Download the Sawtooth Configuration File
+### Step 3: Download the Sawtooth Configuration File
 
 Download the Kubernetes configuration (kubeconfig) file for a Sawtooth
 network.
@@ -709,15 +689,11 @@ running a Sawtooth node. It also specifies the container images to
 download (from DockerHub) and the network settings needed for the
 containers to communicate correctly.
 
-# Step 4: (PBFT Only) Configure Keys for the Kubernetes Pods
+### Step 4: (PBFT Only) Configure Keys for the Kubernetes Pods
 
-::: important
-::: title
-Important
-:::
-
-Skip this step if you are using PoET consensus.
-:::
+> **Important**
+>
+> Skip this step if you are using PoET consensus.
 
 For a network using PBFT consensus, the initial member list must be
 specified in the genesis block. This step generates public and private
@@ -812,18 +788,13 @@ starts.
     configmap/keys-config created
     ```
 
-# Step 5: Start the Sawtooth Cluster
+### Step 5: Start the Sawtooth Cluster
 
-::: note
-::: title
-Note
-:::
-
-The Kubernetes configuration file handles the Sawtooth startup steps
-such as generating keys and creating a genesis block. To learn about the
-full Sawtooth startup process, see `ubuntu`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> The Kubernetes configuration file handles the Sawtooth startup steps
+> such as generating keys and creating a genesis block. To learn about the
+> full Sawtooth startup process, see [Ubuntu]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#ubuntu)
 
 Use these steps to start the Sawtooth network.
 
@@ -907,20 +878,16 @@ Use these steps to start the Sawtooth network.
     (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
     in the Kubernetes documentation.
 
-::: important
-::: title
-Important
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once you stop Minikube
+> and delete the Sawtooth cluster. In order to use this environment for
+> application development, or to start and stop Sawtooth nodes (and pods),
+> you would need to take additional steps, such as defining volume
+> storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
-Any work done in this environment will be lost once you stop Minikube
-and delete the Sawtooth cluster. In order to use this environment for
-application development, or to start and stop Sawtooth nodes (and pods),
-you would need to take additional steps, such as defining volume
-storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
-
-# Step 6: Confirm Network and Blockchain Functionality {#confirm-func-kube-label}
+### Step 6: Confirm Network and Blockchain Functionality {#confirm-func-kube-label}
 
 1.  Connect to the shell container on the first pod.
 
@@ -933,16 +900,12 @@ documentation](https://kubernetes.io/docs/home/) for more information.
     root@sawtooth-0#
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    In this procedure, the prompt `root@sawtooth-0#` marks the commands
-    that should be run on the Sawtooth node in pod 0. The actual prompt
-    is similar to `root@pbft-0-dabbad0000-5w45k:/#` (for PBFT) or
-    `root@sawtooth-0-f0000dd00d-sw33t:/#` (for PoET).
-    :::
+    > **Note**
+    >
+    > In this procedure, the prompt `root@sawtooth-0#` marks the commands
+    > that should be run on the Sawtooth node in pod 0. The actual prompt
+    > is similar to `root@pbft-0-dabbad0000-5w45k:/#` (for PBFT) or
+    > `root@sawtooth-0-f0000dd00d-sw33t:/#` (for PoET).
 
 2.  Display the list of blocks on the Sawtooth blockchain.
 
@@ -1064,22 +1027,18 @@ documentation](https://kubernetes.io/docs/home/) for more information.
 At this point, your environment is ready for experimenting with
 Sawtooth.
 
-::: tip
-::: title
-Tip
-:::
+> **Tip**
+>
+> For more ways to test basic functionality, see
+> [Kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#kubernetes). For example:
+>
+> -   To use Sawtooth client commands to view block information and check
+>     state data, see [Use Sawtooth Commands as a
+>     Client]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#sawtooth-client-kube-label)
+> -   For information on the Sawtooth logs, see [Examine Sawtooth
+>     Logs]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#examine-logs-kube-label)
 
-For more ways to test basic functionality, see
-`kubernetes`{.interpreted-text role="doc"}. For example:
-
--   To use Sawtooth client commands to view block information and check
-    state data, see `sawtooth-client-kube-label`{.interpreted-text
-    role="ref"}.
--   For information on the Sawtooth logs, see
-    `examine-logs-kube-label`{.interpreted-text role="ref"}.
-:::
-
-# Step 7. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-kube-label}
+### Step 7. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-kube-label}
 
 By default, a validator accepts transactions from any transaction
 processor. However, Sawtooth allows you to limit the types of
@@ -1091,9 +1050,9 @@ environment. Transaction-type restrictions are an on-chain setting, so
 this configuration change is made on one node, then applied to all other
 nodes.
 
-The `Settings transaction processor
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} handles on-chain configuration settings. You will use the
+The [Settings transaction
+processor]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+handles on-chain configuration settings. You will use the
 `sawset` command to create and submit a batch of transactions containing
 the configuration change.
 
@@ -1129,8 +1088,8 @@ the configuration change.
     JSON array that specifies the family name and version of each
     allowed transaction processor (defined in the transaction header of
     each family\'s
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"}).
+    [transaction family
+    specification](({% link docs/1.2/transaction_family_specifications/index.md%}))
 
 3.  After this command runs, a `TP_PROCESS_REQUEST` message appears in
     the log for the Settings transaction processor.
@@ -1142,8 +1101,7 @@ the configuration change.
         b.  From the Overview page, scroll to the list of pods and click
             on any pod name.
 
-        c.  On the pod page, click `LOGS`{.interpreted-text
-            role="guilabel"} (in the top right).
+        c.  On the pod page, click `LOGS` (in the top right).
 
         d.  On the pod\'s log page, select logs from
             `sawtooth-settings-tp`, then scroll to the bottom of the
@@ -1171,20 +1129,16 @@ the configuration change.
     sawtooth.validator.transaction_families: [{"family": "intkey...
     ```
 
-# Step 8: Stop the Sawtooth Kubernetes Cluster {#stop-sawtooth-kube2-label}
+### Step 8: Stop the Sawtooth Kubernetes Cluster {#stop-sawtooth-kube2-label}
 
 Use the following commands to stop and reset the Sawtooth network.
 
-::: important
-::: title
-Important
-:::
-
-Any work done in this environment will be lost once you delete the
-Sawtooth pods. To keep your work, you would need to take additional
-steps, such as defining volume storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once you delete the
+> Sawtooth pods. To keep your work, you would need to take additional
+> steps, such as defining volume storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
 1.  Log out of all Sawtooth containers.
 
