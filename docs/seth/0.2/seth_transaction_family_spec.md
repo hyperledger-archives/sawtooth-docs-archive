@@ -2,7 +2,9 @@
 title: Seth Transaction Family Specification
 ---
 
-# Overview
+# Seth Transaction Family Specification
+
+## Overview {#overview}
 
 <!--
   Copyright 2017 Intel Corporation
@@ -66,9 +68,9 @@ Paper](https://ethereum.github.io/yellowpaper/paper.pdf).
 For more information on [Hyperledger
 Burrow](https://github.com/hyperledger/burrow), check out the project.
 
-# State
+## State {#state}
 
-## Accounts
+### Accounts
 
 State associated with the Seth Transaction Family shall consist of a set
 of accounts. Similar to Ethereum, two types of accounts shall be
@@ -88,7 +90,7 @@ CA). All CAs are ultimately associated with an EOA.
 For more information on Ethereum Accounts, see the [Ethereum
 Documentation](http://ethdocs.org/en/latest/account-management.html#accounts).
 
-## Account Storage Format
+### Account Storage Format
 
 Accounts and any associated account storage shall be stored in global
 state using the following protobuf message format:
@@ -130,9 +132,9 @@ the spec:
     incentive system or associated cryptocurrency, maintaining a balance
     isn\'t meaningful.
 
-# Addressing
+## Addressing {#addressing}
 
-## EVM Prefix
+### EVM Prefix
 
 All data associated with the Seth Transaction Family shall be stored
 under the prefix formed by taking the first 3 bytes of the SHA512 hash
@@ -142,7 +144,7 @@ EVM prefix.:
     >>> hashlib.sha512('seth'.encode('utf-8')).hexdigest()[0:6]
     'a68b06'
 
-## Account Addresses
+### Account Addresses
 
 The address of an account depends on which type of account it is:
 
@@ -162,7 +164,7 @@ and enough 0\'s to form a valid global state address.:
 
     >>> state_address = 'a84eda' + account_address + '0'*12
 
-# Transaction Payload
+## Transaction Payload {#transaction-payload}
 
 In the Seth Transaction Family, the transaction payload shall be
 represented using the following protobuf message:
@@ -296,7 +298,7 @@ the spec, but will be used in later versions:
     system or account balances, transferring value between accounts is
     not meaningful.
 
-# Execution
+## Execution {#execution}
 
 Transaction execution shall follow a simplified version of the Ethereum
 model described below:
@@ -455,7 +457,7 @@ model described below:
 9.  If an error occurs while the EVM is executing, the transaction is
     invalid.
 
-# Receipts
+## Receipts {#receipts}
 
 Seth transaction receipts contain the following serialized protobuf
 message in the opaque data field.
@@ -487,7 +489,7 @@ be included in the Seth receipt are limited to the above. Additional
 contextual information that may be required can be computed later by
 inspecting the block that the transaction was executed in.
 
-## Events
+### Events
 
 Ethereum defines a set of LOGX for X in `[0, 4]` instructions that allow
 contracts to log off-chain data. Solidity uses these instructions to
