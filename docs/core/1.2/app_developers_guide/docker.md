@@ -634,7 +634,7 @@ than these examples.
 For more information on log files, see
 `../sysadmin_guide/log_configuration`{.interpreted-text role="doc"}.
 
-# Step 9: Stop the Sawtooth Environment {#stop-sawtooth-docker-label}
+# Step 9: Stop the Sawtooth Docker Environment {#stop-sawtooth-docker-label}
 
 Use this procedure if you need to stop or reset the Sawtooth environment
 for any reason.

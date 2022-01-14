@@ -80,28 +80,22 @@ A Sawtooth network has the following requirements:
   https://creativecommons.org/licenses/by/4.0/
 -->
 
----
-title: Using Docker for a Sawtooth Test Network
----
+## Using Docker for a Sawtooth Test Network
 
 This procedure describes how to use Docker to create a network of five
 Sawtooth nodes for an application development environment. Each node is
 a set of Docker containers that runs a validator and related Sawtooth
 components.
 
-::: note
-::: title
-Note
-:::
-
-For a single-node environment, see `docker`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> For a single-node environment, see [Installing
+> Sawtooth]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#docker)
 
 This procedure guides you through the following tasks:
 
 > -   Downloading the Sawtooth Docker Compose file
-> -   Starting the Sawtooth network with [docker-compose]{.title-ref}
+> -   Starting the Sawtooth network with docker-compose
 > -   Checking process status
 > -   Configuring the allowed transaction types (optional)
 > -   Connecting to the Sawtooth shell container and confirming network
@@ -117,73 +111,60 @@ This procedure guides you through the following tasks:
 
 This test environment is a network of five Sawtooth nodes.
 
-![](../images/appdev-environment-multi-node.*){.align-center
-width="100.0%"}
+<img alt="Appdev Environment Multi-Node" src="/images/1.2/appdev-environment-multi-node.svg">
 
-Each node in this Sawtooth network runs a `validator`{.interpreted-text
-role="term"}, a `REST API`{.interpreted-text role="term"}, a consensus
-engine, and the following
-`transaction processors<transaction processor>`{.interpreted-text
-role="term"}:
+Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:
 
--   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-    role="doc"} (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
-    role="doc"} (`intkey-tp-python`): Demonstrates basic Sawtooth
-    functionality. The associated `intkey` client includes shell
+-   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+    Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   `XO <../transaction_family_specifications/xo_transaction_family>`{.interpreted-text
-    role="doc"} (`sawtooth-xo-tp-python`: Simple application for playing
-    a game of tic-tac-toe on the blockchain. The assocated `xo` client
+-   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+    a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
-    `intro_xo_transaction_family`{.interpreted-text role="doc"}.
+    [Intro XO Transaction
+    Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 -   (PoET only)
-    `PoET Validator Registry <../transaction_family_specifications/validator_registry_transaction_family>`{.interpreted-text
-    role="doc"} (`poet-validator-registry-tp`): Configures PoET
-    consensus and handles a network with multiple nodes.
+    [PoET Validator Registry]{%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
+     (`poet-validator-registry-tp`): Configures PoET consensus and handles a
+     network with multiple nodes.
 
-::: important
-::: title
-Important
-:::
 
-Each node in a Sawtooth network must run the same set of transaction
-processors.
-:::
+> **Important**
+>
+> Each node in a Sawtooth network must run the same set of transaction
+> processors.
 
-Like the `single-node test environment <docker>`{.interpreted-text
-role="doc"}, this environment uses parallel transaction processing and
+Like the [single-node test environment
+docker]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#docker),
+this environment uses parallel transaction processing and
 static peering. However, it uses a different consensus algorithm
 (Devmode consensus is not recommended for a network). You can choose
 either PBFT or PoET consensus.
 
--   `PBFT consensus`{.interpreted-text role="term"} provides a
-    voting-based consensus algorithm with Byzantine fault tolerance
-    (BFT) that has finality (does not fork).
+-   PBFT consensus provides a voting-based consensus algorithm with Byzantine
+    fault tolerance (BFT) that has finality (does not fork).
 
--   `PoET consensus`{.interpreted-text role="term"} provides a
-    leader-election lottery system that can fork. This network uses PoET
-    simulator consensus, which is also called [PoET CFT]{.title-ref}
+-   PoET consensus provides a leader-election lottery system that can fork. This
+    network uses PoET simulator consensus, which is also called PoET CFT]
     because it is crash fault tolerant.
 
-    ::: note
-    ::: title
-    Note
-    :::
 
-    The other type of PoET consensus, PoET-SGX, relies on Intel Software
-    Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
-    CFT provides the same consensus algorithm on an SGX simulator.
-    :::
+    > **Note**
+    >
+    > The other type of PoET consensus, PoET-SGX, relies on Intel Software
+    > Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
+    > CFT provides the same consensus algorithm on an SGX simulator.
 
-The first node creates the [genesis block]{.title-ref}, which specifies
+The first node creates the genesis block, which specifies
 the on-chain settings for the network configuration. The other nodes
 access those settings when they join the network.
 
-# Prerequisites {#prereqs-multi-docker-label}
+### Prerequisites {#prereqs-multi-docker-label}
 
 -   This application development environment requires Docker Engine and
     Docker Compose.
@@ -200,32 +181,28 @@ access those settings when they join the network.
         Then follow [Post-Install
         steps](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
 -   If you created a
-    `single-node Docker environment <docker>`{.interpreted-text
-    role="doc"} that is still running, shut it down and delete the
-    existing blockchain data and logs. For more information, see
-    `stop-sawtooth-docker-label`{.interpreted-text role="ref"}.
+    [single-node Docker environment docker]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#docker),
+    that is still running, shut it down and delete the
+    existing blockchain data and logs. For more information, see [Stop the
+    Sawtooth Docker Environment]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#stop-the-sawtooth-docker-environment)
 
-# Step 1: Download the Docker Compose File
+### Step 1: Download the Docker Compose File
 
 Download the Docker Compose file for a multiple-node network.
 
 -   For PBFT, download
-    [sawtooth-default-pbft.yaml](./sawtooth-default-pbft.yaml)
+    [sawtooth-default-pbft.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-pbft.yaml)
 -   For PoET, download
-    [sawtooth-default-poet.yaml](./sawtooth-default-poet.yaml)
+    [sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-poet.yaml)
 
-# Step 2: Start the Sawtooth Network
+### Step 2: Start the Sawtooth Network
 
-::: note
-::: title
-Note
-:::
-
-The Docker Compose file for Sawtooth handles environment setup steps
-such as generating keys and creating a genesis block. To learn how the
-typical network startup process works, see
-`ubuntu_test_network`{.interpreted-text role="doc"}.
-:::
+> **Note**
+>
+> The Docker Compose file for Sawtooth handles environment setup steps
+> such as generating keys and creating a genesis block. To learn how the
+> typical network startup process works, see [Using Ubuntu for a
+> Sawtooth Test Network](#using-ubuntu-for-a-sawtooth-test-network)
 
 1.  Open a terminal window.
 
@@ -276,7 +253,7 @@ typical network startup process works, see
 
     > -   `sawtooth-shell-default`
 
-# Step 3: Check the REST API Process
+### Step 3: Check the REST API Process
 
 Use these commands on one or more nodes to confirm that the REST API is
 running.
@@ -298,7 +275,7 @@ running.
       --connect tcp://validator-0:4004 --bind rest-api-0:8008
     ```
 
-# Step 4: Confirm Network Functionality {#confirm-nw-funct-docker-label}
+### Step 4: Confirm Network Functionality {#confirm-nw-funct-docker-label}
 
 1.  Connect to the shell container.
 
@@ -391,7 +368,7 @@ running.
     > MyKey: 999
     > ```
 
-# Step 5. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-docker-label}
+### Step 5. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-docker-label}
 
 By default, a validator accepts transactions from any transaction
 processor. However, Sawtooth allows you to limit the types of
@@ -403,24 +380,20 @@ environment. Transaction-type restrictions are an on-chain setting, so
 this configuration change is made on one node, then applied to all other
 nodes.
 
-The `Settings transaction processor
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} handles on-chain configuration settings. You will use the
+The [Settings transaction processor]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+handles on-chain configuration settings. You will use the
 `sawset` command to create and submit a batch of transactions containing
 the configuration change.
 
-::: important
-::: title
-Important
-:::
 
-You **must** run this procedure from the first validator container,
-because the example Docker Compose file uses the first validator\'s key
-to create and sign the genesis block. (At this point, only the key used
-to create the genesis block can change on-chain settings.) For more
-information, see
-`/sysadmin_guide/adding_authorized_users`{.interpreted-text role="doc"}.
-:::
+> Important
+>
+> You **must** run this procedure from the first validator container,
+> because the example Docker Compose file uses the first validator\'s key
+> to create and sign the genesis block. (At this point, only the key used
+> to create the genesis block can change on-chain settings.) For more
+> information, see [Add Authorized
+> Users]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md%})
 
 1.  Connect to the first validator container
     (`sawtooth-validator-default-0`). The next command requires the
@@ -451,9 +424,8 @@ information, see
     This command sets `sawtooth.validator.transaction_families` to a
     JSON array that specifies the family name and version of each
     allowed transaction processor (defined in the transaction header of
-    each family\'s
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"}).
+    each family\'s [transaction family
+    specification]({%link docs/1.2/transaction_family_specifications/index.md%})).
 
 3.  After this command runs, a `TP_PROCESS_REQUEST` message appears in
     the docker-compose output.
@@ -485,7 +457,7 @@ information, see
     sawtooth.validator.transaction_families: [{"family": "intkey...
     ```
 
-# Step 6: Stop the Sawtooth Network (Optional)
+### Step 6: Stop the Sawtooth Network (Optional)
 
 Use this procedure to stop or reset the multiple-node Sawtooth
 environment.
