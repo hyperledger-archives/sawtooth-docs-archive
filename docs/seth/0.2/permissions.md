@@ -2,6 +2,8 @@
 title: Permissions
 ---
 
+# Permissions
+
 As mentioned in the `introduction <introduction>`{.interpreted-text
 role="doc"}, Seth supports a permissioned network model in which the set
 of actions allowed by individual accounts (contract or external) can be
@@ -42,7 +44,7 @@ to the permission set at the global permissions address. If the
 permission is not set at the global permissions address, the permission
 is allowed.
 
-# Permission Inheritance
+# Permission Inheritance {#permission-inheritance}
 
 <!--
   Copyright 2017 Intel Corporation
@@ -71,7 +73,7 @@ creating account according to the following rules:
     inherited from the creating account, with the exception of the
     \"root\" permission, which is set to deny.
 
-# Managing Permissions
+# Managing Permissions {#managing-permissions}
 
 If you have been following along with this guide, you should own two
 accounts at this point: an external account and a contract account. To
@@ -125,7 +127,7 @@ Examples:
     +account,+send,-contract  Enable account creation and sending value and disable contract creation
     +all,-root                Enable all permissions except setting permissions
 
-# Securing the Network
+# Securing the Network {#securing-the-network}
 
 When a new Sawtooth network running Seth is created, by default the
 network is open and all permissions are allowed by all accounts. This
