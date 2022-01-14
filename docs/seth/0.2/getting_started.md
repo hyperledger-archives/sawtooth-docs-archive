@@ -2,7 +2,9 @@
 title: Getting Started
 ---
 
-# Getting Seth
+# Getting Started
+
+## Getting Seth {#getting-seth}
 
 <!--
   Copyright 2017 Intel Corporation
@@ -32,7 +34,7 @@ repository:
     $ git clone https://github.com/hyperledger/sawtooth-seth.git
     $ cd sawtooth-seth
 
-# Starting Up Seth
+## Starting Up Seth {#starting-up-seth}
 
 The repo includes a Dockerfile for each of the Seth components, and a
 docker-compose file for building Docker images and starting containers
@@ -44,13 +46,12 @@ This starts up all the components necessary to begin interacting with
 Seth. The following ports are exposed on the host for interacting with
 the containers once startup is complete:
 
-+-----------+--------------------------+
 | Host Port | Service                  |
-+===========+==========================+
+|:---------:|:------------------------:|
 | > 8080    | Sawtooth REST API Server |
-+-----------+--------------------------+
+|-----------|--------------------------|
 | > 3030    | Seth-RPC Server          |
-+-----------+--------------------------+
+|-----------|--------------------------|
 
 You can verify that these services are working by submitting an HTTP
 request to them. For the REST API, do:
@@ -65,9 +66,9 @@ Seth-RPC server, do:
 You should receive a JSON object with the number of the current block,
 in hex, in the \"result\" key.
 
-# Creating an Account
+## Creating an Account {#creating-an-account}
 
-## Generating a Key Pair
+### Generating a Key Pair
 
 In order to interact with Seth, we need to create an external account on
 the network. Creating an account is equivalent to generating a new
