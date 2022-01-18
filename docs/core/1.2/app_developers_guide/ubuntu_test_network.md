@@ -1,20 +1,13 @@
----
-title: Using Ubuntu for a Sawtooth Test Network
----
+## Using Ubuntu for a Sawtooth Test Network
 
 This procedure describes how to create a Sawtooth network for an
 application development environment on a Ubuntu platform. Each host
 system (physical computer or virtual machine) is a [Sawtooth
 node]{.title-ref} that runs a validator and related Sawtooth components.
 
-::: note
-::: title
-Note
-:::
-
-For a single-node environment, see `ubuntu`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> For a single-node environment, see [ubuntu]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#ubuntu)
 
 This procedure guides you through the following tasks:
 
@@ -26,19 +19,15 @@ This procedure guides you through the following tasks:
 > -   Confirming network functionality
 > -   Configuring the allowed transaction types (optional)
 
-For information on Sawtooth `dynamic consensus`{.interpreted-text
-role="term"} or to learn how to change the consensus type, see
-`/sysadmin_guide/about_dynamic_consensus`{.interpreted-text role="doc"}.
+For information on Sawtooth dynamic consensus or to learn how to change
+the consensus type, see [About Dynamic
+Consensus]({% link docs/1.2/sysadmin_guide/about_dynamic_consensus.md %}).
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 
-These instructions have been tested on Ubuntu 18.04 (Bionic) only.
-:::
-
-# About the Ubuntu Sawtooth Network Environment {#about-sawtooth-nw-env-label}
+### About the Ubuntu Sawtooth Network Environment {#about-sawtooth-nw-env-label}
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -48,42 +37,32 @@ These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 This test environment is a network of several Sawtooth nodes. The
 following figure shows a network with five nodes.
 
-![](../images/appdev-environment-multi-node.*){.align-center
-width="100.0%"}
+<img alt="Appdev Environment Multi-Node" src="/images/1.2/appdev-environment-multi-node.svg">
 
-Each node in this Sawtooth network runs a `validator`{.interpreted-text
-role="term"}, a `REST API`{.interpreted-text role="term"}, a consensus
-engine, and the following
-`transaction processors<transaction processor>`{.interpreted-text
-role="term"}:
+Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:
 
--   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-    role="doc"} (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
-    role="doc"} (`intkey-tp-python`): Demonstrates basic Sawtooth
-    functionality. The associated `intkey` client includes shell
+-   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+    Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   `XO <../transaction_family_specifications/xo_transaction_family>`{.interpreted-text
-    role="doc"} (`sawtooth-xo-tp-python`: Simple application for playing
-    a game of tic-tac-toe on the blockchain. The assocated `xo` client
+-   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+    a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
-    `intro_xo_transaction_family`{.interpreted-text role="doc"}.
+    [Intro XO Transaction
+    Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 -   (PoET only)
-    `PoET Validator Registry <../transaction_family_specifications/validator_registry_transaction_family>`{.interpreted-text
-    role="doc"} (`poet-validator-registry-tp`): Configures PoET
-    consensus and handles a network with multiple nodes.
+    [PoET Validator Registry]({%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
+     (`poet-validator-registry-tp`): Configures PoET consensus and handles a
+     network with multiple nodes.
 
-::: important
-::: title
-Important
-:::
-
-Each node in a Sawtooth network must run the same set of transaction
-processors.
-:::
+> Important
+>
+> Each node in a Sawtooth network must run the same set of transaction
+> processors.
 
 Like the single-node environment, this environment uses parallel
 transaction processing and static peering. However, it uses a different
@@ -94,49 +73,45 @@ This procedure explains how to configure either PBFT or PoET consensus.
 The initial network must include the minimum number of nodes for the
 chosen consensus:
 
-> -   `PBFT consensus`{.interpreted-text role="term"} requires four or
+> -   PBFT consensus requires four or
 >     more nodes. At least four nodes must be configured and running in
 >     order for the network to start.
 >
-> -   `PoET consensus`{.interpreted-text role="term"} requires three or
+> -   PoET consensus requires three or
 >     more nodes. You can start the first node and test basic
 >     functionality, then add the other nodes.
 >
->     ::: note
->     ::: title
->     Note
->     :::
+>
+>     **Note**
 >
 >     This procedure uses PoET simulator consensus (also called PoET CFT
 >     because it is crash fault tolerant), which is a version of
 >     PoET-SGX consensus that runs on any processor.
->     :::
 >
-> -   `Devmode consensus`{.interpreted-text role="term"} has no minimum
+> -   Devmode consensus has no minimum
 >     requirement, but it is not recommended for multiple-node test
 >     networks or production networks. Devmode is a light-weight
 >     consensus that is intended for short-term testing on a single node
 >     or a very small network (two or three nodes). It is not crash
 >     fault tolerant and does not handle forks efficiently.
 
-::: note
-::: title
-Note
-:::
 
-For PBFT consensus, the network must be [fully peered]{.title-ref} (each
-node must be connected to all other nodes).
-:::
+> **Note**
+>
+> For PBFT consensus, the network must be fully peered (each
+> node must be connected to all other nodes).
 
-# Prerequisites {#prereqs-multi-ubuntu-label}
+
+### Prerequisites {#prereqs-multi-ubuntu-label}
 
 -   Remove data from an existing single node: To reuse the single test
-    node described in `ubuntu`{.interpreted-text role="doc"}, stop
+    node described in
+    [Ubuntu]({%link docs/1.2/app_developers_guide/installing_sawtooth.md%}#ubuntu), stop
     Sawtooth and delete all blockchain data and logs from that node.
     1.  If the first node is running, stop the Sawtooth components
         (validator, REST API, consensus engine, and transaction
-        processors), as described in
-        `stop-sawtooth-ubuntu-label`{.interpreted-text role="ref"}.
+        processors), as described in [Stop Sawtooth
+        Components](#stop-sawtooth-ubuntu-label)
     2.  Delete the existing blockchain data by removing all files from
         `/var/lib/sawtooth/`.
     3.  Delete the logs by removing all files from `/var/log/sawtooth/`.
@@ -160,17 +135,14 @@ node must be connected to all other nodes).
         on another node. Default: `tcp://127.0.0.1:8800`.
     -   **Consensus endpoint string**: Where this validator will listen
         for incoming communication from the
-        `consensus engine`{.interpreted-text role="term"}. You will set
-        this value with `--bind consensus` when starting the validator.
-        Default: `tcp://127.0.0.1:5050`.
+        consensus engine. You will set this value with `--bind consensus` when
+        starting the validator. Default: `tcp://127.0.0.1:5050`.
     -   **Peers list**: The addresses that this validator should use to
         connect to the other nodes (peers); that is, the public endpoint
         strings of those nodes. You will set this value with `--peers`
         when starting the validator. Default: none.
 
-.. \_about-bind-strings-label:
-
-## About component and network bind strings
+#### About component and network bind strings
 
 For the network bind string and component bind string, you would
 typically use a specific network interface that you want to bind to. The
@@ -213,7 +185,7 @@ For more information on how to specify the component and network bind
 strings, see \"Assigning a local address to a socket\" in the [zmq-tcp
 API Reference](http://api.zeromq.org/4-2:zmq-tcp).
 
-## About the public endpoint string {#about-endpoint-string-label}
+#### About the public endpoint string {#about-endpoint-string-label}
 
 The correct value for your public endpoint string depends on your
 network configuration.
@@ -234,21 +206,17 @@ For information on how to specify the public endpoint string, see
 \"Connecting a socket\" in the [zmq-tcp API
 Reference](http://api.zeromq.org/4-2:zmq-tcp).
 
-# Step 1: Install Sawtooth on All Nodes {#appdev-multinode-install-label}
+### Step 1: Install Sawtooth on All Nodes
 
 Use these steps on each system to install Hyperledger Sawtooth.
 
-::: note
-::: title
-Note
-:::
-
--   For PBFT consensus, you must install Sawtooth and generate keys for
-    all nodes before continuing to step 3 (creating the genesis block on
-    the first node).
--   For PoET consensus, you can choose to install Sawtooth on the other
-    nodes after configuring and starting the first node.
-:::
+> **Note**
+>
+> -   For PBFT consensus, you must install Sawtooth and generate keys for
+>     all nodes before continuing to step 3 (creating the genesis block on
+>     the first node).
+> -   For PoET consensus, you can choose to install Sawtooth on the other
+>     nodes after configuring and starting the first node.
 
 1.  Choose whether you want the stable version (recommended) or the most
     recent nightly build (for testing purposes only).
@@ -261,14 +229,11 @@ Note
         $ sudo add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe'
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        The `chime` metapackage includes the Sawtooth core software and
-        associated items such as separate consensus software.
-        :::
+        > **Note**
+        >
+        >
+        > The `chime` metapackage includes the Sawtooth core software and
+        > associated items such as separate consensus software.
 
     -   The latest version of Sawtooth is available in a repository of
         nightly builds. These builds may incorporate undocumented
@@ -312,10 +277,7 @@ Note
 >     python3-sawtooth-poet-families
 >     ```
 >
-> > ::: tip
-> > ::: title
-> > Tip
-> > :::
+> > **Tip**
 > >
 > > Any time after installation, you can view the installed Sawtooth
 > > packages with the following command:
@@ -323,28 +285,19 @@ Note
 > > ``` console
 > > $ dpkg -l '*sawtooth*'
 > > ```
-> > :::
 
-# Step 2: Create User and Validator Keys {#appdev-multinode-keys-label}
+### Step 2: Create User and Validator Keys
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> Skip this step if you are reusing an existing node that already has user
+> and validator keys.
 
-Skip this step if you are reusing an existing node that already has user
-and validator keys.
-:::
-
-::: important
-::: title
-Important
-:::
-
-For PBFT, repeat this procedure on the other nodes in the initial
-network. When you create the genesis block on the first node, you will
-need the validator keys for at least three other nodes.
-:::
+> **Important**
+>
+> For PBFT, repeat this procedure on the other nodes in the initial
+> network. When you create the genesis block on the first node, you will
+> need the validator keys for at least three other nodes.
 
 1.  Generate your user key for Sawtooth.
 
@@ -354,16 +307,12 @@ need the validator keys for at least three other nodes.
     writing file: /home/yourname/.sawtooth/keys/my_key.pub
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This command specifies `my_key` as the base name for the key files,
-    to be consistent with the key name that is used in some example
-    Docker and Kubernetes files. By default (when no key name is
-    specified), the `sawtooth keygen` command uses your user name.
-    :::
+    > **Note**
+    >
+    > This command specifies `my_key` as the base name for the key files,
+    > to be consistent with the key name that is used in some example
+    > Docker and Kubernetes files. By default (when no key name is
+    > specified), the `sawtooth keygen` command uses your user name.
 
 2.  Generate the key for the validator, which runs as root.
 
@@ -373,20 +322,15 @@ need the validator keys for at least three other nodes.
     writing file: /etc/sawtooth/keys/validator.pub
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
+    > **Note**
+    >
+    > By default, this command stores the validator key files in
+    > `/etc/sawtooth/keys/validator.priv` and
+    > `/etc/sawtooth/keys/validator.pub`. However, settings in the path
+    > configuration file could change this location; see [Path Configuring
+    > Sawtooth]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}).
 
-    By default, this command stores the validator key files in
-    `/etc/sawtooth/keys/validator.priv` and
-    `/etc/sawtooth/keys/validator.pub`. However, settings in the path
-    configuration file could change this location; see
-    `../sysadmin_guide/configuring_sawtooth/path_configuration_file`{.interpreted-text
-    role="doc"}.
-    :::
-
-# Step 3: Create the Genesis Block on the First Node
+### Step 3: Create the Genesis Block on the First Node
 
 The first node creates the genesis block, which specifies the initial
 on-chain settings for the network configuration. Other nodes access
@@ -396,20 +340,17 @@ those settings when they join the network.
 
 -   If you are reusing an existing node, make sure that you have deleted
     the blockchain data before continuing (as described in
-    `the Ubuntu section's
-    prerequisites <prereqs-multi-ubuntu-label>`{.interpreted-text
-    role="ref"}).
+    the Ubuntu section's prerequisites).
 -   For PBFT, the genesis block requires the validator keys for at least
     four nodes (or all nodes in the initial network, if known). If you
     have not installed Sawtooth and generated keys on the other nodes,
-    perform `Step 1 <appdev-multinode-install-label>`{.interpreted-text
-    role="ref"} and
-    `Step 2 <appdev-multinode-keys-label>`{.interpreted-text role="ref"}
+    perform [Step 1](#step-1-install-sawtooth-on-all-nodes) and
+    [Step 2](#step-2-create-user-and-validator-keys)
     on those nodes, then gather the public keys from
     `/etc/sawtooth/keys/validator.pub` on each node.
 
-The first node in a new Sawtooth network must create the [genesis
-block]{.title-ref} (the first block on the distributed ledger). When the
+The first node in a new Sawtooth network must create the genesis
+block (the first block on the distributed ledger). When the
 other nodes join the network, they use the on-chain settings that were
 specified in the genesis block.
 
@@ -418,14 +359,10 @@ nodes (or users) who are authorized to change configuration settings.
 For PBFT, the genesis block also includes the keys for the other nodes
 in the initial network.
 
-::: important
-::: title
-Important
-:::
-
-Use this procedure **only** for the first node on a Sawtooth network.
-Skip this procedure for a node that will join an existing network.
-:::
+> **Important**
+>
+> Use this procedure **only** for the first node on a Sawtooth network.
+> Skip this procedure for a node that will join an existing network.
 
 1.  Ensure that the required user and validator keys exist on this node:
 
@@ -457,18 +394,15 @@ Skip this procedure for a node that will join an existing network.
     settings changes will take effect after the validator and Settings
     transaction processor have started.
 
-    ::: note
-    ::: title
-    Note
-    :::
+    > **Note**
+    >
+    > You must use the same key for the `sawset proposal create` commands
+    > in the following steps. In theory, some of these commands could use
+    > a different key, but configuring multiple keys is a complicated
+    > process that is not shown in this procedure. For more information,
+    > see [Adding Authorized
+    > Users]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md%}).
 
-    You must use the same key for the `sawset proposal create` commands
-    in the following steps. In theory, some of these commands could use
-    a different key, but configuring multiple keys is a complicated
-    process that is not shown in this procedure. For more information,
-    see `/sysadmin_guide/adding_authorized_users`{.interpreted-text
-    role="doc"}.
-    :::
 
 4.  Create a batch to initialize the consensus settings.
 
@@ -489,18 +423,14 @@ Skip this procedure for a node that will join an existing network.
         single quotes and double quotes correctly, as shown in the
         example.
 
-        ::: tip
-        ::: title
-        Tip
-        :::
-
-        The PBFT version number is in the file
-        `sawtooth-pbft/Cargo.toml` as
-        `version = "{major}.{minor}.{patch}"`. Use only the first two
-        digits (major and minor release numbers); omit the patch number.
-        For example, if the version is 1.0.3, use `1.0` for this
-        setting.
-        :::
+        > **Tip**
+        >
+        > The PBFT version number is in the file
+        > `sawtooth-pbft/Cargo.toml` as
+        > `version = "{major}.{minor}.{patch}"`. Use only the first two
+        > digits (major and minor release numbers); omit the patch number.
+        > For example, if the version is 1.0.3, use `1.0` for this
+        > setting.
 
     -   For PoET:
 
@@ -514,58 +444,54 @@ Skip this procedure for a node that will join an existing network.
         sawtooth.poet.valid_enclave_basenames=$(poet enclave basename)
         ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This is a complicated command. Here\'s an explanation of the options
-    and arguments:
-
-    `--key $HOME/.sawtooth/keys/my_key.priv`
-
-    :   Signs the proposal with your private key. Only this key can be
-        used to change on-chain settings.
-
-    `-o config-consensus.batch`
-
-    :   Wraps the consensus proposal transaction in a batch named
-        `config-consensus.batch`.
-
-    `sawtooth.consensus.algorithm.name`
-
-    :   Specifies the consensus algorithm for this network; this setting
-        is required.
-
-    `sawtooth.consensus.algorithm.version`
-
-    :   Specifies the version of the consensus algorithm; this setting
-        is required.
-
-    (PBFT only) `sawtooth.consensus.pbft.members`
-
-    :   Lists the member nodes on the initial network as a
-        JSON-formatted string of the validators\' public keys, using the
-        following format:
-
-        `'["<public-key-1>","<public-key-2>",...,"<public-key-n>"]'`
-
-    (PoET only) `sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)"`
-
-    :   Adds the public key for the PoET Validator Registry transaction
-        processor to use for the PoET simulator consensus.
-
-    (PoET only) `sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement)`
-
-    :   Adds a simulated enclave measurement to the blockchain. The PoET
-        Validator Registry transaction processor uses this value to
-        check signup information.
-
-    (PoET only) `sawtooth.poet.valid_enclave_basenames=$(poet enclave basename)`
-
-    :   Adds a simulated enclave basename to the blockchain. The PoET
-        Validator Registry uses this value to check signup information.
-    :::
+    > **Note**
+    >
+    > This is a complicated command. Here's an explanation of the options
+    > and arguments:
+    >
+    > `--key $HOME/.sawtooth/keys/my_key.priv`
+    >
+    > :   Signs the proposal with your private key. Only this key can be
+    >     used to change on-chain settings.
+    >
+    > `-o config-consensus.batch`
+    >
+    > :   Wraps the consensus proposal transaction in a batch named
+    >     `config-consensus.batch`.
+    >
+    > `sawtooth.consensus.algorithm.name`
+    >
+    > :   Specifies the consensus algorithm for this network; this setting
+    >     is required.
+    >
+    > `sawtooth.consensus.algorithm.version`
+    >
+    > :   Specifies the version of the consensus algorithm; this setting
+    >     is required.
+    >
+    > (PBFT only) `sawtooth.consensus.pbft.members`
+    >
+    > :   Lists the member nodes on the initial network as a
+    >     JSON-formatted string of the validators\' public keys, using the
+    >     following format:
+    >
+    >     `'["<public-key-1>","<public-key-2>",...,"<public-key-n>"]'`
+    >
+    > (PoET only) `sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)"`
+    >
+    > :   Adds the public key for the PoET Validator Registry transaction
+    >     processor to use for the PoET simulator consensus.
+    >
+    > (PoET only) `sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement)`
+    >
+    > :   Adds a simulated enclave measurement to the blockchain. The PoET
+    >     Validator Registry transaction processor uses this value to
+    >     check signup information.
+    >
+    > (PoET only) `sawtooth.poet.valid_enclave_basenames=$(poet enclave basename)`
+    >
+    > :   Adds a simulated enclave basename to the blockchain. The PoET
+    >     Validator Registry uses this value to check signup information.
 
 5.  (PoET only) Create a batch to register the first Sawtooth node with
     the PoET Validator Registry transaction processor, using the
@@ -589,8 +515,9 @@ Skip this procedure for a node that will join an existing network.
         ```
 
         For the available settings and their default values, see
-        \"On-Chain Settings\" in the [Sawtooth PBFT
-        documentation](https://sawtooth.hyperledger.org/docs/#sawtooth-pbft).
+        [PBFT On-Chain
+        Settings]({%link docs/1.2/pbft/configuring-pbft.md%}#pbft-on-chain -settings)
+        in the Sawtooth PBFT documentation.
 
     -   For PoET:
 
@@ -602,15 +529,12 @@ Skip this procedure for a node that will join an existing network.
         sawtooth.publisher.max_batches_per_block=100
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        This example shows the default PoET settings. For more
-        information, see the [Hyperledger Sawtooth Settings
-        FAQ](https://sawtooth.hyperledger.org/faq/settings/).
-        :::
+        > **Note**
+        >
+        >
+        > This example shows the default PoET settings. For more
+        > information, see the [Hyperledger Sawtooth Settings
+        > FAQ]({% link faq/settings.md%}).
 
 7.  As the sawtooth user, combine the separate batches into a single
     genesis batch that will be committed in the genesis block.
@@ -638,29 +562,24 @@ Skip this procedure for a node that will join an existing network.
     Generating /var/lib/sawtooth/genesis.batch
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The `sawtooth.consensus.algorithm.name` and
-    `sawtooth.consensus.algorithm.version` settings are required;
-    `sawadm genesis` will fail if they are not present in one of the
-    batches unless the `--ignore-required-settings` flag is used.
-    :::
+    > **Note**
+    >
+    > The `sawtooth.consensus.algorithm.name` and
+    > `sawtooth.consensus.algorithm.version` settings are required;
+    > `sawadm genesis` will fail if they are not present in one of the
+    > batches unless the `--ignore-required-settings` flag is used.
 
 When this command finishes, the genesis block is complete.
 
 The settings in the genesis block will be available after the first node
 has started and the genesis block has been committed.
 
-# Step 4. (PBFT Only) Configure Peers in Off-Chain Settings
+### Step 4. (PBFT Only) Configure Peers in Off-Chain Settings
 
 For PBFT, each node specify the peer nodes in the network, because a
 PBFT network must be fully peered (all nodes must be directly
-connected). This setting is in the off-chain
-`validator configuration file <../sysadmin_guide/configuring_sawtooth/validator_configuration_file>`{.interpreted-text
-role="doc"}.
+connected). This setting is in the off-chain [validator configuration
+file]({%link docs/1.2/sysadmin_guide/configuring_sawtooth/validator_configuration_file.md%}).
 
 1.  Create the validator configuration file by copying the example file.
 
@@ -689,16 +608,12 @@ role="doc"}.
 
 This setting will take effect when the validator starts.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> For information about optional configuration settings, see [Off Chain
+> Settings]({% link docs/1.2/sysadmin_guide/off_chain_settings.md%}).
 
-For information about optional configuration settings, see
-`../sysadmin_guide/off_chain_settings`{.interpreted-text role="doc"}.
-:::
-
-# Step 5. Start Sawtooth on the First Node {#start-sawtooth-first-node-label}
+### Step 5. Start Sawtooth on the First Node
 
 This step shows how to start all Sawtooth components: the validator,
 REST API, transaction processors, and consensus engine. Use a separate
@@ -707,8 +622,8 @@ terminal window to start each component.
 1.  Start the validator with the following command.
 
     Substitute your actual values for the component and network bind
-    strings, public endpoint string, and peer list, as described in
-    `prereqs-multi-ubuntu-label`{.interpreted-text role="ref"}.
+    strings, public endpoint string, and peer list, as described in Ubuntu
+    Prerequisites.
 
     ``` console
     $ sudo -u sawtooth sawtooth-validator \
@@ -726,17 +641,12 @@ terminal window to start each component.
     > --peers tcp://203.0.113.0:8800,198.51.100.0:8800
     > ```
 
-    ::: important
-    ::: title
-    Important
-    :::
-
-    For PBFT, specify all known peers in the initial network. (PBFT
-    requires at least four nodes.) If you want to add another PBFT node
-    later, see
-    `../sysadmin_guide/pbft_adding_removing_node`{.interpreted-text
-    role="doc"}.
-    :::
+    > **Important**
+    >
+    > For PBFT, specify all known peers in the initial network. (PBFT
+    > requires at least four nodes.) If you want to add another PBFT node
+    > later, see [Adding or Removing a PBFT
+    > Node]({% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md%}).
 
     The following example uses these values:
 
@@ -770,15 +680,12 @@ terminal window to start each component.
 
     If necessary, use the `--connect` option to specify a non-default
     value for the validator\'s component bind address and port, as
-    described in `prereqs-multi-ubuntu-label`{.interpreted-text
-    role="ref"}. The following example shows the default value:
+    described in Ubuntu Prerequisites. The following example shows the default
+    value:
 
     > ``` none
     > $ sudo -u sawtooth sawtooth-rest-api -v --connect 127.0.0.1:4004
     > ```
-
-    For more information, see `start-rest-api-label`{.interpreted-text
-    role="ref"}.
 
 3.  Start the transaction processors. Open a separate terminal window to
     start each one.
@@ -799,18 +706,12 @@ terminal window to start each component.
     $ sudo -u sawtooth xo-tp-python -v
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
 
-    The transaction processors for Integer Key (`intkey-tp-python`) and
-    XO (`xo-tp-python`) are not required for a Sawtooth network, but are
-    used for the other steps in this guide.
-    :::
-
-    For more information, see `start-tps-label`{.interpreted-text
-    role="ref"}.
+    > Note
+    >
+    > The transaction processors for Integer Key (`intkey-tp-python`) and
+    > XO (`xo-tp-python`) are not required for a Sawtooth network, but are
+    > used for the other steps in this guide.
 
 4.  (PoET only) Also start the PoET Validator Registry transaction
     processor in a separate terminal window.
@@ -821,14 +722,10 @@ terminal window to start each component.
 
 5.  Start the consensus engine in a separate terminal window.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Change the `--connect` option, if necessary, to specify a
-    non-default value for validator\'s consensus bind address and port.
-    :::
+    > Note
+    >
+    > Change the `--connect` option, if necessary, to specify a
+    > non-default value for validator\'s consensus bind address and port.
 
     -   For PBFT:
 
@@ -854,7 +751,7 @@ terminal window to start each component.
     DEBUG | {name}::engine | Initializing block
     ```
 
-# Step 6. Test the First Node
+### Step 6. Test the First Node
 
 Although the Sawtooth network is not fully functional until other nodes
 have joined the network, you can use any or all of the following
@@ -867,16 +764,12 @@ been committed.
     $ curl http://localhost:8008/blocks
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The Sawtooth environment described this guide runs a local REST API
-    on each node. For a node that is not running a local REST API,
-    replace `localhost:8008` with the externally advertised IP address
-    and port.
-    :::
+    > **Note**
+    >
+    > The Sawtooth environment described this guide runs a local REST API
+    > on each node. For a node that is not running a local REST API,
+    > replace `localhost:8008` with the externally advertised IP address
+    > and port.
 
     You should see a JSON response that is similar to this example:
 
@@ -893,9 +786,6 @@ been committed.
     If not, check the status of the REST API service and restart it, if
     necessary.
 
-```{=html}
-<!-- -->
-```
 -   Check the list of blocks on the blockchain.
 
     ``` console
@@ -917,13 +807,10 @@ been committed.
     0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
     ```
 
-    Block 0 is the `genesis block`{.interpreted-text role="term"}. The
+    Block 0 is the genesis block. The
     other two blocks contain the initial transactions for on-chain
     settings, such as setting the consensus algorithm.
 
-```{=html}
-<!-- -->
-```
 -   (PBFT only) Ensure that the on-chain setting
     `sawtooth.consensus.pbft.members` lists the validator public keys of
     all PBFT member nodes on the network.
@@ -943,38 +830,29 @@ been committed.
         sawtooth.consensus.pbft.members=["03e27504580fa15...
         ```
 
-        ::: tip
-        ::: title
-        Tip
-        :::
 
-        You can use the `sawset proposal create` command to change this
-        setting. For more information, see
-        `/sysadmin_guide/pbft_adding_removing_node`{.interpreted-text
-        role="doc"}.
-        :::
+        > **Tip**
+        >
+        > You can use the `sawset proposal create` command to change this
+        > setting. For more information, [Adding or Removing a PBFT
+        > Node]({% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md%}).
 
-# Step 7: Start the Other Nodes {#install-second-val-ubuntu-label}
+### Step 7: Start the Other Nodes {#install-second-val-ubuntu-label}
 
 After confirming basic functionality on the first node, start Sawtooth
 on all other nodes in the initial network.
 
-Use the procedure in `start-sawtooth-first-node-label`{.interpreted-text
-role="ref"}.
+Use the procedure in [Step 5](#step-5-start-sawtooth-on-the-first-node).
 
-::: important
-::: title
-Important
-:::
-
-Be careful to specify the correct values for the component and network
-bind address, endpoint, and peers settings. Incorrect values could cause
-the network to fail.
-
-Start the same transaction processors that are running on the first
-node. For example, if you chose not to start `intkey-tp-python` and
-`xo-tp-python` on the first node, do not start them on the other nodes.
-:::
+> **Important**
+>
+> Be careful to specify the correct values for the component and network
+> bind address, endpoint, and peers settings. Incorrect values could cause
+> the network to fail.
+>
+> Start the same transaction processors that are running on the first
+> node. For example, if you chose not to start `intkey-tp-python` and
+> `xo-tp-python` on the first node, do not start them on the other nodes.
 
 When each node\'s validator fully starts, it will peer with the other
 running nodes.
@@ -996,16 +874,12 @@ For the remaining steps, multiple nodes in the network must be running.
     > $ curl http://localhost:8008/peers
     > ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This environment runs a local REST API on each node. For a node that
-    is not running a local REST API, you must replace `localhost:8008`
-    with the externally advertised IP address and port. (Non-default
-    values are set with the `--bind` option when starting the REST API.)
-    :::
+    > **Note**
+    >
+    > This environment runs a local REST API on each node. For a node that
+    > is not running a local REST API, you must replace `localhost:8008`
+    > with the externally advertised IP address and port. (Non-default
+    > values are set with the `--bind` option when starting the REST API.)
 
     If this query returns a 503 error, the nodes have not yet peered
     with the Sawtooth network. Repeat the query until you see output
@@ -1051,12 +925,11 @@ For the remaining steps, multiple nodes in the network must be running.
         MyKey: 999
         ```
 
-# Step 9. (Optional) Configure the Allowed Transaction Types {#configure-txn-procs-ubuntu-label}
+### Step 9. (Optional) Configure the Allowed Transaction Types {#configure-txn-procs-ubuntu-label}
 
 By default, a validator accepts transactions from any transaction
 processor. However, Sawtooth allows you to limit the types of
 transactions that can be submitted.
 
-For this procedure, see
-`../sysadmin_guide/setting_allowed_txns`{.interpreted-text role="doc"}
-in the System Administrator\'s Guide.
+For this procedure, see [Setting Allowed
+Transactions]({% link docs/1.2/sysadmin_guide/setting_allowed_txns.md%}).
