@@ -1,6 +1,6 @@
 # Smallbank Transaction Family
 
-# Overview
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -27,7 +27,7 @@ sense in the context of blockchain transactions.
 Smallbank Transaction payloads consist of a serialized protobuf wrapper
 containing the type and data payload of the sub transaction types.
 
-# State
+## State
 
 This section describes in detail how Smallbank transaction information
 is stored and addressed.
@@ -53,7 +53,7 @@ message Account {
 }
 ```
 
-## Addressing
+### Addressing
 
 Smallbank Account data is stored in state using addresses which are
 generated from the Smallbank namespace prefix and the unique customer_id
@@ -73,7 +73,7 @@ For example, a Smallbank address could be generated as follows:
 '3325143ff98ae73225156b2c6c9ceddbfc16f5453e8fa49fc10e5d96a3885546a46ef4'
 ```
 
-# Transaction Payload
+## Transaction Payload
 
 Smallbank transaction request payloads are defined by the following
 protobuf structure:
@@ -179,9 +179,9 @@ message AmalgamateTransactionData {
 }
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The inputs for Smallbank family transactions must include:
 
@@ -197,30 +197,26 @@ The outputs for Smallbank family transactions must include:
     both the source and destination customer_ids being modified for
     SendPayment and Amalgamate transactions.
 
-## Dependencies
+### Dependencies
 
 -   List of transaction *header_signatures* that are required
     dependencies and must be processed prior to processing this
     transaction
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> While any CreateAccount transaction signatures should probably be listed
+> in any other modification transactions that reference those accounts, it
+> may be sufficient to submit a set of CreateAccount transactions, ensure
+> they are committed to the chain and then proceed without explicit
+> dependencies.
 
-While any CreateAccount transaction signatures should probably be listed
-in any other modification transactions that reference those accounts, it
-may be sufficient to submit a set of CreateAccount transactions, ensure
-they are committed to the chain and then proceed without explicit
-dependencies.
-:::
-
-## Family
+### Family
 
 -   family_name: \"smallbank\"
 -   family_version: \"1.0\"
 
-# Execution
+## Execution
 
 A CreateAccount transaction is only valid if:
 
