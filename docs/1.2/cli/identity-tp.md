@@ -10,9 +10,21 @@ transaction processor.
 In order to send identity transactions, your public key must be stored
 in `sawtooth.identity.allowed_keys`.
 
-::: literalinclude
-output/identity-tp_usage.out
-:::
+```
+identity 1.2.6
+Identity Transaction Processor (Rust)
+
+USAGE:
+    identity-tp [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+    -v, --verbose    increase output verbosity
+
+OPTIONS:
+    -C, --connect <connect>    connection endpoint for validator
+```
 
 <!--
      Copyright 2017 Intel Corporation
