@@ -80,7 +80,7 @@ To connect to the Sawtooth node, use the steps for your platform:
 -   Docker: See [Log Into the Docker Client
     Container]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#log-into-client-container-docker)
 -   Kubernetes: See [Connect to the Kubernetes Shell
-    Container]({% link docs/1.2/app_developers_guide/kubernetes.md%}#connect-to-the-kubernetes-shell-container)
+    Container]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#connect-to-shell-container-k8s)
 -   Ubuntu: Open a client terminal window on the host system running
     Sawtooth
 
@@ -109,7 +109,7 @@ argument to each `xo` command in this procedure.
     > ```
 
 -   Kubernetes: See [Confirm Connectivity to the REST API (for
-    Kubernetes)]({% link docs/1.2/app_developers_guide/kubernetes.md %}#confirm-connectivity-to-the-rest-api-for-kubernetes)
+    Kubernetes)]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#confirming-connectivity-k8s-label)
 
 -   Ubuntu: See [Use Sawtooth Commands as a
     Client]({% link docs/1.2/app_developers_guide/ubuntu.md %}#use-sawtooth-commands-as-a-client)
