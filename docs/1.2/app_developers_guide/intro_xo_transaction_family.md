@@ -112,7 +112,7 @@ argument to each `xo` command in this procedure.
     Kubernetes)]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#confirming-connectivity-k8s-label)
 
 -   Ubuntu: See [Use Sawtooth Commands as a
-    Client]({% link docs/1.2/app_developers_guide/ubuntu.md %}#use-sawtooth-commands-as-a-client)
+    Client]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#step-12-use-sawtooth-commands-as-a-client)
 
 ### Step 3. Ubuntu only: Start the XO Transaction Processor
 
@@ -137,7 +137,7 @@ Sawtooth node, start it now.
     ```
 
 For more information, see [Start the Transaction
-Processors]({% link docs/1.2/app_developers_guide/ubuntu.md %}#start-the-transaction-precessors)
+Processors]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#start-tps-label)
 
 ### Step 4. Create Players
 
