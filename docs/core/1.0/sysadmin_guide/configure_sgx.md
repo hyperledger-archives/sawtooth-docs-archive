@@ -1,6 +1,4 @@
----
-title: Using Sawtooth with the SGX Implementation of PoET
----
+# Using Sawtooth with the SGX Implementation of PoET
 
 ::: note
 ::: title

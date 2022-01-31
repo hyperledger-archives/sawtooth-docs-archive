@@ -1,6 +1,4 @@
----
-title: Testing a Transaction Processor
----
+# Testing a Transaction Processor
 
 Say we\'ve written a transaction processor \-- how can it be tested? In
 this section, we\'ll see how to test the XO transaction processor

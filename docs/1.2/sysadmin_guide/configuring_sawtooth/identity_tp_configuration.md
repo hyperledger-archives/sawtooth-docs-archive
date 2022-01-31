@@ -1,6 +1,4 @@
----
-title: Identity Transaction Processor Configuration File
----
+# Identity Transaction Processor Configuration File
 
 The Identity transaction processor configuration file specifies the
 validator endpoint connection to use.

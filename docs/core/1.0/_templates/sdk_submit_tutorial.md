@@ -1,6 +1,4 @@
----
-title: Building and Submitting Transactions
----
+# Building and Submitting Transactions
 
 The process of encoding information to be submitted to a distributed
 ledger is generally non-trivial. A series of cryptographic safeguards

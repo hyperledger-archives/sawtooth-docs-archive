@@ -1,6 +1,4 @@
----
-title: Application Developer\'s Guide
----
+# Application Developer\'s Guide
 
 This guide describes how to develop applications which run on top of the
 Hyperledger Sawtooth `core platform<Sawtooth core>`{.interpreted-text

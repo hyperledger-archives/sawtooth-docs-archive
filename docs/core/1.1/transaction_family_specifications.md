@@ -1,6 +1,4 @@
----
-title: Transaction Family Specifications
----
+# Transaction Family Specifications
 
 Sawtooth includes several transaction families as examples for
 developing your own transaction family.

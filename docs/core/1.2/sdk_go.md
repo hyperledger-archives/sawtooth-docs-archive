@@ -1,6 +1,4 @@
----
-title: Go SDK API Reference
----
+# Go SDK API Reference
 
 The Go SDK Reference is available only in the [sawtooth-sdk-go source
 code](https://github.com/hyperledger/sawtooth-sdk-go).

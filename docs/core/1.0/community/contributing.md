@@ -1,6 +1,4 @@
----
-title: Contributing
----
+# Contributing
 
 # Ways to Contribute to Hyperledger Sawtooth
 

@@ -1,6 +1,4 @@
----
-title: Sabre and Sawtooth Version Compatibility
----
+# Sabre and Sawtooth Version Compatibility
 
 The following table shows the compatible versions of the Sabre
 transaction processor, Sabre SDK, and Sawtooth Rust SDK. It also shows

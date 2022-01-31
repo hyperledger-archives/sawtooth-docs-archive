@@ -1,6 +1,4 @@
----
-title: Running Sawtooth as a Service
----
+# Running Sawtooth as a Service
 
 When you installed Sawtooth with `apt-get`, `systemd` units were added
 for the Sawtooth components (validator, REST API, transaction

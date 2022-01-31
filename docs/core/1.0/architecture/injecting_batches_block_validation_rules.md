@@ -1,6 +1,4 @@
----
-title: Injecting Batches and On-Chain Block Validation Rules
----
+# Injecting Batches and On-Chain Block Validation Rules
 
 Injecting transactions into blocks by the validator is required to
 support a variety of use cases such as:

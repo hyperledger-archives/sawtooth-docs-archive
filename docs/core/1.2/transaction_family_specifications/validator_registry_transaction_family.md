@@ -1,6 +1,4 @@
----
-title: PoET Validator Registry Transaction Family
----
+# PoET Validator Registry Transaction Family
 
 # Overview
 

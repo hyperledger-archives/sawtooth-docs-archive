@@ -1,6 +1,4 @@
----
-title: Creating the Genesis Block
----
+# Creating the Genesis Block
 
 ::: important
 ::: title

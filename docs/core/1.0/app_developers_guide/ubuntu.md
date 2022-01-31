@@ -1,6 +1,4 @@
----
-title: Using Sawtooth on Ubuntu 16.04
----
+# Using Sawtooth on Ubuntu 16.04
 
 This procedure guides you through the process of setting up Hyperledger
 Sawtooth for application development on Ubuntu, introduces some of the

@@ -1,6 +1,4 @@
----
-title: Global State
----
+# Global State
 
 One goal of a distributed ledger like Sawtooth, indeed the *defining*
 goal, is to distribute a ledger among participating nodes. The ability

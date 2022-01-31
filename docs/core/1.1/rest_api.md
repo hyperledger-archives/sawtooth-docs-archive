@@ -1,6 +1,4 @@
----
-title: REST API Reference
----
+# REST API Reference
 
 ::: toctree
 rest_api/endpoint_specs rest_api/error_codes

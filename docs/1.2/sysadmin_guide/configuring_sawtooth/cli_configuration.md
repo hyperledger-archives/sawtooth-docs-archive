@@ -1,6 +1,4 @@
----
-title: Sawtooth CLI Configuration File
----
+# Sawtooth CLI Configuration File
 
 The Sawtooth CLI configuration file specifies arguments to be used by
 the `sawtooth` command and its subcommands. For example, you can use

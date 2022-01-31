@@ -1,6 +1,4 @@
----
-title: poet
----
+# poet
 
 The `poet` command initializes the Proof of Elapsed Time (PoET)
 consensus mechanism for Sawtooth by generating enclave setup information

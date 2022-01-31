@@ -1,6 +1,4 @@
----
-title: Smallbank Transaction Family
----
+# Smallbank Transaction Family
 
 # Overview
 

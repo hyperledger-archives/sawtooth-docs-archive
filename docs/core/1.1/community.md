@@ -1,6 +1,4 @@
----
-title: Community
----
+# Community
 
 Welcome to the Sawtooth community!
 

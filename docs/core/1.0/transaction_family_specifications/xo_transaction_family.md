@@ -1,6 +1,4 @@
----
-title: XO Transaction Family
----
+# XO Transaction Family
 
 # Overview
 

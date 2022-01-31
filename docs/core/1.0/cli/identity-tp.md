@@ -1,6 +1,4 @@
----
-title: identity-tp
----
+# identity-tp
 
 The `identity-tp` command starts the Identity transaction processor,
 which handles on-chain permissioning for transactor and validator keys

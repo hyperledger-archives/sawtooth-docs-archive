@@ -1,6 +1,4 @@
----
-title: Using a Proxy Server to Authorize the REST API
----
+# Using a Proxy Server to Authorize the REST API
 
 As a lightweight shim on top of internal communications, requests sent
 to the *Hyperledger Sawtooth* REST API are simply passed on to the

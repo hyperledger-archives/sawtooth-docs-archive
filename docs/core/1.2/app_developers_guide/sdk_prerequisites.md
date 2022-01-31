@@ -1,6 +1,4 @@
----
-title: Prerequisites
----
+# Prerequisites
 
 This tutorial requires:
 

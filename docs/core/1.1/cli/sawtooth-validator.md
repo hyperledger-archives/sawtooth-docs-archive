@@ -1,6 +1,4 @@
----
-title: sawtooth-validator
----
+# sawtooth-validator
 
 The `sawtooth-validator` command controls the behavior of the validator.
 

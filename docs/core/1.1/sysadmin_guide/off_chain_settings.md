@@ -1,6 +1,4 @@
----
-title: Changing Off-chain Settings with Configuration Files
----
+# Changing Off-chain Settings with Configuration Files
 
 Each Sawtooth component, such as the validator or the REST API, can have
 an optional configuration file that controls the component\'s behavior.

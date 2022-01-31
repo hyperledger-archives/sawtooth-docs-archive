@@ -1,6 +1,4 @@
----
-title: Error Responses
----
+# Error Responses
 
 When the REST API encounters a problem, or receives notification that
 the validator has encountered a problem, it will notify clients with

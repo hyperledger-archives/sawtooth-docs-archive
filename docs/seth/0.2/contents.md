@@ -1,6 +1,4 @@
----
-title: Seth Developers Guide
----
+# Seth Developers Guide
 
 ::: toctree
 introduction getting_started contracts permissions dapps

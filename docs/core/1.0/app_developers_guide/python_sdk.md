@@ -1,6 +1,4 @@
----
-title: Python SDK
----
+# Python SDK
 
 ::: toctree
 python_sdk_install.rst ../\_autogen/sdk_submit_tutorial_python

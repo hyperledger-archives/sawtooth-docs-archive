@@ -1,6 +1,4 @@
----
-title: SDK and API References
----
+# SDK and API References
 
 Sawtooth SDK References:
 

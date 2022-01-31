@@ -1,6 +1,4 @@
----
-title: Configuring Validator and Transactor Permissions
----
+# Configuring Validator and Transactor Permissions
 
 ::: note
 ::: title

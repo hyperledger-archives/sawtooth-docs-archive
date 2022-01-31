@@ -1,6 +1,4 @@
----
-title: Table of Contents
----
+# Table of Contents
 
 ::: toctree
 introduction.rst architecture.rst app_developers_guide.rst

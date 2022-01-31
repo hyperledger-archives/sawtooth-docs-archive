@@ -1,6 +1,4 @@
----
-title: Subscribing to Events
----
+# Subscribing to Events
 
 As blocks are committed to the blockchain, an application developer may
 want to receive information on events such as the creation of a new

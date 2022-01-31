@@ -1,6 +1,4 @@
----
-title: Using Kubernetes for Your Development Environment
----
+# Using Kubernetes for Your Development Environment
 
 This procedure explains how to create a single Hyperledger Sawtooth
 validator node with

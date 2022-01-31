@@ -1,6 +1,4 @@
----
-title: Using Kubernetes for a Single Sawtooth Node
----
+# Using Kubernetes for a Single Sawtooth Node
 
 This procedure explains how to create a single Hyperledger Sawtooth
 validator node with

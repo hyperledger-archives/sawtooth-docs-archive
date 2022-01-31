@@ -1,6 +1,4 @@
----
-title: Using ZMQ to Subscribe to Events
----
+# Using ZMQ to Subscribe to Events
 
 Client applications can subscribe to Hyperledger Sawtooth events using
 the validator\'s [ZMQ](http://zeromq.org) messaging protocol. The

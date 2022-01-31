@@ -1,6 +1,4 @@
----
-title: Contracts
----
+# Contracts
 
 Once you have an account created, you can use it to deploy EVM smart
 contracts. To demonstrate how to deploy and call contracts, we will be

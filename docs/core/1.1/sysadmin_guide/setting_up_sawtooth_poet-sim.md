@@ -1,6 +1,4 @@
----
-title: Setting Up a Sawtooth Node
----
+# Setting Up a Sawtooth Node
 
 This section describes how to install, configure, and run Hyperledger
 Sawtooth on a Ubuntu system for proof-of-concept or production use in a

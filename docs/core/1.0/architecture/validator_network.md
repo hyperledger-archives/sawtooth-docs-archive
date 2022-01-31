@@ -1,6 +1,4 @@
----
-title: Validator Network
----
+# Validator Network
 
 The network layer is responsible for communication between validators in
 a Sawtooth network, including performing initial connectivity, peer

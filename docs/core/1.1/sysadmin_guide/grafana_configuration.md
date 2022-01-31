@@ -1,6 +1,4 @@
----
-title: Using Grafana to Display Sawtooth Metrics
----
+# Using Grafana to Display Sawtooth Metrics
 
 This procedure describes how to display Sawtooth metrics with
 [Grafana](https://grafana.com), using

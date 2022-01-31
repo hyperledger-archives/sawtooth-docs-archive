@@ -1,6 +1,4 @@
----
-title: Settings Transaction Family
----
+# Settings Transaction Family
 
 # Overview
 

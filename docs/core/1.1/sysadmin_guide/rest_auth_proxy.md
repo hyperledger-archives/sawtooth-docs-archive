@@ -1,6 +1,4 @@
----
-title: Using a Proxy Server to Authorize the REST API
----
+# Using a Proxy Server to Authorize the REST API
 
 The Sawtooth REST API is designed to be a lightweight shim on top of
 internal communications. When the REST API receives a request, it passes

@@ -1,6 +1,4 @@
----
-title: Identity Transaction Family
----
+# Identity Transaction Family
 
 # Overview
 

@@ -1,6 +1,4 @@
----
-title: xo
----
+# xo
 
 The `xo` command starts the XO transaction processor.
 

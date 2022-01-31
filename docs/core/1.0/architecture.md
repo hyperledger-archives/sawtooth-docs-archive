@@ -1,6 +1,4 @@
----
-title: Architecture Description
----
+# Architecture Description
 
 ::: toctree
 architecture/global_state architecture/transactions_and_batches

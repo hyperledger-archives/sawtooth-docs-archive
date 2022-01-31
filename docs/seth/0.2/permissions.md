@@ -1,6 +1,4 @@
----
-title: Permissions
----
+# Permissions
 
 As mentioned in the `introduction <introduction>`{.interpreted-text
 role="doc"}, Seth supports a permissioned network model in which the set

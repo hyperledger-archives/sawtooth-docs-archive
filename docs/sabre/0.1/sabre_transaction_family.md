@@ -1,6 +1,4 @@
----
-title: Sabre Transaction Family
----
+# Sabre Transaction Family
 
 # Overview
 

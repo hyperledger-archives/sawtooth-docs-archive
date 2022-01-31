@@ -1,6 +1,4 @@
----
-title: Journal
----
+# Journal
 
 The [journal]{.title-ref} is the group of validator components that work
 together to handle batches and proposed blocks. These components are
