@@ -18,12 +18,7 @@ connectivity of the network. Conversely, the application should not need
 to understand implementation details of the network in order to send and
 receive messages.
 
-# Services
-
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
+## Services
 
 The choice of [0MQ](http://zeromq.org) provides considerable flexibility
 in both the available connectivity patterns and the underlying
@@ -42,12 +37,10 @@ follows:
 -   Servers can send multiple replies without waiting for new requests.
 
 ![Multiple DEALER to ROUTER socket
-pattern](../images/multiple_dealer_to_router.*){.align-center
-width="50.0%"}
+pattern](../images/multiple_dealer_to_router.svg)
 
-| 
 
-# States
+## States
 
 Sawtooth defines three states related to the connection between any two
 nodes:
@@ -57,13 +50,13 @@ nodes:
 -   Peered - A bidirectional relationship that forms the base case for
     application-level message passing (gossip).
 
-# Wire Protocol
+## Wire Protocol
 
 Sawtooth has standardized on protobuf serialization for any structured
 messages that need to be passed over the network. All payloads to or
 from the application layer are treated as opaque.
 
-## Message Types
+### Message Types
 
 This protocol includes the following types of messages:
 
@@ -110,7 +103,7 @@ DISCONNECT
 A disconnect message breaks the wire protocol connection to the remote
 node and informs the ROUTER end to clean up the connection.
 
-## Transmission Methods
+### Transmission Methods
 
 Transmission methods include the following:
 
@@ -141,7 +134,7 @@ satisfied, the message will be forwarded to peers per the rules of a
 standard broadcast message. A node only accepts request messages from
 peer nodes.
 
-# Peer Discovery
+## Peer Discovery
 
 A bidirectional peering via a neighbor-of-neighbors approach gives
 reliable connectivity (messages delivered to all nodes \> 99% of the
@@ -158,9 +151,7 @@ refreshing its view of the neighbors of neighbors if it exhausts
 candidates.
 
 ![Output of bidirectional peering with targeted connectivity of
-4.](../images/bidirectional_peering.*){.align-center width="75.0%"}
-
-| 
+4.](../images/bidirectional_peering.svg)
 
 The network component continues to perform a peer search if its number
 of peers is less than the minimum connectivity. The network component
@@ -170,7 +161,7 @@ reached, a network service should still accept and respond to a
 reasonable number of connections (for the purposes of other node
 topology build outs, etc.)
 
-# Message Delivery
+## Message Delivery
 
 The network delivers application messages (payloads received via
 BROADCAST or SEND) to the application layer. The network also performs a
@@ -192,7 +183,7 @@ request, it forwards the SEND message back to the original requester.
 The network accepts application payloads for BROADCAST, SEND, and
 REQUEST from the application layer.
 
-# Network Layer Security
+## Network Layer Security
 
 0MQ includes a
 [TLS-like](https://github.com/zeromq/pyzmq/blob/master/examples/security/ironhouse.py)
@@ -204,11 +195,11 @@ certificates are generated on connect. If the server key pair is not
 configured, network communications between validators will not be
 authenticated or encrypted.
 
-# Network Permissioning
+## Network Permissioning
 
 The Sawtooth
-`permissioning design <../architecture/permissioning_requirement>`{.interpreted-text
-role="doc"} allows the network to limit the nodes that are able to
+[permissioning design]({% link docs/1.2/architecture/validator_network.md %})
+allows the network to limit the nodes that are able to
 connect to it. The permissioning rules determine the roles a connection
 is able to play on the network. The roles control the types of messages
 that can be sent and received over a given connection. The components
@@ -290,11 +281,11 @@ message ConnectionResponse {
 }
 ```
 
-## Authorization Types {#Authorization_Types}
+### Authorization Types {#Authorization_Types}
 
 Sawtooth implements two authorization types: trust and challenge.
 
-### Trust Authorization
+#### Trust Authorization
 
 Trust is the simplest authorization type. If trust authorization is
 enabled, the validator will trust the connection and approve any roles
@@ -319,10 +310,9 @@ the requester is rejected and the connection will be closed.
 
 This diagram shows the message flow for trust authorization.
 
-> ![Trust Authorization Flow](../images/trust_authorization.*){.align-center
-> width="80.0%"}
+![Trust Authorization Flow](../images/trust_authorization.svg)
 
-### Challenge Authorization
+#### Challenge Authorization
 
 If the connection wants to take on a role that requires a challenge to
 be signed, it will request the challenge by sending the following
@@ -373,8 +363,7 @@ the connection is allowed take on.
 The following diagram shows the message flow for challenge
 authorization:
 
-> ![Challenge Authorization Flow](../images/challenge_authorization.*){.align-center
-> width="80.0%"}
+![Challenge Authorization Flow](../images/challenge_authorization.svg)
 
 When the validator receives an `AuthorizationChallengeSubmit` message,
 it verifies the public key against the signature. If the public key is
@@ -388,7 +377,7 @@ endpoint or the requester does not have access to one of the roles
 requested, the challenge will be rejected and the connection is closed.
 At that point the requester will need to restart the connection process.
 
-## Authorization Violation
+### Authorization Violation
 
 If, at any time, a requester tries to send a message that is against its
 allowed permission, the validator responds with an
