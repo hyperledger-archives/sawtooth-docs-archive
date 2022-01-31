@@ -3,17 +3,16 @@
 Hyperledger Sawtooth supports creating and broadcasting events. This
 allows applications to do the following:
 
--   Subscribe to events that occur related to the blockchain, such as a
-    new block being committed or switching to a new fork.
--   Subscribe to application specific events defined by a transaction
-    family.
--   Relay information about the execution of a transaction back to
-    clients without storing that data in state.
+- Subscribe to events that occur related to the blockchain, such as a
+  new block being committed or switching to a new fork.
+- Subscribe to application specific events defined by a transaction
+  family.
+- Relay information about the execution of a transaction back to
+  clients without storing that data in state.
 
-![Event Subsystem](../images/event_subsystem.*){.align-center
-width="80.0%"}
+<img alt="Event Subsystem" src="/images/1.2/event_subsystem.svg">
 
-# Events {#events-reference-label}
+## Events {#events-reference-label}
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -45,10 +44,10 @@ transaction receipts. In order to treat this extraction uniformly, an
 EventExtractor interface is implemented for each event source. The
 EventExtractor interface takes a list of EventSubscriptions and will
 only generate events that are in the union of all subscriptions. An
-event is \"in a subscription\" if the event\'s event_type field matches
-the subscription\'s event_type field and the filter\'s key-value pair
+event is \"in a subscription\" if the event's event_type field matches
+the subscription's event_type field and the filter's key-value pair
 (if the subscription has any filters) matches a key-value pair in the
-event\'s attribute field.
+event's attribute field.
 
 ``` python
 interface EventExtractor:
@@ -73,16 +72,16 @@ SIMPLE_ANY
 
     Since multiple event attributes with the same key can be present in
     an event, an event is considered part of this filter if its match
-    string matches the value of ANY attribute with the filter\'s key.
+    string matches the value of ANY attribute with the filter's key.
 
     For example, if an event has the following attributes:
 
-    > -   Attribute(key=\"address\", value=\"abc\")
-    > -   Attribute(key=\"address\", value=\"def\")
+    - Attribute(key=\"address\", value=\"abc\")
+    - Attribute(key=\"address\", value=\"def\")
 
     it will pass the following filter:
 
-    > SimpleAnyFilter(key=\"address\", match_string=\"abc\")
+    SimpleAnyFilter(key=\"address\", match_string=\"abc\")
 
     Because it matches one of the two attributes with the key
     \"address\".
@@ -93,16 +92,16 @@ SIMPLE_ALL
 
     Since multiple event attributes with the same key can be present in
     an event, an event is considered part of this filter if its match
-    string matches the value of ALL attribute with the filter\'s key.
+    string matches the value of ALL attribute with the filter's key.
 
     For example, if an event has the following attributes:
 
-    > -   Attribute(key=\"address\", value=\"abc\")
-    > -   Attribute(key=\"address\", value=\"def\")
+    - Attribute(key=\"address\", value=\"abc\")
+    - Attribute(key=\"address\", value=\"def\")
 
     it will NOT pass this filter:
 
-    > SimpleAllFilter(key=\"address\", value=\"abc\")
+    SimpleAllFilter(key=\"address\", value=\"abc\")
 
     Because it does not match all attributes with the key \"address\".
 
@@ -113,16 +112,16 @@ REGEX_ANY
 
     Since multiple event attributes with the same key can be present in
     an event, an event is considered part of this filter if its pattern
-    matches the value of ANY attribute with the filter\'s key.
+    matches the value of ANY attribute with the filter's key.
 
     For example, if an event has the following attributes:
 
-    > -   Attribute(key=\"address\", value=\"abc\")
-    > -   Attribute(key=\"address\", value=\"def\")
+    - Attribute(key=\"address\", value=\"abc\")
+    - Attribute(key=\"address\", value=\"def\")
 
     it will pass the following filter:
 
-    > AnyRegexFilter(key=\"address\", value=\"abc\")
+    AnyRegexFilter(key=\"address\", value=\"abc\")
 
     Because it matches one of the two attributes with the key
     \"address\".
@@ -134,16 +133,16 @@ REGEX_ALL
 
     Since multiple event attributes with the same key can be present in
     an event, an event is considered part of this filter if its pattern
-    matches the value of ALL attribute with the filter\'s key.
+    matches the value of ALL attribute with the filter's key.
 
     For example, if an event has the following attributes:
 
-    > -   Attribute(key=\"address\", value=\"abc\")
-    > -   Attribute(key=\"address\", value=\"def\")
+    - Attribute(key=\"address\", value=\"abc\")
+    - Attribute(key=\"address\", value=\"def\")
 
     it will NOT pass this filter:
 
-    > AllRegexFilter(key=\"address\", value=\"abc\")
+    AllRegexFilter(key=\"address\", value=\"abc\")
 
     Because it does not match all attributes with the key \"address\".
 
@@ -185,7 +184,7 @@ EventBroadcaster instantiates a new EventExtractor, passes each
 extractor all the EventSubscriptions for all subscribers, and receives
 the list of events that is the union of the events that all subscribers
 are interested in. The EventBroadcaster then distributes the events to
-each subscriber based on the subscriber\'s list of subscriptions.
+each subscriber based on the subscriber's list of subscriptions.
 
 To reduce the number of messages sent to subscribers, multiple Event
 messages are wrapped in an EventList message when possible:
@@ -227,7 +226,7 @@ message ClientEventsSubscribeResponse {
 }
 ```
 
-## Event Extractors
+### Event Extractors
 
 Two event extractors are created to extract events from blocks and
 transaction receipts: BlockEventExtractor and ReceiptEventExtractor. The
@@ -268,7 +267,7 @@ Event {
 }
 ```
 
-# Transaction Receipts
+## Transaction Receipts
 
 Transaction receipts provide clients with information that is related to
 the execution of a transaction but should not be stored in state, such
@@ -310,7 +309,7 @@ transaction's execution that should not be kept in state. Clients can
 use the event system described above to subscribe to events produced by
 transaction processors.
 
-## Transaction Receipt Store
+### Transaction Receipt Store
 
 The TransactionReceiptStore class stores receipts. New receipts are
 written to the TransactionReceiptStore after a block is validated.
@@ -350,7 +349,7 @@ class TransactionReceiptStore:
       """
 ```
 
-## Message Handlers
+### Message Handlers
 
 Once transaction receipts are stored in the TransactionReceiptStore,
 clients can request a transaction receipt for a given transaction id.
