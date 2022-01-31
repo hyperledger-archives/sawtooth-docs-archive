@@ -1,9 +1,12 @@
----
-title: REST API
----
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+# REST API
 
 Hyperledger Sawtooth provides a REST API (see the
-`../rest_api`{.interpreted-text role="doc"}) that allows clients to
+[REST API Reference]({% link releases/1.2/rest_api.md %})) that allows clients to
 interact with a validator using common HTTP/JSON standards. It is a
 pragmatic RESTful API that provides a language-neutral interface for
 submitting transactions and reading blocks.
@@ -24,12 +27,7 @@ The REST API process runs as a separate process, rather than as part of
 the validator process. It treats the validator as a black box, simply
 submitting transactions and fetching the results.
 
-# Response Envelope
-
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
+## Response Envelope
 
 The REST API uses a JSON envelope to send metadata back to clients in a
 way that is simple to parse and easily customized. All successful
@@ -39,9 +37,9 @@ information (described below).
 
 The JSON response envelope also includes the details needed to parse
 errors. For more information, see the
-`../rest_api/error_codes`{.interpreted-text role="doc"}.
+[Error Responses]({% link releases/1.2/rest_api/error_codes.md %}).
 
-# Pagination
+## Pagination
 
 The API endpoints include RESTful references to resources stored in the
 Sawtooth ledger that clients might be interested in, like blocks and
