@@ -78,7 +78,7 @@ client submits to the validator via the REST API.
 To connect to the Sawtooth node, use the steps for your platform:
 
 -   Docker: See [Log Into the Docker Client
-    Container]({% link docs/1.2/app_developers_guide/docker.md%}#log-into-the-docker-client-container)
+    Container]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#log-into-client-container-docker)
 -   Kubernetes: See [Connect to the Kubernetes Shell
     Container]({% link docs/1.2/app_developers_guide/kubernetes.md%}#connect-to-the-kubernetes-shell-container)
 -   Ubuntu: Open a client terminal window on the host system running
@@ -95,7 +95,7 @@ URL of the REST API (by default, `http://127.0.0.1:8008`). If the REST
 API\'s URL is not `http://127.0.0.1:8008`, you must add the `--url`
 argument to each `xo` command in this procedure.
 
--   Docker: See [Confirm Connectivity to the REST API]({% link docs/1.2/app_developers_guide/docker.md%}#confirm-connectivity-to-the-rest-api)
+-   Docker: See [Confirm Connectivity to the REST API]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#confirming-connectivity-docker-label)
 
     > Important
     >
