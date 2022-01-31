@@ -1,4 +1,4 @@
-# Using Docker for a Single Sawtooth Node
+## Using Docker for a Single Sawtooth Node
 
 This procedure explains how to set up Hyperledger Sawtooth for
 application development using a multi-container Docker environment. It
@@ -18,7 +18,7 @@ the `xo` client commands to play a game of tic-tac-toe. The final set of
 tutorials describe how to use an SDK to create a transaction family that
 implements your application\'s business logic.
 
-# About the Docker Test Node Environment
+### About the Docker Test Node Environment
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -28,21 +28,17 @@ implements your application\'s business logic.
 This Docker environment is a single Sawtooth node that is running a
 validator, a REST API, the Devmode consensus engine, and three
 transaction processors. The environment uses
-`Devmode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"} and
-`parallel transaction processing <../architecture/scheduling>`{.interpreted-text
-role="doc"}.
+Devmode consensus and parallel transaction processing.
 
-![](../images/appdev-environment-one-node-3TPs.*){.align-center
-width="100.0%"}
+<img alt="Environment with one node 3 TPS" src="/images/1.2/appdev-environment-one-node-3TPs.svg">
 
 This environment introduces basic Sawtooth functionality with the
-[IntegerKey](../transaction_family_specifications/integerkey_transaction_family)
+[IntegerKey]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
 and
-[Settings](../transaction_family_specifications/settings_transaction_family)
+[Settings]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 transaction processors for the business logic and Sawtooth commands as a
 client. It also includes the
-[XO](../transaction_family_specifications/xo_transaction_family)
+[XO]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
 transaction processor, which is used in later tutorials.
 
 The IntegerKey and XO families are simple examples of a transaction
@@ -50,18 +46,14 @@ family, but Settings is a reference implementation. In a production
 environment, you should always run a transaction processor that supports
 the Settings transaction family.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> The Docker environment includes a Docker Compose file that handles
+> environment setup steps such as generating keys and creating a genesis
+> block. To learn how the typical startup process works, see [Using Docker for
+> a Single Sawtooth Node](#using-ubuntu-for-a-single-sawtooth-node)
 
-The Docker environment includes a Docker Compose file that handles
-environment setup steps such as generating keys and creating a genesis
-block. To learn how the typical startup process works, see
-`ubuntu`{.interpreted-text role="doc"}.
-:::
-
-# Prerequisites
+### Prerequisites
 
 This application development environment requires Docker Engine and
 Docker Compose.
@@ -83,21 +75,18 @@ In this procedure, you will open six terminal windows to connect to the
 Docker containers: one for each Sawtooth component and one to use for
 client commands.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+>
+> The Docker Compose file for Sawtooth handles environment setup steps
+> such as generating keys and creating a genesis block. To learn how the
+> typical startup process works, see [Using Docker for
+> a Single Sawtooth Node](#using-ubuntu-for-a-single-sawtooth-node)
 
-The Docker Compose file for Sawtooth handles environment setup steps
-such as generating keys and creating a genesis block. To learn how the
-typical startup process works, see `ubuntu`{.interpreted-text
-role="doc"}.
-:::
-
-# Step 1: Download the Sawtooth Docker Compose File
+### Step 1: Download the Sawtooth Docker Compose File
 
 Download the Docker Compose file for the Sawtooth environment,
-[sawtooth-default.yaml](./sawtooth-default.yaml).
+[sawtooth-default.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/compose/sawtooth-default.yaml).
 
 This example Compose file defines the process for constructing a simple
 Sawtooth environment with following containers:
@@ -117,7 +106,7 @@ After completing the tutorials in this guide, you can use this Compose
 file as the basis for your own multi-container Sawtooth development
 environment or application.
 
-# Step 2: Configure Proxy Settings (Optional)
+### Step 2: Configure Proxy Settings (Optional)
 
 To configure Docker to work with an HTTP or HTTPS proxy server, follow
 the instructions for proxy configuration in the documentation for your
@@ -130,7 +119,7 @@ operating system:
 -   Linux - See \"[Control and configure Docker with
     Systemd](https://docs.docker.com/engine/admin/systemd/#httphttps-proxy)\".
 
-# Step 3: Start the Sawtooth Docker Environment
+### Step 3: Start the Sawtooth Docker Environment
 
 To start the Sawtooth Docker environment, perform the following tasks:
 
@@ -141,22 +130,16 @@ To start the Sawtooth Docker environment, perform the following tasks:
 
 3.  Run the following command:
 
-    ::: {#restart}
     ``` console
     user@host$ docker-compose -f sawtooth-default.yaml up
     ```
-    :::
 
-    ::: tip
-    ::: title
-    Tip
-    :::
-
-    If you previously ran `docker-compose ... up` without a clean shut
-    down, run the following command first:
-
-    `docker-compose -f sawtooth-default.yaml down`
-    :::
+    > **Tip**
+    >
+    > If you previously ran `docker-compose ... up` without a clean shut
+    > down, run the following command first:
+    >
+    > `docker-compose -f sawtooth-default.yaml down`
 
 4.  Downloading the Docker images for the Sawtooth environment can take
     several minutes. Wait until you see output that shows the containers
@@ -184,16 +167,12 @@ To start the Sawtooth Docker environment, perform the following tasks:
 This terminal window will continue to display log messages as you run
 commands in other containers.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> If you need to reset the environment for any reason, see
+> [Stop the Sawtooth Docker Environment](#stop-sawtooth-docker-label)
 
-If you need to reset the environment for any reason, see
-`stop-sawtooth-docker-label`{.interpreted-text role="ref"}.
-:::
-
-# Step 4: Log Into the Docker Client Container {#log-into-client-container-docker}
+### Step 4: Log Into the Docker Client Container {#log-into-client-container-docker}
 
 Sawtooth includes commands that act as a client application. The client
 container is used to run these Sawtooth commands, which interact with
@@ -210,21 +189,19 @@ root@client#
 In this procedure, the prompt `root@client#` is used for commands that
 should be run in the terminal window for the client container.
 
-::: important
-::: title
-Important
-:::
 
-Your environment is ready for experimenting with Sawtooth. However, any
-work done in this environment will be lost once the container in which
-you ran `docker-compose` exits. In order to use this application
-development environment for application development, you would need to
-take additional steps, such as mounting a host directory into the
-container. See the [Docker documentation](https://docs.docker.com/) for
-more information.
-:::
+> Important
+>
+>
+> Your environment is ready for experimenting with Sawtooth. However, any
+> work done in this environment will be lost once the container in which
+> you ran `docker-compose` exits. In order to use this application
+> development environment for application development, you would need to
+> take additional steps, such as mounting a host directory into the
+> container. See the [Docker documentation](https://docs.docker.com/) for
+> more information.
 
-# Step 5: Confirm Connectivity to the REST API (for Docker) {#confirming-connectivity-docker-label}
+### Step 5: Confirm Connectivity to the REST API (for Docker) {#confirming-connectivity-docker-label}
 
 1.  To confirm that the REST API and validator are running and reachable
     from the client container, run this `curl` command:
@@ -271,26 +248,22 @@ more information.
     If the validator process or the validator container is not running,
     the `curl` command will time out or return nothing.
 
-# Step 6: Use Sawtooth Commands as a Client {#configure-tf-settings-docker-label}
+### Step 6: Use Sawtooth Commands as a Client {#configure-tf-settings-docker-label}
 
 Sawtooth includes commands that act as a client application. This step
 describes how to use the `intkey` and `sawtooth` commands to create and
 submit transactions, display blockchain and block data, and examine
 global state data.
 
-::: note
-::: title
-Note
-:::
-
-Use the `--help` option with any Sawtooth command to display the
-available options and subcommands.
-:::
+> **Note**
+>
+> Use the `--help` option with any Sawtooth command to display the
+> available options and subcommands.
 
 To run the commands in this section, use the terminal window for the
 client container.
 
-## Creating and Submitting Transactions with intkey
+#### Creating and Submitting Transactions with intkey
 
 The `intkey` command creates and submits IntegerKey transactions for
 testing purposes.
@@ -343,7 +316,7 @@ testing purposes.
     sawtooth-validator-default | [2018-03-08 21:26:20.402 INFO     chain] Finished block validation of: 3d4d952d4774988bd67a4deb85830155a5f505c68bea11d832a6ddbdd5eeebc34f5a63a9e59a426376cd2e215e19c0dfa679fe016be26307c3ee698cce171d51 (block_num:50, state:e18c2ce54859d1e9a6e4fb949f8d861e483d330b363b4060b069f53d7e6c6380, previous_block_id:e05737151717eb8787a2db46279fedf9d331a501c12cd8059df379996d9a34577cf605e95f531514558b200a386dc73e11de3fa17d6c00882acf6f9d9c387e82)
     ```
 
-## Submitting Transactions with sawtooth batch submit
+#### Submitting Transactions with sawtooth batch submit
 
 In the example above, the `intkey create_batch` command created the file
 `batches.intkey`. Rather than using `intkey load` to submit these
@@ -363,7 +336,7 @@ transactions, you could use `sawtooth batch submit` to submit them.
     batches: 11,  batch/sec: 216.80369536716367
     ```
 
-## Viewing Blockchain and Block Data with sawtooth block
+#### Viewing Blockchain and Block Data with sawtooth block
 
 The `sawtooth block` command displays information about the blocks
 stored on the blockchain.
@@ -430,12 +403,11 @@ stored on the blockchain.
     header_signature: ff4f6705bf57e2a1498dc1b649cc9b6a4da2cc8367f1b70c02bc6e7f648a28b53b5f6ad7c2aa639673d873959f5d3fcc11129858ecfcb4d22c79b6845f96c5e3
     ```
 
-## Viewing State Data with sawtooth state
+#### Viewing State Data with sawtooth state
 
 The `sawtooth state` command lets you display state data. Sawtooth
-stores state data in a `Merkle-Radix tree`{.interpreted-text
-role="term"}; for more information, see
-`../architecture/global_state`{.interpreted-text role="doc"}.
+stores state data in a Merkle-Radix tree; for more information, see [Global
+State]({% link docs/1.2/architecture/global_state.md%}).
 
 1.  Use `sawtooth state list` to list the nodes (addresses) in state:
 
@@ -474,15 +446,14 @@ role="term"}; for more information, see
     HEAD: "0c4364c6d5181282a1c7653038ec9515cb0530c6bfcb46f16e79b77cb524491676638339e8ff8e3cc57155c6d920e6a4d1f53947a31dc02908bcf68a91315ad5"
     ```
 
-# Step 7: Connect to Each Container (Optional) {#container-names-label}
+### Step 7: Connect to Each Container (Optional) {#container-names-label}
 
 Use this information when you need to connect to any container in the
 Sawtooth application development environment. For example, you can
 examine the log files or check the status of Sawtooth components in any
 container.
 
-#\. Use the following `docker` command to list all running Docker
-containers
+#### Use the following `docker` command to list all running Docker containers
 
 > ``` console
 > user@host$ docker ps
@@ -492,69 +463,28 @@ containers
 >
 > ``` console
 > CONTAINER ID IMAGE                                     COMMAND               CREATED       STATUS       PORTS                            NAMES
-> ```
+> 76f6731c43a9 hyperledger/sawtooth-all:chime              "bash -c 'sawtooth k" 7 minutes ago Up 7 minutes 4004/tcp, 8008/tcp               sawtooth-shell-default
+9844faed9e9d hyperledger/sawtooth-intkey-tp-python:chime "intkey-tp-python -v" 7 minutes ago Up 7 minutes 4004/tcp                         sawtooth-intkey-tp-python-default
+44db125c2dca hyperledger/sawtooth-settings-tp:chime      "settings-tp -vv -C " 7 minutes ago Up 7 minutes 4004/tcp                         sawtooth-settings-tp-default
+875df9d022d6 hyperledger/sawtooth-xo-tp-python:chime     "xo-tp-python -vv -C" 7 minutes ago Up 7 minutes 4004/tcp                         sawtooth-xo-tp-python-default
+93d048c01d30 hyperledger/sawtooth-rest-api:chime         "sawtooth-rest-api -" 7 minutes ago Up 7 minutes 4004/tcp, 0.0.0.0:8008->8008/tcp sawtooth-rest-api-default
+6bbcda66a5aa hyperledger/sawtooth-validator:chime        "bash -c 'sawadm key" 7 minutes ago Up 7 minutes 0.0.0.0:4004->4004/tcp           sawtooth-validator-default
+>```
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/docker.rst
+The Docker Compose file defines the name of each container. It also
+specifies the TCP port and host name, if applicable. The following
+table shows the values in the example Compose file,
+`sawtooth-default.yaml`.
 
-:   76f6731c43a9 hyperledger/sawtooth-all:1.1 \"bash -c \'sawtooth k\" 7
-    minutes ago Up 7 minutes 4004/tcp, 8008/tcp sawtooth-shell-default
-    9844faed9e9d hyperledger/sawtooth-intkey-tp-python:1.1
-    \"intkey-tp-python -v\" 7 minutes ago Up 7 minutes 4004/tcp
-    sawtooth-intkey-tp-python-default 44db125c2dca
-    hyperledger/sawtooth-settings-tp:1.1 \"settings-tp -vv -C \" 7
-    minutes ago Up 7 minutes 4004/tcp sawtooth-settings-tp-default
-    875df9d022d6 hyperledger/sawtooth-xo-tp-python:1.1 \"xo-tp-python
-    -vv -C\" 7 minutes ago Up 7 minutes 4004/tcp
-    sawtooth-xo-tp-python-default 93d048c01d30
-    hyperledger/sawtooth-rest-api:1.1 \"sawtooth-rest-api -\" 7 minutes
-    ago Up 7 minutes 4004/tcp, 0.0.0.0:8008-\>8008/tcp
-    sawtooth-rest-api-default 6bbcda66a5aa
-    hyperledger/sawtooth-validator:1.1 \"bash -c \'sawadm key\" 7
-    minutes ago Up 7 minutes 0.0.0.0:4004-\>4004/tcp
-    sawtooth-validator-default
+| **Component**  | **Container Name** | **Port**  | **Host Name**|
+|---|---|---|---|
+| Validator | `sawtooth-validator-default`| 4004 | `validator`|
+|REST API |`sawtooth-rest-api-default` | 8008 | `rest-api`|
+|Settings TP |`sawtooth-settings-tp-default`||`settings-tp`|
+|IntegerKey TP | `sawtooth-intkey-tp-python-default` | |`intkey-tp-python`|
+|XO TP | `sawtooth-xo-tp-python-default` | |`xo-tp-python`|
+|Shell | `sawtooth-shell-default` | ||
 
-=======
-
-:   76f6731c43a9 hyperledger/sawtooth-all:chime \"bash -c \'sawtooth k\"
-    7 minutes ago Up 7 minutes 4004/tcp, 8008/tcp sawtooth-shell-default
-    9844faed9e9d hyperledger/sawtooth-intkey-tp-python:chime
-    \"intkey-tp-python -v\" 7 minutes ago Up 7 minutes 4004/tcp
-    sawtooth-intkey-tp-python-default 44db125c2dca
-    hyperledger/sawtooth-settings-tp:chime \"settings-tp -vv -C \" 7
-    minutes ago Up 7 minutes 4004/tcp sawtooth-settings-tp-default
-    875df9d022d6 hyperledger/sawtooth-xo-tp-python:chime \"xo-tp-python
-    -vv -C\" 7 minutes ago Up 7 minutes 4004/tcp
-    sawtooth-xo-tp-python-default 93d048c01d30
-    hyperledger/sawtooth-rest-api:chime \"sawtooth-rest-api -\" 7
-    minutes ago Up 7 minutes 4004/tcp, 0.0.0.0:8008-\>8008/tcp
-    sawtooth-rest-api-default 6bbcda66a5aa
-    hyperledger/sawtooth-validator:chime \"bash -c \'sawadm key\" 7
-    minutes ago Up 7 minutes 0.0.0.0:4004-\>4004/tcp
-    sawtooth-validator-default
-
-\>\>\>\>\>\>\> core/1-2:docs/core/1.2/app_developers_guide/docker.rst
-
-> The Docker Compose file defines the name of each container. It also
-> specifies the TCP port and host name, if applicable. The following
-> table shows the values in the example Compose file,
-> `sawtooth-default.yaml`.
->
->   -------------------------------------------------------------------------------------
->   **Component**   **Container Name**                    **Port**   **Host Name**
->   --------------- ------------------------------------- ---------- --------------------
->   Validator       `sawtooth-validator-default`          4004       `validator`
->
->   REST API        `sawtooth-rest-api-default`           8008       `rest-api`
->
->   Settings TP     `sawtooth-settings-tp-default`                   `settings-tp`
->
->   IntegerKey TP   `sawtooth-intkey-tp-python-default`              `intkey-tp-python`
->
->   XO TP           `sawtooth-xo-tp-python-default`                  `xo-tp-python`
->
->   Shell           `sawtooth-shell-default`                         
->   -------------------------------------------------------------------------------------
->
 > Note that the validator and REST API ports are exposed to other
 > containers and forwarded (published) for external connections, such as
 > from your host system.
@@ -590,7 +520,7 @@ containers
     config-genesis.batch && sawtooth-validator -vv --endpoint
     ```
 
-# Step 8: Examine Sawtooth Logs {#examine-logs-docker-label}
+### Step 8: Examine Sawtooth Logs {#examine-logs-docker-label}
 
 As described above, you can display Sawtooth log messages by using the
 `docker logs` command from your host system:
@@ -619,34 +549,26 @@ intkey-ae98c3726f9743c4-debug.log
 intkey-ae98c3726f9743c4-error.log
 ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> By convention, the transaction processors use a random string to make
+> the log file names unique. The names on your system may be different
+> than these examples.
 
-By convention, the transaction processors use a random string to make
-the log file names unique. The names on your system may be different
-than these examples.
-:::
+For more information on log files, see [Log
+Configuration]({% link docs/1.2/sysadmin_guide/log_configuration.md %}).
 
-For more information on log files, see
-`../sysadmin_guide/log_configuration`{.interpreted-text role="doc"}.
-
-# Step 9: Stop the Sawtooth Docker Environment {#stop-sawtooth-docker-label}
+### Step 9: Stop the Sawtooth Docker Environment {#stop-sawtooth-docker-label}
 
 Use this procedure if you need to stop or reset the Sawtooth environment
 for any reason.
 
-::: important
-::: title
-Important
-:::
-
-Any work done in this environment will be lost once the container exits.
-To keep your work, you would need to take additional steps, such as
-mounting a host directory into the container. See the [Docker
-documentation](https://docs.docker.com/) for more information.
-:::
+> **Important**
+>
+> Any work done in this environment will be lost once the container exits.
+> To keep your work, you would need to take additional steps, such as
+> mounting a host directory into the container. See the [Docker
+> documentation](https://docs.docker.com/) for more information.
 
 1.  Log out of the client container.
 
