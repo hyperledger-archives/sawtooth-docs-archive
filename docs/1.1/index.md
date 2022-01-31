@@ -1,5 +1,10 @@
 # Introduction
 
+> **Note**
+>
+> Sawtooth v1.1 documentation has not been fully converted. For more
+> information, see the [conversion status]({% link docs/1.1/conversion_status.md %}).
+
 Hyperledger Sawtooth is an enterprise blockchain platform for building
 distributed ledger applications and networks. The design philosophy
 targets keeping ledgers *distributed* and making smart contracts *safe*,
