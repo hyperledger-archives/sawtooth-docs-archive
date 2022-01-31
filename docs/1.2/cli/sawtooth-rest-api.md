@@ -17,9 +17,33 @@ the validator is running (the default is `tcp://localhost:4004`). An
 optional timeout value configures how long the REST API will wait for a
 response for the validator.
 
-::: literalinclude
-output/sawtooth-rest-api_usage.out
-:::
+``` console
+usage: sawtooth-rest-api [-h] [-B BIND] [-C CONNECT] [-t TIMEOUT]
+                         [--client-max-size CLIENT_MAX_SIZE] [-v]
+                         [--opentsdb-url OPENTSDB_URL]
+                         [--opentsdb-db OPENTSDB_DB] [-V]
+
+Starts the REST API application and connects to a specified validator.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -B BIND, --bind BIND  identify host and port for API to run on default:
+                        http://localhost:8008)
+  -C CONNECT, --connect CONNECT
+                        specify URL to connect to a running validator
+  -t TIMEOUT, --timeout TIMEOUT
+                        set time (in seconds) to wait for validator response
+  --client-max-size CLIENT_MAX_SIZE
+                        the max size (in bytes) of a request body
+  -v, --verbose         enable more verbose output to stderr
+  --opentsdb-url OPENTSDB_URL
+                        specify host and port for Open TSDB database used for
+                        metrics
+  --opentsdb-db OPENTSDB_DB
+                        specify name of database for storing metrics
+  -V, --version         display version information
+
+```
 
 <!--
      Copyright 2017 Intel Corporation
