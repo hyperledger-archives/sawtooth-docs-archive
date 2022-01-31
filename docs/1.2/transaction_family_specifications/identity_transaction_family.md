@@ -1,6 +1,6 @@
 # Identity Transaction Family
 
-# Overview
+## Overview
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -34,23 +34,19 @@ policy is updated, all roles referencing the policy are updated as well.
 An example role might be named \"transactor\", and references the policy
 that controls who is allowed to submit batches and transactions on the
 network. This example is further described in
-`Transactor Permissioning <../sysadmin_guide/configuring_permissions>`{.interpreted-text
-role="doc"}.
+[Transactor
+Permissioning]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %}).
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> This transaction family will serve as a reference specification and
+> implementation and may also be used in production. A custom
+> implementation can be used so long as they adhere to the same addressing
+> scheme and content format for policies and roles.
 
-This transaction family will serve as a reference specification and
-implementation and may also be used in production. A custom
-implementation can be used so long as they adhere to the same addressing
-scheme and content format for policies and roles.
-:::
+## State
 
-# State
-
-## Policies
+### Policies
 
 A policy will have a name and a list of entries. Each policy entry will
 have a list of type/key pairs. The type will be either PERMIT_KEY or
@@ -87,7 +83,7 @@ message Policy {
 }
 ```
 
-## Roles
+### Roles
 
 A role will be made up of a role name and the name of the policy to be
 enforced for that role. The data will be stored in state at the address
@@ -109,7 +105,7 @@ message Role{
 }
 ```
 
-## Addressing
+### Addressing
 
 All identity data will be stored under the special namespace of
 "00001d".
@@ -146,7 +142,7 @@ constructed as follows:
   hashlib.sha256(''.encode()).hexdigest()[:16]
 ```
 
-# Transaction Payload
+## Transaction Payload
 
 Identity transaction family payloads are defined by the following
 protocol buffers code:
@@ -168,9 +164,9 @@ message IdentityPayload {
 }
 ```
 
-# Transaction Header
+## Transaction Header
 
-## Inputs and Outputs
+### Inputs and Outputs
 
 The inputs for Identity family transactions must include:
 
@@ -182,16 +178,16 @@ The outputs for Identity family transactions must include:
 
 -   the address of the role or policy being changed
 
-## Dependencies
+### Dependencies
 
 None.
 
-## Family
+### Family
 
 -   family_name: \"sawtooth_identity\"
 -   family_version: \"1.0\"
 
-# Execution
+## Execution
 
 Initially, the transaction processor gets the current values of
 sawtooth.identity.allowed_keys from the state.
