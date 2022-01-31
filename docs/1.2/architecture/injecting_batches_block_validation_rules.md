@@ -49,10 +49,10 @@ interface BatchInjector:
   block_end(string previous_block_id, list<Batch> batches) -> list<Batch>
 ```
 
-The BlockPublisher (part of the
-`journal <../architecture/journal>`{.interpreted-text role="doc"}) will
-call each of the methods at the appropriate times for all included
-BatchInjectors, thus injecting batches into the new block.
+The BlockPublisher (part of the [journal]({% link
+docs/1.2/architecture/journal.md %})) will call each of the methods at the
+appropriate times for all included BatchInjectors, thus injecting batches into
+the new block.
 
 # On-Chain Configuration
 
@@ -63,10 +63,10 @@ stores a comma-separated list of batch injectors to load. This list is
 parsed by the validator at the beginning of block publishing for each
 block and the appropriate injectors are loaded.
 
-This setting is controlled using the existing
-`Settings transaction family <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"}. Take care when updating this setting, because an incorrect
-value may cause transaction families to behave incorrectly.
+This setting is controlled using the existing [Settings transaction family]({%
+link docs/1.2/transaction_family_specifications/settings_transaction_family.md
+%}). Take care when updating this setting, because an incorrect value may cause
+transaction families to behave incorrectly.
 
 # On-Chain Validation Rules
 
@@ -117,12 +117,11 @@ local
 
 # Example: BlockInfoInjector
 
-The BlockInfoInjector inserts a BlockInfo transaction at the beginning
-of every block. The transaction updates state with information about the
-block that was just committed as well as a timestamp. For more
-information, see the `BlockInfo Transaction Family
-<../transaction_family_specifications/blockinfo_transaction_family>`{.interpreted-text
-role="doc"}.
+The BlockInfoInjector inserts a BlockInfo transaction at the beginning of every
+block. The transaction updates state with information about the block that was
+just committed as well as a timestamp. For more information, see the [BlockInfo
+Transaction Family]( {% link
+docs/1.2/transaction_family_specifications/blockinfo_transaction_family.md %}).
 
 The following validation rules are added to the set of on-chain
 validation rules in order to prevent bad actors from injecting incorrect
