@@ -16,7 +16,7 @@ validator.
     `static`.
     -   If set to `static`, use the `--peers` option to list the URLs of
         all peers that the validator should connect to, using the format
-        `tcp`://\`hostname\`:[port]{.title-ref}. Specify multiple peer
+        `tcp`://`hostname`:`port`. Specify multiple peer
         URLs in a comma-separated list.
     -   If set to `dynamic`, any static peers will be processed first,
         before starting the topology buildout starting, then the URLs
@@ -35,9 +35,51 @@ validator.
     network permissions, specify `challenge`, which requires connections
     to sign a challenge so their identity can be proved.
 
-::: literalinclude
-output/sawtooth-validator_usage.out
-:::
+``` console
+sawtooth-validator 1.2.6
+Configures and starts a Sawtooth validator.
+
+USAGE:
+    sawtooth-validator [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+    -v, --verbose    enable more verbose output to stderr
+
+OPTIONS:
+    -B, --bind <bind>...
+            set the URL for the network or validator component service endpoints with the format network:<endpoint>,
+            component:<endpoint>, or consensus:<endpoint>. Use multiple --bind options to specify all endpoints.
+        --config-dir <config_dir>                                  specify the configuration directory
+    -E, --endpoint <endpoint>                                      specifies the advertised network endpoint URL
+        --fork-cache-keep-time <fork_cache_keep_time>              set the time in seconds to keep uncommitted forks.
+        --maximum-peer-connectivity <maximum_peer_connectivity>    set the maximum number of peers to accept
+        --minimum-peer-connectivity <minimum_peer_connectivity>
+            set the minimum number of peers required before stopping peer search
+
+        --network-auth <network_auth>
+            identify type of authorization required to join validator network. [possible values: trust, challenge]
+
+        --opentsdb-db <opentsdb-db>                                specify name of database used for storing metrics
+        --opentsdb-url <opentsdb-url>
+            specify host and port for Open TSDB database used for metrics
+
+    -P, --peering <peering>
+            determine peering type for the validator: 'static' (must use --peers to list peers) or 'dynamic' (processes
+            any static peers first, then starts topology buildout). [possible values: static, dynamic]
+    -p, --peers <peers>...
+            list static peers to attempt to connect to in the format tcp://<hostname>:<port>. Specify multiple peers in
+            a comma-separated list. Repeating the --peers option is also accepted.
+        --scheduler <scheduler>
+            set scheduler type: serial or parallel [possible values: serial, parallel]
+
+    -s, --seeds <seeds>...
+            provide URI(s) for the initial connection to the validator network, in the format tcp://<hostname>:<port>.
+            Specify multiple URIs in a comma-separated list. Repeating the --seeds option is also accepted.
+        --state-pruning-block-depth <state_pruning_block_depth>
+            set the block depth below which state roots are pruned from the global state database.
+```
 
 <!--
      Copyright 2017 Intel Corporation
