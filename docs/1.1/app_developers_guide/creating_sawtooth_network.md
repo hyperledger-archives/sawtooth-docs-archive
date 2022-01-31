@@ -83,9 +83,8 @@ Registry).
 
 The following figure shows an example network with two validator nodes:
 
-
-![]({% link docs/1.1/images/appdev-environment-multi-node.svg %}
-"Multi node sawtooth network")
+<img alt="Address and Namespace Design"
+src="/images/1.1/appdev-environment-multi-node.svg">
 
 
 Like the single-node environment, this environment uses serial
@@ -339,8 +338,8 @@ IntegerKey, XO, and PoET Validator Registry).
 
 The following figure shows an example network with two validator nodes:
 
-![]({% link docs/1.1/images/appdev-environment-two-nodes.svg %}
-"Two node sawtooth network")
+<img alt="Two node sawtooth network"
+src="/images/1.1/appdev-environment-two-nodes.svg">
 
 Like the single-node environment, this environment uses serial
 transaction processing and static peering. However, it has the following
@@ -904,8 +903,8 @@ This environment is a network of five Sawtooth node. Each node has a
 environment uses `PoET mode consensus`, `serial transaction processing,
 and static peering (all-to-all)
 
-![]({% link docs/1.1/images/appdev-environment-multi-node-kube.svg %}
-"Multi node Kubernetes sawtooth network")
+<img alt="Multi node Kubernetes sawtooth network"
+src="/images/1.1/appdev-environment-multi-node-kube.svg">
 
 The Kubernetes cluster has a pod for each Sawtooth node. On each pod,
 there are containers for each Sawtooth component. The Sawtooth nodes are
