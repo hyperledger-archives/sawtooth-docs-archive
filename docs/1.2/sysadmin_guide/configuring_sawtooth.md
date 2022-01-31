@@ -347,8 +347,40 @@ The `rest_api.toml` configuration file has the following options:
 
   Sets the password for the Open TSDB database. Default: none.
 
+## Sawtooth CLI Configuration File
+
+The Sawtooth CLI configuration file specifies arguments to be used by
+the `sawtooth` command and its subcommands. For example, you can use
+this file to set the URL of the REST API once, rather than entering the
+`--url` option for each subcommand.
+
+If the config directory contains a file named `cli.toml`, the
+configuration settings are applied when the `sawtooth` command is run.
+Specifying command-line options will override the settings in the
+configuration file.
+
+> **Note**
+>
+> By default, the config directory is `/etc/sawtooth/`.
+> See [Path Configuration File](#path-configuration_file) for more information.
+
+An example configuration file is in the `sawtooth-core` repository at
+`/sawtooth-core/cli/cli.toml.example`. To create a CLI configuration
+file, download this example file to the config directory and name it
+`cli.toml`. Set the ownership and permissions to owner `root`, group
+`sawtooth`, and permissions `640`.
+
+The example file shows the format of the `url` option. To use it,
+uncomment the line and replace the default value with the actual URL for
+the REST API.
+
+```toml
+# The REST API URL
+
+# url = "http://localhost:8008"
+```
+
 ::: toctree
-configuring_sawtooth/cli_configuration
 configuring_sawtooth/poet_sgx_enclave_configuration_file
 configuring_sawtooth/identity_tp_configuration
 configuring_sawtooth/settings_tp_configuration
