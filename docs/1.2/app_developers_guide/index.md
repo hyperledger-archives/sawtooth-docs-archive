@@ -18,7 +18,6 @@ the Go, Javascript, and Python SDKs.
 * [Creating a Sawtooth Network]({% link docs/1.2/app_developers_guide/creating_sawtooth_network.md%})
 * [XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 * [Using the SDKs]({% link docs/1.2/app_developers_guide/using_the_sdks.md%})
-* [Using no SDKs]({% link docs/1.2/app_developers_guide/no_sdk.md%})
 * [Address and Namespace]({% link docs/1.2/app_developers_guide/address_and_namespace.md%})
 * [Namespace Restrictions]({% link docs/1.2/app_developers_guide/namespace_restriction.md%})
 * [Event Subscriptions]({% link docs/1.2/app_developers_guide/event_subscriptions.md%})
