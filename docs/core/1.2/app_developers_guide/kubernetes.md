@@ -1,4 +1,4 @@
-# Using Kubernetes for a Single Sawtooth Node
+## Using Kubernetes for a Single Sawtooth Node
 
 This procedure explains how to create a single Hyperledger Sawtooth
 validator node with
@@ -8,14 +8,10 @@ This environment uses
 Sawtooth as a containerized application in a local Kubernetes cluster
 inside a virtual machine (VM) on your computer.
 
-::: note
-::: title
-Note
-:::
-
-This environment has one Sawtooth node. For a multiple-node environment,
-see `creating_sawtooth_network`{.interpreted-text role="doc"}.
-:::
+> **Note**
+> This environment has one Sawtooth node. For a multiple-node environment,
+> see [Creating Sawtooth
+> Network]({%link docs/1.2/app_developers_guide/creating_sawtooth_network.md%}).
 
 This procedure walks you through the following tasks:
 
@@ -29,11 +25,11 @@ This procedure walks you through the following tasks:
 > -   Stopping Sawtooth and deleting the Kubernetes cluster
 
 After completing this procedure, you will have the environment required
-for the other tutorials in this guide,
-`intro_xo_transaction_family`{.interpreted-text role="doc"} and
-`using_the_sdks`{.interpreted-text role="doc"}.
+for the other tutorials in this guide, [Playing with the XO Transaction
+Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
+and [Using the SDKs]({%link docs/1.2/app_developers_guide/using_the_sdks.md%}).
 
-# Prerequisites
+### Prerequisites
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -45,18 +41,14 @@ This application development environment requires
 and [Minikube](https://kubernetes.io/docs/setup/minikube/) with a
 supported VM hypervisor, such as VirtualBox.
 
-# About the Kubernetes Test Node Environment
+### About the Kubernetes Test Node Environment
 
 This Kubernetes environment is a single Sawtooth node that is running a
 validator, a REST API, the Devmode consensus engine, and three
-transaction processors. The environment uses
-`Devmode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"} and
-`parallel transaction processing <../architecture/scheduling>`{.interpreted-text
-role="doc"}.
+transaction processors. The environment uses Devmode consensus and
+parallel transaction processing/
 
-![](../images/appdev-environment-one-node-3TPs-kube.*){.align-center
-width="100.0%"}
+<img alt="Environment with one node 3 TPS" src="/images/1.2/appdev-environment-one-node-3TPs-kube.svg">
 
 The Kubernetes cluster has one pod with a container for each Sawtooth
 component. After the container is running, you can use the [Kubernetes
@@ -65,37 +57,29 @@ to view pod status, container names, Sawtooth log files, and more.
 
 This example environment includes the following transaction processors:
 
-> -   `Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
->     role="doc"} handles Sawtooth\'s on-chain settings. The
->     `sawtooth-settings-tp` transaction processor is required for this
->     environment.
-> -   `IntegerKey <../transaction_family_specifications/integerkey_transaction_family>`{.interpreted-text
->     role="doc"} is a basic application (also called transaction
+> -   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) >     handles Sawtooth\'s on-chain settings. The`sawtooth-settings-tp`
+>     transaction processor is required for this environment.
+> -   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) is a basic application (also called transaction
 >     family) that introduces Sawtooth functionality. The
 >     `sawtooth-intkey-tp-python` transaction processor works with the
 >     `int-key` client, which has shell commands to perform
 >     integer-based transactions.
-> -   `XO <../transaction_family_specifications/xo_transaction_family>`{.interpreted-text
->     role="doc"} is a simple application for playing a game of
+> -   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) is a simple application for playing a game of
 >     tic-tac-toe on the blockchain. The `sawtooth-xo-tp-python`
 >     transaction processor works with the `xo` client, which has shell
 >     commands to define players and play a game. XO is described in a
 >     later tutorial.
 
-::: note
-::: title
-Note
-:::
 
-Sawtooth provides the Settings transaction processor as a reference
-implementation. In a production environment, you must always run the
-Settings transaction processor or an equivalent that supports the
-`Sawtooth methodology for storing on-chain configuration settings
-<../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> Sawtooth provides the Settings transaction processor as a reference
+> implementation. In a production environment, you must always run the
+> Settings transaction processor or an equivalent that supports the
+> `Sawtooth methodology for storing on-chain configuration [settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
 
-# Step 1: Install kubectl and Minikube
+
+### Step 1: Install kubectl and Minikube
 
 This step summarizes the kubectl and Minikube installation procedures.
 For more information, see the [Kubernetes
@@ -137,7 +121,7 @@ documentation](https://kubernetes.io/docs/home/).
         && chmod +x minikube && sudo mv minikube /usr/local/bin/
         ```
 
-# Step 2: Start and Test Minikube
+### Step 2: Start and Test Minikube
 
 This step summarizes the procedure to start Minikube and test basic
 functionality. If you have problems, see the Kubernetes document
@@ -181,17 +165,16 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
     $ kubectl delete deployment hello-minikube
     ```
 
-# Step 3: Download the Sawtooth Configuration File
+### Step 3: Download the Sawtooth Configuration File
 
 Download the Kubernetes configuration file for a single-node
 environment:
-[sawtooth-kubernetes-default.yaml](./sawtooth-kubernetes-default.yaml).
+[sawtooth-kubernetes-default.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/kubernetes/sawtooth-kubernetes-default.yaml).
 
 This file defines the process for constructing a one-node Sawtooth
 environment with following containers:
 
--   A single validator using `Devmode consensus`{.interpreted-text
-    role="term"}
+-   A single validator using Devmode consensus
 -   A REST API connected to the validator
 -   The Settings transaction processor (`sawtooth-settings`)
 -   The IntegerKey transaction processor (`intkey-tp-python`)
@@ -203,18 +186,14 @@ The configuration file also specifies the container images to download
 (from DockerHub) and the network settings needed for the containers to
 communicate correctly.
 
-# Step 4: Start the Sawtooth Cluster
+### Step 4: Start the Sawtooth Cluster
 
-::: note
-::: title
-Note
-:::
-
-The Kubernetes configuration file handles the Sawtooth startup steps
-such as generating keys and creating a genesis block. To learn about the
-full Sawtooth startup process, see `ubuntu`{.interpreted-text
-role="doc"}.
-:::
+> **Note**
+>
+> The Kubernetes configuration file handles the Sawtooth startup steps
+> such as generating keys and creating a genesis block. To learn about the
+> full Sawtooth startup process, see see [Using Docker for
+> a Single Sawtooth Node](#using-ubuntu-for-a-single-sawtooth-node)
 
 Use these steps to start Sawtooth:
 
@@ -234,11 +213,9 @@ Use these steps to start Sawtooth:
 
 3.  Start Sawtooth in a local Kubernetes cluster.
 
-    ::: {#restart-kube-label}
     ``` console
     $ kubectl apply -f sawtooth-kubernetes-default.yaml
     ```
-    :::
 
 4.  (Optional) Start the Minikube dashboard.
 
@@ -248,9 +225,9 @@ Use these steps to start Sawtooth:
 
     This command opens the dashboard in your default browser. The
     overview page shows the Sawtooth deployment (`sawtooth-0`) and pod
-    (`sawtooth-0-{POD-ID}`{.interpreted-text role="samp"}).
+    `sawtooth-0-{POD-ID}`.
 
-# Step 5: Connect to the Kubernetes Shell Container {#connect-to-shell-container-k8s}
+### Step 5: Connect to the Kubernetes Shell Container {#connect-to-shell-container-k8s}
 
 Connect to the shell container.
 
@@ -258,17 +235,14 @@ Connect to the shell container.
 $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-shell -- bash
 ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> In the rest of this procedure, the prompt `root@sawtooth-0#` marks the
+> commands that should be run in a Sawtooth container. (The actual prompt
+> is similar to `root@sawtooth-0-5ff6d9d578-5w45k:/#`.)
 
-In the rest of this procedure, the prompt `root@sawtooth-0#` marks the
-commands that should be run in a Sawtooth container. (The actual prompt
-is similar to `root@sawtooth-0-5ff6d9d578-5w45k:/#`.)
-:::
 
-# Step 6: Confirm Connectivity to the REST API (for Kubernetes) {#confirming-connectivity-k8s-label}
+### Step 6: Confirm Connectivity to the REST API (for Kubernetes) {#confirming-connectivity-k8s-label}
 
 To verify that you can reach the REST API, run this `curl` command from
 the shell container:
@@ -308,7 +282,7 @@ each command should be similar to this example:
 If the validator process or the validator container is not running, the
 `curl` command will time out or return nothing.
 
-# Step 7: Test Basic Sawtooth Functionality
+### Step 7: Test Basic Sawtooth Functionality
 
 Run these commands from the shell container.
 
@@ -319,7 +293,7 @@ Run these commands from the shell container.
     ```
 
     Because this is a new blockchain, there is only one block. Block 0
-    is the `genesis block`{.interpreted-text role="term"}. The output is
+    is the `genesis block`. The output is
     similar to this example:
 
     ``` console
@@ -353,46 +327,39 @@ functionality.
 
 -   To use Sawtooth client commands to create and submit transactions,
     view block information, and check state data, see
-    `sawtooth-client-kube-label`{.interpreted-text role="ref"}.
+    [Use Sawtooth Commands as a Client](#sawtooth-client-kube-label).
 -   To check the Sawtooth components, see
-    `check-status-kube-label`{.interpreted-text role="ref"}.
+    [Verify the Sawtooth Components](#check-status-kube-label).
 -   For information on the Sawtooth logs, see
-    `examine-logs-kube-label`{.interpreted-text role="ref"}.
+    [Examine Sawtooth Logs](#examine-logs-kube-label)
 -   To stop the Sawtooth environment, see
-    `stop-sawtooth-kube-label`{.interpreted-text role="ref"}.
+    [Stop the Sawtooth Kubernetes Cluster](#stop-sawtooth-kube-label).
 
-::: important
-::: title
-Important
-:::
+> **Important**
+>
+>
+> Any work done in this environment will be lost once you stop Minikube
+> and delete the Sawtooth cluster. In order to use this environment for
+> application development, you would need to take additional steps, such
+> as defining volume storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
-Any work done in this environment will be lost once you stop Minikube
-and delete the Sawtooth cluster. In order to use this environment for
-application development, you would need to take additional steps, such
-as defining volume storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
-
-# Step 8: Use Sawtooth Commands as a Client {#sawtooth-client-kube-label}
+### Step 8: Use Sawtooth Commands as a Client {#sawtooth-client-kube-label}
 
 Sawtooth includes commands that act as a client interface for an
 application. This step describes how to use the `intkey` and `sawtooth`
 commands to create and submit transactions, display blockchain and block
 data, and examine global state data.
 
-::: note
-::: title
-Note
-:::
-
-Use the `--help` option with any Sawtooth command to display the
-available options and subcommands.
-:::
+> **Note**
+>
+> Use the `--help` option with any Sawtooth command to display the
+> available options and subcommands.
 
 To run the commands in this step, connect to the shell container as
 described in an earlier step.
 
-## Creating and Submitting Transactions with intkey
+#### Creating and Submitting Transactions with intkey
 
 The `intkey` command creates and submits IntegerKey transactions for
 testing purposes.
@@ -433,7 +400,7 @@ testing purposes.
     0    20d7b6657721758d1ad1a3392daadd57473d84e1e1c8c58c14ec862ff7fbf44a3bef4d82c40052dd8fc2808191f830447df59fe074aea02a000ff64bc458e256  1     1     025f80...
     ```
 
-## Submitting Transactions with sawtooth batch submit
+#### Submitting Transactions with sawtooth batch submit
 
 In the example above, the `intkey create_batch` command created the file
 `batches.intkey`. Rather than using `intkey load` to submit these
@@ -453,7 +420,7 @@ transactions, you could use `sawtooth batch submit` to submit them.
     batches: 7,  batch/sec: 216.80369536716367
     ```
 
-## Viewing Blockchain and Block Data with sawtooth block
+#### Viewing Blockchain and Block Data with sawtooth block
 
 The `sawtooth block` command displays information about the blocks
 stored on the blockchain.
@@ -516,12 +483,11 @@ stored on the blockchain.
            .
     ```
 
-## Viewing State Data with sawtooth state
+#### Viewing State Data with sawtooth state
 
 The `sawtooth state` command lets you display state data. Sawtooth
-stores state data in a `Merkle-Radix tree`{.interpreted-text
-role="term"} (for more information, see
-`../architecture/global_state`{.interpreted-text role="doc"}).
+stores state data in a Merkle-Radix tree (for more information, see
+[Global State]({% link docs/1.2/architecture/global_state.md%}).
 
 1.  Use `sawtooth state list` to display addresses in state with their
     size and associated data. The default output format truncates each
@@ -574,7 +540,7 @@ role="term"} (for more information, see
     You can use `sawtooth block show` (as described above) with block
     number of the chain head to view more information about that block.
 
-# Step 9: Verify the Sawtooth Components {#check-status-kube-label}
+### Step 9: Verify the Sawtooth Components {#check-status-kube-label}
 
 To check whether a Sawtooth component is running, connect to the
 component\'s container and run the `ps` command.
@@ -608,7 +574,7 @@ component\'s container and run the `ps` command.
      27 ?        Sl     0:17 /usr/bin/python3 /usr/bin/sawtooth-validator -vv --endpoint tcp://10.96.15.213:8800 --bind component:tcp:
     ```
 
-# Step 10: Examine Sawtooth Logs {#examine-logs-kube-label}
+### Step 10: Examine Sawtooth Logs {#examine-logs-kube-label}
 
 The Sawtooth log files are available on the Kubernetes dashboard.
 
@@ -666,40 +632,32 @@ validator-debug.log
 validator-error.log
 ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> By convention, the log files for the transaction processors use a random
+> string to make the log file names unique. For example:
+>
+> ``` console
+> $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-intkey-> tp-python -- bash
+>
+> root@sawtooth-0# ls -1 /var/log/sawtooth
+> intkey-ae98c3726f9743c4-debug.log
+> intkey-ae98c3726f9743c4-error.log
+> ```
 
-By convention, the log files for the transaction processors use a random
-string to make the log file names unique. For example:
+For more information on log files, see [Log
+Configuration]({% link docs/1.2/sysadmin_guide/log_configuration.md%}).
 
-``` console
-$ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-intkey-tp-python -- bash
-
-root@sawtooth-0# ls -1 /var/log/sawtooth
-intkey-ae98c3726f9743c4-debug.log
-intkey-ae98c3726f9743c4-error.log
-```
-:::
-
-For more information on log files, see
-`../sysadmin_guide/log_configuration`{.interpreted-text role="doc"}.
-
-# Step 11: Stop the Sawtooth Kubernetes Cluster {#stop-sawtooth-kube-label}
+### Step 11: Stop the Sawtooth Kubernetes Cluster {#stop-sawtooth-kube-label}
 
 Use the following commands to stop and reset the Sawtooth environment.
 
-::: important
-::: title
-Important
-:::
-
-Any work done in this environment will be lost once you delete the
-Sawtooth cluster. To keep your work, you would need to take additional
-steps, such as defining volume storage. See the [Kubernetes
-documentation](https://kubernetes.io/docs/home/) for more information.
-:::
+> Important
+>
+> Any work done in this environment will be lost once you delete the
+> Sawtooth cluster. To keep your work, you would need to take additional
+> steps, such as defining volume storage. See the [Kubernetes
+> documentation](https://kubernetes.io/docs/home/) for more information.
 
 1.  Log out of all Sawtooth containers.
 
