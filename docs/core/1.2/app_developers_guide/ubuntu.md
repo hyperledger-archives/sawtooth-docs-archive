@@ -1,4 +1,4 @@
-# Using Ubuntu for a Single Sawtooth Node
+## Using Ubuntu for a Single Sawtooth Node
 
 This procedure explains how to set up Hyperledger Sawtooth for
 application development on Ubuntu 18.04 (Bionic). It shows you how to
@@ -6,15 +6,14 @@ install Sawtooth on Ubuntu, then walks you through the following tasks:
 
 > -   Generating a user key
 > -   Generating a root key
-
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst
-======= \* Creating the genesis block \>\>\>\>\>\>\>
-core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst \* Starting the
-components: validator, consensus engine, REST API, and transaction
-processors \* Checking the status of the REST API \* Using Sawtooth
-commands to submit transactions, display block data, and view global
-state \* Examining Sawtooth logs \* Stopping Sawtooth and resetting the
-development environment
+> -   Creating A genesis block
+> - Starting the components: validator, consensus engine, REST API, and
+>   transaction processors
+> - Checking the status of the REST API
+> - Using Sawtooth commands to submit transactions, display block data, and
+>   view global state
+> - Examining Sawtooth logs
+> - Stopping Sawtooth and resetting the development environment
 
 After completing this procedure, you will have the application
 development environment that is required for the other tutorials in this
@@ -23,7 +22,7 @@ the `xo` client commands to play a game of tic-tac-toe. The final set of
 tutorials describe how to use an SDK to create a transaction family that
 implements your application\'s business logic.
 
-# About the Ubuntu Test Node Environment
+### About the Ubuntu Test Node Environment
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -32,22 +31,19 @@ implements your application\'s business logic.
 
 This Ubuntu environment is a single Sawtooth node that is running a
 validator, a REST API, the Devmode consensus engine, and three
-transaction processors. The environment uses
-`Devmode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"} and
-`parallel transaction processing <../architecture/scheduling>`{.interpreted-text
-role="doc"}.
+transaction processors. The environment uses Devmode consensus and parallel
+transaction processing.
 
-![](../images/appdev-environment-one-node-3TPs.*){.align-center
-width="100.0%"}
+
+<img alt="Environment with one node 3 TPS" src="/images/1.2/appdev-environment-one-node-3TPs.svg">
 
 This environment introduces basic Sawtooth functionality with the
-[IntegerKey](../transaction_family_specifications/integerkey_transaction_family)
+[IntegerKey]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
 and
-[Settings](../transaction_family_specifications/settings_transaction_family)
+[Settings]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 transaction processors for the business logic and Sawtooth commands as a
 client. It also includes the
-[XO](../transaction_family_specifications/xo_transaction_family)
+[XO]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
 transaction processor, which is used in later tutorials.
 
 The IntegerKey and XO families are simple examples of a transaction
@@ -59,22 +55,18 @@ In this procedure, you will open seven terminal windows on your host
 system: one for each Sawtooth component and one to use for client
 commands.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> this procedure starts the validator first, then the REST API, followed
+> by the transaction processors. However, the start-up order is flexible.
+> For example, you can start the transaction processors before starting
+> the validator.
 
-This procedure starts the validator first, then the REST API, followed
-by the transaction processors. However, the start-up order is flexible.
-For example, you can start the transaction processors before starting
-the validator.
-:::
-
-# Prerequisites
+### Prerequisites
 
 This Sawtooth development environment requires Ubuntu 18.04 (Bionic).
 
-# Step 1: Install Sawtooth
+### Step 1: Install Sawtooth
 
 The Sawtooth package repositories provide two types of Ubuntu packages:
 stable or nightly. We recommend using the stable repository.
@@ -84,72 +76,54 @@ stable or nightly. We recommend using the stable repository.
     window\". In the following examples, the prompt `user@validator$`
     shows the commands that must run in this window.
 
-#\. Choose either the stable repository or the nightly repository.
+2. Choose either the stable repository or the nightly repository.
 
-> -   To add the stable repository, run these commands:
->
->     ``` console
->     user@validator$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
->     ```
+  -   To add the stable repository, run these commands:
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst
+       ``` console
+       user@validator$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
+       <user@validator>\$ sudo add-apt-repository \'deb \[arch=amd64\] <http://repo.sawtooth.me/ubuntu/chime/stable> bionic universe\'
+            <user@validator>\$ sudo apt-get update
+       ```
 
-:   <user@validator>\$ sudo add-apt-repository \'deb \[arch=amd64\]
-    <http://repo.sawtooth.me/ubuntu/bumper/stable> xenial universe\'
+  -   To use the nightly repository, run the following commands:
 
-=======
+      > **Caution**
+      >
+      > Nightly builds have not gone through long-running network testing
+      > and could be out of sync with the documentation. We really do
+      > recommend the stable repository.
 
-:   <user@validator>\$ sudo add-apt-repository \'deb \[arch=amd64\]
-    <http://repo.sawtooth.me/ubuntu/chime/stable> bionic universe\'
+      ``` console
+      user@validator$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 44FC67F19B2466EA
+      user@validator$ sudo apt-add-repository "deb http://repo.sawtooth.me/ubuntu/nightly bionic universe"
+      user@validator$ sudo apt-get update
+      ```
 
-\>\>\>\>\>\>\> core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
+3. Install the Sawtooth packages. Sawtooth consists of several Ubuntu packages
+   that can be installed together using the `sawtooth` meta-package.
 
-:   <user@validator>\$ sudo apt-get update
-
-    -   To use the nightly repository, run the following commands:
-
-    ::: caution
-    ::: title
-    Caution
-    :::
-
-    Nightly builds have not gone through long-running network testing
-    and could be out of sync with the documentation. We really do
-    recommend the stable repository.
-    :::
-
-    ``` console
-    user@validator$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 44FC67F19B2466EA
-    user@validator$ sudo apt-add-repository "deb http://repo.sawtooth.me/ubuntu/nightly bionic universe"
-    user@validator$ sudo apt-get update
-    ```
-
-#\. Install the Sawtooth packages. Sawtooth consists of several Ubuntu packages
-
-:   that can be installed together using the `sawtooth` meta-package.
     Run the following command:
 
     ``` console
     user@validator$ sudo apt-get install -y sawtooth
     ```
 
-#\. Install the Sawtooth Devmode consensus engine package. Run the following
-
-:   command:
+4. Install the Sawtooth Devmode consensus engine package. Run the following
+   command:
 
     ``` console
     user@validator$ sudo apt-get install sawtooth-devmode-engine-rust
     ```
 
-#\. Any time after installation, you can view the installed Sawtooth packages
-
-:   with the following command:
+5. Any time after installation, you can view the installed Sawtooth packages
+  with the following command:
 
     ``` console
     user@validator$ dpkg -l '*sawtooth*'
     ```
 
-# Step 2: Generate a User Key {#generate-user-key-ubuntu}
+### Step 2: Generate a User Key {#generate-user-key-ubuntu}
 
 Generate your user key for Sawtooth, using the same terminal window as
 the previous step.
@@ -160,18 +134,14 @@ writing file: /home/yourname/.sawtooth/keys/my_key.priv
 writing file: /home/yourname/.sawtooth/keys/my_key.pub
 ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> This command specifies `my_key` as the base name for the key files, to
+> be consistent with the key name that is used in the example Docker and
+> Kubernetes files. By default (when no key name is specified), the
+> `sawtooth keygen` command uses your user name.
 
-This command specifies `my_key` as the base name for the key files, to
-be consistent with the key name that is used in the example Docker and
-Kubernetes files. By default (when no key name is specified), the
-`sawtooth keygen` command uses your user name.
-:::
-
-# Step 3: Generate the Root Key for the Validator {#generate-root-key-ubuntu}
+### Step 3: Generate the Root Key for the Validator {#generate-root-key-ubuntu}
 
 Generate the key for the validator, which runs as root. Use the same
 terminal window as the previous step.
@@ -182,7 +152,7 @@ writing file: /etc/sawtooth/keys/validator.priv
 writing file: /etc/sawtooth/keys/validator.pub
 ```
 
-# Step 4: Create the Genesis Block {#create-genesis-block-ubuntu-label}
+### Step 4: Create the Genesis Block {#create-genesis-block-ubuntu-label}
 
 Because this is a new network, you must create a genesis block (the
 first block on the distributed ledger). This step is done only for the
@@ -213,14 +183,10 @@ Use the same terminal window as the previous step.
     settings changes will take effect after the validator and Settings
     transaction processor have started.
 
-    ::: important
-    ::: title
-    Important
-    :::
-
-    You must use the same key for the `sawset proposal create` command
-    in the next step.
-    :::
+    > **Important**
+    >
+    > You must use the same key for the `sawset proposal create` command
+    > in the next step.
 
 3.  Create another settings proposal to initialize the Devmode consensus
     engine settings. This command sets the consensus algorithm to
@@ -233,16 +199,12 @@ Use the same terminal window as the previous step.
     sawtooth.consensus.algorithm.version=0.1 -o config.batch
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The `sawtooth.consensus.algorithm.name` and
-    `sawtooth.consensus.algorithm.version` settings are required;
-    `sawadm genesis` will fail if they are not present in one of the
-    batches, unless the `--ignore-required-settings` flag is used.
-    :::
+    > **Note**
+    >
+    > The `sawtooth.consensus.algorithm.name` and
+    > `sawtooth.consensus.algorithm.version` settings are required;
+    > `sawadm genesis` will fail if they are not present in one of the
+    > batches, unless the `--ignore-required-settings` flag is used.
 
 4.  As the sawtooth user, combine the previously created batches into a
     single genesis batch that will be committed in the genesis block.
@@ -254,16 +216,12 @@ Use the same terminal window as the previous step.
     Generating /var/lib/sawtooth/genesis.batch
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
+    > **Note**
+    >
+    > The `-u sawtooth` option refers to the sawtooth user, not the
+    > `sawtooth` command.
 
-    The `-u sawtooth` option refers to the sawtooth user, not the
-    `sawtooth` command.
-    :::
-
-# Step 5: Start the Validator {#start-validator-ubuntu-label}
+### Step 5: Start the Validator {#start-validator-ubuntu-label}
 
 Use the same terminal window as the previous step.
 
@@ -274,15 +232,11 @@ Use the same terminal window as the previous step.
     user@validator$ sudo -u sawtooth sawtooth-validator -vv
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    See `../cli/sawtooth-validator`{.interpreted-text role="doc"} in the
-    CLI Command Reference for information on the `sawtooth-validator`
-    options.
-    :::
+    > **Note**
+    >
+    > See [`sawtooth-validator`]({% link docs/1.2/cli/sawtooth-validator.md%}) in
+    > the CLI Command Reference for information on the `sawtooth-validator`
+    > options.
 
     The validator terminal window displays verbose log messages. The
     output will be similar to this truncated example:
@@ -310,17 +264,13 @@ Use the same terminal window as the previous step.
 The validator terminal window will continue to display log messages as
 you complete this procedure.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> If you want to stop the validator, enter CTRL-c in the validator
+> terminal window. For more information, see [Stop Sawtooth
+> Components](#stop-sawtooth-ubuntu-label)
 
-If you want to stop the validator, enter CTRL-c in the validator
-terminal window. For more information, see
-`stop-sawtooth-ubuntu-label`{.interpreted-text role="ref"}.
-:::
-
-# Step 6: Start the Devmode Consensus Engine {#start-devmode-consensus-label}
+### Step 6: Start the Devmode Consensus Engine {#start-devmode-consensus-label}
 
 1.  Open a new terminal window (the consensus terminal window). In this
     procedure, the prompt `user@consensus$` shows the commands that
@@ -330,19 +280,8 @@ terminal window. For more information, see
     decides what block to add to a blockchain.
 
     ``` console
+    <user@consensus>\$ sudo -u sawtooth devmode-engine-rust -vv --connect tcp://localhost:5050
     ```
-
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst
-
-:   <user@consensus>\$ sudo -u sawtooth devmode-engine-rust -vv
-    \--connect tcp://localhost:5050
-
-=======
-
-:   <user@consensus>\$ sudo -u sawtooth devmode-engine-rust -vv
-    \--connect tcp://localhost:5050
-
-\>\>\>\>\>\>\> core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
 
 > The consensus terminal window displays verbose log messages showing
 > the Devmode engine connecting to and registering with the validator.
@@ -355,7 +294,7 @@ terminal window. For more information, see
 > DEBUG | devmode_rust::engine | Initializing block
 > ```
 
-# Step 7: Start the REST API {#start-rest-api-label}
+### Step 7: Start the REST API {#start-rest-api-label}
 
 The REST API allows you to configure a running validator, submit
 batches, and query the state of the distributed ledger.
@@ -371,15 +310,11 @@ batches, and query the state of the distributed ledger.
     user@rest-api$ sudo -u sawtooth sawtooth-rest-api -v
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    See `../cli/sawtooth-rest-api`{.interpreted-text role="doc"} in the
-    CLI Command Reference for information on the `sawtooth-rest-api`
-    options.
-    :::
+    > **Note**
+    >
+    > See [`sawtooth-rest-api`]({% link docs/1.2/cli/sawtooth-rest-api.md%}) in the
+    > CLI Command Reference for information on the `sawtooth-rest-api`
+    > options.
 
     The output is similar to this example:
 
@@ -394,7 +329,7 @@ batches, and query the state of the distributed ledger.
 The rest-api terminal window continues display log messages as you
 complete this procedure.
 
-# Step 8: Start the Transaction Processors {#start-tps-label}
+### Step 8: Start the Transaction Processors {#start-tps-label}
 
 In this step, you will open a new terminal window for each transaction
 processor.
@@ -411,15 +346,11 @@ processor.
         user@settings$ sudo -u sawtooth settings-tp -v
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        See `../cli/settings-tp`{.interpreted-text role="doc"} in the
-        CLI Command Reference for information on the `settings-tp`
-        options.
-        :::
+    > **Note**
+    >
+    > See [`settings-tp`]({% link docs/1.2/cli/settings-tp.md%})  in the
+    > CLI Command Reference for information on the `settings-tp`
+    > options.
 
     c.  Check the validator terminal window to confirm that the
         transaction processor has registered with the validator, as
@@ -432,15 +363,13 @@ processor.
     The `settings-tp` transaction processor continues to run and to
     display log messages in its terminal window.
 
-    ::: tip
-    ::: title
-    Tip
-    :::
-
-    At this point, you can see the authorized keys setting that was
-    proposed in `create-genesis-block-ubuntu-label`{.interpreted-text
-    role="ref"}. To see this setting, open a new terminal window (the
-    client terminal window) and run the following command:
+    > **Tip**
+    >
+    > At this point, you can see the authorized keys setting that was
+    > proposed in [Create the Genesis
+    > Block](#create-genesis-block-ubuntu-label`). To see this setting, open a
+    > new terminal window (the client terminal window) and run the following
+    command:
 
     ``` console
     user@client$ sawtooth settings list
@@ -448,7 +377,6 @@ processor.
     sawtooth.consensus.algorithm.version: 0.1
     sawtooth.settings.vote.authorized_keys: 0276023d4f7323103db8d8683a4b7bc1eae1f66...
     ```
-    :::
 
 2.  Start the IntegerKey transaction processor, `intkey-tp-python`.
 
@@ -463,14 +391,10 @@ processor.
         [23:07:57 INFO    core] register attempt: OK
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        For information on the `intkey-tp-python` options, run the
-        command `intkey-tp-python --help`.
-        :::
+       > **Note**
+       >
+       > For information on the `intkey-tp-python` options, run the
+       > command `intkey-tp-python --help`.
 
     c.  Check the validator terminal window to confirm that the
         transaction processor has registered with the validator. A
@@ -495,14 +419,10 @@ processor.
         user@xo$ sudo -u sawtooth xo-tp-python -v
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        For information on the `xo-tp-python` options, run the command
-        `xo-tp-python --help`.
-        :::
+        > **Note**
+        >
+        > For information on the `xo-tp-python` options, run the command
+        > `xo-tp-python --help`.
 
     c.  Check the validator terminal window to confirm that the
         transaction processor has registered with the validator.
@@ -514,18 +434,14 @@ processor.
     The `xo-tp-python` transaction processor continues to run and to
     display log messages in its terminal window.
 
-# Step 9: Open a Client Terminal Window {#open-client-window-ubuntu-label}
+### Step 9: Open a Client Terminal Window {#open-client-window-ubuntu-label}
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst Step
-9: Confirm Connectivity to the REST API
-============================================ ======= Open a new terminal
-window to use as the client terminal window. \>\>\>\>\>\>\>
-core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
+Open a new terminal window to use as the client terminal window
 
 In the following steps, the prompt `user@client$` shows the commands
 that should be run in this window.
 
-# Step 10: Check the REST API Process
+### Step 10: Check the REST API Process
 
 1.  Run the following command in the client terminal window:
 
@@ -535,14 +451,9 @@ that should be run in this window.
     sawtooth  2830  0.0  3.6 221164 37520 pts/0    Sl+  19:36   0:00 /usr/bin/python3 /usr/bin/sawtooth-rest-api -v
     ```
 
-2.  If necessary, restart the REST API (see
-    `start-rest-api-label`{.interpreted-text role="ref"}).
+2.  If necessary, restart the [REST API](#start-rest-api-label).
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst Step
-10: Use Sawtooth Commands as a Client ======= ..
-\_confirming-rest-api-ubuntu-label:
-
-# Step 11: Confirm Connectivity to the REST API (for Ubuntu)
+### Step 11: Confirm Connectivity to the REST API (for Ubuntu)
 
 If the `curl` command is installed on your host system, you can use this
 step to verify that you can connect to the REST API.
@@ -585,28 +496,22 @@ step to verify that you can connect to the REST API.
     If the validator process or the validator container is not running,
     the `curl` command will time out or return nothing.
 
-Step 12: Use Sawtooth Commands as a Client \>\>\>\>\>\>\>
-core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
-==========================================
+### Step 12: Use Sawtooth Commands as a Client
 
 Sawtooth includes commands that act as a client application. This step
 describes how to use the `intkey` and `sawtooth` commands to create and
 submit transactions, display blockchain and block data, and examine
 global state data.
 
-::: note
-::: title
-Note
-:::
-
-Use the `--help` option with any Sawtooth command to display the
-available options and subcommands.
-:::
+> **Note**
+>
+> Use the `--help` option with any Sawtooth command to display the
+> available options and subcommands.
 
 Continue to use the client terminal window to run the commands in this
 step.
 
-## Creating and Submitting Transactions with intkey
+#### Creating and Submitting Transactions with intkey
 
 The `intkey` command creates sample IntegerKey transactions for testing
 purposes.
@@ -668,19 +573,15 @@ purposes.
     > [2018-03-14 16:24:49.639 [MainThread] core DEBUG] received message of type: TP_PROCESS_REQUEST
     > [2018-03-14 16:24:49.641 [MainThread] handler DEBUG] incrementing "MvRznE" by 1
     > ```
-    >
-    > ::: note
-    > ::: title
-    > Note
-    > :::
+
+    > **Note**
     >
     > The log file names for the transaction processors contain a random
     > string that is unique for each instance of the transaction
     > processor. For more information, see
     > `examine-logs-ubuntu-label`{.interpreted-text role="ref"}.
-    > :::
 
-## Submitting Transactions with sawtooth batch submit
+#### Submitting Transactions with sawtooth batch submit
 
 In the example above, the `intkey create_batch` command created the file
 `batches.intkey`. Rather than using `intkey load` to submit these
@@ -700,7 +601,7 @@ transactions, you could use `sawtooth batch submit` to submit them.
     batches: 11,  batch/sec: 216.80369536716367
     ```
 
-## Viewing Blockchain and Block Data with sawtooth block
+#### Viewing Blockchain and Block Data with sawtooth block
 
 The `sawtooth block` command displays information about the blocks
 stored on the blockchain.
@@ -766,12 +667,11 @@ stored on the blockchain.
     header_signature: ff4f6705bf57e2a1498dc1b649cc9b6a4da2cc8367f1b70c02bc6e7f648a28b53b5f6ad7c2aa639673d873959f5d3fcc11129858ecfcb4d22c79b6845f96c5e3
     ```
 
-## Viewing State Data with sawtooth state
+#### Viewing State Data with sawtooth state
 
 The `sawtooth state` command lets you display state data. Sawtooth
-stores state data in a `Merkle-Radix tree`{.interpreted-text
-role="term"}; for more information, see
-`../architecture/global_state`{.interpreted-text role="doc"}.
+stores state data in a Merkle-Radix tree; for more information, see [Global
+State]({% link docs/1.2/architecture/global_state.md%}).
 
 1.  Use `sawtooth state list` to list the nodes (addresses) in state.
 
@@ -810,12 +710,8 @@ role="term"}; for more information, see
     HEAD: "0c4364c6d5181282a1c7653038ec9515cb0530c6bfcb46f16e79b77cb524491676638339e8ff8e3cc57155c6d920e6a4d1f53947a31dc02908bcf68a91315ad5"
     ```
 
-::: {#examine-logs-ubuntu-label}
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst Step
-11: Examine Sawtooth Logs ======= Step 13: Examine Sawtooth Logs
-\>\>\>\>\>\>\> core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
-==============================
-:::
+### Step 13: Examine Sawtooth Logs #examine-logs-ubuntu-label
+
 
 By default, Sawtooth logs are stored in the directory
 `/var/log/sawtooth`. Each component (validator, REST API, and
@@ -839,53 +735,36 @@ environment:
 > xo-9b8b55265ca0d546-debug.log
 > ```
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> For the transaction processors, the log file names contain a random
+> string to make the names unique. This string changes for each instance
+> of a transaction processor. The file names on your system will be
+> different than these examples.
 
-For the transaction processors, the log file names contain a random
-string to make the names unique. This string changes for each instance
-of a transaction processor. The file names on your system will be
-different than these examples.
-:::
+For more information on log files, see [Log
+Configuration]({% link docs/1.2/sysadmin_guide/log_configuration.md%}).
 
-For more information on log files, see
-`../sysadmin_guide/log_configuration`{.interpreted-text role="doc"}.
-
-::: {#stop-sawtooth-ubuntu-label}
-\<\<\<\<\<\<\< HEAD:docs/core/1.1/app_developers_guide/ubuntu.rst Step
-12: Stop Sawtooth Components ======= Step 14: Stop Sawtooth Components
-\>\>\>\>\>\>\> core/1-2:docs/core/1.2/app_developers_guide/ubuntu.rst
-=================================
-:::
+### Step 14: Stop Sawtooth Components #stop-sawtooth-ubuntu-label
 
 Use this procedure if you need to stop or reset the Sawtooth environment
 for any reason.
 
-::: note
-::: title
-Note
-:::
-
-This application development environment is used in later procedures in
-this guide. Do not stop this environment if you intend to continue with
-these procedures.
-:::
+> **Note**
+>
+> This application development environment is used in later procedures in
+> this guide. Do not stop this environment if you intend to continue with
+> these procedures.
 
 To stop the Sawtooth components:
 
 1.  Stop the validator by entering CTRL-c in the validator terminal
     window.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    A single CTRL-c does a graceful shutdown. If you prefer not to wait,
-    you can enter multiple CTRL-c characters to force the shutdown.
-    :::
+    > **Note**
+    >
+    > A single CTRL-c does a graceful shutdown. If you prefer not to wait,
+    > you can enter multiple CTRL-c characters to force the shutdown.
 
 2.  Stop the Devmode consensus engine by entering a single CTRL-c in
     consensus terminal window.
@@ -908,4 +787,4 @@ beginning of this procedure, add these steps:
     `/var/log/sawtooth/`.
 -   To delete the Sawtooth keys, remove the key files
     `/etc/sawtooth/keys/validator.\*` and
-    `/home/`[yourname]{.title-ref}`/.sawtooth/keys/`[yourname]{.title-ref}`.\*`.
+    `/home/`*yourname*`/.sawtooth/keys/`*yourname*`.\*`.
