@@ -1,6 +1,4 @@
----
-title: Global State
----
+# Global State
 
 One goal of a distributed ledger like Sawtooth, indeed the *defining*
 goal, is to distribute a ledger among participating nodes. The ability
@@ -17,14 +15,14 @@ The state is split into namespaces which allow flexibility for
 transaction family authors to define, share, and reuse global state data
 between transaction processors.
 
-# Merkle-Radix Tree Overview {#merkle-radix-overview-label}
+## Merkle-Radix Tree Overview {#merkle-radix-overview-label}
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
   https://creativecommons.org/licenses/by/4.0/
 -->
 
-## Merkle Hashes
+### Merkle Hashes
 
 Sawtooth uses an addressable Merkle-Radix tree to store data for
 transaction families. Let\'s break that down: The tree is a Merkle tree
@@ -39,13 +37,11 @@ different hash, the block is not considered valid. For more information
 about general concepts, see the
 [Merkle](https://en.wikipedia.org/wiki/Merkle_tree) page on Wikipedia.
 
-![Merkle hash diagram](../images/state_merkle_hashes.*){.align-center
-width="80.0%"}
+![Merkle hash diagram](../images/state_merkle_hashes.svg)
 
-## Radix Addresses
+### Radix Addresses
 
-![Tree address format](../images/state_address_format.*){.align-center
-width="80.0%"}
+![Tree address format](../images/state_address_format.svg)
 
 The tree is an addressable Radix tree because addresses uniquely
 identify the paths to leaf nodes in the tree where information is
@@ -62,10 +58,9 @@ domain-specific unique identifiers into portions of the address. For
 more information about general concepts, see the
 [Radix](https://en.wikipedia.org/wiki/Radix_tree) page on Wikipedia.
 
-![Radix addressing diagram](../images/state_radix.*){.align-center
-width="80.0%"}
+![Radix addressing diagram](../images/state_radix.svg)
 
-# Serialization Concerns
+## Serialization Concerns
 
 In addition to questions regarding the encoding of addresses, namespace
 designers also need to define the mechanism of serialization and the
