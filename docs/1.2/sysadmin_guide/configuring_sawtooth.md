@@ -37,8 +37,238 @@ Sawtooth also supports several non-component configuration files:
   optional `$SAWTOOTH_HOME` environment variable to change the base location
   of Sawtooth files and directories.
 
+## Validator Configuration File
+
+The validator configuration file specifies network information that
+allows the validator to advertise itself properly and search for peers.
+This file also contains settings for optional authorization roles and
+transactor permissions.
+
+If the config directory contains a file named `validator.toml`, the
+configuration settings are applied when the validator starts. Specifying
+an option on the command line overrides the setting in the configuration
+file.
+
+An example configuration file is in
+`/sawtooth-core/packaging/validator.toml.example`.
+
+> **Note**
+>
+> By default, the config directory is `/etc/sawtooth/`.
+> See [Path Configuration File](#path-configuration-file) for more
+> information.
+
+
+To create a validator configuration file, copy the example file to the
+config directory and name it `validator.toml`. Important: Copy with
+`cp -a` to preserve the file's ownership and permissions (or change
+after copying to owner `root`, group `sawtooth`, and permissions `640`).
+Then edit the file to change the example configuration options as
+necessary for your system.
+
+> **Note**
+>
+> For the procedures that show how to change configuration settings in
+> this file, see [Off-chain Settings with Configuration Files]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}#changing-off-chain-settings-with-configuration-files)
+> and [Using Sawtooth with PoET-SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %}).
+
+The `validator.toml` configuration file has the following options:
+
+- `bind = [ "network:{endpoint}", "component:{endpoint}", "consensus:{endpoint}", ]`
+
+  Sets the network, component, and consensus endpoints. The default
+  values are:
+
+  ```toml
+  bind = [
+    "network:tcp://127.0.0.1:8800",
+    "component:tcp://127.0.0.1:4004",
+    "consensus:tcp://127.0.0.1:5050"
+  ]
+  ```
+
+- `peering = "{static,dynamic}"`
+
+  Specifies the type of peering the validator should use: static or
+  dynamic. Default: `static`.
+
+  Static peering attempts to peer only with the candidates provided
+  with the peers option. For example:
+
+  ```toml
+  peering = "static"
+  ```
+
+  Dynamic peering first processes any static peers, starts topology
+  buildouts, then uses the URLs specified by the seeds option for the
+  initial connection to the Sawtooth network.
+
+  ```toml
+  peering = "dynamic"
+  ```
+
+- `endpoint = "URL"`
+
+  Sets the advertised network endpoint URL. Default:
+  tcp://127.0.0.1:8800. Replace the external interface and port values
+  with either the publicly addressable IP address and port or with the
+  NAT values for your validator. For example:
+
+  ```toml
+  endpoint = "tcp://127.0.0.1:8800"
+  ```
+
+- `seeds` = [`URI`]
+
+  (Dynamic peering only.) Specifies the URI or URIs for the initial
+  connection to the Sawtooth network. Specify multiple URIs in a
+  comma-separated list; each URI must be enclosed in double quotes.
+  Default: none.
+
+  Note that this option is not needed in static peering mode.
+
+  Replace the seed address and port values with either the publicly
+  addressable IP address and port or with the NAT values for the other
+  nodes in your network. For example:
+
+  ```toml
+  seeds = ["tcp://127.0.0.1:8801"]
+  ```
+
+- `peers` = ["*URL*"]
+
+  Specifies a static list of peers to attempt to connect to. Default:
+  none.
+
+  ```toml
+  peers = ["tcp://127.0.0.1:8801"]
+  ```
+
+- `scheduler` = "*type*"
+
+  Determines the type of scheduler to use: serial or parallel.
+  Default: `parallel`. For example:
+
+  ```toml
+  scheduler = 'parallel'
+  ```
+
+- `network_public_key` and `network_private_key`
+
+  Specifies the curve ZMQ key pair used to create a secured network
+  based on side-band sharing of a single network key pair to all
+  participating nodes. Default: none.
+
+  Enclose the key in single quotes; for example:
+
+  ```toml
+  network_public_key = 'wFMwoOt>yFqI/ek.G[tfMMILHWw#vXB[Sv}>l>i)'
+  network_private_key = 'r&oJ5aQDj4+V]p2:Lz70Eu0x#m%IwzBdP(}&hWM*'
+  ```
+
+  > **Important**
+  >
+  > If these options are not set or the configuration file does not
+  > exist, the network will default to being insecure.
+
+- `opentsdb_url` = "*value*"
+
+  Sets the host and port for an Open TSDB database (used for metrics).
+  Default: none.
+
+  For example of using the `opentsdb_` settings, see
+  [Using Grafana to Display Sawtooth Metrics]({% link
+  docs/1.2/sysadmin_guide/grafana_configuration.md %}).
+
+- `opentsdb_db` = "*name*"
+
+  Sets the name of the Open TSDB database. Default: none.
+
+- `opentsdb_username` = *username*
+
+  Sets the username for the Open TSDB database. Default: none.
+
+- `opentsdb_password` = *password*
+
+  Sets the password for the Open TSDB database. Default: none.
+
+- `network = "{trust,challenge}"`
+
+  Specifies the type of authorization that must be performed for the
+  different type of authorization roles on the network: trust or
+  challenge. Default: trust.
+
+  This option must be in the `[roles]` section of the file. For
+  example:
+
+  ```toml
+  [roles]
+  network = "trust"
+  ```
+
+  For more information, see [Authorization Types]({% link
+  docs/1.2/architecture/validator_network.md %}#authorization-types).
+
+- "*role*" = "*policy*"
+
+  Sets the off-chain transactor permissions for the role or roles that
+  specify which transactors are allowed to sign batches on the system.
+  Multiple roles can be defined, using one "*role*" = "*policy*" entry per line.
+  Default: none.
+
+  The role names specified in this config file must match the roles
+  stored in state for transactor permissioning. For example:
+
+  - `transactor`
+  - `transactor.transaction_signer`
+  - `transactor.transaction_signer.{tp_name}`
+  - `transactor.batch_signer`
+
+  For *policy*, specify a policy file in `policy_dir` (by
+  default, `/etc/sawtooth/`). Each policy file contains permit and
+  deny rules for the transactors; see
+  [Off-chain Transactor Permissioning]({% link
+  docs/1.2/sysadmin_guide/configuring_permissions.md
+  %}#off-chain-transactor-permissioning).
+
+  Because transactor roles and policy files can have a period in the
+  name, use double-quotes so that TOML can process these settings. For
+  example:
+
+  ```toml
+  [permissions]
+  "transactor" = "policy.example"
+  "transactor.transaction_signer" = "policy.example"
+  ```
+
+  > **Note**
+  >
+  > The `default` role cannot be set in the configuration file. Use the
+  > `sawtooth identity` command to change this on-chain-only setting.
+
+  See [Configuring Validator and Transactor Permissions]({% link
+  docs/1.2/sysadmin_guide/configuring_permissions.md %}) for more information on
+  roles and permissions.
+
+- `minimum_peer_connectivity` = *min*
+
+  The minimum number of peers required before stopping peer search.
+  Default: 3 For example:
+
+  ```toml
+  minimum_peer_connectivity = 3
+  ```
+
+- `maximum_peer_connectivity` = *max*
+
+  The maximum number of peers that will be accepted. Default: 10. For
+  example:
+
+  ```toml
+  maximum_peer_connectivity = 10
+  ```
+
 ::: toctree
-configuring_sawtooth/validator_configuration_file
 configuring_sawtooth/rest_api_configuration_file
 configuring_sawtooth/cli_configuration
 configuring_sawtooth/poet_sgx_enclave_configuration_file
