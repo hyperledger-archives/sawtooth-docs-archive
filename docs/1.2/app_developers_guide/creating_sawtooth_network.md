@@ -1774,7 +1774,8 @@ has started and the genesis block has been committed.
 For PBFT, each node specify the peer nodes in the network, because a
 PBFT network must be fully peered (all nodes must be directly
 connected). This setting is in the off-chain [validator configuration
-file]({%link docs/1.2/sysadmin_guide/configuring_sawtooth/validator_configuration_file.md%}).
+file]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md
+%}#validator-configuration-file).
 
 1.  Create the validator configuration file by copying the example file.
 
