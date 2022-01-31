@@ -662,7 +662,30 @@ signer = CryptoFactory(context).new_signer(private_key)
 > identity, and there is no way to recover it if lost. It is very
 > important that any private key is kept secret and secure.
 
-include \'partials/encoding_your_payload.rst\'
+### Encoding Your Payload
+
+Transaction payloads are composed of binary-encoded data that is opaque
+to the validator. The logic for encoding and decoding them rests
+entirely within the particular Transaction Processor itself. As a
+result, there are many possible formats, and you will have to look to
+the definition of the Transaction Processor itself for that information.
+As an example, the *IntegerKey* Transaction Processor uses a payload of
+three key/value pairs encoded as
+[CBOR](https://en.wikipedia.org/wiki/CBOR). Creating one might look like
+this:
+
+
+``` python
+import cbor
+
+payload = {
+    'Verb': 'set',
+    'Name': 'foo',
+    'Value': 42}
+
+payload_bytes = cbor.dumps(payload)
+```
+
 
 ## Building the Transaction
 
@@ -841,9 +864,49 @@ batch_list_bytes = BatchList(batches=[batch]).SerializeToString()
 > Transaction, and must have been generated from the private key being
 > used to sign the Batch, or validation will fail.
 
- include \'partials/submitting_to_validator.rst\'
+### Submitting Batches to the Validator
+---
 
-<!--
-  Licensed under Creative Commons Attribution 4.0 International License
-  https://creativecommons.org/licenses/by/4.0/
--->
+The prescribed way to submit Batches to the validator is via the REST
+API. This is an independent process that runs alongside a validator,
+allowing clients to communicate using HTTP/JSON standards. Simply send a
+*POST* request to the */batches* endpoint, with a *\"Content-Type\"*
+header of *\"application/octet-stream\"*, and the *body* as a serialized
+*BatchList*.
+
+There are a many ways to make an HTTP request, and hopefully the
+submission process is fairly straightforward from here, but as an
+example, this is what it might look if you sent the request from the
+same Pythno  process that prepared the BatchList:
+
+``` python
+import urllib.request
+from urllib.error import HTTPError
+
+try:
+    request = urllib.request.Request(
+        'http://rest.api.domain/batches',
+        batch_list_bytes,
+        method='POST',
+        headers={'Content-Type': 'application/octet-stream'})
+    response = urllib.request.urlopen(request)
+
+except HTTPError as e:
+    response = e.file
+```
+
+And here is what it would look like if you saved the binary to a file,
+and then sent it from the command line with `curl`:
+
+
+``` python
+output = open('intkey.batches', 'wb')
+output.write(batch_list_bytes)
+```
+
+``` bash
+% curl --request POST \
+    --header "Content-Type: application/octet-stream" \
+    --data-binary @intkey.batches \
+    "http://rest.api.domain/batches"
+```
