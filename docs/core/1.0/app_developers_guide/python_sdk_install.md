@@ -1,6 +1,4 @@
----
-title: Python SDK Installation
----
+# Python SDK Installation
 
 # Overview
 

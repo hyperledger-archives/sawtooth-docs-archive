@@ -1,6 +1,4 @@
----
-title: Testing Sawtooth Functionality
----
+# Testing Sawtooth Functionality
 
 After `starting Sawtooth services <systemd>`{.interpreted-text
 role="doc"}, you can use this procedure to test basic Sawtooth

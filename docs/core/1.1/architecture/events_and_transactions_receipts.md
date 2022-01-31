@@ -1,6 +1,4 @@
----
-title: Events and Transaction Receipts
----
+# Events and Transaction Receipts
 
 Hyperledger Sawtooth supports creating and broadcasting events. This
 allows applications to do the following:

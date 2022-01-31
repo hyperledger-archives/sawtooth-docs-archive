@@ -1,6 +1,4 @@
----
-title: Running Sawtooth as a Service
----
+# Running Sawtooth as a Service
 
 When installing Sawtooth using apt-get, *systemd* units are added for
 the following components. These can then be started, stopped, and

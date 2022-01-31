@@ -1,6 +1,4 @@
----
-title: Using AWS with Sawtooth
----
+# Using AWS with Sawtooth
 
 This tutorial explains how to set up Hyperledger Sawtooth for
 application development using the Amazon Elastic Compute Cloud (Amazon

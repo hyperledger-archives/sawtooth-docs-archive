@@ -1,6 +1,4 @@
----
-title: sawset
----
+# sawset
 
 The `sawset` command is used to work with settings proposals.
 

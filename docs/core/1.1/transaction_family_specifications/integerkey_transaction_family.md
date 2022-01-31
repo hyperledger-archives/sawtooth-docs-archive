@@ -1,6 +1,4 @@
----
-title: IntegerKey Transaction Family
----
+# IntegerKey Transaction Family
 
 # Overview
 

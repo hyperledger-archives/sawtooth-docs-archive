@@ -1,6 +1,4 @@
----
-title: Path Configuration File
----
+# Path Configuration File
 
 ::: important
 ::: title

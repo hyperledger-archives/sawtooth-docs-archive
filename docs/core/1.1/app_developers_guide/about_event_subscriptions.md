@@ -1,6 +1,4 @@
----
-title: About Event Subscriptions
----
+# About Event Subscriptions
 
 An application can use event subscriptions to tell the validator to
 supply information about changes to the blockchain.

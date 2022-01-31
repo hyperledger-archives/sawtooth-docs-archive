@@ -1,6 +1,4 @@
----
-title: Using Sawtooth on AWS
----
+# Using Sawtooth on AWS
 
 ::: important
 ::: title

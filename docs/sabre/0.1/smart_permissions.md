@@ -1,6 +1,4 @@
----
-title: Smart Permissions
----
+# Smart Permissions
 
 # Abstract
 

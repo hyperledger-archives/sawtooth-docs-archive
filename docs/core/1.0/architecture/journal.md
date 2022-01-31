@@ -1,6 +1,4 @@
----
-title: Journal
----
+# Journal
 
 The Journal is responsible for maintaining and extending the BlockChain
 for the validator. This responsibility involves validating candidate

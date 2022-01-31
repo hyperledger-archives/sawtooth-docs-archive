@@ -1,6 +1,4 @@
----
-title: Seth Transaction Family Specification
----
+# Seth Transaction Family Specification
 
 # Overview
 

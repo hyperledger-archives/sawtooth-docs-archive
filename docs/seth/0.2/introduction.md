@@ -1,6 +1,4 @@
----
-title: Introduction
----
+# Introduction
 
 The primary goal of the Sawtooth-Ethereum integration project,
 affectionately dubbed \"Seth\", is to add support for running Ethereum

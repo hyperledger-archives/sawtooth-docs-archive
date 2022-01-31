@@ -1,6 +1,4 @@
----
-title: System Administrator\'s Guide
----
+# System Administrator\'s Guide
 
 ::: toctree
 sysadmin_guide/installation sysadmin_guide/systemd

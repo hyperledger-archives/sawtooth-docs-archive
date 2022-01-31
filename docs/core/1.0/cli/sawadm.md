@@ -1,6 +1,4 @@
----
-title: sawadm
----
+# sawadm
 
 The `sawadm` command is used for Sawtooth administration tasks. The
 `sawadm` subcommands create validator keys during initial configuration

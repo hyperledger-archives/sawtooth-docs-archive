@@ -1,6 +1,4 @@
----
-title: sawnet
----
+# sawnet
 
 The `sawnet` command is used to interact with an entire network of
 Sawtooth nodes.

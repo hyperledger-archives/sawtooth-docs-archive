@@ -1,6 +1,4 @@
----
-title: Installing Hyperledger Sawtooth
----
+# Installing Hyperledger Sawtooth
 
 This procedure describes how to install Hyperledger Sawtooth on a Ubuntu
 system for proof-of-concept or production use in a Sawtooth network.

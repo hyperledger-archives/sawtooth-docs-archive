@@ -1,6 +1,4 @@
----
-title: Importing the Python SDK
----
+# Importing the Python SDK
 
 ::: note
 ::: title

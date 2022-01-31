@@ -1,6 +1,4 @@
----
-title: Log Configuration
----
+# Log Configuration
 
 # Overview
 

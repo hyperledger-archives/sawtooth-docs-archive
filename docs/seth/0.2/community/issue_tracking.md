@@ -1,6 +1,4 @@
----
-title: Issue Tracking
----
+# Issue Tracking
 
 # Reporting Issues {#jira}
 

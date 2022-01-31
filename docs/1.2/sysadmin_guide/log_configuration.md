@@ -1,6 +1,4 @@
----
-title: Log Configuration File
----
+# Log Configuration File
 
 The validator and the Python SDK make it easy to customize Sawtooth
 logging output. This is done by creating a log config file in

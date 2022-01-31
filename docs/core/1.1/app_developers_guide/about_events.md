@@ -1,6 +1,4 @@
----
-title: About Sawtooth Events
----
+# About Sawtooth Events
 
 Sawtooth events occur when blocks are committed \-\-- that is, the
 validator broadcasts events when a commit operation succeeds \-\-- and

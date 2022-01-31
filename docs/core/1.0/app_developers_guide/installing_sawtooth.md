@@ -1,6 +1,4 @@
----
-title: Installing and Running Sawtooth
----
+# Installing and Running Sawtooth
 
 Before you can start developing for the *Hyperledger Sawtooth* platform,
 you\'ll need to set up and run a local validator to test your

@@ -1,6 +1,4 @@
----
-title: Python SDK API Reference
----
+# Python SDK API Reference
 
 -   [Transaction
     Processor](https://sawtooth.hyperledger.org/docs/sdk-python/nightly/master/sdks/python_sdk/processor.html)

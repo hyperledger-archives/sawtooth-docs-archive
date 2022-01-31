@@ -1,6 +1,4 @@
----
-title: Configuring Permissions
----
+# Configuring Permissions
 
 # Transactor Permissioning
 

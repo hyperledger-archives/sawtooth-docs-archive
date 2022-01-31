@@ -1,6 +1,4 @@
----
-title: Transaction Scheduling
----
+# Transaction Scheduling
 
 Sawtooth supports both serial and parallel scheduling of transactions.
 The scheduler type is specified via a command line argument or as an

@@ -1,6 +1,4 @@
----
-title: Using Sawtooth with Docker
----
+# Using Sawtooth with Docker
 
 This procedure walks through the process of setting up Hyperledger
 Sawtooth for application development using Docker Compose, introduces

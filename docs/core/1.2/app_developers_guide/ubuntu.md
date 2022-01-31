@@ -1,6 +1,4 @@
----
-title: Using Ubuntu for a Single Sawtooth Node
----
+# Using Ubuntu for a Single Sawtooth Node
 
 This procedure explains how to set up Hyperledger Sawtooth for
 application development on Ubuntu 18.04 (Bionic). It shows you how to

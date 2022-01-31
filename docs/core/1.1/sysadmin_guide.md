@@ -1,6 +1,4 @@
----
-title: System Administrator\'s Guide
----
+# System Administrator\'s Guide
 
 This guide explains how to install, configure, and run Hyperledger
 Sawtooth on a Ubuntu system for proof-of-concept or production use in a

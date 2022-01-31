@@ -1,6 +1,4 @@
----
-title: Using a Proxy Server to Authorize the REST API
----
+# Using a Proxy Server to Authorize the REST API
 
 ::: note
 ::: title

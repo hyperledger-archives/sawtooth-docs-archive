@@ -1,6 +1,4 @@
----
-title: Encoding Your Payload
----
+# Encoding Your Payload
 
 Transaction payloads are composed of binary-encoded data that is opaque
 to the validator. The logic for encoding and decoding them rests

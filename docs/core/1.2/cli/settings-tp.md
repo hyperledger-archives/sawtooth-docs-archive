@@ -1,6 +1,4 @@
----
-title: settings-tp
----
+# settings-tp
 
 The `settings-tp` command starts the Settings transaction processor,
 which provides a methodology for storing on-chain configuration

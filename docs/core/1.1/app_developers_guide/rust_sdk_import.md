@@ -1,6 +1,4 @@
----
-title: Importing the Rust SDK
----
+# Importing the Rust SDK
 
 ::: note
 ::: title

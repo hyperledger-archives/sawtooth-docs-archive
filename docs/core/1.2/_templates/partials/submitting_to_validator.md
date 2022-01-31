@@ -1,6 +1,4 @@
----
-title: Submitting Batches to the Validator
----
+# Submitting Batches to the Validator
 
 The prescribed way to submit Batches to the validator is via the REST
 API. This is an independent process that runs alongside a validator,

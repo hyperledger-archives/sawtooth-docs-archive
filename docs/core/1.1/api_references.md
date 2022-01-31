@@ -1,6 +1,4 @@
----
-title: API References
----
+# API References
 
 ::: toctree
 sdks.rst rest_api.rst

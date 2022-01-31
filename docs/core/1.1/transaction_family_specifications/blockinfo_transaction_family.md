@@ -1,6 +1,4 @@
----
-title: BlockInfo Transaction Family
----
+# BlockInfo Transaction Family
 
 # Overview
 

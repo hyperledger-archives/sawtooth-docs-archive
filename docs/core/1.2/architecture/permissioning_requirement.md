@@ -1,6 +1,4 @@
----
-title: Permissioning Design
----
+# Permissioning Design
 
 Sawtooth includes the ability to control validator and transactor
 permissions. This chapter describes permissioning in Hyperledger

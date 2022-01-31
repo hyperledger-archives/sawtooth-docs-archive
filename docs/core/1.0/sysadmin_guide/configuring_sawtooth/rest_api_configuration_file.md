@@ -1,6 +1,4 @@
----
-title: REST API Configuration File
----
+# REST API Configuration File
 
 The REST API configuration file specifies network connection settings
 and an optional timeout value.

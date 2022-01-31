@@ -1,6 +1,4 @@
----
-title: Joining the Discussion
----
+# Joining the Discussion
 
 # Chat
 

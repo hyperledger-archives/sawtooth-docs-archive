@@ -1,6 +1,4 @@
----
-title: Using the Python SDK
----
+# Using the Python SDK
 
 This tutorial describes how to develop a Sawtooth application with an
 example transaction family, XO, using the Sawtooth Python SDK.

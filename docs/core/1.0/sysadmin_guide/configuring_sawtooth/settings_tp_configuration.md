@@ -1,6 +1,4 @@
----
-title: Settings Transaction Processor Configuration File
----
+# Settings Transaction Processor Configuration File
 
 The Settings transaction processor configuration file specifies the
 validator endpoint connection to use.

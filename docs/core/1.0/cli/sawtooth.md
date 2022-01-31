@@ -1,6 +1,4 @@
----
-title: sawtooth
----
+# sawtooth
 
 The `sawtooth` command is the usual way to interact with validators or
 validator networks.

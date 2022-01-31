@@ -1,6 +1,4 @@
----
-title: Example Transaction Processors
----
+# Example Transaction Processors
 
 Sawtooth includes several transaction families as examples for
 developing a transaction processor. The following executables are

@@ -1,6 +1,4 @@
----
-title: Importing the Go SDK
----
+# Importing the Go SDK
 
 ::: note
 ::: title

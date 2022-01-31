@@ -1,6 +1,4 @@
----
-title: Sabre CLI Reference
----
+# Sabre CLI Reference
 
 The Sabre CLI provides a way to upload and execute Sabre smart contracts
 from the command line. It also provides the ability to manage namespace

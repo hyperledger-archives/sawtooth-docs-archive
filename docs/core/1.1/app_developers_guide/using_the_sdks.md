@@ -1,6 +1,4 @@
----
-title: Using the Sawtooth SDKs
----
+# Using the Sawtooth SDKs
 
 Sawtooth provides SDKs in several languages to help with application
 development.

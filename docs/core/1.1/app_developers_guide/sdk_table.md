@@ -1,6 +1,4 @@
----
-title: Available SDKs
----
+# Available SDKs
 
 The following table summarizes the Sawtooth SDKs. It shows the feature
 completeness, API stability, and maturity level for the client signing,

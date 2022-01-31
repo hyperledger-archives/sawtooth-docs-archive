@@ -1,6 +1,4 @@
----
-title: State Delta Subscriptions via Web Sockets
----
+# State Delta Subscriptions via Web Sockets
 
 As transactions are committed to the block chain, an app developer may
 be interested in receiving events related to the changes in state that

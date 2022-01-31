@@ -1,6 +1,4 @@
----
-title: JavaScript SDK API Reference
----
+# JavaScript SDK API Reference
 
 -   [Transaction
     Processor](https://sawtooth.hyperledger.org/docs/sdk-javascript/nightly/master/module-processor.html)

@@ -1,6 +1,4 @@
----
-title: XO Transaction Processor Configuration File
----
+# XO Transaction Processor Configuration File
 
 The XO transaction processor configuration file specifies the validator
 endpoint connection to use.

@@ -1,6 +1,4 @@
----
-title: REST API
----
+# REST API
 
 Hyperledger Sawtooth provides a REST API (see the
 `../rest_api`{.interpreted-text role="doc"}) that allows clients to

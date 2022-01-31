@@ -1,6 +1,4 @@
----
-title: Validator Registry Transaction Family
----
+# Validator Registry Transaction Family
 
 # Overview
 

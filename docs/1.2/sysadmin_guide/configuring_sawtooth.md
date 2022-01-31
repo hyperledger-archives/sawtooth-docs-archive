@@ -1,6 +1,4 @@
----
-title: About Sawtooth Configuration Files
----
+# About Sawtooth Configuration Files
 
 Each Sawtooth component, such as the validator or the REST API, has an
 optional configuration file that controls the component\'s behavior.

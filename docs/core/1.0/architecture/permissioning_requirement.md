@@ -1,6 +1,4 @@
----
-title: Permissioning Requirements
----
+# Permissioning Requirements
 
 The following is a detailed list of permissioning requirements,
 capabilities, and user stories that aid in the explanation and

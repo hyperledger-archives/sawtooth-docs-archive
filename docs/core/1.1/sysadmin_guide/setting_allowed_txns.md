@@ -1,6 +1,4 @@
----
-title: Setting the Allowed Transaction Types (Optional)
----
+# Setting the Allowed Transaction Types (Optional)
 
 By default, a validator accepts transactions from any transaction
 processor. However, Sawtooth allows you to limit the types of

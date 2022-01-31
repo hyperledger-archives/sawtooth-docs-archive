@@ -1,6 +1,4 @@
----
-title: CLI Command Reference
----
+# CLI Command Reference
 
 The Sawtooth command-line interface (CLI) provides a set of commands to
 interact with Sawtooth services.

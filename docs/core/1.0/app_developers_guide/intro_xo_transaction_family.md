@@ -1,6 +1,4 @@
----
-title: Introduction to the XO Transaction Family
----
+# Introduction to the XO Transaction Family
 
 # What is XO?
 

@@ -1,6 +1,4 @@
----
-title: REST API
----
+# REST API
 
 *Hyperledger Sawtooth* provides a pragmatic RESTish API for clients to
 interact with a validator using common HTTP/JSON standards. It is an

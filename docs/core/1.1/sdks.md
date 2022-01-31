@@ -1,6 +1,4 @@
----
-title: SDK API Reference
----
+# SDK API Reference
 
 # Python
 

@@ -1,6 +1,4 @@
----
-title: Using Grafana to Display Sawtooth Metrics
----
+# Using Grafana to Display Sawtooth Metrics
 
 ::: note
 ::: title

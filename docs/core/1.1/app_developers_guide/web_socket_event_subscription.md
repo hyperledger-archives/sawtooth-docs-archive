@@ -1,6 +1,4 @@
----
-title: About Web Sockets and Event Subscriptions
----
+# About Web Sockets and Event Subscriptions
 
 Applications can subscribe to events by using a web socket connection to
 the REST API, but there are several limitations:

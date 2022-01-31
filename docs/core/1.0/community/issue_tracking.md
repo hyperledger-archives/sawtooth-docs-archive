@@ -1,6 +1,4 @@
----
-title: Tracking Issues
----
+# Tracking Issues
 
 A great way to contribute is by reporting issues. Before reporting an
 issue, please review the current open issues to see if someone has

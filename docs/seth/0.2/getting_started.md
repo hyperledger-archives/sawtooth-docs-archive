@@ -1,6 +1,4 @@
----
-title: Getting Started
----
+# Getting Started
 
 # Getting Seth
 

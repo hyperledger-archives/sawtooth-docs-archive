@@ -1,6 +1,4 @@
----
-title: PoET 1.0 Specification
----
+# PoET 1.0 Specification
 
 # Introduction
 

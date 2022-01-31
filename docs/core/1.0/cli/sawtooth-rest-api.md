@@ -1,6 +1,4 @@
----
-title: sawtooth-rest-api
----
+# sawtooth-rest-api
 
 The `sawtooth-rest-api` command starts the REST API and connects to the
 validator.

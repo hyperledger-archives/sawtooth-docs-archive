@@ -1,6 +1,4 @@
----
-title: Glossary
----
+# Glossary
 
 This glossary defines general Sawtooth terms and concepts.
 

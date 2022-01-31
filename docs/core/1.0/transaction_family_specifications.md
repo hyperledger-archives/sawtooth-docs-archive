@@ -1,6 +1,4 @@
----
-title: Transaction Family Specifications
----
+# Transaction Family Specifications
 
 ::: toctree
 transaction_family_specifications/settings_transaction_family.rst

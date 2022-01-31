@@ -1,6 +1,4 @@
----
-title: Generating User and Validator Keys
----
+# Generating User and Validator Keys
 
 1.  Generate your user key for Sawtooth.
 

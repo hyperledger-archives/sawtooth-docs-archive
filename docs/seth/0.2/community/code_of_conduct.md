@@ -1,6 +1,4 @@
----
-title: Code of Conduct
----
+# Code of Conduct
 
 When participating, please be respectful and courteous.
 

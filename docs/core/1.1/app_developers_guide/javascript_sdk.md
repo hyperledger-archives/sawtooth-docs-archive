@@ -1,6 +1,4 @@
----
-title: Using the JavaScript SDK
----
+# Using the JavaScript SDK
 
 This tutorial describes how to develop a Sawtooth application with an
 example transaction family, XO, using the Sawtooth JavaScript SDK.

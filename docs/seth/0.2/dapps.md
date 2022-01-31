@@ -1,6 +1,4 @@
----
-title: Developing DApps
----
+# Developing DApps
 
 # Starting Seth RPC
 

@@ -1,6 +1,4 @@
----
-title: Configuring Validator and Transactor Permissions
----
+# Configuring Validator and Transactor Permissions
 
 This section describes the validator and transactor permissions in
 Hyperledger Sawtooth.

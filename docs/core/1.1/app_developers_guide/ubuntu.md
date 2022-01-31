@@ -1,6 +1,4 @@
----
-title: Using Ubuntu for Your Development Environment
----
+# Using Ubuntu for Your Development Environment
 
 This procedure explains how to set up Hyperledger Sawtooth for
 application development on Ubuntu 16.04. It shows you how to install

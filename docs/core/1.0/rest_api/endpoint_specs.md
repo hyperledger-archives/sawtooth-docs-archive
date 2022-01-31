@@ -1,6 +1,4 @@
----
-title: Endpoint Specifications
----
+# Endpoint Specifications
 
 These specifications document the available Sawtooth REST API endpoints.
 They are generated from the official

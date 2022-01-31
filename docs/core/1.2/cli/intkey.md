@@ -1,6 +1,4 @@
----
-title: intkey
----
+# intkey
 
 The `intkey` command starts the IntegerKey transaction processor, which
 provides functions that can be used to test deployed ledgers.

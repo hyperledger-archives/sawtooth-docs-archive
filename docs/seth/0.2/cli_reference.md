@@ -1,6 +1,4 @@
----
-title: CLI Reference
----
+# CLI Reference
 
 # Seth Client Usage {#seth-cli-reference-label}
 

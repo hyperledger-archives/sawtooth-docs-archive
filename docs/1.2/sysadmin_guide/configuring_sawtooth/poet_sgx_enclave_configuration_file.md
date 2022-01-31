@@ -1,6 +1,4 @@
----
-title: PoET SGX Enclave Configuration File
----
+# PoET SGX Enclave Configuration File
 
 This configuration file specifies configuration settings for a PoET SGX
 enclave.

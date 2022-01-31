@@ -1,6 +1,4 @@
----
-title: Address and Namespace Design
----
+# Address and Namespace Design
 
 # Overview
 

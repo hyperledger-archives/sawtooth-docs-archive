@@ -1,6 +1,4 @@
----
-title: Sabre Application Developer\'s Guide
----
+# Sabre Application Developer\'s Guide
 
 The guide covers development of Sabre smart contracts which can be
 stored on chain and executed using the Sabre Transaction Processor.

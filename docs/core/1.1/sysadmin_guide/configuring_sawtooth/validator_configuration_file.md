@@ -1,6 +1,4 @@
----
-title: Validator Configuration File
----
+# Validator Configuration File
 
 The validator configuration file specifies network information that
 allows the validator to advertise itself properly and search for peers.

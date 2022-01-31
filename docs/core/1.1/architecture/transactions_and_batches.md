@@ -1,6 +1,4 @@
----
-title: Transactions and Batches
----
+# Transactions and Batches
 
 Modifications to state are performed by creating and applying
 transactions. A client creates a transaction and submits it to the
