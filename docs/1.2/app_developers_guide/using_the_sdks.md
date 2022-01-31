@@ -51,13 +51,8 @@ The Maturity column shows the general maturity level of each feature:
 The rest of this section has tutorials for the fully supported
 SDKs.
 
-* [Using the GO SDK]({% link docs/1.2/app_developers_guide/go_sdk.md %})
-* [Using the Java SDK]({% link docs/1.2/app_developers_guide/java_sdk.md %})
-* [Using the JavaScript SDK]({% link docs/1.2/app_developers_guide/javascript_sdk.md %})
 * [Using the Python SDK]({% link docs/1.2/app_developers_guide/python_sdk.md %})
 * [Using the Rust SDK]({% link docs/1.2/app_developers_guide/rust_sdk.md %})
-* [Using the Swift SDK]({% link docs/1.2/app_developers_guide/swift_sdk.md %})
-
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
