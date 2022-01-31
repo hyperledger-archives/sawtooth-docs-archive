@@ -2,7 +2,7 @@
 
 Sawtooth supports both serial and parallel scheduling of transactions.
 The scheduler type is specified via a command line argument or as an
-option in the validator\'s configuration file when the validator process
+option in the validator's configuration file when the validator process
 is started. Both schedulers result in the same deterministic results and
 are completely interchangeable.
 
@@ -27,7 +27,7 @@ alter the same state values to appear in a single block. Of course, in
 cases where these types of block-level restrictions are desired,
 transaction families may implement the appropriate business logic.
 
-# Scheduling within the Validator
+## Scheduling within the Validator
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -37,15 +37,14 @@ transaction families may implement the appropriate business logic.
 The validator has two major components that use schedulers to calculate
 state changes and the resulting Merkle hashes based on transaction
 processing: the
-`Chain Controller <journal-chain-controller-label>`{.interpreted-text
-role="ref"} and the
-`Block Publisher <journal-block-publisher-label>`{.interpreted-text
-role="ref"}. These two components pass a scheduler to the Executor.
-While the validator contains only a single Chain Controller, a single
-Block Publisher, and a single Executor, there are numerous instances of
-schedulers that are dynamically created as needed.
+[Chain Controller](journal#journal-chain-controller-label) and the
+[Block Publisher](journal#journal-block-publisher-label). These two
+components pass a scheduler to the Executor. While the validator
+contains only a single Chain Controller, a single Block Publisher, and a
+single Executor, there are numerous instances of schedulers that are
+dynamically created as needed.
 
-## Chain Controller
+### Chain Controller
 
 The Chain Controller is responsible for maintaining the current chain
 head (a pointer to the last block in the current chain). Processing is
@@ -59,11 +58,11 @@ from a transaction execution and state standpoint. The Chain Controller
 uses this information in combination with consensus information to
 determine whether to update the current chain head.
 
-## Block Publisher
+### Block Publisher
 
 The Block Publisher is responsible for creating new candidate blocks. As
 batches are received by the validator (from clients or other Sawtooth
-nodes), they are added to the Block Publisher\'s pending queue. Only
+nodes), they are added to the Block Publisher's pending queue. Only
 valid transactions will be added to the next candidate block. For
 timeliness, batches are added to a scheduler as they are added to the
 pending queue; thus, transactions are processed incrementally as they
@@ -73,7 +72,7 @@ When the pending queue changes significantly, such as when the chain
 head has been updated by the Chain Controller, the Block Publisher
 cancels the current scheduler and creates a new scheduler.
 
-## Executor {#txn-sched-executor-label}
+### Executor {#txn-sched-executor-label}
 
 The Executor is responsible for the execution of transactions by sending
 them to transaction processors. The overall flow for each transaction
@@ -86,34 +85,34 @@ is:
     chained together).
 3.  The Executor sends the transaction and a context reference to the
     transaction processor.
-4.  The transaction processor updates the context\'s state via context
+4.  The transaction processor updates the context's state via context
     manager calls.
 5.  The transaction processor notifies the Executor that the transaction
     is complete.
-6.  The Executor updates the scheduler with the transaction\'s result
+6.  The Executor updates the scheduler with the transaction's result
     with the updated context.
 
 In the case of serial scheduling, step 1 simply blocks until the
-previous transaction\'s step 6 has completed. For the parallel
+previous transaction's step 6 has completed. For the parallel
 scheduler, step 1 blocks until a transaction exists which can be
 executed because its dependencies have been satisfied, with steps 2
 through 6 happening in parallel for each transaction being executed.
 
-# Iterative Scheduling {#arch-iterative-sched-label}
+## Iterative Scheduling {#arch-iterative-sched-label}
 
 Each time the executor requests the next transaction, the scheduler
 calculates the next transaction dynamically based on knowledge of the
 transaction dependency graph and previously executed transactions within
 this schedule.
 
-## Serial Scheduler
+### Serial Scheduler
 
 For the serial scheduler, the dependency graph is straightforward; each
 transaction is dependent on the one before it. The next transaction is
 released only when the scheduler has received the execution results from
 the transaction before it.
 
-## Parallel Scheduler
+### Parallel Scheduler
 
 As batches are added to the parallel scheduler, predecessor transactions
 are calculated for each transaction in the batch. A predecessor
@@ -121,22 +120,18 @@ transaction is a transaction which must be fully executed prior to
 executing the transaction for which it is a predecessor.
 
 Each transaction has a list of inputs and outputs; these are address
-declarations fields in the transaction\'s header and are filled in by
+declarations fields in the transaction's header and are filled in by
 the client when the transaction is created. Inputs and outputs specify
 which locations in state are accessed or modified by the transaction.
 Predecessor transactions are determined using these inputs/outputs
 declarations.
 
-::: note
-::: title
-Note
-:::
-
-It is possible for poorly written clients to impact parallelism by
-providing overly broad inputs/outputs declarations. Transaction
-processor implementations can enforce specific inputs/outputs
-requirements to provide an incentive for correct client behavior.
-:::
+> Note
+>
+> It is possible for poorly written clients to impact parallelism by
+> providing overly broad inputs/outputs declarations. Transaction
+> processor implementations can enforce specific inputs/outputs
+> requirements to provide an incentive for correct client behavior.
 
 The parallel scheduler calculates predecessors using a Merkle-Radix tree
 with nodes that are addressable by state addresses or namespaces. This
