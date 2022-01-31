@@ -17,12 +17,10 @@ API](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
 Seth is composed of three components:
 
-1.  The `seth <seth-cli-reference-label>`{.interpreted-text role="ref"}
+1.  The [seth](#seth-cli-reference-label)
     client
-2.  The `seth-tp <seth-tp-reference-label>`{.interpreted-text
-    role="ref"} transaction processor
-3.  The `seth-rpc <seth-rpc-reference-label>`{.interpreted-text
-    role="ref"} server
+2.  The [seth-tp](#seth-tp-reference-label) transaction processor
+3.  The [seth-rpc](#seth-rpc-reference-label) server
 
 The `seth` client is the user-facing CLI tool for interacting with a
 Sawtooth network that has Seth deployed on it. The `seth-tp` transaction

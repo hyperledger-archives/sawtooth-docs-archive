@@ -39,10 +39,8 @@ transaction families may implement the appropriate business logic.
 The validator has two major components that use schedulers to calculate
 state changes and the resulting Merkle hashes based on transaction
 processing: the
-`Chain Controller <journal-chain-controller-label>`{.interpreted-text
-role="ref"} and the
-`Block Publisher <journal-block-publisher-label>`{.interpreted-text
-role="ref"}. These two components pass a scheduler to the Executor.
+[Chain Controller](#journal-chain-controller-label) and the
+[Block Publisher](#journal-block-publisher-label). These two components pass a scheduler to the Executor.
 While the validator contains only a single Chain Controller, a single
 Block Publisher, and a single Executor, there are numerous instances of
 schedulers that are dynamically created as needed.

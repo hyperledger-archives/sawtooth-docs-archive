@@ -84,7 +84,7 @@ type of ANY (one or more) or ALL. The following filters are supported:
 -   `REGEX_ALL`
 
 For example filters, see
-`Events <events-reference-label>`{.interpreted-text role="ref"}.
+[Events](#events-reference-label).
 
 ## Event Protobuf Message
 

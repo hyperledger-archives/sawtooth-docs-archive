@@ -29,7 +29,7 @@ complete understanding of the
 role="doc"}. Instead, Seth comes with a web server that implements much
 of the [Ethereum JSON-RPC
 API](https://github.com/ethereum/wiki/wiki/JSON-RPC), the
-`seth-rpc <seth-rpc-reference-label>`{.interpreted-text role="ref"}
+[seth-rpc](#seth-rpc-reference-label)
 server. This interface provides a much higher level interface for
 developing Seth applications and is the recommended interface.
 

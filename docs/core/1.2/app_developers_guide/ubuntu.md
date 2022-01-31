@@ -35,8 +35,7 @@ implements your application\'s business logic.
 This Ubuntu environment is a single Sawtooth node that is running a
 validator, a REST API, the Devmode consensus engine, and three
 transaction processors. The environment uses
-`Devmode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"} and
+[Devmode consensus](#dynamic-consensus-label) and
 `parallel transaction processing <../architecture/scheduling>`{.interpreted-text
 role="doc"}.
 

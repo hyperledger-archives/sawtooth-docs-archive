@@ -55,8 +55,7 @@ is running a `validator`{.interpreted-text role="term"}, a
 `REST API`{.interpreted-text role="term"}, and three
 `transaction processors<transaction processor>`{.interpreted-text
 role="term"}. This environment uses
-`dev mode consensus <dynamic-consensus-label>`{.interpreted-text
-role="ref"} and
+[dev mode consensus](#dynamic-consensus-label) and
 `serial transaction processing <../architecture/scheduling>`{.interpreted-text
 role="doc"}.
 
@@ -196,8 +195,7 @@ This file defines the process for constructing a one-node Sawtooth
 environment with following containers:
 
 -   A single validator using
-    `dev mode consensus <dynamic-consensus-label>`{.interpreted-text
-    role="ref"}
+    [dev mode consensus](#dynamic-consensus-label)
 -   A REST API connected to the validator
 -   The Settings transaction processor (`sawtooth-settings`)
 -   The IntegerKey transaction processor (`intkey-tp-python`)
