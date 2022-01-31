@@ -14,11 +14,34 @@ example:
 $ sawtooth state list --format csv
 ```
 
-::: literalinclude
-output/sawtooth_usage.out
-:::
+``` console
+usage: sawtooth [-h] [-v] [-V]
+                {batch,block,identity,keygen,peer,status,settings,state,transaction}
+                ...
 
-# sawtooth batch
+Provides subcommands to configure, manage, and use Sawtooth components.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         enable more verbose output
+  -V, --version         display version information
+
+subcommands:
+  {batch,block,identity,keygen,peer,status,settings,state,transaction}
+    batch               Displays information about batches and submit new
+                        batches
+    block               Displays information on blocks in the current
+                        blockchain
+    identity            Works with optional roles, policies, and permissions
+    keygen              Creates user signing keys
+    peer                Displays information about validator peers
+    status              Displays information about validator status
+    settings            Displays on-chain settings
+    state               Displays information on the entries in state
+    transaction         Shows information on transactions in the current chain
+```
+
+## sawtooth batch
 
 <!--
      Copyright 2017 Intel Corporation
@@ -45,11 +68,20 @@ REST API. A Batch is a group of interdependent transactions that is the
 atomic unit of change in Sawtooth. For more information, see
 "Transactions and Batches!"
 
-::: literalinclude
-output/sawtooth_batch_usage.out
-:::
+```console
+usage: sawtooth batch [-h] {list,show,status,submit} ...
 
-# sawtooth batch list
+Provides subcommands to display Batch information and submit Batches to the
+validator via the REST API.
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+subcommands:
+  {list,show,status,submit}
+```
+
+## sawtooth batch list
 
 The `sawtooth batch list` subcommand queries the specified Sawtooth REST
 API (default: `http://localhost:8008`) for a list of Batches in the
@@ -60,11 +92,23 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-::: literalinclude
-output/sawtooth_batch_list_usage.out
-:::
+``` console
+usage: sawtooth batch list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                           [-F {csv,json,yaml,default}]
 
-# sawtooth batch show
+Displays all information about all committed Batches for the specified validator, including the Batch id, public keys of all signers, and number of transactions in each Batch.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+```
+
+## sawtooth batch show
 
 The `sawtooth batch show` subcommand queries the Sawtooth REST API for a
 specific batch in the current blockchain. It returns complete
@@ -74,14 +118,32 @@ of a single key, either from the batch or its header.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_batch_show_usage.out
-:::
+``` console
+usage: sawtooth batch show [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-k KEY]
+                           [-F {yaml,json}]
+                           batch_id
 
-# sawtooth batch status
+Displays information for the specified Batch.
+
+positional arguments:
+  batch_id              id (header_signature) of the batch
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -k KEY, --key KEY     show a single property from the block or header
+  -F {yaml,json}, --format {yaml,json}
+                        choose the output format (default: yaml)
+
+```
+
+## sawtooth batch status
 
 The `sawtooth batch status` subcommand queries the Sawtooth REST API for
 the committed status of one or more batches, which are specified as a
@@ -94,14 +156,32 @@ seconds.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_batch_status_usage.out
-:::
+``` console
+usage: sawtooth batch status [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                             [--wait [WAIT]] [-F {yaml,json}]
+                             batch_ids
 
-# sawtooth batch submit
+Displays the status of the specified Batch id or ids.
+
+positional arguments:
+  batch_ids             single batch id or comma-separated list of batch ids
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  --wait [WAIT]         set time, in seconds, to wait for commit
+  -F {yaml,json}, --format {yaml,json}
+                        choose the output format (default: yaml)
+
+```
+
+## sawtooth batch submit
 
 The `sawtooth batch submit` subcommand sends one or more Batches to the
 Sawtooth REST API to be submitted to the validator. The input is a
@@ -112,23 +192,57 @@ processing is complete, with an optional timeout specified in seconds.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_batch_submit_usage.out
-:::
+``` console
+usage: sawtooth batch submit [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-v]
+                             [-V] [--wait [WAIT]] [-f FILENAME]
+                             [--batch-size-limit BATCH_SIZE_LIMIT]
 
-# sawtooth block
+Sends Batches to the REST API to be submitted to the validator. The input must
+be a binary file containing a binary-encoded BatchList of one or more batches
+with any number of transactions.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -v, --verbose         enable more verbose output
+  -V, --version         display version information
+  --wait [WAIT]         set time, in seconds, to wait for batches to commit
+  -f FILENAME, --filename FILENAME
+                        specify location of input file
+  --batch-size-limit BATCH_SIZE_LIMIT
+                        set maximum batch size; batches are split for
+                        processing if they exceed this size
+
+```
+
+## sawtooth block
 
 The `sawtooth block` subcommands display information about the blocks in
 the current blockchain.
 
-::: literalinclude
-output/sawtooth_block_usage.out
-:::
+``` console
+usage: sawtooth block [-h] {list,show} ...
 
-# sawtooth block list {#sawtooth-block-list-label}
+Provides subcommands to display information about the blocks in the current
+blockchain.
+
+optional arguments:
+  -h, --help   show this help message and exit
+
+subcommands:
+  {list,show}
+    list       Displays information for all blocks on the current blockchain
+    show       Displays information about the specified block on the current
+               blockchain
+```
+
+## sawtooth block list {#sawtooth-block-list-label}
 
 The `sawtooth block list` subcommand queries the Sawtooth REST API
 (default: `http://localhost:8008`) for a list of blocks in the current
@@ -140,11 +254,26 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-::: literalinclude
-output/sawtooth_block_list_usage.out
-:::
+``` console
+usage: sawtooth block list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                           [-F {csv,json,yaml,default}] [-n COUNT]
 
-# sawtooth block show
+Displays information for all blocks on the current blockchain, including the block id and number, public keys all of allsigners, and number of transactions and batches.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+  -n COUNT, --count COUNT
+                        the number of blocks to list
+
+```
+
+## sawtooth block show
 
 The `sawtooth block show` subcommand queries the Sawtooth REST API for a
 specific block in the current blockchain. It returns complete
@@ -155,14 +284,32 @@ its header.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_block_show_usage.out
-:::
+``` console
+usage: sawtooth block show [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-k KEY]
+                           [-F {yaml,json}]
+                           block_id
 
-# sawtooth identity
+Displays information about the specified block on the current blockchain.
+
+positional arguments:
+  block_id              id (header_signature) of the block
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -k KEY, --key KEY     show a single property from the block or header
+  -F {yaml,json}, --format {yaml,json}
+                        choose the output format (default: yaml)
+
+```
+
+## sawtooth identity
 
 Sawtooth supports an identity system that provides an extensible
 role-and policy-based system for defining permissions in a way which can
@@ -177,20 +324,46 @@ Note that only the public keys stored in the setting
 sawtooth.identity.allowed_keys are allowed to submit identity
 transactions. Use the `sawset` commands to change this setting.
 
-::: literalinclude
-output/sawtooth_identity_usage.out
-:::
+``` console
+usage: sawtooth identity [-h] {policy,role} ...
 
-# sawtooth identity policy
+Provides subcommands to work with roles and policies.
+
+optional arguments:
+  -h, --help     show this help message and exit
+
+subcommands:
+  {policy,role}
+    policy       Provides subcommands to display existing policies and create
+                 new policies
+    role         Provides subcommands to display existing roles and create new
+                 roles
+
+```
+
+## sawtooth identity policy
 
 The `sawtooth identity policy` subcommands are used to display the
 current policies stored in state and to create new policies.
 
-::: literalinclude
-output/sawtooth_identity_policy_usage.out
-:::
+``` console
+usage: sawtooth identity policy [-h] {create,list} ...
 
-# sawtooth identity policy create
+Provides subcommands to list the current policies stored in state and to
+create new policies.
+
+optional arguments:
+  -h, --help     show this help message and exit
+
+policy:
+  {create,list}
+    create       Creates batches of sawtooth-identity transactions for setting
+                 a policy
+    list         Lists the current policies
+
+```
+
+## sawtooth identity policy create
 
 The `sawtooth identity policy create` subcommand creates a new policy
 that can then be set to a role. The policy should contain at least one
@@ -199,30 +372,70 @@ assumed last rule to deny all. This subcommand can also be used to
 change the policy that is already set to a role without having to also
 reset the role.
 
-::: literalinclude
-output/sawtooth_identity_policy_create_usage.out
-:::
+``` console
+usage: sawtooth identity policy create [-h] [-k KEY] [-o OUTPUT | --url URL]
+                                       [--wait WAIT]
+                                       name rule [rule ...]
 
-# sawtooth identity policy list
+Creates a policy that can be set to a role or changes a policy without
+resetting the role.
+
+positional arguments:
+  name                  name of the new policy
+  rule                  rule with the format "PERMIT_KEY <key>" or "DENY_KEY
+                        <key> (multiple "rule" arguments can be specified)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -k KEY, --key KEY     specify the signing key for the resulting batches
+  -o OUTPUT, --output OUTPUT
+                        specify the output filename for the resulting batches
+  --url URL             identify the URL of a validator's REST API
+  --wait WAIT           set time, in seconds, to wait for the policy to commit
+                        when submitting to the REST API.
+```
+
+## sawtooth identity policy list
 
 The `sawtooth identity policy list` subcommand lists the policies that
 are currently set in state. This list can be used to figure out which
 policy name should be set for a new role.
 
-::: literalinclude
-output/sawtooth_identity_policy_list_usage.out
-:::
+``` console
+usage: sawtooth identity policy list [-h] [--url URL]
+                                     [--format {default,csv,json,yaml}]
 
-# sawtooth identity role
+Lists the policies that are currently set in state.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of a validator's REST API
+  --format {default,csv,json,yaml}
+                        choose the output format
+```
+
+## sawtooth identity role
 
 The `sawtooth identity role` subcommands are used to list the current
 roles stored in state and to create new roles.
 
-::: literalinclude
-output/sawtooth_identity_role_usage.out
-:::
+``` console
+usage: sawtooth identity role [-h] {create,list} ...
 
-# sawtooth identity role create
+Provides subcommands to list the current roles stored in state and to create
+new roles.
+
+optional arguments:
+  -h, --help     show this help message and exit
+
+role:
+  {create,list}
+    create       Creates a new role that can be used to enforce permissions
+    list         Lists the current keys and values of roles
+
+```
+
+## sawtooth identity role create
 
 The `sawtooth identity role create` subcommand creates a new role that
 can be used to enforce permissions. The policy argument identifies the
@@ -233,11 +446,28 @@ be taken on the network. For example, the role named
 `transactor.transaction_signer` controls who is allowed to sign
 transactions.
 
-::: literalinclude
-output/sawtooth_identity_role_create_usage.out
-:::
+``` console
+usage: sawtooth identity role create [-h] [-k KEY] [--wait WAIT]
+                                     [-o OUTPUT | --url URL]
+                                     name policy
 
-# sawtooth identity role list
+Creates a new role that can be used to enforce permissions.
+
+positional arguments:
+  name                  name of the role
+  policy                identify policy that role will be restricted to
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -k KEY, --key KEY     specify the signing key for the resulting batches
+  --wait WAIT           set time, in seconds, to wait for a role to commit
+                        when submitting to the REST API.
+  -o OUTPUT, --output OUTPUT
+                        specify the output filename for the resulting batches
+  --url URL             the URL of a validator's REST API
+```
+
+## sawtooth identity role list
 
 The `sawtooth identity role list` subcommand displays the roles that are
 currently set in state. This list can be used to determine which
@@ -248,11 +478,20 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-::: literalinclude
-output/sawtooth_identity_role_list_usage.out
-:::
+``` console
+usage: sawtooth identity role list [-h] [--url URL]
+                                   [--format {default,csv,json,yaml}]
 
-# sawtooth keygen
+Displays the roles that are currently set in state.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of a validator's REST API
+  --format {default,csv,json,yaml}
+                        choose the output format
+```
+
+## sawtooth keygen
 
 The `sawtooth keygen` subcommand generates a private key file and a
 public key file so that users can sign Sawtooth transactions and
@@ -260,61 +499,129 @@ batches. These files are stored in the `<key-dir>` directory in
 `<key_name>.priv` and `<key_dir>/<key_name>.pub`. By default,
 `<key_dir>` is `~/.sawtooth` and `<key_name>` is `$USER`.
 
-::: literalinclude
-output/sawtooth_keygen_usage.out
-:::
+``` console
+usage: sawtooth keygen [-h] [-v] [-V] [--key-dir KEY_DIR] [--force] [-q]
+                       [key_name]
 
-# sawtooth peer
+Generates keys with which the user can sign transactions and batches.
+
+positional arguments:
+  key_name           specify the name of the key to create
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --verbose      enable more verbose output
+  -V, --version      display version information
+  --key-dir KEY_DIR  specify the directory for the key files
+  --force            overwrite files if they exist
+  -q, --quiet        do not display output
+
+The private and public key files are stored in <key-dir>/<key-name>.priv and
+<key-dir>/<key-name>.pub. <key-dir> defaults to ~/.sawtooth and <key-name>
+defaults to $USER.
+```
+
+## sawtooth peer
 
 The `sawtooth peer` subcommand displays the addresses of a specified
 validator\'s peers.
 
-::: literalinclude
-output/sawtooth_peer_usage.out
-:::
+``` console
+usage: sawtooth peer [-h] {list} ...
 
-# sawtooth peer list
+Provides a subcommand to list a validator's peers
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+subcommands:
+  {list}
+```
+
+## sawtooth peer list
 
 The `sawtooth peer list` subcommand displays the addresses of a
 specified validator\'s peers.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_peer_list_usage.out
-:::
+``` console
+usage: sawtooth peer list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                          [-F {csv,json,yaml,default}]
 
-# sawtooth settings
+Displays the addresses of the validators with which a specified validator is
+peered.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+```
+
+## sawtooth settings
 
 The `sawtooth settings` subcommand displays the values of currently
 active on-chain settings.
 
-::: literalinclude
-output/sawtooth_settings_usage.out
-:::
+``` console
+usage: sawtooth settings [-h] {list} ...
 
-# sawtooth settings list
+Displays the values of currently active on-chain settings.
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+settings:
+  {list}
+    list      Lists the current keys and values of on-chain settings
+```
+
+## sawtooth settings list
 
 The `sawtooth settings list` subcommand displays the current keys and
 values of on-chain settings.
 
-::: literalinclude
-output/sawtooth_settings_list_usage.out
-:::
+``` console
+usage: sawtooth settings list [-h] [--url URL] [--filter FILTER]
+                              [--format {default,csv,json,yaml}]
 
-# sawtooth state
+List the current keys and values of on-chain settings. The content can be
+exported to various formats for external consumption.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of a validator's REST API
+  --filter FILTER       filters keys that begin with this value
+  --format {default,csv,json,yaml}
+                        choose the output format
+```
+
+## sawtooth state
 
 The `sawtooth state` subcommands display information about the entries
 in the current blockchain state.
 
-::: literalinclude
-output/sawtooth_state_usage.out
-:::
+``` console
+usage: sawtooth state [-h] {list,show} ...
 
-# sawtooth state list
+Provides subcommands to display information about the state entries in the
+current blockchain state.
+
+optional arguments:
+  -h, --help   show this help message and exit
+
+subcommands:
+  {list,show}
+```
+
+## sawtooth state list
 
 The `sawtooth state list` subcommand queries the Sawtooth REST API for a
 list of all state entries in the current blockchain state. This
@@ -332,14 +639,32 @@ YAML) are available and can be piped into a file for further processing.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_state_list_usage.out
-:::
+``` console
+usage: sawtooth state list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                           [-F {csv,json,yaml,default}] [--head HEAD]
+                           [subtree]
 
-# sawtooth state show
+Lists all state entries in the current blockchain.
+
+positional arguments:
+  subtree               address of a subtree to filter the list by
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+  --head HEAD           specify the id of the block to set as the chain head
+
+```
+
+## sawtooth state show
 
 The `sawtooth state show` subcommand queries the Sawtooth REST API for a
 specific state entry (address) in the current blockchain state. It
@@ -350,27 +675,50 @@ using that same logic.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
 By default, the peers are displayed as a CSV string, but other
 plain-text formats (JSON, and YAML) are available and can be piped into
 a file for further processing.
 
-::: literalinclude
-output/sawtooth_state_show_usage.out
-:::
+``` console
+usage: sawtooth state show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                           [--head HEAD]
+                           address
 
-# sawtooth status
+Displays information for the specified state address in the current blockchain.
+
+positional arguments:
+  address               address of the leaf
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  --head HEAD           specify the id of the block to set as the chain head
+```
+
+## sawtooth status
 
 The `sawtooth status` subcommands display information related to a
 validator\'s status.
 
-::: literalinclude
-output/sawtooth_status_usage.out
-:::
+``` console
+usage: sawtooth status [-h] {show} ...
 
-# sawtooth status show
+Provides a subcommand to show a validator's status
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+subcommands:
+  {show}
+```
+
+## sawtooth status show
 
 The `sawtooth status` subcommand displays information related to a
 validator\'s current status, including its public network endpoint and
@@ -378,23 +726,45 @@ its peers.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_status_show_usage.out
-:::
+``` console
+usage: sawtooth status show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                            [-F {csv,json,yaml,default}]
 
-# sawtooth transaction
+Displays information about the status of a validator.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+
+```
+
+## sawtooth transaction
 
 The `sawtooth transaction` subcommands display information about the
 transactions in the current blockchain.
 
-::: literalinclude
-output/sawtooth_transaction_usage.out
-:::
+``` console
+usage: sawtooth transaction [-h] {list,show} ...
 
-# sawtooth transaction list
+Provides subcommands to display information about the transactions in the
+current blockchain.
+
+optional arguments:
+  -h, --help   show this help message and exit
+
+subcommands:
+  {list,show}
+```
+
+## sawtooth transaction list
 
 The `sawtooth transaction list` subcommand queries the Sawtooth REST API
 (default: `http://localhost:8008`) for a list of transactions in the
@@ -406,11 +776,24 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-::: literalinclude
-output/sawtooth_transaction_list_usage.out
-:::
+``` console
+usage: sawtooth transaction list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                                 [-F {csv,json,yaml,default}]
 
-# sawtooth transaction show
+Lists all transactions in the current blockchain.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -F {csv,json,yaml,default}, --format {csv,json,yaml,default}
+                        choose the output format
+
+```
+
+## sawtooth transaction show
 
 The `sawtooth transaction show` subcommand queries the Sawtooth REST API
 for a specific transaction in the current blockchain. It returns
@@ -421,9 +804,27 @@ header.
 
 This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
-\`username\`:[password]{.title-ref} combination when the REST API is
+`username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-::: literalinclude
-output/sawtooth_transaction_show_usage.out
-:::
+``` console
+usage: sawtooth transaction show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
+                                 [-k KEY] [-F {yaml,json}]
+                                 transaction_id
+
+Displays information for the specified transaction.
+
+positional arguments:
+  transaction_id        id (header_signature) of the transaction
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL             identify the URL of the validator's REST API (default:
+                        http://localhost:8008)
+  -u USERNAME[:PASSWORD], --user USERNAME[:PASSWORD]
+                        specify the user to authorize request
+  -k KEY, --key KEY     show a single property from the block or header
+  -F {yaml,json}, --format {yaml,json}
+                        choose the output format (default: yaml)
+
+```
