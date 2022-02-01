@@ -1,42 +1,33 @@
 # Configuring Validator and Transactor Permissions
 
-::: note
-::: title
-Note
-:::
-
-These instructions have been tested on Ubuntu 18.04 (Bionic) only.
-:::
+> **Note**
+>
+> These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 
 This section describes the validator and transactor permissions in
 Hyperledger Sawtooth.
 
--   [Transactor key permissioning]{.title-ref} controls who (which users
-    and clients) can submit transactions and batches to a validator.
-    Sawtooth provides both on-chain (network-wide) and off-chain (local)
-    settings for transactor key permissioning.
--   [Validator key permissioning]{.title-ref} controls which nodes can
-    connect to the Sawtooth network. These settings are configured with
-    on-chain settings.
+-   [Transactor key permissioning](#transactor-key-permissioning-label)controls
+    who (which users and clients) can submit transactions and batches to a
+    validator. Sawtooth provides both on-chain (network-wide) and off-chain
+    (local) settings for transactor key permissioning.
+-   [Validator key
+    permissioning]({% link docs/1.2/architecture/permissioning_requirement.md%})
+    controls which nodes can connect to the Sawtooth network. These settings are
+    configured with on-chain settings.
 
-The
-`Identity <../transaction_family_specifications/identity_transaction_family>`{.interpreted-text
-role="doc"} and
-`Settings <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} transaction processors (or equivalent) are required to
-process the on-chain settings. Note that Settings includes several
-settings to control who can change on-chain settings and how many votes
-are required for a settings change.
+The [Identity]({% link docs/1.2/transaction_family_specifications/identity_transaction_family.md%})
+and [Settings]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+transaction processors (or equivalent) are required to process the on-chain
+settings. Note that Settings includes several settings to control who can change
+on-chain settings and how many votes are required for a settings change.
 
-::: note
-::: title
-Note
-:::
-
-Sawtooth also includes another type of transaction control that limits
-which transaction processors can submit transactions. For more
-information, see \"Setting the Allowed Transaction Types (Optional)\".
-:::
+> **Note**
+>
+> Sawtooth also includes another type of transaction control that limits
+> which transaction processors can submit transactions. For more
+> information, see [Setting the Allowed Transaction Types
+> (Optional)]({% link docs/1.2/sysadmin_guide/setting_allowed_txns.md%})".
 
 # Transactor Key Permissioning {#transactor-key-permissioning-label}
 
@@ -87,16 +78,15 @@ file using the following format:
 ROLE = POLICY_NAME
 ```
 
-`ROLE` is a role for transactor permissioning (see
-`transactor-roles-label`{.interpreted-text role="ref"}). `POLICY_NAME`
+`ROLE` is a role for transactor permissioning (see [Transactor
+Roles](#transactor-roles-label)). `POLICY_NAME`
 is the name of policy file in the policy_dir (`/etc/sawtooth/policy` by
 default). Multiple roles may be defined in the same format within the
 validator configuration file.
 
 The policies are stored in the policy_dir defined by the path config
-(see See
-`configuring_sawtooth/path_configuration_file`{.interpreted-text
-role="doc"}).
+(see [Configuraing
+Sawtooth]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#path-configuration-file).
 
 Each policy consists of permit and deny rules, similar to policies
 defined in the Identity namespace. Each line contains either a
@@ -114,17 +104,13 @@ DENY_KEY {key}
 Specify one key per line. To define multiple permitted or denied keys,
 use additional `PERMIT_KEY` or `DENY_KEY` lines.
 
-::: note
-::: title
-Note
-:::
-
-A policy file implicitly ends with the rule `DENY_KEY *`, which denies
-all transactors or validators that are not explicitly specified in a
-`PERMIT_KEY` rule. For example, if a transactor policy file contains a
-single rule that permits one transactor, it is implicitly denying all
-other transactors.
-:::
+> **Note**
+>
+> A policy file implicitly ends with the rule `DENY_KEY *`, which denies
+> all transactors or validators that are not explicitly specified in a
+> `PERMIT_KEY` rule. For example, if a transactor policy file contains a
+> single rule that permits one transactor, it is implicitly denying all
+> other transactors.
 
 ## On-chain Transactor Permissioning {#config-onchain-txn-perm-label}
 
@@ -148,8 +134,8 @@ whose public keys are in that setting are allowed to update roles and
 policies.
 
 1.  Make sure that the Identity and Settings transaction processors and
-    the REST API are running, as described in
-    `systemd`{.interpreted-text role="doc"}.
+    the REST API are running, as described in [Running Sawtooth as a
+    Service]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}#running-sawtooth-as-a-service).
 
 2.  Add your public key to the list of those allowed to change settings.
 
@@ -161,17 +147,13 @@ policies.
       sawtooth.identity.allowed_keys=$(cat ~/.sawtooth/keys/{user}.pub)
     ```
 
-    ::: important
-    ::: title
-    Important
-    :::
-
-    You must run this command on the same node that created the genesis
-    block. Otherwise, an additional `sawset proposal create` command
-    would be required on the \"genesis node\" to add a second node\'s
-    `validator.priv` key to the `sawtooth.identity.allowed_keys`
-    setting. This guide does not show that step.
-    :::
+    > **Important**
+    >
+    > You must run this command on the same node that created the genesis
+    > block. Otherwise, an additional `sawset proposal create` command
+    > would be required on the \"genesis node\" to add a second node\'s
+    > `validator.priv` key to the `sawtooth.identity.allowed_keys`
+    > setting. This guide does not show that step.
 
 3.  Once your public key is stored in the setting, use the command
     `sawtooth identity policy create` to set and update roles and
@@ -187,15 +169,11 @@ policies.
     You can enter multiple permit or deny rules in the same command;
     separate each rule with a space.
 
-    ::: important
-    ::: title
-    Important
-    :::
-
-    Be careful not to remove your permission to change Identity
-    settings. Sawtooth will not prevent you from entering a rule to deny
-    all transactors (including yourself).
-    :::
+    > **Important**
+    >
+    > Be careful not to remove your permission to change Identity
+    > settings. Sawtooth will not prevent you from entering a rule to deny
+    > all transactors (including yourself).
 
 4.  To see the policy in state, run the following command:
 
@@ -254,9 +232,8 @@ allowed to sign transactions and batches on the system.
 :   If a transaction is received for a specific transaction family that
     is signed by a transactor who is not permitted by the policy, the
     batch containing the transaction will be dropped. Replace {tp_name}
-    with a transaction family name (see
-    `../transaction_family_specifications`{.interpreted-text
-    role="doc"}.
+    with a transaction family name (see [Transaction Family
+    Specifications]({% link docs/1.2/transaction_family_specifications/index.md%})).
 
 `transactor.batch_signer`:
 
@@ -301,22 +278,21 @@ is set in the Identity namespace. The policy defines the public keys
 that are allowed to participate in that role. The policy is made up of
 PERMIT_KEY and DENY_KEY rules and is evaluated in order. If the public
 key is denied, the connection will be rejected. For more information,
-please look at the
-`Identity Transaction Family <../transaction_family_specifications/identity_transaction_family>`{.interpreted-text
-role="doc"}.
+please look at the [Identity Transaction
+Family]({% link docs/1.2/transaction_family_specifications/identity_transaction_family.md %}).
 
-1.  As in the previous procedure (see
-    `config-onchain-txn-perm-label`{.interpreted-text role="ref"}), make
+1.  As in the previous procedure (see [On-chain Transactor
+    Permissioning](#config-onchain-txn-perm-label), make
     sure that the Identity and Settings transaction processors and the
     REST API are running.
 
 2.  This procedure assumes that you already added your public key to the
     `sawtooth.identity.allowed_keys` setting. If not, add the your
     public key now, using the `sudo sawset proposal create` command in
-    `config-onchain-txn-perm-label`{.interpreted-text role="ref"}.
+    [On-chain Transactor Permissioning](#config-onchain-txn-perm-label).
 
-3.  Create a new policy for the network role, as described in
-    `config-onchain-txn-perm-label`{.interpreted-text role="ref"}. The
+3.  Create a new policy for the network role, as described in [On-chain
+    Transactor Permissioning](#config-onchain-txn-perm-label). The
     remaining steps assume that the policy is named `policy_2`.
 
 4.  Run the following command to set the role for network to permit all:
