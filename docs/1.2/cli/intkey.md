@@ -6,11 +6,26 @@ provides functions that can be used to test deployed ledgers.
 The `intkey` command provides subcommands to set, increment, and
 decrement the value of entries stored in a state dictionary.
 
-::: literalinclude
-output/intkey_usage.out
-:::
+```
+usage: intkey [-h] [-v] [-V]
+              {set,inc,dec,show,list,generate,load,populate,create_batch,workload}
+              ...
 
-# intkey set
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         enable more verbose output
+  -V, --version         display version information
+
+subcommands:
+  {set,inc,dec,show,list,generate,load,populate,create_batch,workload}
+    set                 Sets an intkey value
+    inc                 Increments an intkey value
+    dec                 Decrements an intkey value
+    show                Displays the specified intkey value
+    list                Displays all intkey values
+```
+
+## intkey set
 
 <!--
      Copyright 2017 Intel Corporation
@@ -31,47 +46,115 @@ output/intkey_usage.out
   https://creativecommons.org/licenses/by/4.0/
 -->
 
-The `intkey set` subcommand sets a key ([name]{.title-ref}) to the
+The `intkey set` subcommand sets a key (**name**) to the
 specified value. This transaction will fail if the value is less than 0
 or greater than 2^32^ - 1.
 
-::: literalinclude
-output/intkey_set_usage.out
-:::
+```
+usage: intkey set [-h] [-v] [-V] [--url URL] [--keyfile KEYFILE]
+                  [--wait [WAIT]]
+                  name value
 
-# intkey inc
+Sends an intkey transaction to set <name> to <value>.
 
-The `intkey inc` subcommand increments a key ([name]{.title-ref}) by the
+positional arguments:
+  name               name of key to set
+  value              amount to set
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --verbose      enable more verbose output
+  -V, --version      display version information
+  --url URL          specify URL of REST API
+  --keyfile KEYFILE  identify file containing user's private key
+  --wait [WAIT]      set time, in seconds, to wait for transaction to commit
+```
+
+## intkey inc
+
+The `intkey inc` subcommand increments a key (**name**) by the
 specified value. This transaction will fail if the key is not set or if
 the resulting value would exceed 2^32^ - 1.
 
-::: literalinclude
-output/intkey_inc_usage.out
-:::
+```
+usage: intkey inc [-h] [-v] [-V] [--url URL] [--keyfile KEYFILE]
+                  [--wait [WAIT]]
+                  name value
 
-# intkey dec
+Sends an intkey transaction to increment <name> by <value>.
 
-The `intkey dec` subcommand decrements a key ([name]{.title-ref}) by the
+positional arguments:
+  name               identify name of key to increment
+  value              specify amount to increment
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --verbose      enable more verbose output
+  -V, --version      display version information
+  --url URL          specify URL of REST API
+  --keyfile KEYFILE  identify file containing user's private key
+  --wait [WAIT]      set time, in seconds, to wait for transaction to commit
+```
+
+## intkey dec
+
+The `intkey dec` subcommand decrements a key (**name**) by the
 specified value. This transaction will fail if the key is not set or if
 the resulting value would be less than 0.
 
-::: literalinclude
-output/intkey_dec_usage.out
-:::
+```
+usage: intkey dec [-h] [-v] [-V] [--url URL] [--keyfile KEYFILE]
+                  [--wait [WAIT]]
+                  name value
 
-# intkey show
+Sends an intkey transaction to decrement <name> by <value>.
+
+positional arguments:
+  name               identify name of key to decrement
+  value              amount to decrement
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -v, --verbose      enable more verbose output
+  -V, --version      display version information
+  --url URL          specify URL of REST API
+  --keyfile KEYFILE  identify file containing user's private key
+  --wait [WAIT]      set time, in seconds, to wait for transaction to commit
+
+```
+
+## intkey show
 
 The `intkey show` subcommand displays the value of the specified key
-([name]{.title-ref}).
+(**name**).
 
-::: literalinclude
-output/intkey_show_usage.out
-:::
+```
+usage: intkey show [-h] [-v] [-V] [--url URL] name
 
-# intkey list
+Shows the value of the key <name>.
+
+positional arguments:
+  name           name of key to show
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --verbose  enable more verbose output
+  -V, --version  display version information
+  --url URL      specify URL of REST API
+```
+
+## intkey list
 
 The `intkey list` subcommand displays the value of all keys.
 
-::: literalinclude
-output/intkey_list_usage.out
-:::
+```
+usage: intkey list [-h] [-v] [-V] [--url URL]
+
+Shows the values of all keys in intkey state.
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --verbose  enable more verbose output
+  -V, --version  display version information
+  --url URL      specify URL of REST API
+```
