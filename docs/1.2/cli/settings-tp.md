@@ -24,10 +24,21 @@ required to make a change. Note that only the keys in
 `sawtooth.settings.vote.authorized_keys` are allowed to submit setting
 transactions.
 
-::: literalinclude
-output/settings-tp_usage.out
-:::
+```
+settings 1.2.6
+Settings Transaction Processor (Rust)
 
+USAGE:
+    settings-tp [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+    -v, --verbose    increase output verbosity
+
+OPTIONS:
+    -C, --connect <connect>    connection endpoint for validator
+```
 <!--
      Copyright 2017 Intel Corporation
 
