@@ -78,9 +78,9 @@ client submits to the validator via the REST API.
 To connect to the Sawtooth node, use the steps for your platform:
 
 -   Docker: See [Log Into the Docker Client
-    Container]({% link docs/1.2/app_developers_guide/docker.md%}#log-into-the-docker-client-container)
+    Container]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#log-into-client-container-docker)
 -   Kubernetes: See [Connect to the Kubernetes Shell
-    Container]({% link docs/1.2/app_developers_guide/kubernetes.md%}#connect-to-the-kubernetes-shell-container)
+    Container]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#connect-to-shell-container-k8s)
 -   Ubuntu: Open a client terminal window on the host system running
     Sawtooth
 
@@ -95,7 +95,7 @@ URL of the REST API (by default, `http://127.0.0.1:8008`). If the REST
 API\'s URL is not `http://127.0.0.1:8008`, you must add the `--url`
 argument to each `xo` command in this procedure.
 
--   Docker: See [Confirm Connectivity to the REST API]({% link docs/1.2/app_developers_guide/docker.md%}#confirm-connectivity-to-the-rest-api)
+-   Docker: See [Confirm Connectivity to the REST API]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#confirming-connectivity-docker-label)
 
     > Important
     >
@@ -109,10 +109,10 @@ argument to each `xo` command in this procedure.
     > ```
 
 -   Kubernetes: See [Confirm Connectivity to the REST API (for
-    Kubernetes)]({% link docs/1.2/app_developers_guide/kubernetes.md %}#confirm-connectivity-to-the-rest-api-for-kubernetes)
+    Kubernetes)]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#confirming-connectivity-k8s-label)
 
 -   Ubuntu: See [Use Sawtooth Commands as a
-    Client]({% link docs/1.2/app_developers_guide/ubuntu.md %}#use-sawtooth-commands-as-a-client)
+    Client]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#step-12-use-sawtooth-commands-as-a-client)
 
 ### Step 3. Ubuntu only: Start the XO Transaction Processor
 
@@ -137,7 +137,7 @@ Sawtooth node, start it now.
     ```
 
 For more information, see [Start the Transaction
-Processors]({% link docs/1.2/app_developers_guide/ubuntu.md %}#start-the-transaction-precessors)
+Processors]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#start-tps-label)
 
 ### Step 4. Create Players
 
