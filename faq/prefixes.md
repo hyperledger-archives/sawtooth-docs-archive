@@ -23,8 +23,8 @@ of a TF does not imply endorsement.
 All data payloads are encoded in base64 after serializing. Sawtooth
 headers are serialized with Protobuf.
 
-For base TF specifications, see
-<https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/>
+For base TF specifications, see [Transaction Family
+Specifications]({% link docs/1.2/transaction_family_specifications/index.md%})
 
 [//]: # (TODO: Apply styling to table)
 

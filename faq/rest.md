@@ -5,7 +5,8 @@
 ---
 # Sawtooth FAQ: REST API
 
-## What\'s the difference between the `sawtooth-rest-api --bind` and `--connect` options?
+<h2> What\'s the difference between the `sawtooth-rest-api --bind` and
+`--connect` options?</h2>
 
 `sawtooth-rest-api --bind` (`-B`)
 
@@ -124,17 +125,22 @@ For more than 15 IDs, use `POST /receipts` . For Receipts REST API
 details, see `receipts` at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/rest_api/endpoint_specs.html>
 
-## What does this error mean: `[... DEBUG route_handlers] Received CLIENT_STATE_GET_RESPONSE response from validator with status NO_RESOURCE`?
+<h2> What does this error mean: `[... DEBUG route_handlers] Received
+CLIENT_STATE_GET_RESPONSE response from validator with status NO_RESOURCE`?</h2>
 
 It means the transaction processor for this transaction is not running.
 
-## What does this REST API error mean: `The submitted BatchList was rejected by the validator. It was poorly formed, or has an invalid signature`
+<h2> What does this REST API error mean: `The submitted BatchList was rejected
+by the validator. It was poorly formed, or has an invalid signature`</h2>
 
 Most likey you are not putting the transaction into a batch or the batch
 in a batchlist for posting to the REST API. This is required, even for a
 single transaction.
 
-## I am getting this error: `Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8008/batches?wait. (Reason: CORS header 'Access-Control-Allow-Origin' missing).`
+<h2> I am getting this error: `Cross-Origin Request Blocked: The Same Origin
+Policy disallows reading the remote resource at
+http://localhost:8008/batches?wait. (Reason: CORS header
+'Access-Control-Allow-Origin' missing).`</h2>
 
 The Sawtooth REST API doesn\'t support CORS. To allow cross-origin
 access to the Sawtooth API, put it behind a proxy.
@@ -166,7 +172,8 @@ this feature it is trivial to do a client-based attack which overwhelms
 the network creating a DoS. You would have to make a custom build of
 Sawtooth to remove that check.
 
-## What does this error mean from sawset: `There is no resource with the identifier`?
+<h2> What does this error mean from sawset: `There is no resource with the
+identifier`?</h2>
 
 It means the command format is correct, but the identifier does not
 exist.

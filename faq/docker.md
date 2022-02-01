@@ -25,7 +25,8 @@ alias docker-compose='sudo docker-compose'
 For details, see
 <https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user>
 
-## I get this error running `docker-compose -f sawtooth-default.yaml up` : `Error: files exist, rerun with --force to overwrite existing files`
+<h2>I get this error running `docker-compose -f sawtooth-default.yaml up` :
+`Error: files exist, rerun with --force to overwrite existing files`</h2>
 
 This occurs when docker was not halted cleanly. Run the following first:
 
@@ -45,7 +46,9 @@ An alternate solution is to force it to ignore the existing files:
 docker-compose -f docker/compose/sawtooth-default.yaml up --force
 ```
 
-## I get this error running `docker-compose -f sawtooth-default.yaml up` : `ERROR: Couldn't connect to Docker daemon at http+docker://localhost - is it running?`
+<h2>I get this error running `docker-compose -f sawtooth-default.yaml up` :
+`ERROR: Couldn't connect to Docker daemon at http+docker://localhost - is it
+running?`</h2>
 
 If it\'s at a non-standard location, specify the URL with the
 DOCKER_HOST environment variable.
@@ -59,7 +62,11 @@ service docker status
 sudo service docker start
 ```
 
-## I get this error running `docker run hello-world` : `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/json: dial unix /var/run/docker.sock: connect: permission denied`
+<h2>I get this error running `docker run hello-world` : `Got permission denied
+while trying to connect to the Docker daemon socket at
+unix:///var/run/docker.sock:
+Get http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/json: dial unix
+/var/run/docker.sock: connect: permission denied`</h2>
 
 Try running with sudo. For example: sudo docker run hello-world. Here\'s
 a few aliases you can add to your `~/.bashrc` file:
@@ -69,7 +76,10 @@ alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 ```
 
-## I get this error running `docker run hello-world` : `docker: Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers).`
+<h2> I get this error running `docker run hello-world` :
+`docker: Error response from daemon: Get https://registry-1.docker.io/v2/:
+net/http: request canceled while waiting for connection
+(Client.Timeout exceeded while awaiting headers).`</h2>
 
 If it worked before, first try restarting docker:
 
@@ -86,15 +96,19 @@ pattern:
     export https_proxy="https://proxy.mycompany.com:912/"
     export no_proxy=".mycompany.com,10.0.0.0/8,192.168.0.0/16,localhost,127.0.0.0/8"
 
-## I get this error: `ERROR: repository . . . not found: does not exist or no pull access`
+<h2> I get this error: `ERROR: repository . . . not found: does not exist or no
+pull access`</h2>
 
 Also a proxy problem\--see the answer above.
 
-## I get this error: `ERROR: Service . . . failed to build: Get . . . net/http: request canceled while waiting for connection`
+<h2>I get this error: `ERROR: Service . . . failed to build:
+Get . . . net/http: request canceled while waiting for connection`</h2>
 
 Also a proxy problem\--see the answer above.
 
-## I get this error running docker-compose: `ERROR: for validator  Cannot create container for service validator: Conflict. The container name "/validator" is already in use by container ...`
+<h2>I get this error running docker-compose:
+`ERROR: for validator Cannot create container for service validator: Conflict.
+The container name "/validator" is already in use by container ...`</h2>
 
 The container already exists. You need to remove or rename it. To
 remove:
@@ -112,7 +126,8 @@ container name may be found with the `sudo docker ps` command. For
 example: `sudo docker logs validator` display the log for the container
 named `validator` .
 
-## I get this error running docker-compose: `ERROR: Version in "./docker-compose.yaml" is unsupported.`
+<h2>I get this error running docker-compose:
+`ERROR: Version in "./docker-compose.yaml" is unsupported.`</h2>
 
 You may be running an old version of Docker, perhaps from your Linux
 package manager. Instead, install Docker from docker.com. Sawtooth
@@ -166,7 +181,8 @@ This might be a command line option for the client (for example,
 `intkey --url http://localhost:4040`). Otherwise, you need to modify the
 source if the REST API URL is hard-coded for your client.
 
-## Can I connect a transaction processor to the validator running in a Docker container?
+<h2>Can I connect a transaction processor to the validator running in a
+Docker container?</h2>
 
 Yes. The `docker-compose.yaml` needs the following lines for the
 validator container (which maps Docker container TCP port 4004 to
@@ -184,7 +200,8 @@ TP. (for example, `intkey-tp-python -v tcp://localhost:4040` ).
 Otherwise, you need to modify the source if the validator port is
 hard-coded for your TP.
 
-## I get `You cannot remove a running container` error removing docker containers
+<h2>I get `You cannot remove a running container` error removing docker
+containers</h2>
 
 Before running `docker rm $(docker ps -aq)`, first stop the running
 containers with `sudo docker stop $(docker ps -q)`
@@ -219,14 +236,16 @@ For a list of directories used by Sawtooth, see
 It is best to set [\$SAWTOOTH_HOME]{.title-ref} so all the configuration
 and data is under one root directory.
 
-## I get this error running Docker: `ERROR: manifest for hyperledger/sawtooth-validator:1.2 not found`
+<h2>I get this error running Docker:
+`ERROR: manifest for hyperledger/sawtooth-validator:1.2 not found`</h2>
 
 You are following instructions for the unreleased Sawtooth `nightly`
 build. There are no Docker images for the nightly build. Instead use the
 `latest` build documentation at
 <https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide.html>
 
-## Why doesn\'t sawtooth-default-poet.yaml start the network successfully on subsequent runs ?
+<h2>Why doesn't sawtooth-default-poet.yaml start the network successfully on
+subsequent runs?</h2>
 
 The root cause is the stale volume mounted, these are mounted for
 storing sawtooth keys in order to share between the containers. If you

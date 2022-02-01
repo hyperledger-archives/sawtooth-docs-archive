@@ -86,12 +86,14 @@ can also limit which transactions are accepted on the network with the
 `sawtooth.validator.transaction_families` setting. If that setting is
 not set, all transaction would be accepted.
 
-## I set sawtooth.validator.transaction_families as follows (from the documentation) but it\'s ignored
+<h2> I set sawtooth.validator.transaction_families as follows
+(from the documentation) but it's ignored </h2>
 
 The sawtooth.validator.transaction_families setting is ignored using
 dev-mode consensus and does not need to be set.
 
-## What is the difference between `sawtooth-validator --peers {list}` and `sawtooth-validator --seeds {list}`?
+<h2> What is the difference between `sawtooth-validator --peers {list}`
+and `sawtooth-validator --seeds {list}`?</h2>
 
 There are two peering modes in sawtooth: static and dynamic. The static
 peering mode requires the `--peers` arg to connect to other peer
@@ -100,7 +102,8 @@ specified will be processed and then use `--seeds` for the initial
 connection to the validator network and to start topology build-out
 (discovery and connection to more peer validators).
 
-## For static peering do I need to specify all validator nodes, or just some of them?
+<h2>For static peering do I need to specify all validator nodes, or just some
+of them?</h2>
 
 For static, you need to specify all nodes. I recommend dynamic peering
 where you don\'t need to specify all of them, just a good sampling (with
@@ -160,7 +163,8 @@ For example,
 `mdb_dump -n /var/lib/sawtooth/block-00.lmdb >block-00.lmdb.dump` Use
 `mdb_load -n -f block-00.lmdb.dump` to restore the database.
 
-## What does `lmdb.CorruptedError: mdb_put: MDB_CORRUPTED: Located page was wrong type` mean?
+<h2> What does `lmdb.CorruptedError: mdb_put: MDB_CORRUPTED: Located page was
+wrong type` mean?</h2>
 
 The LMDB database, which stores the blockchain, is corrupted. The
 blockchain is backed-up automatically with multiple nodes. There are no
@@ -274,7 +278,8 @@ default is `serial` for Sawtooth 1.1 and earlier and `parallel` for the
 -   `-vv` means information + warning messages
 -   `-vvv` means debug + information + warning messages
 
-## After a failed transaction, the validator stops processing further transactions. What can I do?
+<h2> After a failed transaction, the validator stops processing further
+transactions. What can I do?</h2>
 
 You can run the validator in parallel processing mode. For a serial
 scheduler, a failed transaction will be retried and no further
@@ -318,21 +323,24 @@ metrics. Install the packages and follow these instructions:
 Here is a Sawtooth Grafana screenshot:
 <https://twitter.com/liedenavilla/status/1042792583221653504>
 
-## What does this error mean: `[... DEBUG client_handlers] Unable to find entry at address ...`?
+<h2> What does this error mean: `[... DEBUG client_handlers] Unable to find
+entry at address ...`? </h2>
 
 It means the address doesn\'t exist. I\'ve seen this error when
 retrieving a value that should have been written, but was not written.
 The reason was because the transaction processor for the value was not
 running so the object at the address was never created.
 
-## What does this error mean: `sawtooth-validator[... ERROR cli] Cannot have a genesis_batch_file and an existing chain`?
+<h2> What does this error mean: `sawtooth-validator[... ERROR cli] Cannot have
+a genesis_batch_file and an existing chain`?</h2>
 
 You tried to create a new genesis block when you did not need to
 (because there already is a genesis block). To solve, this remove file
 `/var/lib/sawtooth/genesis.batch.file` and restart `sawtooth-validator`
 .
 
-## I get this error when testing with a lot of validators: `Max occupancy was not provided by transaction processor: ... Using default max occupancy: 10`
+<h2>I get this error when testing with a lot of validators: `Max occupancy was
+not provided by transaction processor: ... Using default max occupancy: 10`</h2>
 
 You need to set the number of validators if it\'s over 10. For example,
 in `/etc/sawtooth/validator.toml` set `maximum_peer_connectivity = 50`
@@ -341,7 +349,8 @@ See
 You can also use the [sawtooth-validator
 \--maximum-peer-connectivity]{.title-ref} command line option.
 
-## I start the validator, but it\'s stuck at this message: `Waiting for transaction processor (sawtooth_settings, 1.0)`
+<h2>I start the validator, but it\'s stuck at this message: `Waiting for
+transaction processor (sawtooth_settings, 1.0)`</h2>
 
 The Sawtooth Settings TP is mandatory for all Sawtooth nodes\--even if
 you don\'t add or change any settings. You probably want to also start
@@ -353,7 +362,8 @@ the TP for your desired application. To start the Settings TP, type:
 Yes, but you are limited to using the rule that is currently set for
 changing settings. This is handled by the Settings TP.
 
-## Why am I getting this validator message: `Reject building on block 8c5ebbea: Validator is claiming blocks too frequently.`
+<h2>Why am I getting this validator message: `Reject building on block
+8c5ebbea: Validator is claiming blocks too frequently.` </h2>
 
 It is from the z-test, which is a defense-in-depth mechanism to catch
 validators that are publishing blocks with an improbable frequency.
@@ -373,12 +383,14 @@ method, which is usually because someone used JSON (use something like
 Protobufs or CBOR instead). Other common sources of non-determinism are
 relying on system time in the transaction processor logic.
 
-## What does this error mean: `Network communications between validators will not be authenticated or encrypted.`
+<h2> What does this error mean: `Network communications between validators will
+not be authenticated or encrypted.`</h2>
 
 It means you did not configure your `network_public_key` and
 `network_private_key` in `validator.toml`.
 
-## How do I generate the `network_public_key` and `network_private_key` in `validator.toml` ?
+<h2> How do I generate the `network_public_key` and `network_private_key` in
+`validator.toml` ? </h2>
 
 These are the ZMQ message keys used to securely communicate with other
 nodes.
@@ -406,7 +418,8 @@ $ ./curve_keygen
 Copy the corresponding public key output to `network_public_key` and the
 private key output to `network_private_key` fields in `validator.toml`
 
-## What does this warning mean: `Network key pair is not configured, Network communications between validators will not be authenticated or encrypted` ?
+<h2> What does this warning mean: `Network key pair is not configured, Network
+communications between validators will not be authenticated or encrypted` ?</h2>
 
 You did not configure the keypair for the network nodes. For development
 purposes, that is OK. For production, use create a network keypair and

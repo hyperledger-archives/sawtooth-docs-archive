@@ -55,7 +55,8 @@ replay attacks by making transactions unique.
 
 ## What does this error mean:
 
-`validator | [... DEBUG signature_verifier] transaction signature invalid for txn: ...`?
+`validator | [... DEBUG signature_verifier] transaction signature invalid for
+txn: ...`?
 The client submitted a transaction with an invalid signature.
 
 ## What are the various batch_statuses REST API result values?
@@ -86,7 +87,8 @@ the TP to appear online. The TP may have died or may have never started.
 Or the validator failed the PoET Z Test (z-tested out) because it was
 winning too frequently.
 
-## Can I use partial address prefixes (say the 6-character prefix) in a transaction\'s input or output list?
+<h2> Can I use partial address prefixes (say the 6-character prefix) in a
+transaction\'s input or output list?</h2>
 
 Yes. You can use full addresses or partial addresses or empty (no
 address). The full addresses are preferred as this allows the parallel

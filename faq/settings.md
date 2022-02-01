@@ -20,7 +20,9 @@ is incomplete.
 -   You can set a setting with the
     `sawset proposal create --url http://localhost:8008` command. For
     example,
-    `sawset proposal create --url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv sawtooth.publisher.max_batches_per_block=200`
+    `sawset proposal create --url http://localhost:8008  \
+    --key /etc/sawtooth/keys/validator.priv \
+    sawtooth.publisher.max_batches_per_block=200`
 -   Some baseline settings are documented at
     <https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/settings_transaction_family.html>
 -   Transactor settings are documented at
