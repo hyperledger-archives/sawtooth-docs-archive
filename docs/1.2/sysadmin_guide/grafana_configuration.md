@@ -1,30 +1,22 @@
 # Using Grafana to Display Sawtooth Metrics
 
-::: note
-::: title
-Note
-:::
-
-These instructions have been tested on Ubuntu 18.04 (Bionic) only.
-:::
+> **Note**
+>
+> These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 
 This procedure describes how to display Sawtooth metrics with
 [Grafana](https://grafana.com), using
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) to
 store the metrics data.
 
-::: note
-::: title
-Note
-:::
+> **Note**
+>
+> This procedure is for a Ubuntu environment. For a Sawtooth network in
+> Docker containers, there are additional steps to change the
+> configuration of the validator and REST API containers. This guide does
+> not describe these steps.
 
-This procedure is for a Ubuntu environment. For a Sawtooth network in
-Docker containers, there are additional steps to change the
-configuration of the validator and REST API containers. This guide does
-not describe these steps.
-:::
-
-# Prerequisites
+## Prerequisites
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
@@ -44,7 +36,7 @@ not describe these steps.
     $ git clone https://github.com/hyperledger/sawtooth-core.git
     ```
 
-# Set Up InfluxDB
+## Set Up InfluxDB
 
 InfluxDB is used to store Sawtooth metrics data.
 
@@ -57,15 +49,11 @@ InfluxDB is used to store Sawtooth metrics data.
 2.  Create an InfluxDB data directory to provide persistent storage on
     the local file system.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    This step creates the directory `/var/lib/influx-data`. If this path
-    is not appropriate for your host operating system, change the path
-    here and in the next command.
-    :::
+    >  **Note**
+    >
+    > This step creates the directory `/var/lib/influx-data`. If this path
+    > is not appropriate for your host operating system, change the path
+    > here and in the next command.
 
     ``` console
     $ sudo mkdir /var/lib/influx-data
@@ -89,7 +77,7 @@ InfluxDB is used to store Sawtooth metrics data.
      --name sawtooth-stats-influxdb influxdb
     ```
 
-# Install and Configure Grafana
+## Install and Configure Grafana
 
 1.  Build the Grafana Docker image from the Dockerfile that is included
     in the `sawtooth-core` repository.
@@ -133,15 +121,11 @@ InfluxDB is used to store Sawtooth metrics data.
 
 7.  (Sawtooth 1.0.\* releases only) Import the Grafana 1.0 dashboard.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Skip this step for Sawtooth release 1.1 and later, which can use the
-    dashboard that is included in the Grafana Docker container from git
-    master.
-    :::
+    > **Note**
+    >
+    > Skip this step for Sawtooth release 1.1 and later, which can use the
+    > dashboard that is included in the Grafana Docker container from git
+    > master.
 
     a.  Use one of these methods to get the 1.0 dashboard:
         -   Find the dashboard in the 1-0 branch at
@@ -154,7 +138,7 @@ InfluxDB is used to store Sawtooth metrics data.
     d.  Navigate to the location of `sawtooth_performance.json`.
     e.  Select \"metrics\" in the drop-down menu and click \"Import\".
 
-# Configure the Sawtooth Validator for Grafana
+## Configure the Sawtooth Validator for Grafana
 
 The `sawtooth-validator` process reports metrics for the Sawtooth
 validator. Use the validator configuration file,
@@ -164,19 +148,16 @@ Grafana.
 1.  If the validator configuration file doesn\'t exist yet, copy the
     template from `/etc/sawtooth/validator.toml.example` to
     `/etc/sawtooth/validator.toml`. For more information, see
-    `configuring_sawtooth/validator_configuration_file`{.interpreted-text
-    role="doc"}.
+    [Validator Configuration
+    File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#validator-configuration-file)
 
-    ::: note
-    ::: title
-    Note
-    :::
+    > **Note**
+    >
+    > The default config directory is `/etc/sawtooth/`. For information on
+    > finding the config directory in a non-default location, see [Path
+    > Configuration File](({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#path-configuration-file))
 
-    The default config directory is `/etc/sawtooth/`. For information on
-    finding the config directory in a non-default location, see
-    `configuring_sawtooth/path_configuration_file`{.interpreted-text
-    role="doc"}.
-    :::
+
 
 2.  Edit `/etc/sawtooth/validator.toml`. Change the following settings
     to the values that you defined when you set up InfluxDB:
@@ -200,14 +181,10 @@ Grafana.
     opentsdb_password  = "{lrdata-pw}"
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    For `opentsdb_url`, be sure to replace the existing host name with
-    the IP or FQDN of the system running the InfluxDB Docker container.
-    :::
+    > **Note**
+    >
+    > For `opentsdb_url`, be sure to replace the existing host name with
+    > the IP or FQDN of the system running the InfluxDB Docker container.
 
 3.  Restart the validator for these changes to take effect.
 
@@ -223,7 +200,7 @@ Grafana.
         role="doc"} or `proc-multi-ubuntu-label`{.interpreted-text
         role="ref"}.
 
-# Configure the Sawtooth REST API for Grafana
+## Configure the Sawtooth REST API for Grafana
 
 The `sawtooth-rest-api` process reports metrics for the Sawtooth REST
 API. Use the REST API configuration file, `/etc/sawtooth/rest_api.toml`,
@@ -231,20 +208,14 @@ to specify the REST API settings for Grafana.
 
 1.  If the REST API configuration file doesn\'t exist yet, copy the
     template from `/etc/sawtooth/rest_api.toml.example` to
-    `/etc/sawtooth/rest_api.toml`. For more information, see
-    `configuring_sawtooth/rest_api_configuration_file`{.interpreted-text
-    role="doc"}.
+    `/etc/sawtooth/rest_api.toml`. For more information, see [REST API
+    Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#rest-api-configuration-file)
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    The default config directory is `/etc/sawtooth/`. For information on
-    finding the config directory in a non-default location, see
-    `configuring_sawtooth/path_configuration_file`{.interpreted-text
-    role="doc"}.
-    :::
+    > **Note**
+    >
+    > The default config directory is `/etc/sawtooth/`. For information on
+    > finding the config directory in a non-default location, see
+    > [Path Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#path-configuration-file)
 
 2.  Modify `opentsdb_url`, `opentsdb_db`, `opentsdb_username`, and
     `opentsdb_password` to match the values used for the validator.
@@ -269,13 +240,10 @@ to specify the REST API settings for Grafana.
         > ```
 
     -   To restart `sawtooth-rest-api` on the command line, see the
-        appropriate procedure in the Application Developer\'s Guide:
-        either `../app_developers_guide/ubuntu`{.interpreted-text
-        role="doc"} or `proc-multi-ubuntu-label`{.interpreted-text
-        role="ref"}. `proc-multi-ubuntu-label`{.interpreted-text
-        role="ref"}.
+        appropriate procedure in the [Application Developer\'s
+        Guide]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#start-rest-api-label)
 
-# Configure Telegraf
+## Configure Telegraf
 
 [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)
 runs on the Sawtooth nodes to send operating system and hardware metrics
@@ -306,14 +274,10 @@ to InfluxDB.
     password = "{lrdata-pw}"
     ```
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    Be sure to replace `{host}` with the IP or FQDN of the system
-    running the InfluxDB Docker container.
-    :::
+    > **Note**
+    >
+    > Be sure to replace `{host}` with the IP or FQDN of the system
+    > running the InfluxDB Docker container.
 
 4.  Restart the Telegraf service.
 
