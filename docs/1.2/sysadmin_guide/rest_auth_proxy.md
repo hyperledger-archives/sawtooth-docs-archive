@@ -1,12 +1,8 @@
 # Using a Proxy Server to Authorize the REST API
 
-::: note
-::: title
-Note
-:::
-
-These instructions have been tested on Ubuntu 18.04 (Bionic) only.
-:::
+> **Note**
+>
+> These instructions have been tested on Ubuntu 18.04 (Bionic) only.
 
 The Sawtooth REST API is designed to be a lightweight shim on top of
 internal communications. When the REST API receives a request, it passes
@@ -97,17 +93,13 @@ keys:
     when `hyperledger.org/sawtooth/blocks` does not map to
     `localhost:8008/blocks`.
 
-::: note
-::: title
-Note
-:::
-
-Any key in a \"Forwarded\" header can be set multiple times, using
-commas to separate each setting. (See the `host` values in the example
-above.) Repeating a key allows a chain of proxy information to be
-traced. However, the REST API always uses the left-most value for a
-particular key so that it can produce an accurate link for the client.
-:::
+> **Note**
+>
+> Any key in a \"Forwarded\" header can be set multiple times, using
+> commas to separate each setting. (See the `host` values in the example
+> above.) Repeating a key allows a chain of proxy information to be
+> traced. However, the REST API always uses the left-most value for a
+> particular key so that it can produce an accurate link for the client.
 
 # Set Up an Apache Proxy Server for the REST API
 
@@ -115,14 +107,10 @@ This procedure sets up a simple [Apache 2](https://httpd.apache.org/)
 proxy server that is secured with Basic Auth and https, then configures
 the proxy server for an instance of the Sawtooth REST API.
 
-::: note
-::: title
-Note
-:::
-
-This procedure covers only the information for Sawtooth configuration.
-It does not cover other Apache configuration or security settings.
-:::
+> **Note**
+>
+> This procedure covers only the information for Sawtooth configuration.
+> It does not cover other Apache configuration or security settings.
 
 1.  Install the Apache web server and enable the required modules, then
     restart Apache to load these modules.
@@ -143,16 +131,12 @@ It does not cover other Apache configuration or security settings.
     > $ sudo htpasswd -c /etc/apache2/.htpassword sawtooth
     > ```
     >
-    > ::: tip
-    > ::: title
-    > Tip
-    > :::
+    > **Tip**
     >
     > You can repeat this command to generate passwords for other users,
     > but you must omit the `-c` option from the `htpasswd` command. You
     > must also remember to authorize those users in the proxy
     > configuration file (later in this procedure).
-    > :::
 
 3.  Obtain or create an SSL certificate.
 
@@ -209,13 +193,9 @@ It does not cover other Apache configuration or security settings.
         RequestHeader set X-Forwarded-Path "/sawtooth"
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        Apache automatically sets the \"X-Forwarded-Host\" header.
-        :::
+      > **Note**
+      >
+      > Apache automatically sets the \"X-Forwarded-Host\" header.
 
     c.  Run the following commands to disable the default Apache landing
         page and enable the new authenticated proxy configuration.
@@ -250,8 +230,8 @@ It does not cover other Apache configuration or security settings.
         ```
 
         A failed request might mean that the REST API is not running. To
-        restart the REST API as a service, see
-        `systemd`{.interpreted-text role="doc"}.
+        restart the REST API as a service, see [Running Sawtooth as a
+        Service]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md%}#running-sawtooth-as-a-service).
 
     b.  Next, query the proxy without authorization. This command should
         return a `401` error.
@@ -260,15 +240,11 @@ It does not cover other Apache configuration or security settings.
         $ curl https://localhost/sawtooth/blocks --insecure
         ```
 
-        ::: note
-        ::: title
-        Note
-        :::
-
-        The `--insecure` flag forces `curl` to complete the request even
-        if there isn\'t an official SSL certificate. It does not bypass
-        basic authentication.
-        :::
+      > **Note**
+      >
+      > The `--insecure` flag forces `curl` to complete the request even
+      > if there isn\'t an official SSL certificate. It does not bypass
+      > basic authentication.
 
     c.  Finally, send a properly authorized request. Replace
         `{password}` in the following example with the password for the
