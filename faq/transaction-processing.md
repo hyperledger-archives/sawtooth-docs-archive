@@ -6,7 +6,8 @@
 
 # Sawtooth FAQ: Transaction Processing
 
-## Does a client send a transaction request to all the validators in the network?
+<h2 id="does-a-client-send-a-txn">Does a client send a transaction request to
+all the validators in the network?</h2>
 
 No, it would just need to send the batch to one validator, then that
 validator will broadcast the batch to the rest of its peers. If the
@@ -14,7 +15,9 @@ validator is down, your connection attempt from the app would fail. The
 app could have error handling to try again (in a retry loop) or try
 another validator.
 
-## Does Sawtooth have a way to control what participants have access to what assets in the business network and under what conditions?
+<h2 id="does-sawtooth-have-a-way-to-control">Does Sawtooth have a way to control
+what participants have access to what assets in the business network and under
+what conditions?</h2>
 
 Blockchains, including Sawtooth, can be deployed as permissioned
 networks, wherein transactions are visible to the participants of the
@@ -100,7 +103,8 @@ Sawtooth network. Sawtooth includes features for asynchronously
 deploying and upgrading the Transaction Processors. In a typical
 deployment you will have multiple Transaction Processors.
 
-## What happens if a validator receives a transaction but does not have a TP for it?
+<h2 id="what-happens-if-a-validator">What happens if a validator receives a
+transaction but does not have a TP for it?</h2>
 
 If a validator receives a transaction that it does not have a
 transaction processor for, the validator will wait until a TP connects
@@ -145,12 +149,16 @@ fail state validations(Merkle hashes will be different with rest of the
 network). Hence, the bigger the validator network, the more robust it is
 against such attacks.
 
-## What does this error mean: `processor | [... DEBUG executor] transaction processors registered for processor type cryptomoji: 0.1?`
+<h2 id="what-does-txn-processors-registered"> What does this error mean:
+`processor | [... DEBUG executor] no transaction processors registered for
+processor type cryptomoji: 0.1?`</h2>
 
 It means there is no transaction processor running for your transaction
 family.
 
-## What does this error mean: `processor | { AuthorizationException: Tried to get unauthorized address ...` ?
+<h2 id="does-a-unauthorized-address">What does this error mean:
+`processor | { AuthorizationException: Tried to get
+unauthorized address ...` ?</h2>
 
 It means a the transaction processor tried to access (get/put) a value
 not in the list of inputs/outputs. This occurs when a client submits a
@@ -160,18 +168,23 @@ Make sure the Sawtooth address is the correct length\--the address is 70
 hex characters, which represent a 35 byte address (including the 6 hex
 character or 3 byte Transaction Family prefix).
 
-## What does this error mean: `applicator->Apply errorState Get Authorization error. Check transaction inputs.`
+<h2 id="what-does-check-txn-inputs">What does this error mean:
+`applicator->Apply errorState Get Authorization error.
+Check transaction inputs.`</h2>
 
 See the answer above.
 
-## If you have a large file to store, is it best to just record the file hash and store the file offline?
+<h2 id="large-file-to-store">If you have a large file to store, is it best to
+just record the file hash and store the file offline?</h2>
 
 It depends on your use case. Storing data off-chain has a big downside.
 Although you can confirm it hasn\'t been tampered with with the on-chain
 hash, there is nothing stopping the file from disappearing. Also, how do
 you make sure everyone who needs the data can get to it?
 
-## If I register a transaction processor to one validator, does the registration get transmitted to the other validators in a network?
+<h2 id="if-i-register-txn-processor"> If I register a transaction processor to
+one validator, does the registration get transmitted to the other validators
+in a network?</h2>
 
 No. Your transaction processor must be deployed to all validators. All
 validators in a network must have the same set of transaction
@@ -252,7 +265,8 @@ is,
 
 Sawtooth TPs run off-chain, as a process (or processes).
 
-## My TP throws an exception of type `InternalError`, but the `Apply` method gets stuck in an endless loop
+<h2> My TP throws an exception of type `InternalError`, but the `Apply` method
+gets stuck in an endless loop</h2>
 
 `InternalError` is supposed to be a transient error (some internal fault
 like \'out of memory\' that is temporary), and may succeed if retried.
@@ -261,7 +275,8 @@ If the transaction is invalid, you probably want to raise an
 `InvalidTransaction` error instead. Bottom line&mdash;internal errors
 are retried, and invalid transactions are not retried.
 
-## I get this error when I try to set some Sawtooth settings: `Chain head is not set yet. Permit all`
+<h2 id="try-to-set-sawtooth-setting"> I get this error when I try to set some
+Sawtooth settings: `Chain head is not set yet. Permit all`</h2>
 
 This error has been seen when the directory or file ownerships are
 wrong. Try setting ownership as follows:
@@ -282,7 +297,9 @@ Yes, you can run any number of transaction families, for example, you
 can r un the Seafood Supply Chain app and Bond Asset Settlement app on
 the same network.
 
-## What happens if someone writes a fake Transaction Processor (with the same name, version, and address space) that can access and modify state data?
+<h2 id="fake-txn-processor"> What happens if someone writes a fake Transaction
+Processor (with the same name, version, and address space) that can access and
+modify state data?</h2>
 
 The fake TP will cause the node to fork and it will be ignored by the
 rest of the network.
@@ -317,7 +334,8 @@ If you don\'t want to write a large transaction, you can reference some
 external source (and also save a checksum). The disadvantage of storing
 data externally is it\'s not replicated across nodes and may be lost.
 
-## What does this message mean: `Did not respond to the ping, removing transaction processor` ?
+<h2 id="what-does-respong-ping"> What does this message mean:
+`Did not respond to the ping, removing transaction processor` ?</h2>
 
 This is a message from the Hyperledger Sawtooth blockchain\'s Validator.
 A timeout occurred when the Validator was checking connections with all
@@ -329,26 +347,38 @@ the TP process is still running (check in the Docker container if you
 are running docker). Check network connectivity if the TP is on another
 host or another virtual machine. Check the message logs. Perhaps the TP
 is \"frozen\" or hanging or has a bug. Add logging messages (using
-`` LOGGER.info()` for Python or Rust log4rs ``info!()`).  What does this message mean:`Block
-. . . rejected due to state root hash
-mismatch`? --------------------------------------------------------------------------------------- You have a transaction processor that implements some non-deterministic behavior, such as generating a random number in a calculation, or a timestamp, etc.  What does this message mean:`Have
-not received a chain head from
-peers.`? ----------------------------------------------------------------------------- This message has been seen when a node is not running a needed transaction processor. A new node needs to run all the transaction processors required for all the supported transaction families in this Sawtooth blockchain network.  How do I debug a transaction processor? --------------------------------------- One way is to add logging messages (using`LOGGER.info()[
-for Python or Rust log4rs ]{.title-ref}[info!()]{.title-ref}[). and
-sprinkle your code with debug messages, such as
-]{.title-ref}[LOGGER.info(\"Action = %s.\", action)]{.title-ref}[ in
-Python (or another language you use for the TP). Start the transaction
-processor with the ]{.title-ref}[-vv]{.title-ref}[ or
-]{.title-ref}[-vvv]{.title-ref}\` flags and look for console output.
+`` LOGGER.info()` for Python or Rust log4rs `info!()``).  
 
-## What does this message mean: `failing transaction ... since it isn't required in the configuration` ?
+## What does this message mean:`Block rejected due to state root hash mismatch`?
+
+You have a transaction processor that implements some non-deterministic
+behavior, such as generating a random number in a calculation, or a timestamp,
+etc.
+
+## What does this message mean:`Have not received a chain head from peers.`?
+
+This message has been seen when a node is not running a needed transaction
+processor. A new node needs to run all the transaction processors required for
+all the supported transaction families in this Sawtooth blockchain network.  
+
+## How do I debug a transaction processor?
+
+One way is to add logging messages (using`LOGGER.info()` for Python or Rust
+log4rs). and sprinkle your code with debug messages, such as
+`LOGGER.info(\"Action = %s.\", action)]` in
+Python (or another language you use for the TP). Start the transaction
+processor with the `-vv` or `-vvv` flags and look for console output.
+
+<h2 id="not-required-for-confiuration"> What does this message mean:
+`failing transaction ... since it isn't required in the configuration` ?</h2>
 
 It means you set the `sawtooth.validator.transaction_families` setting
 with the Settings TP and did not include the TP name and version for the
 transaction that failed. The fix is to add the TP name and version to
 the setting.
 
-## I noticed that TPs on various nodes do not process transactions in the same order. Why?
+<h2 id="tps-txn-order"> I noticed that TPs on various nodes do not process
+transactions in the same order. Why?</h2>
 
 There is no guarantee of sequencing in terms of how different
 transactions are submitted and executed by the TPs. When transactions

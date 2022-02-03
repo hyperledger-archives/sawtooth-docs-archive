@@ -284,7 +284,8 @@ Nakamoto-style Consensus
 
 :   
 
-    Uses some sort of lottery-based mechanism, such as Proof of Work (vs. Classical Consensus) to win the right to commit a block.
+    Uses some sort of lottery-based mechanism, such as Proof of Work
+    (vs. Classical Consensus) to win the right to commit a block.
 
     :   E.g., PoW or PoET.
 

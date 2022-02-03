@@ -8,11 +8,13 @@
 
 ## 2019 YouTube Videos
 
-Hyperledger Sawtooth Application Development Overview using \"SimpleWallet\" (57:18, Dan Anderson, Intel, 2019)
+Hyperledger Sawtooth Application Development Overview using \"SimpleWallet\"
+(57:18, Dan Anderson, Intel, 2019)
 
 :   <https://youtu.be/4VUaZkwJdCc>
 
-Hyperledger Sawtooth Performance Metrics with Grafana (28:00, Dan Anderson, Intel, 2019)
+Hyperledger Sawtooth Performance Metrics with Grafana
+(28:00, Dan Anderson, Intel, 2019)
 
 :   <https://youtu.be/YBd7PJlNRSQ>
 
@@ -26,11 +28,13 @@ Hyperledger Sawtooth Seafood Supply Chain Demo (3:21, Bitwise, 2018)
 
 :   <https://youtu.be/q0T8qAyzY30>
 
-Intel: Building Blockchain for the Enterprise. Shows how Sawtooth builds are done on AWS (5:33, Ryan Beck-Buysse, Bitwise, Lana Kalashnyk, AWS, 2018)
+Intel: Building Blockchain for the Enterprise. Shows how Sawtooth builds are
+done on AWS (5:33, Ryan Beck-Buysse, Bitwise, Lana Kalashnyk, AWS, 2018)
 
 :   <https://youtu.be/B_L_PjlSywA>
 
-Sawtooth 1.0 Architecture and App Development (31:26, Zac Delventhal, Bitwise, 2018)
+Sawtooth 1.0 Architecture and App Development
+(31:26, Zac Delventhal, Bitwise, 2018)
 
 :   <https://youtu.be/uBebFQM49Xk>
 
@@ -38,7 +42,8 @@ Hyperledger Sawtooth Technical Overview (58:38, Dan Anderson, Intel, 2018)
 
 :   <https://youtu.be/KGFuKIBma_M>
 
-Hyperledger Sawtooth Application Developer Overview using \"CookieJar\" (54:58, Dan Anderson, Intel, 2018)
+Hyperledger Sawtooth Application Developer Overview using \"CookieJar\"
+(54:58, Dan Anderson, Intel, 2018)
 
 :   <https://youtu.be/VFXary3rwY0>
 
@@ -51,7 +56,8 @@ Hyperledger Sawtooth Blockchain Security (Dan Anderson, Intel, 2018)
 :   Part 1 (23:30): <https://youtu.be/ZEM1F5-U0_o> Part 2 (28:03):
     <https://youtu.be/nkQfCexqJac>
 
-Blockchain and Hyperledger Sawtooth Overview (6:15, Daniel Homlund Martin Kronberg and Daniel Homlund, Intel, 2018)
+Blockchain and Hyperledger Sawtooth Overview
+(6:15, Daniel Homlund Martin Kronberg and Daniel Homlund, Intel, 2018)
 
 :   <https://youtu.be/HwFItjV6Czo>
 
@@ -59,11 +65,13 @@ Several Sawtooth application development tutorials by John S.
 
 :   <https://www.youtube.com/channel/UC4YOKxLGKFcaq4duRhH75qw>
 
-Hyperledger Sawtooth and Kubernetes at Hyperledger Hong Kong meetup. (1:38:24, Duncan Johnston-Watt, Blockchain Technology Partners, 2018)
+Hyperledger Sawtooth and Kubernetes at Hyperledger Hong Kong meetup.
+(1:38:24, Duncan Johnston-Watt, Blockchain Technology Partners, 2018)
 
 :   <https://youtu.be/d4tf5Ps4VLw> Slides: <https://bit.ly/2PR1Oub>
 
-Introducción a Hyperledger VII - Sawtooth (Español) (7:36, Sergio Torres, Blocknitive)
+Introducción a Hyperledger VII - Sawtooth (Español)
+(7:36, Sergio Torres, Blocknitive)
 
 :   <https://youtu.be/b-VVNLce6MI>
 
@@ -73,25 +81,30 @@ Introducción a Hyperledger VII - Sawtooth (Español) (7:36, Sergio Torres, Bloc
 
 ## 2017 YouTube Videos
 
-Vision for Hyperledger\'s Sawtooth Distributed Ledger (2:03, Dan Middleton, Intel, 2017)
+Vision for Hyperledger\'s Sawtooth Distributed Ledger
+(2:03, Dan Middleton, Intel, 2017)
 
 :   <https://youtu.be/gjAHjX0RmOw>
 
-Introduction to Hyperledger Sawtooth (Seafood Supply Chain) (3:40, Hyperledger, 2017)
+Introduction to Hyperledger Sawtooth (Seafood Supply Chain)
+(3:40, Hyperledger, 2017)
 
 :   <https://youtu.be/8nrVlICgiYM>
 
 ## Intel Chip Chat Audio
 
-Revolutionizing Identity Management with \[Sawtooth\] Blockchain. Ep. 612 (8:33, Chris Spanton, T-Mobile, 2018)
+Revolutionizing Identity Management with \[Sawtooth\] Blockchain. Ep. 612
+(8:33, Chris Spanton, T-Mobile, 2018)
 
 :   <https://connectedsocialmedia.com/16839/revolutionizing-identity-management-with-blockchain-intel-chip-chat-episode-612/>
 
-Why Enterprises Should Be Moving Blockchain Forward. Ep. 576 (9:51, Mike Reed, Intel, 2018)
+Why Enterprises Should Be Moving Blockchain Forward. Ep. 576
+(9:51, Mike Reed, Intel, 2018)
 
 :   <https://connectedsocialmedia.com/16399/why-enterprises-should-be-moving-blockchain-forward-intel-chip-chat-episode-576/>
 
-Where We\'ve Been and Where We\'re going \-- Intel\'s Blockchain Journey. Ep. 559 (11:05, Mike Reed, Intel, 2017)
+Where We\'ve Been and Where We\'re going \-- Intel\'s Blockchain Journey.
+Ep. 559 (11:05, Mike Reed, Intel, 2017)
 
 :   <https://connectedsocialmedia.com/16112/where-weve-been-and-where-were-going-intels-blockchain-journey-intel-chip-chat-episode-559/>
 
