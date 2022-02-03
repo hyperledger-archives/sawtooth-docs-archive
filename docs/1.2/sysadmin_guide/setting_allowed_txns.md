@@ -9,42 +9,37 @@ Sawtooth network\'s security by ignoring any unrecognized transaction
 processors. It is an on-chain setting, which means that the change is
 submitted on one node; the other nodes in the network apply the settings
 change when they receive the block with this transaction. Note that the
-`Settings transaction processor <../transaction_family_specifications/settings_transaction_family>`{.interpreted-text
-role="doc"} is required to handle on-chain configuration settings.
+[Settings transaction
+processor]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+is required to handle on-chain configuration settings.
 
 In this procedure, you will configure the Sawtooth network to limit the
 accepted transaction types to those from this network\'s transaction
-processors (as started in `systemd`{.interpreted-text role="doc"}).
+processors (as started in [Running Sawtooth as a
+Service]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}#running-sawtooth-as-a-service))
 
 1.  Log into the node with your public/private key files.
 
-    ::: important
-    ::: title
-    Important
-    :::
-
-    If the genesis block was created with the first validator\'s key,
-    and there are no other
-    `authorized users <adding_authorized_users>`{.interpreted-text
-    role="doc"}, you **must** run this procedure on the same node that
-    created the genesis block, because the `sawset proposal create`
-    command requires the private validator key from that node.
-    :::
+    > **Important**
+    >
+    > If the genesis block was created with the first validator\'s key,
+    > and there are no other
+    > [authorized
+    > users]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md%}), you
+    > **must** run this procedure on the same node that
+    > created the genesis block, because the `sawset proposal create`
+    > command requires the private validator key from that node.
 
 2.  Use the `sawset proposal create` command to create and submit a
     batch of transactions that changes the allowed transaction types.
 
-    ::: note
-    ::: title
-    Note
-    :::
-
-    For `{PRIVATE-KEY}`, specify the path to the private key file for an
-    authorized user or validator, such as the key used to create the
-    genesis block. For more information, see
-    `/sysadmin_guide/adding_authorized_users`{.interpreted-text
-    role="doc"}.
-    :::
+    > **Note**
+    >
+    > For `{PRIVATE-KEY}`, specify the path to the private key file for an
+    > authorized user or validator, such as the key used to create the
+    > genesis block. For more information, see
+    > [Adding Authorized
+    > Users]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md%})
 
     -   For PBFT:
 
@@ -70,10 +65,9 @@ processors (as started in `systemd`{.interpreted-text role="doc"}).
     -   (PoET only) `sawtooth_validator_registry` (PoET Validator
         Registry)
 
-    See
-    `transaction family specification <../transaction_family_specifications>`{.interpreted-text
-    role="doc"} for the family names and versions of all Sawtooth
-    transaction processors.
+    See [transaction family
+    specification]({% link docs/1.2/transaction_family_specifications/index.md%})
+    for the family names and versions of all Sawtooth transaction processors.
 
 3.  Run the following command to check the setting change.
 
