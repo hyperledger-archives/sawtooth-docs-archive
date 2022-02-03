@@ -2,7 +2,7 @@
 
 As transactions are committed to the blockchain, an app developer may be
 interested in receiving events related to the changes in state that
-result. These events, [StateDeltaEvents]{.title-ref}, include
+result. These events, *StateDeltaEvents*, include
 information about the advance of the blockchain, as well as state
 changes that can be limited to specific address spaces in the global
 state.
@@ -13,14 +13,10 @@ JavaScript application may open a web socket connection and subscribe to
 a particular transaction family\'s state values, using the incoming
 events to re-render portions of the display.
 
-::: note
-::: title
-Note
-:::
-
-All examples here are written in JavaScript, and assumes the Sawtooth
-REST API is reachable at [localhost]{.title-ref}.
-:::
+> **Note**
+>
+> All examples here are written in JavaScript, and assumes the Sawtooth
+> REST API is reachable at *localhost*.
 
 # Opening a Web Socket
 
@@ -38,14 +34,14 @@ let ws = new WebSocket('ws:localhost:8008/subscriptions')
 ```
 
 If the REST API is running, it should trigger an event on the web
-socket\'s [onopen]{.title-ref} handler.
+socket\'s *onopen* handler.
 
 # Subscribing to State Changes
 
 In order to subscribe to an address space in the global state, first a
 message needs to be sent on the socket with the list of prefixes. It is
 a best-practice to send this message as part of the web socket\'s
-[onopen]{.title-ref} handler.
+*onopen* handler.
 
 In the following example, we\'ll subscribe to changes in the XO family:
 
@@ -61,7 +57,7 @@ ws.onopen = () => {
 This message will begin the subscription of events as of the current
 block. If you are interested in the state prior to the point of
 subscription, you should fetch the values of state via the REST API\'s
-[/state]{.title-ref} endpoint.
+*/state* endpoint.
 
 Subscriptions may be changed by sending a subscribe message at later
 time while the websocket is open. It is up to the client to maintain the
@@ -71,7 +67,7 @@ overwrite this list.
 # Events
 
 Once subscribed, events will be received via the web socket\'s
-[onmessage]{.title-ref} handler. The event data is a JSON string, which
+*onmessage* handler. The event data is a JSON string, which
 looks like the following:
 
 ``` javascript
@@ -90,11 +86,11 @@ looks like the following:
 }
 ```
 
-There is an entry in the [state_changes]{.title-ref} array for each
-address that matches the [address_prefixes]{.title-ref} provided during
+There is an entry in the *state_changes* array for each
+address that matches the *address_prefixes* provided during
 the subscribe action. The type is either \"SET\" or \"DELETE\". In the
 case of \"SET\" the value is base-64 encoded (like the
-[/state]{.title-ref} endpoint\'s response). In the case of \"DELETE\",
+*/state* endpoint\'s response). In the case of \"DELETE\",
 only the address is provided. If you are using a transaction family that
 supports deletes, you\'ll need to keep track of values via address, as
 well.
@@ -103,7 +99,7 @@ well.
 
 In the case where you have missed an event, a request can be sent via
 the web socket for a particular block\'s changes. You can use the
-[previous_block_id]{.title-ref} from the current event to request the
+*previous_block_id* from the current event to request the
 previous block\'s events, for example. Send the following message:
 
 ``` javascript
