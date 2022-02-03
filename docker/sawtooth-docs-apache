@@ -24,6 +24,8 @@ AddDefaultCharset utf-8\n\
 LoadModule proxy_module modules/mod_proxy.so\n\
 LoadModule proxy_http_module modules/mod_proxy_http.so\n\
 LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so\n\
+ProxyPass /docs/1.2/rest_api/openapi/ http://sawtooth-docs-redoc:4001/\n\
+ProxyPassReverse /docs/1.2/rest_api/openapi/ http://sawtooth-docs-redoc:4001/\n\
 ProxyPass / http://sawtooth-docs-jekyll:4000/\n\
 ProxyPassReverse / http://sawtooth-docs-jekyll:4000/\n\
 \n\
