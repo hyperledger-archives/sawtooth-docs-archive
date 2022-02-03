@@ -65,12 +65,14 @@ Sawtooth FAQ
 
 ## Where are some good introductory videos?
 
-Hyperledger Sawtooth 1.0: Market Significance & Technical Overview (Hyperledger, 2018, 61:27) (free registration required):
+Hyperledger Sawtooth 1.0: Market Significance & Technical Overview
+(Hyperledger, 2018, 61:27) (free registration required):
 
 :   <https://gateway.on24.com/wcc/gateway/linux/1101876/1585244/hyperledger-sawtooth-v10-market-significance-and-technical-overview>
     <https://www.hyperledger.org/resources/webinars>
 
-Hyperledger Sawtooth 1.0 Architecture and App Development (Bitwise IO, 2018, 31:26):
+Hyperledger Sawtooth 1.0 Architecture and App Development
+(Bitwise IO, 2018, 31:26):
 
 :   <https://youtu.be/uBebFQM49Xk>
 
@@ -121,11 +123,14 @@ A example application that implements a simple wallet application:
 
 :   <https://github.com/askmish/sawtooth-simplewallet>
 
-A more complex example that implements a supply chain example and demonstrates many of the key concepts behind the implementation of a complete Sawtooth application:
+A more complex example that implements a supply chain example and demonstrates
+many of the key concepts behind the implementation of a complete Sawtooth
+application:
 
 :   <https://github.com/hyperledger/sawtooth-supply-chain>
 
-An example application that shows how to exchange quantities of customized \"Assets\" with other users on the blockchain:
+An example application that shows how to exchange quantities of customized
+\"Assets\" with other users on the blockchain:
 
 :   <https://github.com/hyperledger/sawtooth-marketplace>
 
@@ -164,7 +169,8 @@ details.
     technologies. It is a global collaboration, hosted by The Linux
     Foundation\" See <https://www.hyperledger.org/>.
 
-## What is the difference between Sawtooth, Sawtooth Lake, and Hyperledger Sawtooth?
+<h2 id="diff-between-sawtooths"> What is the difference between Sawtooth,
+Sawtooth Lake, and Hyperledger Sawtooth?</h2>
 
 Sawtooth Lake was Intel\'s original code name for its blockchain
 research project, named after a lake in the Sawtooth Mountains of
@@ -226,7 +232,8 @@ and community support. We hope Sawtooth fits your needs.
     are immutable and cannot be undone after a commit
 -   A database must have a trusted central authority
 
-## Does Sawtooth focus on developing blockchain solutions for sustainable fishing?
+<h2 id="does-sawtooth-fish"> Does Sawtooth focus on developing blockchain
+solutions for sustainable fishing?</h2>
 
 No. The Seafood Supply Chain application is a proof-of-concept. Sawtooth
 is a general-purpose enterprise blockchain platform.
@@ -254,7 +261,8 @@ $ sawtooth --version
 sawtooth-cli (Hyperledger Sawtooth) version 1.1.2
 ```
 
-## What\'s the difference between the `sawtooth`, `sawadm`, `sawnet`, and `sawset` commands?
+<h2 id="diff-between-saw-cli"> What's the difference between the
+`sawtooth`, `sawadm`, `sawnet`, and `sawset` commands?</h2>
 
 `sawadm`
 
@@ -307,7 +315,8 @@ partitioned and cannot fully communicate. It can also be the result of a
 bug in transaction processing (for example, transactions don\'t
 serialize in a deterministic way).
 
-## What does `Failed to reach common ancestor` mean from `sawnet compare-chains`?
+<h2 id="failed-to-reach-common-ancestor"> What does `Failed to reach common
+ancestor` mean from `sawnet compare-chains`?</h2>
 
 It means the blockchains have no blocks in common, including the genesis
 block. This usually happens when a second node is added with its own
@@ -440,11 +449,14 @@ the Linux Foundation\'s Hyperledger project. See
     Identity Transaction Processor, documented at
     <https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/identity_transaction_family.html>
 
-## Does Sawtooth restore state when a peer restarts or when a peer is out-of-sync with the network?
+<h2 id="does-restore-state-peer">Does Sawtooth restore state when a peer
+restarts or when a peer is åout-of-sync with the network?</h2>
 
 Yes.
 
-## When content at an address is changed several times by the transactions in a block, what appears in the state (Merkle Tree)?
+<h2 id="when-content-changed-merkle"> When content at an address is changed
+several times by the transactions in a block, what appears in the
+state (Merkle Tree)?</h2>
 
 The only thing that hits state is the aggregate (final) set of address
 changes due to the transactions in the block. If multiple transactions
@@ -452,7 +464,8 @@ in a single block modify an address, there will only be one \'set\'. You
 could see the transaction level changes in the receipts if you needed
 to.
 
-## In order to create a Sawtooth application, do I need to clone and modify the entire `sawtooth-core` repository?
+<h2 id="create-app-clone-repo"> In order to create a Sawtooth application, do I
+need to clone and modify  the entire `sawtooth-core` repository?</h2>
 
 No. It can be done that way, but it\'s not recommended. All you need to
 write is the client application and the Transaction Processor. The core
