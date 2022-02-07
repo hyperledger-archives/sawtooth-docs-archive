@@ -34,3 +34,21 @@ services:
       - 8080:80
     volumes:
       - .:/project
+
+
+  sawtooth-python-docs:
+    image: sawtooth-python-docs
+    build:
+      dockerfile: docker/python_sdk.dockerfile
+      context: .
+    volumes:
+      - $PWD:/srv/jekyll
+    entrypoint: |
+        bash -c "
+          pydoc3 -w sawtooth_sdk/processor/* \
+          && mkdir -p /srv/jekyll/docs/1.2/sdks/python_sdk/processor \
+          && cp *.html /srv/jekyll/docs/1.2/sdks/python_sdk/processor \
+          && pydoc3 -w sawtooth_signing/* \
+          && mkdir -p /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
+          && cp *.html /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
+        "

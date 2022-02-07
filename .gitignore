@@ -2,3 +2,5 @@
 _site
 .idea
 .jekyll-cache/
+
+docs/1.2/sdks/python_sdk
