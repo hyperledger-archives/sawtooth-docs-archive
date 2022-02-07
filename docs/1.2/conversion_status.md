@@ -29,7 +29,8 @@ And the next step is to review/fix the pages and integrate them into the new
 A typical page conversion PR consists of the following steps:
 
 - Commit 1: Move the file into the final location
-- Commit 2: Update the file's markup (link syntax, note syntax, etc.) to work with Jekyll
+- Commit 2: Update the file's markup (link syntax, note syntax, etc.) to work
+  with Jekyll
 - Commit 3: Link to the file in the sidebar by updating
   [_includes/1.2/left_sidebar.html](https://github.com/hyperledger/sawtooth-docs/blob/refresh/_includes/1.2/left_sidebar.html)
 

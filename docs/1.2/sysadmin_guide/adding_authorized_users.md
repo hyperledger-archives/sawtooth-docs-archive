@@ -83,7 +83,8 @@ be accepted. By default, only one vote is required, and the settings
 proposal contains an automatic \"yes\" vote from the user (or validator)
 who submitted the proposal. For information on configuring more complex
 voting schemes, see
-[Settings Transaction Family]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %})`.
+[Settings Transaction Family]({% link
+docs/1.2/transaction_family_specifications/settings_transaction_family.md %}).
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License

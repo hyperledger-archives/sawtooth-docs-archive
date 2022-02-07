@@ -30,7 +30,8 @@ with restricted membership. It has the following requirements:
     for the version setting.
 - The on-chain configuration setting `sawtooth.consensus.pbft.members`
   must list all PBFT member nodes in the network. For more
-  information, see [PBFT On Chain Settings]({% link docs/1.2/pbft/configuring-pbft.md %}#on-chain-settings-label).
+  information, see [PBFT On Chain Settings]({% link
+  docs/1.2/pbft/configuring-pbft.md %}#on-chain-settings-label).
 
 For the procedure to configure PBFT, see the Hyperledger Sawtooth
 documentation:

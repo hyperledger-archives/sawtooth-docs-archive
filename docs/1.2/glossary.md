@@ -10,7 +10,8 @@ batch
   transaction fails, all transactions in that batch fail. (The client
   application is responsible for handling failure appropriately.) For
   more information, see
-  [Transactions and Batches]({% link docs/1.2/architecture/transactions_and_batches.md %}).
+  [Transactions and Batches]({% link
+  docs/1.2/architecture/transactions_and_batches.md %}).
 
 blockchain
 
@@ -85,14 +86,16 @@ identity
   keys. This transaction family demonstrates how to streamline
   managing identities for lists of public keys. For more information,
   see
-  [Identity Transaction Family]({% link docs/1.2/transaction_family_specifications/identity_transaction_family.md %}).
+  [Identity Transaction Family]({% link
+  docs/1.2/transaction_family_specifications/identity_transaction_family.md %}).
 
 IntegerKey
 
 : Sample transaction family with only three operations (set,
   increment, and decrement) that can be used to test deployed ledgers.
   IntegerKey is called *intkey*. For more information, see
-  [IntegerKey Transaction Family]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %}).
+  [IntegerKey Transaction Family]({% link
+  docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %}).
 
 journal
 
@@ -108,7 +111,8 @@ Merkle-Radix tree
   any changes to the tree, and a Radix tree, which has addresses that
   uniquely identify the paths to leaf nodes where information is
   stored. For more information, see
-  [Merkle-Radix Tree Overview]({% link docs/1.2/architecture/global_state.md %}#merkle-radix-overview-label).
+  [Merkle-Radix Tree Overview]({% link
+  docs/1.2/architecture/global_state.md %}#merkle-radix-overview-label).
 
 node
 
@@ -204,7 +208,8 @@ settings
 : Sample transaction family that provides a reference implementation
   for storing on-chain configuration settings. For more information,
   see
-  [Settings Transaction Family]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %}).
+  [Settings Transaction Family]({% link
+  docs/1.2/transaction_family_specifications/settings_transaction_family.md %}).
 
 state
 
@@ -228,7 +233,8 @@ transaction
   is put into a Batch, either alone or with other related
   transactions, then sent to the validator for processing. For more
   information, see
-  [Transactions and Batches]({% link docs/1.2/architecture/transactions_and_batches.md %}).
+  [Transactions and Batches]({% link
+  docs/1.2/architecture/transactions_and_batches.md %}).
 
 transaction family
 
@@ -241,7 +247,8 @@ transaction family
   language for an application. Sawtooth includes example transaction
   families in several languages, such as Python, Go, and Java. For
   more information, see
-  [Sample Transaction Families]({% link docs/1.2/index.md %}#sample-transaction-families-label).
+  [Sample Transaction Families]({% link
+  docs/1.2/index.md %}#sample-transaction-families-label).
 
 transaction processor
 
@@ -250,7 +257,8 @@ transaction processor
   processors for the sample transaction families, such as
   `identity-tp` for the Identity transaction family. For more
   information, see
-  [Transaction Family Specifications]({% link docs/1.2/transaction_family_specifications.md %}).
+  [Transaction Family Specifications]({% link
+  docs/1.2/transaction_family_specifications/index.md %}).
 
 validator
 
@@ -268,7 +276,9 @@ XO
 : Sample transaction family that demonstrates basic transactions by
   playing [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) on
   the blockchain. For more information, see
-  [XO Transaction Family]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %}).
+  [XO Transaction Family]({% link
+
+  docs/1.2/transaction_family_specifications/xo_transaction_family.md %}).
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License

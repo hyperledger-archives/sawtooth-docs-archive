@@ -19,7 +19,8 @@ docs/1.2/sysadmin_guide/about_dynamic_consensus.md %}).
 >
 > For the procedure to configure Sawtooth with PoET SGX consensus on a
 > system with Intel ® Software Guard Extensions (SGX), see
-> [Using Sawtooth with PoET-SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %}).
+> [Using Sawtooth with
+> PoET-SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %}).
 
 Use this set of procedures to create the first Sawtooth node in a
 network or to add a new node to an existing network. Note that some
@@ -164,7 +165,9 @@ system for proof-of-concept or production use in a Sawtooth network.
     > `/etc/sawtooth/keys/validator.priv` and
     > `/etc/sawtooth/keys/validator.pub`. However, settings in the path
     > configuration file could change this location; see
-    > [Path Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
+    > [Path Configuration
+    > File]({% link
+     docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
 
 Sawtooth also includes a network key pair that is used to encrypt
 communication between the validators in a Sawtooth network. This
@@ -231,7 +234,8 @@ in the initial network.
     > in the following steps. In theory, some of these commands could use
     > a different key, but configuring multiple keys is a complicated
     > process that is not shown in this procedure. For more information,
-    > see [Adding Authorized Users for Settings Proposals]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md %}).
+    > see [Adding Authorized Users for Settings
+    > Proposals]({% link docs/1.2/sysadmin_guide/adding_authorized_users.md %}).
 
 4.  Create a batch to initialize the consensus settings.
 
@@ -306,12 +310,14 @@ in the initial network.
     >
     >     `'["<public-key-1>","<public-key-2>",...,"<public-key-n>"]'`
     >
-    > (PoET only) `sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)"`
+    > (PoET only)
+    > `sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)"`
     >
     > :   Adds the public key for the PoET Validator Registry transaction
     >     processor to use for the PoET simulator consensus.
     >
-    > (PoET only) `sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement)`
+    > (PoET only)
+    > `sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement)`
     >
     > :   Adds a simulated enclave measurement to the blockchain. The PoET
     >     Validator Registry transaction processor uses this value to
@@ -432,7 +438,9 @@ the settings in each configuration file.
 > This procedure assumes that the configuration directory is
 > `/etc/sawtooth/`. If your system uses a different location, change this
 > path in the commands below. For more information, see
-> [Path Configuration File]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
+> [Path Configuration
+> File]({% link
+ docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path_configuration_file).
 
 ### Configure the Validator {#sysadm-configure-validator-label}
 
@@ -641,10 +649,12 @@ scheduler type (optional), and create a network key.
 >
 > To learn how to use the `[role]` and `[permissions]` settings to control
 > validator and user access to the network, see
-> [Configuring Validator and Transactor Permissions]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %})
+> [Configuring Validator and Transactor Permissions]({% link
+ docs/1.2/sysadmin_guide/configuring_permissions.md %})
 >
 > For information about the `opentsdb_` settings, see
-> [Using Grafana to Display Sawtooth Metrics]({% link docs/1.2/sysadmin_guide/grafana_configuration.md %}).
+> [Using Grafana to Display Sawtooth
+> Metrics]({% link docs/1.2/sysadmin_guide/grafana_configuration.md %}).
 
 ### Configure the REST API {#rest-api-bind-address-label}
 
@@ -691,7 +701,8 @@ Use these steps to change the network settings for the REST API.
 > **Note**
 >
 > To learn how to put the REST API behind a proxy server, see
-> [Using a Proxy Server to Authorize the REST API]({% link docs/1.2/sysadmin_guide/rest_auth_proxy.md %}).
+> [Using a Proxy Server to Authorize the REST
+> API]({% link docs/1.2/sysadmin_guide/rest_auth_proxy.md %}).
 
 ### Configure the Sawtooth Commands (Optional) {#config-sawtooth-cmds-label}
 
@@ -839,7 +850,7 @@ Additional logging output can be found in `/var/log/sawtooth/`. For more
 information, see [Log Configuration File]({% link
 docs/1.2/sysadmin_guide/log_configuration.md %}).
 
-### Stop or Restart the Sawtooth Services {#stop-restart-sawtooth-services-label}
+### Stop or Restart the Sawtooth Services {#stop-restart-sawtooth-services}
 
 If you need to stop or restart the Sawtooth services for any reason, use
 the following procedures.
@@ -982,7 +993,8 @@ functionality.
      >
      > You can use the `sawset proposal create` command to change this
      > setting. For more information, see
-     > [Adding or Removing a PBFT Node]({% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md %}).
+     > [Adding or Removing a PBFT
+     > Node]({% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md %}).
 
 ### Test the network
 

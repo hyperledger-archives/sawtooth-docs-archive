@@ -10,15 +10,17 @@ available in the `sawtooth-core` repository unless noted below.
     number of historic blocks. The family name is `block_info`. The
     transaction processor is `block-info-tp`.
 
--   The [Identity Transaction
-    Family]({% link docs/1.2/transaction_family_specifications/identity_transaction_family.md %}) is an extensible role- and policy-based system for
+-   The [Identity Transaction Family]({% link
+    docs/1.2/transaction_family_specifications/identity_transaction_family.md %})
+    is an extensible role- and policy-based system for
     defining permissions in a way that can be used by other Sawtooth
     components. The family name is `sawtooth_identity`; the associated
     transaction processor is
     [identity-tp]({% link docs/1.2/cli/identity-tp.md %}).
 
--   The [Intkey Transaction
-    Family]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %}) (also called \"intkey\") simply sets, increments, and
+-   The [Intkey Transaction Family]({% link
+    docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
+    (also called \"intkey\") simply sets, increments, and
     decrements the value of entries stored in a state dictionary. The
     [intkey]({% link docs/1.2/cli/intkey.md%}) command
     provides an example CLI client.
@@ -31,8 +33,10 @@ available in the `sawtooth-core` repository unless noted below.
     `intkey-tp-{language}`.
 
 -   The [Settings Transaction
-    Family]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %}) provides a methodology for storing on-chain
-    configuration settings. The
+    Family]({% link
+    docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
+    provides a methodology for storing
+    on-chain configuration settings. The
     [settings]({% link docs/1.2/cli/sawset.md %}) command
     provides an example CLI client.
 
@@ -44,15 +48,16 @@ available in the `sawtooth-core` repository unless noted below.
     > In a production environment, you should always run a transaction
     > processor that supports the Settings transaction family.
 
--   The [Smallbank Transaction
-    Family]({% link docs/1.2/transaction_family_specifications/smallbank_transaction_family.md %}) provides a cross-platform workload for comparing the
+-   The [Smallbank Transaction Family]({% link
+    docs/1.2/transaction_family_specifications/smallbank_transaction_family.md %})
+    provides a cross-platform workload for comparing the
     performance of blockchain systems. The family name is `smallbank`.
     The transaction processor is `smallbank-tp-{language}`.
 
--   The [XO Transaction
-    Family]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %}) allows two users to play a simple game of tic-tac-toe
-    (see [Playing with the XO Transaction
-    Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%}).
+-   The [XO Transaction Family]({% link
+    docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
+    allows two users to play a simple game of tic-tac-toe (see [Playing with the
+    XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%}).
     The [xo]({% link docs/1.2/cli/xo.md %}) command provides an
     example CLI client.
 

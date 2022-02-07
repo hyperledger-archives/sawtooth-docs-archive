@@ -3,7 +3,8 @@
 > **Note**
 >
 > Sawtooth v1.1 documentation has not been fully converted. For more
-> information, see the [conversion status]({% link docs/1.1/conversion_status.md %}).
+> information, see the [conversion status]({% link
+docs/1.1/conversion_status.md %}).
 
 Hyperledger Sawtooth is an enterprise blockchain platform for building
 distributed ledger applications and networks. The design philosophy
@@ -191,8 +192,8 @@ Specifications]({% link docs/1.1/transaction_family_specification/index.md %})
 >     [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe). The XO
 >     transaction family includes create and take transactions, with an
 >     `xo` command that allows two participants to play the game. For
->     more information, see [XO Transaction
->     Family]({% link docs/1.1/app_developers_guide/intro_xo_transaction_family.md %}).
+>     more information, see [XO Transaction Family]({% link
+docs/1.1/app_developers_guide/intro_xo_transaction_family.md %}).
 >     role="doc"}.
 > -   Sawtooth Supply Chain: Demonstrates how to trace the provenance
 >     and other contextual information of any asset. Supply Chain

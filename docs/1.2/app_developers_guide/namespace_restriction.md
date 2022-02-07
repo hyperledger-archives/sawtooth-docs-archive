@@ -27,9 +27,9 @@ activated, this feature augments enforcement of the transaction
 processors declaration done during registration.
 
 In order to activate some namespace restrictions, appropriate settings
-must be published on-chain using the [Settings
-Transaction Family]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}). For every block, a validator loads the
-JSON data stored under the specific key
+must be published on-chain using the [Settings Transaction Family]({% link
+docs/1.2/transaction_family_specifications/settings_transaction_family.md%}).
+For every block, a validator loads the JSON data stored under the specific key
 `sawtooth.validator.transaction_families`. At this key the data is a list of
 JSON entries, one per transaction family, possibly including its namespaces.
 When a transaction family entry includes namespaces, the validator enforces that

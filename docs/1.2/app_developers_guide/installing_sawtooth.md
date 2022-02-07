@@ -59,12 +59,15 @@ Devmode consensus and parallel transaction processing.
 <img alt="Environment with one node 3 TPS" src="/images/1.2/appdev-environment-one-node-3TPs.svg">
 
 This environment introduces basic Sawtooth functionality with the
-[IntegerKey]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
+[IntegerKey]({% link
+docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
 and
-[Settings]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
+[Settings]({% link
+docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 transaction processors for the business logic and Sawtooth commands as a
 client. It also includes the
-[XO]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
+[XO]({% link
+docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
 transaction processor, which is used in later tutorials.
 
 The IntegerKey and XO families are simple examples of a transaction
@@ -685,14 +688,18 @@ to view pod status, container names, Sawtooth log files, and more.
 
 This example environment includes the following transaction processors:
 
-> -   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) >     handles Sawtooth\'s on-chain settings. The`sawtooth-settings-tp`
+> -   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+>     handles Sawtooth\'s on-chain settings. The`sawtooth-settings-tp`
 >     transaction processor is required for this environment.
-> -   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) is a basic application (also called transaction
->     family) that introduces Sawtooth functionality. The
->     `sawtooth-intkey-tp-python` transaction processor works with the
->     `int-key` client, which has shell commands to perform
->     integer-based transactions.
-> -   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) is a simple application for playing a game of
+> -   [IntegerKey]({%link
+      docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%})
+>     is a basic application (also called transaction family) that introduces
+>     Sawtooth functionality. The `sawtooth-intkey-tp-python` transaction
+>     processor works with the `int-key` client, which has shell commands to
+>     perform integer-based transactions.
+> -   [XO]({%link
+      docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
+>     is a simple application for playing a game of
 >     tic-tac-toe on the blockchain. The `sawtooth-xo-tp-python`
 >     transaction processor works with the `xo` client, which has shell
 >     commands to define players and play a game. XO is described in a
@@ -1354,12 +1361,15 @@ transaction processing.
 <img alt="Environment with one node 3 TPS" src="/images/1.2/appdev-environment-one-node-3TPs.svg">
 
 This environment introduces basic Sawtooth functionality with the
-[IntegerKey]({% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
+[IntegerKey]({% link
+docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %})
 and
-[Settings]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
+[Settings]({% link
+docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 transaction processors for the business logic and Sawtooth commands as a
 client. It also includes the
-[XO]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
+[XO]({% link
+docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
 transaction processor, which is used in later tutorials.
 
 The IntegerKey and XO families are simple examples of a transaction

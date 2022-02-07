@@ -63,17 +63,12 @@ Settings are namespaced using dots:
 The Settings transaction family uses the following settings for its own
 configuration:
 
-  -----------------------------------------------------------------------------------------
-  Setting (Settings)                          Value Description
-  ------------------------------------------- ---------------------------------------------
-  sawtooth.settings.vote.authorized_keys      List of public keys allowed to vote
-
-  sawtooth.settings.vote.approval_threshold   Minimum number of votes required to accept or
-                                              reject a proposal (default: 1)
-
-  sawtooth.settings.vote.proposals            A list of proposals to make settings changes
-                                              (see note)
-  -----------------------------------------------------------------------------------------
+-------------------------------------------|---------------------------------------------
+|Setting (Settings)                        | Value Description                          |
+-------------------------------------------|---------------------------------------------
+|sawtooth.settings.vote.authorized_keys    | List of public keys allowed to vote
+|sawtooth.settings.vote.approval_threshold |Minimum number of votes required to accept or reject a proposal (default: 1) |
+|sawtooth.settings.vote.proposals          |A list of proposals to make settings changes (see note) |
 
 ::: note
 ::: title

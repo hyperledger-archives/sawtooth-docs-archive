@@ -119,8 +119,8 @@ For more information, see [Step 9: Stop the Sawtooth Environment](docker#stop-sa
 ## Step 1: Download the Docker Compose File
 
 Download the Docker Compose file for a multiple-node network,
-[sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-poet.yaml). Save this
-file in the same directory as the single-node compose file
+[sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-poet.yaml).
+Save this file in the same directory as the single-node compose file
 (`sawtooth-default.yaml`).
 
 ## Step 2: Start the Sawtooth Network
@@ -1138,7 +1138,7 @@ Use these steps to start the Sawtooth network:
 
     ``` none
     $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-1/{print $1}') --container sawtooth-shell -- bash
-    
+
     root@sawtooth-1#
     ```
 
