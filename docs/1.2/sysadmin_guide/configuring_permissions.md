@@ -278,8 +278,8 @@ is set in the Identity namespace. The policy defines the public keys
 that are allowed to participate in that role. The policy is made up of
 PERMIT_KEY and DENY_KEY rules and is evaluated in order. If the public
 key is denied, the connection will be rejected. For more information,
-please look at the [Identity Transaction
-Family]({% link docs/1.2/transaction_family_specifications/identity_transaction_family.md %}).
+please look at the [Identity Transaction Family]({% link
+docs/1.2/transaction_family_specifications/identity_transaction_family.md %}).
 
 1.  As in the previous procedure (see [On-chain Transactor
     Permissioning](#config-onchain-txn-perm-label), make

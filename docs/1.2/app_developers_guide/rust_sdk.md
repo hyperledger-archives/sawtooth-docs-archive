@@ -869,8 +869,8 @@ pub fn to_hex_string(bytes: &Vec<u8>) -> String {
 > The methods for assigning and validating addresses are
 > entirely up to the Transaction Processor. In the case of IntegerKey,
 > there are specific rules to generate valid addresses in [Transactions and
-> Batches]({% link docs/1.2/architecture/transactions_and_batches.md%}), which must be
-> followed or Transactions will be rejected. You will need to follow the
+> Batches]({% link docs/1.2/architecture/transactions_and_batches.md%}), which
+> must be followed or Transactions will be rejected. You will need to follow the
 > addressing rules for whichever Transaction Family you are working with.
 
 ### 2. Create the Transaction

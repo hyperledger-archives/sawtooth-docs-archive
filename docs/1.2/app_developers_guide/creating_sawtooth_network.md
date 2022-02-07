@@ -116,22 +116,29 @@ This test environment is a network of five Sawtooth nodes.
 Each node in this Sawtooth network runs a validator, a REST API, a consensus
 engine, and the following transaction processors:
 
--   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link
+    docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+    (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+-   [IntegerKey]({%link
+    docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%})
+    (`intkey-tp-python`): Demonstrates basic
     Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+-   [XO]({%link
+    docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
+    (`sawtooth-xo-tp-python`): Simple application for playing
     a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
     [Intro XO Transaction
     Family]({%link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})
 -   (PoET only)
-    [PoET Validator Registry]({%link docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
-     (`poet-validator-registry-tp`): Configures PoET consensus and handles a
-     network with multiple nodes.
+    [PoET Validator Registry]({%link
+    docs/1.2/transaction_family_specifications/validator_registry_transaction_family.md%})
+    (`poet-validator-registry-tp`): Configures PoET consensus and handles a
+    network with multiple nodes.
 
 
 > **Important**
@@ -180,11 +187,12 @@ access those settings when they join the network.
         Compose](https://docs.docker.com/compose/install/#install-compose).
         Then follow [Post-Install
         steps](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
--   If you created a
-    [single-node Docker environment docker]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#docker),
+-   If you created a [single-node Docker environment
+    docker]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#docker),
     that is still running, shut it down and delete the
     existing blockchain data and logs. For more information, see [Stop the
-    Sawtooth Docker Environment]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#stop-the-sawtooth-docker-environment)
+    Sawtooth Docker Environment]({% link
+    docs/1.2/app_developers_guide/installing_sawtooth.md %}#stop-the-sawtooth-docker-environment)
 
 ### Step 1: Download the Docker Compose File
 
@@ -523,13 +531,16 @@ connected in an all-to-all peering relationship.
 Each node in this Sawtooth network runs a validator, a REST API, a consensus
 engine, and the following transaction processors:
 
--   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+    (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+-   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%})
+    (`intkey-tp-python`): Demonstrates basic
     Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+-   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
+    (`sawtooth-xo-tp-python`): Simple application for playing
     a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
@@ -578,7 +589,8 @@ those settings when they join the network.
     [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 -   If you created a
     [single-node Kubernetes environment
-    kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}) that is still running, shut it down and delete the
+    kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%})
+    that is still running, shut it down and delete the
     Minikube cluster, VM, and associated files. For more information,
     see [Stop the Sawtooth Kubernetes
     Cluster]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#stop-sawtooth-kube-label)
@@ -1030,7 +1042,8 @@ Sawtooth.
 > **Tip**
 >
 > For more ways to test basic functionality, see
-> [Kubernetes]({% link docs/1.2/app_developers_guide/installing_sawtooth.md%}#kubernetes). For example:
+> [Kubernetes]({% link
+docs/1.2/app_developers_guide/installing_sawtooth.md%}#kubernetes). For example:
 >
 > -   To use Sawtooth client commands to view block information and check
 >     state data, see [Use Sawtooth Commands as a
@@ -1237,13 +1250,17 @@ following figure shows a network with five nodes.
 Each node in this Sawtooth network runs a validator, a REST API, a consensus
 engine, and the following transaction processors:
 
--   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) (`settings-tp`): Handles Sawtooth\'s on-chain
+-   [Settings]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+    (`settings-tp`): Handles Sawtooth\'s on-chain
     configuration settings. The Settings transaction processor (or an
     equivalent) is required for all Sawtooth networks.
--   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) (`intkey-tp-python`): Demonstrates basic
+-   [IntegerKey]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%})
+    (`intkey-tp-python`): Demonstrates basic
     Sawtooth functionality. The associated `intkey` client includes shell
     commands to perform integer-based transactions.
--   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%}) (`sawtooth-xo-tp-python`): Simple application for playing
+
+-   [XO]({%link docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
+    (`sawtooth-xo-tp-python`): Simple application for playing
     a game of tic-tac-toe on the blockchain. The associated `xo` client
     provides shell commands to define players and play a game. XO is
     described in a later section,
@@ -1301,7 +1318,8 @@ chosen consensus:
 
 -   Remove data from an existing single node: To reuse the single test
     node described in
-    [Ubuntu]({%link docs/1.2/app_developers_guide/installing_sawtooth.md%}#ubuntu), stop
+    [Ubuntu]({%link
+    docs/1.2/app_developers_guide/installing_sawtooth.md%}#ubuntu), stop
     Sawtooth and delete all blockchain data and logs from that node.
     1.  If the first node is running, stop the Sawtooth components
         (validator, REST API, consensus engine, and transaction

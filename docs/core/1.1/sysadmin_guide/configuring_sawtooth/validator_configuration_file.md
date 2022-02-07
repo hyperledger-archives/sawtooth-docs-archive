@@ -38,7 +38,11 @@ this file, see `../off_chain_settings`{.interpreted-text role="doc"} and
 
 The `validator.toml` configuration file has the following options:
 
--   `bind = [ "network:{endpoint}", "component:{endpoint}", "consensus:{endpoint}", ]`
+-   `bind = [
+        "network:{endpoint}",
+        "component:{endpoint}",
+        "consensus:{endpoint}",
+    ]`
 
     Sets the network, component, and consensus endpoints. The default
     values are:

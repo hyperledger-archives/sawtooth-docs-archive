@@ -60,7 +60,10 @@ on the requirements of the transaction family.
 
 ## Simple Example - IntegerKey
 
-See [IntegerKey Transaction family]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%}) for more information.
+See [IntegerKey Transaction
+family]({%link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md%})
+
+for more information.
 
 The transaction family prefix is:
 
@@ -114,5 +117,6 @@ transaction family's requirements in mind.
 
 ## Settings Transaction Family Example
 
-See the [Settings Transactions family]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%}) for
-another more complex addressing scheme.
+See the [Settings Transactions
+family]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
+foranother more complex addressing scheme.

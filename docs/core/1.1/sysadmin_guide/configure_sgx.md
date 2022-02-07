@@ -308,7 +308,8 @@ so let's take a closer look at what it accomplishes:
     :   Adds the public key that the validator registry transaction
         processor uses to verify attestation reports.
 
-    `sawtooth.poet.valid_enclave_measurements=$(poet enclave --enclave-module sgx measurement)`
+    `sawtooth.poet.valid_enclave_measurements=$(poet enclave \
+    --enclave-module sgx measurement)`
 
     :   Adds the enclave measurement for your enclave to the blockchain
         for the validator registry transaction processor to use to check
@@ -331,7 +332,8 @@ so let's take a closer look at what it accomplishes:
     :   Adds the public key that the validator registry transaction
         processor uses to verify attestation reports.
 
-    `sawtooth.poet.valid_enclave_measurements=$(poet enclave --enclave-module sgx measurement)`
+    `sawtooth.poet.valid_enclave_measurements=$(poet enclave \
+      --enclave-module sgx measurement)`
 
     :   Adds the enclave measurement for your enclave to the blockchain
         for the validator registry transaction processor to use to check

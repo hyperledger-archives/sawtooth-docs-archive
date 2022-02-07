@@ -652,12 +652,14 @@ The population size is computed as follows:
 Assuming $b$ is the number of blocks currently claimed, the local mean
 is computed as follows:
 
-1.  | if $b < \textrm{sampleLength}$ then
+1.  ```
+    | if $b < \textrm{sampleLength}$ then
     |    $ratio = 1.0\cdot b / \textrm{sampleLength}$ and
     |    $\textrm{localMean} = \textrm{targetWaitTime}\cdot (1 - ratio^2) + \textrm{initialWaitTime}\cdot ratio^2$.
+    ```
 
-2.  else $\textrm{localMean}= \textrm{targetWaitTime}\cdot
-    \textrm{populationSize}$
+2.  `else $\textrm{localMean}= \textrm{targetWaitTime}\cdot
+    \textrm{populationSize}$`
 
 # z-test
 

@@ -98,7 +98,8 @@ consensus type. Then submit a consensus change proposal.
    > This node or user must have permission to change on-chain settings.
    > Usually, the node that created the genesis block has the appropriate
    > permissions. For more information, see
-   > [On-chain Transactor Permissioning]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %}).
+   > [On-chain Transactor Permissioning]({% link
+   docs/1.2/sysadmin_guide/configuring_permissions.md %}).
 
    When the block containing this transaction is committed, the network
    changes to the new consensus.
@@ -189,7 +190,8 @@ information, see [Dynamic Consensus]({% link docs/1.2/index.md
 > **Important**
 >
 > To learn which versions of Sawtooth support PoET SGX consensus, see
-> [Using Sawtooth with PoET SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %})
+> [Using Sawtooth with PoET
+> SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %})
 > in the > System Administrator's Guide.
 
 Requirements:

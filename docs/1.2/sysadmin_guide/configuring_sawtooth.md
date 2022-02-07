@@ -9,7 +9,8 @@ command options when starting a component.
 >
 > Using configuration files is an example of *off-chain configuration*. Changes
 > are made on the local system only.  For more information, see
-> [Configuring Validator and Transactor Permissions]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %}).
+> [Configuring Validator and Transactor
+> Permissions]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %}).
 
 When a Sawtooth component starts, it looks for a
 [TOML-format](https://github.com/toml-lang/toml) configuration file in
@@ -69,12 +70,18 @@ necessary for your system.
 > **Note**
 >
 > For the procedures that show how to change configuration settings in
-> this file, see [Off-chain Settings with Configuration Files]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}#changing-off-chain-settings-with-configuration-files)
-> and [Using Sawtooth with PoET-SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %}).
+> this file, see [Off-chain Settings with Configuration
+> Files]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}#changing-off-chain-settings-with-configuration-files)
+> and [Using Sawtooth with
+> PoET-SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %}).
 
 The `validator.toml` configuration file has the following options:
 
-- `bind = [ "network:{endpoint}", "component:{endpoint}", "consensus:{endpoint}", ]`
+- `bind = [
+      "network:{endpoint}",
+      "component:{endpoint}",
+      "consensus:{endpoint}",
+    ]`
 
   Sets the network, component, and consensus endpoints. The default
   values are:
@@ -405,7 +412,8 @@ configuration options as necessary for your system.
 
 > **Note**
 >
-> See [Using Sawtooth with PoET SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %})
+> See [Using Sawtooth with PoET
+> SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %})
 > for an example of changing settings in `poet_enclave_sgx.toml` when
 > configuring Sawtooth with the SGX implementation of PoET.
 

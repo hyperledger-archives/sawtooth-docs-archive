@@ -33,7 +33,8 @@ query the blockchain to the URL of the REST API (by default,
 `http://127.0.0.1:8008`).
 
 For more information on requirements and game rules, see
-[Playing with the XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md %}).
+[Playing with the XO Transaction Family]({% link
+docs/1.2/app_developers_guide/intro_xo_transaction_family.md %}).
 
 The `xo` command provides subcommands for playing XO on the command
 line.
