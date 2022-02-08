@@ -43,11 +43,11 @@ RUN echo "\033[0;32m--- Building python sdk ---\n\033[0m" \
  && python3 setup.py build
 
 RUN pydoc3 -w sawtooth_sdk/processor/* \
- && mkdir -p python_sdk/processor \
- && cp *.html python_sdk/processor \
+ && mkdir -p /tmp/python_sdk/processor \
+ && cp *.html /tmp/python_sdk/processor \
  && pydoc3 -w sawtooth_signing/* \
- && mkdir -p python_sdk/signing \
- && cp *.html python_sdk/signing
+ && mkdir -p /tmp/python_sdk/signing \
+ && cp *.html /tmp/python_sdk/signing
 
 # -------------=== jekyll build ===-------------
 
@@ -90,7 +90,7 @@ RUN git rev-parse HEAD > /commit-hash
 FROM httpd:2.4
 
 COPY --from=jekyll /tmp/ /usr/local/apache2/htdocs/
-COPY --from=sdk-python-docs /tmp/ /usr/local/apache2/htdocs/docs/1.2/sdks/python_sdk
+COPY --from=sdk-python-docs /tmp/python_sdk /usr/local/apache2/htdocs/docs/1.2/sdks/python_sdk
 COPY --from=git /commit-hash /commit-hash
 
 RUN echo "\
