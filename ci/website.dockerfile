@@ -49,6 +49,17 @@ RUN pydoc3 -w sawtooth_sdk/processor/* \
  && mkdir -p /tmp/python_sdk/signing \
  && cp *.html /tmp/python_sdk/signing
 
+# -------------=== redoc build ===-------------
+
+FROM node:lts-stretch as redoc
+
+RUN npm install -g redoc
+RUN npm install -g redoc-cli
+
+COPY . /project
+
+RUN redoc-cli bundle /project/docs/1.2/openapi.yaml -o index_1.2.html
+
 # -------------=== jekyll build ===-------------
 
 FROM jekyll/jekyll:3.8 as jekyll
@@ -89,6 +100,7 @@ RUN git rev-parse HEAD > /commit-hash
 
 FROM httpd:2.4
 
+COPY --from=redoc /index_1.2.html /usr/local/apache2/htdocs/docs/1.2/rest_api/openapi/index.html
 COPY --from=jekyll /tmp/ /usr/local/apache2/htdocs/
 COPY --from=sdk-python-docs /tmp/python_sdk /usr/local/apache2/htdocs/docs/1.2/sdks/python_sdk
 COPY --from=git /commit-hash /commit-hash

@@ -35,7 +35,6 @@ services:
     volumes:
       - .:/project
 
-
   sawtooth-python-docs:
     image: sawtooth-python-docs
     build:
@@ -52,3 +51,19 @@ services:
           && mkdir -p /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
           && cp *.html /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
         "
+
+  sawtooth-docs-redoc:
+    container_name: sawtooth-docs-redoc
+    image: sawtooth-docs-redoc
+    build:
+      dockerfile: docker/sawtooth-docs-redoc
+      context: .
+    ports:
+      - 4001:4001
+    volumes:
+      - .:/project
+    entrypoint: |
+      bash -c "
+        cd /project/docs/1.2/
+        redoc-cli serve openapi.yaml -h 0.0.0.0 -w -p 4001
+      "
