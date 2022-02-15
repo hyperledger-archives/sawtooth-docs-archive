@@ -280,6 +280,10 @@ You should not do non-deterministic actions in your transaction processor such a
 You should log the contents of `entries` prior to setState calls in your transaction processor.
 There will likely be a difference between the publishing and validation executions of the transaction (they always need to be identical)
 
+When an illegal transaction reaches the transaction processor, and it throws an InvalidTransaction exception, an endless loop is started where the validator repeatedly submits the same invalid transaction to the transaction processor.  Why does this happen?  Is there a fix for this?
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This can be fixed by submitting a valid transaction, which will clear the pending queue in the validator.  This issue will be fixed in the upcoming Sawtooth 2.0.
+
 
 .. class:: mininav
 
