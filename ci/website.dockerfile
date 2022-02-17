@@ -104,11 +104,14 @@ COPY --from=redoc /index_1.2.html /usr/local/apache2/htdocs/docs/1.2/rest_api/op
 COPY --from=jekyll /tmp/ /usr/local/apache2/htdocs/
 COPY --from=sdk-python-docs /tmp/python_sdk /usr/local/apache2/htdocs/docs/1.2/sdks/python_sdk
 COPY --from=git /commit-hash /commit-hash
+COPY apache/rewrite.conf /usr/local/apache2/conf/rewrite.conf
 
 RUN echo "\
 \n\
 ServerName sawtooth.hyperledger.org\n\
 ErrorDocument 404 /404.html\
+\n\
+Include /usr/local/apache2/conf/rewrite.conf\n\
 \n\
 " >>/usr/local/apache2/conf/httpd.conf
 
