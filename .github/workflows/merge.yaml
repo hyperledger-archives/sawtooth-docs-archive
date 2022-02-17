@@ -64,7 +64,7 @@ jobs:
   publish_docker:
     needs: [lint_website, test_docker_build]
     if: >-
-      (github.ref == 'refs/heads/refresh' && github.repository_owner == 'hyperledger')
+      (github.ref == 'refs/heads/main' && github.repository_owner == 'hyperledger')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -85,7 +85,7 @@ jobs:
         run: just docker-build
 
       - name: Publish site to dockerhub
-        run: docker push hyperledger/sawtooth-website:refresh
+        run: docker push hyperledger/sawtooth-website:main
 
       - name: Notify Slack of Failure
         if: failure()
