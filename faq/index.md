@@ -12,23 +12,23 @@ at <https://chat.hyperledger.org/channel/sawtooth>
 
 ## Sawtooth FAQ Sections
 
--   [Hyperledger Sawtooth in General](sawtooth)
--   [Installation and Configuration](installation)
--   [Transaction Processing](transaction-processing)
--   [Validator](validator)
--   [Consensus Algorithms (including PoET)](consensus)
--   [Client](client)
--   [REST API](rest)
--   [Permissioning](permissioning)
--   [Using Docker](docker)
--   [Upgrading Hyperledger Sawtooth](upgrade)
+-   [Hyperledger Sawtooth in General]({% link faq/sawtooth.md %})
+-   [Installation and Configuration]({% link faq/installation.md %})
+-   [Transaction Processing]({% link faq/transaction-processing.md %})
+-   [Validator]({% link faq/validator.md %})
+-   [Consensus Algorithms (including PoET)]({% link faq/consensus.md %})
+-   [Client]({% link faq/client.md %})
+-   [REST API]({% link faq/rest.md %})
+-   [Permissioning]({% link faq/permissioning.md %})
+-   [Using Docker]({% link faq/docker.md %})
+-   [Upgrading Hyperledger Sawtooth]({% link faq/upgrade.md %})
 
 ## FAQ Appendixes
 
--   [Sawtooth Glossary](glossary)
--   [Transaction Family Prefixes](prefixes)
--   [Configuration Settings](settings)
--   [Sawtooth Videos](videos)
+-   [Sawtooth Glossary]({% link faq/glossary.md %})
+-   [Transaction Family Prefixes]({% link faq/prefixes.md %})
+-   [Configuration Settings]({% link faq/settings.md %})
+-   [Sawtooth Videos]({% link faq/videos.md %})
 
 ## Contributing to This FAQ
 
