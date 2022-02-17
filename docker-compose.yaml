@@ -1,36 +1,69 @@
-# Copyright (c) 2018 Bitwise IO, Inc.
+# Copyright (c) 2018-2019 Bitwise IO, Inc.
+# Copyright 2022 Cargill Incorporated
 # Licensed under Creative Commons Attribution 4.0 International License
 # https://creativecommons.org/licenses/by/4.0/
-version: "2.1"
+version: "3.7"
 
 services:
-  jekyll:
-    image: generator-jekyll
-    build: ./generator
-    working_dir: /srv/jekyll/
-    entrypoint: /srv/jekyll/entrypoint-gen.sh
-    volumes:
-      - $PWD/generator:/srv/jekyll
-  linter:
-    image: linter
-    build: ./linter
-    volumes:
-      - $PWD/generator:/srv/jekyll
-    working_dir: /srv/jekyll/
-    entrypoint: /srv/jekyll/entrypoint-lint.sh
-  webserver:
-    image: sawtooth-website
-    container_name: sawtooth-website
+  sawtooth-docs-jekyll:
     build:
+      dockerfile: docker/jekyll.dockerfile
       context: .
-      dockerfile: webserver/Dockerfile
+    image: sawtooth-docs-jekyll
+    container_name: sawtooth-docs-jekyll
     working_dir: /srv/jekyll/
-    entrypoint: /srv/jekyll/entrypoint-web.sh
-    expose:
-      - 80
     ports:
-      - 8000:80
+      - 4000:4000
     volumes:
-      - $PWD/generator:/srv/jekyll
+      - $PWD:/srv/jekyll
     environment:
-      - BUILDONLY=${BUILDONLY}
+      - JEKYLL_ENV=${JEKYLL_ENV}
+    entrypoint:  |
+      bash -c "
+        rm -rf  _site
+        jekyll serve -H 0.0.0.0 --config ./_config.yml,./_config_dev.yml
+      "
+
+  sawtooth-docs-apache:
+    container_name: sawtooth-docs-apache
+    image: sawtooth-docs-apache
+    build:
+      dockerfile: docker/sawtooth-docs-apache
+      context: .
+    ports:
+      - 8080:80
+    volumes:
+      - .:/project
+
+  sawtooth-python-docs:
+    image: sawtooth-python-docs
+    build:
+      dockerfile: docker/python_sdk.dockerfile
+      context: .
+    volumes:
+      - $PWD:/srv/jekyll
+    entrypoint: |
+        bash -c "
+          pydoc3 -w sawtooth_sdk/processor/* \
+          && mkdir -p /srv/jekyll/docs/1.2/sdks/python_sdk/processor \
+          && cp *.html /srv/jekyll/docs/1.2/sdks/python_sdk/processor \
+          && pydoc3 -w sawtooth_signing/* \
+          && mkdir -p /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
+          && cp *.html /srv/jekyll/docs/1.2/sdks/python_sdk/signing \
+        "
+
+  sawtooth-docs-redoc:
+    container_name: sawtooth-docs-redoc
+    image: sawtooth-docs-redoc
+    build:
+      dockerfile: docker/sawtooth-docs-redoc
+      context: .
+    ports:
+      - 4001:4001
+    volumes:
+      - .:/project
+    entrypoint: |
+      bash -c "
+        cd /project/docs/1.2/
+        redoc-cli serve openapi.yaml -h 0.0.0.0 -w -p 4001
+      "

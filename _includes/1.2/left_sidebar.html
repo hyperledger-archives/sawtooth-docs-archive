@@ -1,0 +1,116 @@
+<!--
+  Copyright 2018-2022 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+{% include left_sidebar_toggle.html %}
+<div class="dropdown version-dropdown">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        v1.2
+    </a>
+    <div class="dropdown-menu">
+        <div class="dropdown-header">Stable</div>
+        <a class="dropdown-item" href="/docs/{{ site.data.general.latest_version }}/">
+            Latest (v{{ site.data.general.latest_version }})
+        </a>
+        <a class="dropdown-item" href="{% link docs/1.1/index.md %}">v1.1</a>
+        <a class="dropdown-item" href="{% link docs/1.0/index.md %}">v1.0</a>
+    </div>
+</div>
+<div id="left-sidebar-links" class="collapse">
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Getting Started</div>
+        <a href="{% link docs/1.2/index.md %}">Introduction</a>
+        <a href="{% link docs/1.2/glossary.md %}">Glossary</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Application Developer's Guide</div>
+        <a href="{% link docs/1.2/app_developers_guide/index.md %}">Overview</a>
+        <a href="{% link docs/1.2/app_developers_guide/overview.md %}">Transaction Family Overview</a>
+        <a href="{% link docs/1.2/app_developers_guide/installing_sawtooth.md %}">Setting Up a Sawtooth Node for Testing</a>
+        <a href="{% link docs/1.2/app_developers_guide/creating_sawtooth_network.md %}">Creating a Sawtooth Test Network</a>
+        <a href="{% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md %}">Playing with the XO Transaction Family</a>
+        <a href="{% link docs/1.2/app_developers_guide/using_the_sdks.md %}">Summary of Available SDKs</a>
+        <a href="{% link docs/1.2/app_developers_guide/python_sdk.md %}">Using the Python SDK</a>
+        <a href="{% link docs/1.2/app_developers_guide/rust_sdk.md%}">Using the Rust SDK</a>
+        <a href="{% link docs/1.2/app_developers_guide/address_and_namespace.md %}">Address and Namespace Design</a>
+        <a href="{% link docs/1.2/app_developers_guide/namespace_restriction.md %}">Namespace Restriction</a>
+        <a href="{% link docs/1.2/app_developers_guide/event_subscriptions.md %}">Subscribing to Events</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Architecture Guide</div>
+        <a href="{% link docs/1.2/architecture/index.md %}">Overview</a>
+        <a href="{% link docs/1.2/architecture/global_state.md %}">Global State</a>
+        <a href="{% link docs/1.2/architecture/transactions_and_batches.md %}">Transactions and Batches</a>
+        <a href="{% link docs/1.2/architecture/journal.md %}">Journal</a>
+        <a href="{% link docs/1.2/architecture/transaction_scheduling.md %}">Transaction Scheduling</a>
+        <a href="{% link docs/1.2/architecture/rest_api.md %}">REST API</a>
+        <a href="{% link docs/1.2/index.md %}">Sawtooth Network</a>
+        <a href="{% link docs/1.2/architecture/validator_network.md %}">Sawtooth Network</a>
+        <a href="{% link docs/1.2/architecture/permissioning_requirement.md %}">Permissioning Design</a>
+        <a href="{% link docs/1.2/architecture/injecting_batches_block_validation_rules.md %}">Injecting Batches and On-Chain Block Validation Rules</a>
+        <a href="{% link docs/1.2/architecture/events_and_transactions_receipts.md %}">Events and Transaction Receipts</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Transaction Family Specifications</div>
+        <a href="{% link docs/1.2/transaction_family_specifications/index.md %}">Overview</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/settings_transaction_family.md %}">Settings</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/identity_transaction_family.md %}">Identity</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/blockinfo_transaction_family.md %}">BlockInfo</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/integerkey_transaction_family.md %}">IntegerKey</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/xo_transaction_family.md %}">XO</a>
+        <a href="{% link docs/1.2/transaction_family_specifications/smallbank_transaction_family.md %}">Smallbank</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">System Administrator's Guide</div>
+        <a href="{% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}">Setting Up a Sawtooth Network</a>
+        <a href="{% link docs/1.2/sysadmin_guide/setting_allowed_txns.md %}">Setting the Allowed Transaction Types (Optional)</a>
+        <a href="{% link docs/1.2/sysadmin_guide/adding_authorized_users.md %}">Adding Authorized Users for Settings Proposals</a>
+        <a href="{% link docs/1.2/sysadmin_guide/rest_auth_proxy.md %}">Using Proxy Server to Authorize the REST API</a>
+        <a href="{% link docs/1.2/sysadmin_guide/configuring_permissions.md %}">Configuring Validator and Transactor Permissions</a>
+        <a href="{% link docs/1.2/sysadmin_guide/grafana_configuration.md %}">Using Grafana to Display Sawtooth Metrics</a>
+        <a href="{% link docs/1.2/sysadmin_guide/about_dynamic_consensus.md %}">About Dynamic Consensus</a>
+        <a href="{% link docs/1.2/sysadmin_guide/pbft_adding_removing_node.md %}">Adding or Removing a PBFT Node</a>
+        <a href="{% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}">About Sawtooth Configuration Files</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">SDK and API References</div>
+        <a href="{% link docs/1.2/sdks/python.md %}">Python</a>
+        <a href="{% link docs/1.2/sdks/rust.md %}">Rust</a>
+        <a href="{% link docs/1.2/rest_api/index.md %}">REST API Reference</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">CLI Command Reference</div>
+        <a href="{% link docs/1.2/cli/sawtooth.md %}">sawtooth</a>
+        <a href="{% link docs/1.2/cli/sawtooth-validator.md %}">sawtooth-validator</a>
+        <a href="{% link docs/1.2/cli/sawtooth-rest-api.md %}">sawtooth-rest-api</a>
+        <a href="{% link docs/1.2/cli/sawadm.md %}">sawadm</a>
+        <a href="{% link docs/1.2/cli/sawnet.md %}">sawnet</a>
+        <a href="{% link docs/1.2/cli/sawset.md %}">sawset</a>
+        <a href="{% link docs/1.2/cli/identity-tp.md %}">identity-tp</a>
+        <a href="{% link docs/1.2/cli/intkey.md %}">intkey</a>
+        <a href="{% link docs/1.2/cli/settings-tp.md %}">settings-tp</a>
+        <a href="{% link docs/1.2/cli/xo.md %}">xo</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">PBFT</div>
+        <a href="{% link docs/1.2/pbft/introduction-to-sawtooth-pbft.md %}">Introduction</a>
+        <a href="{% link docs/1.2/pbft/using-pbft-consensus.md %}">Using PBFT Consensus</a>
+        <a href="{% link docs/1.2/pbft/architecture.md %}">PBFT Architecture</a>
+        <a href="{% link docs/1.2/pbft/configuring-pbft.md %}">Configuring PBFT</a>
+        <a href="{% link docs/1.2/pbft/installing-and-running-pbft.md %}">Installing and Testing PBFT</a>
+        <a href="{% link docs/1.2/pbft/glossary.md %}">Glossary</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Sabre</div>
+        <a href="{% link docs/1.2/sabre/sabre_transaction_family.md %}">Sabre Transaction Family</a>
+        <a href="{% link docs/1.2/sabre/application_developer_guide.md %}">Sabre Application Developer's Guide</a>
+        <a href="{% link docs/1.2/sabre/sabre_cli.md %}">Sabre CLI Reference</a>
+        <a href="{% link docs/1.2/sabre/smart_permissions.md %}">Smart Permissions</a>
+        <a href="{% link docs/1.2/sabre/version_compatibility.md %}">Sabre and Sawtooth Version Compatibility</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Conversion</div>
+        <a href="{% link docs/1.2/conversion_status.md %}">Status</a>
+    </div>
+</div>
