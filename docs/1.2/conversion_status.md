@@ -19,12 +19,12 @@ project, please take a few pages and convert them from sphinx-doc to Jekyll.
 A partial conversion has been done with pandoc here, and should be used as
 a starting point:
 
-- <https://github.com/hyperledger/sawtooth-docs/tree/refresh/docs/core/1.2>
+- <https://github.com/hyperledger/sawtooth-docs/tree/main/docs/core/1.2>
 
 And the next step is to review/fix the pages and integrate them into the new
 1.1 documentation here:
 
-- <https://github.com/hyperledger/sawtooth-docs/tree/refresh/docs/1.2>
+- <https://github.com/hyperledger/sawtooth-docs/tree/main/docs/1.2>
 
 A typical page conversion PR consists of the following steps:
 
@@ -32,7 +32,7 @@ A typical page conversion PR consists of the following steps:
 - Commit 2: Update the file's markup (link syntax, note syntax, etc.) to work
   with Jekyll
 - Commit 3: Link to the file in the sidebar by updating
-  [_includes/1.2/left_sidebar.html](https://github.com/hyperledger/sawtooth-docs/blob/refresh/_includes/1.2/left_sidebar.html)
+  [_includes/1.2/left_sidebar.html](https://github.com/hyperledger/sawtooth-docs/blob/main/_includes/1.2/left_sidebar.html)
 
 When submitting PRs, please keep file moves, content conversion, and content
 changes as separate commits for easier review. Thanks!
