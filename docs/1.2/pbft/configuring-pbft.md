@@ -72,19 +72,20 @@ Sawtooth PBFT includes on-chain settings for network-wide configuration
 on a Hyperledger Sawtooth network. These settings affect how the whole
 network operates, so it is desirable that they be the same on all nodes.
 The [Settings transaction
-processor](https://sawtooth.hyperledger.org/docs/core/releases/latest/transaction_family_specifications/settings_transaction_family.html)
+processor]({% link
+docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 (or an equivalent) is required to process these settings.
 
 > ** Tip **
 >
 > To display the existing settings, use [sawtooth settings
-> list](https://sawtooth.hyperledger.org/docs/core/releases/latest/cli/sawtooth.html#sawtooth-settings-list).
+> list]({% link docs/1.2/cli/sawtooth.md %}#sawtooth-settings-list).
 > To change a setting, use [sawset proposal
-> create](https://sawtooth.hyperledger.org/docs/core/releases/latest/cli/sawset.html#sawset-proposal-create).
+> create]({% link docs/1.2/cli/sawset.md %}#sawset-proposal-create).
 > This command requires a signing key (the `--key` option) that specifies the
 > public key of a user or validator that has permission to change settings. See
 > `sawtooth.identity.allowed_keys` in [Configuring Validator and Transactor
-> Permissions](https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/configuring_permissions.html).
+> Permissions]({% link docs/1.2/sysadmin_guide/configuring_permissions.md %}).
 
 - `sawtooth.consensus.pbft.block_publishing_delay`
 

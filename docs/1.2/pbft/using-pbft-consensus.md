@@ -41,7 +41,7 @@ documentation:
   shows how to create a test network with PBFT consensus for an
   application development environment.
 - Sawtooth administrators: [Setting Up a Sawtooth
-  Node](https://sawtooth.hyperledger.org/docs/core/releases/latest/sysadmin_guide/setting_up_sawtooth_poet-sim.html)
+  Node]({% link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %})
   explains how to create a Sawtooth network with PBFT consensus, plus
   how to add or remove nodes for an existing network.
 
