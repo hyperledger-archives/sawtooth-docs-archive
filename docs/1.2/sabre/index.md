@@ -1,5 +1,5 @@
 ---
-redirect_to: /docs/1.2/sabre/sabre_transaction_family/
+redirect_to: /docs/1.2/sabre/sabre_transaction_family.md
 ---
 
 <!--

@@ -28,8 +28,9 @@ intkey key value pair in the intkey state.
 -->
 
 The Sabre Smart Contracts use a similar API to the Sawtooth transaction
-processor API. If you are unfamiliar, please take a look at
-<https://sawtooth.hyperledger.org/docs/core/nightly/master/sdks.html>.
+processor API. If you are unfamiliar, please take a look at the
+[list of available SDKs]({% link
+docs/1.2/app_developers_guide/using_the_sdks.md %}).
 
 Include the Sabre SDK in the dependencies list of the Cargo.toml file.
 

@@ -5,15 +5,11 @@ logging output. This is done by creating a log config file in
 [TOML](https://github.com/toml-lang/toml) or [YAML](http://yaml.org)
 format and passing it to the built-in Python logging module.
 
-::: note
-::: title
-Note
-:::
-
-You must use YAML to configure a remote syslog service. Due to a
-limitation in the TOML spec, you cannot configure a remote syslog
-service using TOML.
-:::
+> **Note**
+>
+> You must use YAML to configure a remote syslog service. Due to a
+> limitation in the TOML spec, you cannot configure a remote syslog
+> service using TOML.
 
 # About Sawtooth Log Files
 
@@ -27,8 +23,8 @@ error log and a debug log by default. These files are stored in the log
 directory (`log_dir`), which is `/var/log/sawtooth` by default. However,
 the location `SAWTOOTH_HOME` environment variable, if set, can change
 the default location. For more information, see
-`configuring_sawtooth/path_configuration_file`{.interpreted-text
-role="doc"}.
+[Path Configuration File]({% link
+docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path-configuration-file).
 
 For Sawtooth core components, such as the validator or REST API, the log
 file names are `{component}-debug.log` and `{component}-error.log`. For
@@ -59,18 +55,16 @@ processor could have the following log files:
 To change the default logging behavior of a Sawtooth component, such as
 the validator or REST API, put a log configuration file in the config
 directory (`/var/log/sawtooth` by default; see
-`configuring_sawtooth/path_configuration_file`{.interpreted-text
-role="doc"}).
+[Path Configuration File]({% link
+docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path-configuration-file)).
 
-\<\<\<\<\<\<\< HEAD:docs/core/1.0/sysadmin_guide/log_configuration.rst
-The validator log config file should be named `log_config.toml`. =======
+The validator log config file should be named `log_config.toml`.
 Sawtooth provides an example log configuration file in
 `/etc/sawtooth/log_config.toml.example`. To create a log configuration
 file, copy the example file to the config directory and name it
 `log_config.toml`. Copy with `cp -a` to preserve the file\'s ownership
 and permissions (or change after copying to owner `root`, group
-`sawtooth`, and permissions `640`). \>\>\>\>\>\>\>
-core/1-2:docs/core/1.2/sysadmin_guide/log_configuration.rst
+`sawtooth`, and permissions `640`).
 
 Each transaction processor can define its own config file. The name of
 this file is determined by the author. The transaction processors
@@ -90,7 +84,7 @@ interested in.
 This example `log_config.toml` file creates a handler that only writes
 interconnect logs to the directory and file specified.
 
-``` none
+``` shell
 version = 1
 disable_existing_loggers = false
 
@@ -119,7 +113,7 @@ This example shows how to set up rotating logs. This is useful when the
 logs may grow very large, such as with a long-running network. For
 example:
 
-``` none
+``` shell
 [formatters.simple]
 format = "[%(asctime)s.%(msecs)03d [%(threadName)s] %(module)s %(levelname)s] %(message)s"
 datefmt = "%H:%M:%S"
