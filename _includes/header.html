@@ -18,6 +18,9 @@
         </li><li class="nav-item">
             {% assign dir = page.dir | slice: 0, 11 %}
             <a class="nav-link{% if dir == '/community/' %} active{% endif %}" href="{% link community/index.md %}"><span>Community</span></a>
+        </li><li class="nav-item">
+            {% assign dir = page.dir | slice: 0, 8 %}
+            <a class="nav-link{% if dir == '/search/' %} active{% endif %}" href="{% link search/index.md %}"><span><img src="/assets/search.svg" height=16></span></a>
         </li></ul>
     </div>
 </header>

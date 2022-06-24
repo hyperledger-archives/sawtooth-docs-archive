@@ -1,5 +1,6 @@
 .DS_Store
 _site
+_userconfig.yml
 .idea
 .jekyll-cache/
 
