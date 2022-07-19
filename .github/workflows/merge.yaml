@@ -81,11 +81,10 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build Website
-        run: just docker-build
-
-      - name: Publish site to dockerhub
-        run: docker push hyperledger/sawtooth-website:main
+      - name: Build and publish site to dockerhub
+        run: ./ci/publish-docker
+        env:
+          GOOGLE_PSE: ${{ secrets.GOOGLE_PSE }}
 
       - name: Notify Slack of Failure
         if: failure()

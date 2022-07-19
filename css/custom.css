@@ -550,3 +550,20 @@ td {
     margin-bottom: 30px;
     padding: 20px;
 }
+
+/* Override Google Search Input */
+
+table.gsc-input {
+    table-layout: unset;
+    margin: unset;
+    margin-bottom: unset;
+}
+
+th {
+    padding: 5px;
+    border-bottom: 2px solid var(--light-sawtooth-blue);
+}
+
+td {
+    padding: unset;
+}
