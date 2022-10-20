@@ -23,7 +23,7 @@ Ways you can contribute:
 
 Hyperledger Sawtooth issues can be found in
 [Github Issues](issue_tracking).  Any unassigned items
-are probably still open. When in doubt, ask on RocketChat about a specific
+are probably still open. When in doubt, ask on Discord about a specific
 issue (see [Joining the Discussion](./join_the_discussion.html)).
 
 ## The Commit Process
