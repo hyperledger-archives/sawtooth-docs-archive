@@ -29,4 +29,5 @@ Want to receive updates on Sawtooth? Add your email here:
 Want to ask questions and chat with other developers?
 
 [Join the Discord server](https://discord.gg/hyperledger){: .button}
-and visit [#sawtooth](https://discord.com/channels/905194001349627914/905206249879113818){: .button}.
+and visit [#sawtooth](
+https://discord.com/channels/905194001349627914/905206249879113818){: .button}.
