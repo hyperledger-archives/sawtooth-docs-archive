@@ -28,5 +28,6 @@ Want to receive updates on Sawtooth? Add your email here:
 
 Want to ask questions and chat with other developers?
 
-[RocketChat](https://chat.hyperledger.org/channel/sawtooth
-"Hyperledger Sawtooth RocketChat"){: .button}
+[Join the Discord server](https://discord.gg/hyperledger){: .button}
+and visit [#sawtooth](
+https://discord.com/channels/905194001349627914/905206249879113818){: .button}.

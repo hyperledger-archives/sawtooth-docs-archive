@@ -9,11 +9,12 @@
 
 ## Chat
 
-Hyperledger Sawtooth RocketChat is the place to go for real-time chat about
+Hyperledger's Discord server is the place to go for real-time chat about
 everything from quick help to involved discussions.
 
-For general Hyperledger Sawtooth discussions, join the
-[#sawtooth](https://chat.hyperledger.org/channel/sawtooth).
+For general Hyperledger Sawtooth discussions,
+[join the Discord server](https://discord.gg/hyperledger)
+and visit [#sawtooth](https://discord.com/channels/905194001349627914/905206249879113818).
 
 ## Mailing Lists
 

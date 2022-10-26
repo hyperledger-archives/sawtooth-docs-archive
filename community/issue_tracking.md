@@ -41,6 +41,6 @@ Details are very helpful. Please include the following information:
 * Actual results
 * Expected results
 
-If you would like, you could also describe the issue on RocketChat
+If you would like, you could also describe the issue on Discord
 (see [Joining the Discussion](./join_the_discussion.html))
 for initial feedback before submitting the issue in JIRA.
