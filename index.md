@@ -17,7 +17,7 @@ shared state between untrusted parties coordinated by consensus algorithms.
 
 # Project Status
 
-This project is an *graduated* Hyperledger project. It was proposed to the
+This project is a *graduated* Hyperledger project. It was proposed to the
 community and documented
 [here](https://docs.google.com/document/d/1j7YcGLJH6LkzvWdOYFIt2kpkVlLEmILErXL6t-Ky2zU).
 Information on what *Graduated* entails can be found in the
