@@ -208,7 +208,7 @@ To confirm that a validator is running and reachable from the client
 container, run this `curl` command as root:
 
 ``` console
-root@75b380886502:/# curl http://rest-api:8008/blocks
+root@75b380886502:/# curl http://rest-api-0:8008/blocks
 ```
 
 To check connectivity from the host computer, open a new terminal window
@@ -264,7 +264,7 @@ Run the following commands from the client container:
 
 ``` console
 $ intkey create_batch --count 10 --key-count 5
-$ intkey load -f batches.intkey -U http://rest-api:8008
+$ intkey load -f batches.intkey -U http://rest-api-0:8008
 ```
 
 The terminal window in which you ran the `docker-compose` command will
@@ -296,7 +296,7 @@ For example, you can submit the transactions in the file
 `batches.intkey` as generated above with this command:
 
 ``` console
-$ sawtooth batch submit -f batches.intkey --url http://rest-api:8008
+$ sawtooth batch submit -f batches.intkey --url http://rest-api-0:8008
 ```
 
 ## Viewing the Block Chain
@@ -320,7 +320,7 @@ Enter the command `sawtooth block list` to view the blocks stored by the
 state:
 
 ``` console
-$ sawtooth block list --url http://rest-api:8008
+$ sawtooth block list --url http://rest-api-0:8008
 ```
 
 The output of the command will be similar to this:
@@ -338,7 +338,7 @@ id of a block you want to get more info about, then paste it in place of
 `{BLOCK_ID}` in the following `sawtooth block show` command:
 
 ``` console
-$ sawtooth block show --url http://rest-api:8008 {BLOCK_ID}
+$ sawtooth block show --url http://rest-api-0:8008 {BLOCK_ID}
 ```
 
 The output of this command includes all data stored under that block,
@@ -389,7 +389,7 @@ Use the command `sawtooth state list` to list the nodes in the Merkle
 tree:
 
 ``` console
-$ sawtooth state list --url http://rest-api:8008
+$ sawtooth state list --url http://rest-api-0:8008
 ```
 
 The output of the command will be similar to this truncated list:
@@ -412,7 +412,7 @@ address you want to view, then paste it in place of `{STATE_ADDRESS}` in
 the following `sawtooth state show` command:
 
 ``` console
-$ sawtooth state show --url http://rest-api:8008 {STATE_ADDRESS}
+$ sawtooth state show --url http://rest-api-0:8008 {STATE_ADDRESS}
 ```
 
 The output of the command will include both the bytes stored at that
@@ -433,7 +433,7 @@ host. Enter the following command from the terminal window for the
 client container:
 
 ``` console
-$ curl http://rest-api:8008/blocks
+$ curl http://rest-api-0:8008/blocks
 ```
 
 ## From the Host Operating System
@@ -645,10 +645,10 @@ Then run the following command from the validator container:
 
 ``` console
 $ sawset proposal create \
-  --url http://rest-api:8008 \
+  --url http://rest-api-0:8008 \
   --key /root/.sawtooth/keys/my_key.priv \
   sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}]'
-$ sawtooth settings list --url http://rest-api:8008
+$ sawtooth settings list --url http://rest-api-0:8008
 ```
 
 A TP_PROCESS_REQUEST message appears in the logging output of the

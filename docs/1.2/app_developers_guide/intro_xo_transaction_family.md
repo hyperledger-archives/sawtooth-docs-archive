@@ -101,11 +101,11 @@ argument to each `xo` command in this procedure.
     >
     >
     > In the Docker environment, the REST API is at
-    > `http://rest-api:8008`. You must add `--url http://rest-api:8008` to
+    > `http://rest-api-0:8008`. You must add `--url http://rest-api-0:8008` to
     > all `xo` commands in this procedure. For example:
     >
     > ``` console
-    > $ xo create my-game --username jack --url http://rest-api:8008
+    > $ xo create my-game --username jack --url http://rest-api-0:8008
     > ```
 
 -   Kubernetes: See [Confirm Connectivity to the REST API (for

@@ -62,7 +62,7 @@ This verifies the REST API is available.
 From the Client Docker container run this:
 
 ``` sh
-curl http://rest-api:8008/blocks
+curl http://rest-api-0:8008/blocks
 ```
 
 You should see a JSON response similar to this:

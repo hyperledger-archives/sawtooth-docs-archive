@@ -36,7 +36,7 @@ curl http://localhost:8008/state
 From the Client Docker container, access from rest-api. For example:
 
 ``` sh
-curl http://rest-api:8008/state
+curl http://rest-api-0:8008/state
 ```
 
 These are the supported REST API commands:

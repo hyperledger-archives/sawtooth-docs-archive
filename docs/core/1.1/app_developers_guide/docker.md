@@ -227,7 +227,7 @@ more information.
     from the client container, run this `curl` command:
 
     ``` console
-    root@client# curl http://rest-api:8008/blocks
+    root@client# curl http://rest-api-0:8008/blocks
     ```
 
 2.  To check connectivity from the host computer, open a new terminal
@@ -305,7 +305,7 @@ testing purposes.
 2.  Use `intkey load` to submit the batches to the validator.
 
     ``` console
-    root@client# intkey load -f batches.intkey --url http://rest-api:8008
+    root@client# intkey load -f batches.intkey --url http://rest-api-0:8008
     batches: 11 batch/sec: 141.7800162868952
     ```
 
@@ -356,7 +356,7 @@ transactions, you could use `sawtooth batch submit` to submit them.
 2.  Submit the batch file with `sawtooth batch submit`:
 
     ``` console
-    root@client# sawtooth batch submit -f batches.intkey --url http://rest-api:8008
+    root@client# sawtooth batch submit -f batches.intkey --url http://rest-api-0:8008
     batches: 11,  batch/sec: 216.80369536716367
     ```
 
@@ -369,7 +369,7 @@ stored on the blockchain.
     state.
 
     > ``` console
-    > root@client# sawtooth block list --url http://rest-api:8008
+    > root@client# sawtooth block list --url http://rest-api-0:8008
     > ```
     >
     > The output shows the block number and block ID, as in this
@@ -396,7 +396,7 @@ stored on the blockchain.
     the following command:
 
     ``` console
-    root@client# sawtooth block show --url http://rest-api:8008 {BLOCK_ID}
+    root@client# sawtooth block show --url http://rest-api-0:8008 {BLOCK_ID}
     ```
 
     The output of this command can be quite long, because it includes
@@ -437,7 +437,7 @@ role="term"}; for more information, see
 1.  Use `sawtooth state list` to list the nodes (addresses) in state:
 
     ``` console
-    root@client# sawtooth state list --url http://rest-api:8008
+    root@client# sawtooth state list --url http://rest-api-0:8008
     ```
 
     The output will be similar to this truncated example:
@@ -459,7 +459,7 @@ role="term"}; for more information, see
     `{STATE_ADDRESS}` in the following command:
 
     ``` console
-    root@client# sawtooth state show --url http://rest-api:8008 {STATE_ADDRESS}
+    root@client# sawtooth state show --url http://rest-api-0:8008 {STATE_ADDRESS}
     ```
 
     The output shows the bytes stored at that address and the block ID

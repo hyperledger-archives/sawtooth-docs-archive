@@ -379,7 +379,7 @@ message ClientReceiptGetResponse {
 ```
 
 To request a transaction receipt from the REST API, pass the transaction
-ID in the form `http://rest-api:8008/receipts/?id=TRANSACTION-ID` where
+ID in the form `http://rest-api-0:8008/receipts/?id=TRANSACTION-ID` where
 `TRANSACTION-ID` is your 128-character transaction ID. Use
 `localhost:8008` if the Validator is running on Ubuntu instead of
 Docker.

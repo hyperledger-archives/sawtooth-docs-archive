@@ -64,7 +64,7 @@ functionality.
             "data": [
             "tcp://validator-1:8800",
           ],
-          "link": "http://rest-api:8008/peers"
+          "link": "http://rest-api-0:8008/peers"
         }
         ```
 

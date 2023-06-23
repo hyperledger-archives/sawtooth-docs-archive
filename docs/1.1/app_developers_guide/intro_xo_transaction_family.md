@@ -99,7 +99,7 @@ client submits to the validator via the REST API.
     > demo application environment when creating a new game:
     >
     > ```
-    > $ xo create my-game --username jack --url http://rest-api:8008
+    > $ xo create my-game --username jack --url http://rest-api-0:8008
     > ```
 
 ### Step 2. Ubuntu only: Start the XO Transaction Processor

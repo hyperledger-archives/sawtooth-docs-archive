@@ -539,7 +539,7 @@ commands in a `Dockerfile` as follows:
     `Dockerfile` for each container
 -   Install your application\'s transaction processor and client.
 -   Make sure your client app connects to the REST API at
-    `http://localhost:8008` instead of `http://rest-api:8008`
+    `http://localhost:8008` instead of `http://rest-api-0:8008`
 -   Make sure your transaction processor connects to
     `tcp://localhost:4004` instead of `tcp://validator:4004`
 -   Start the Validator, REST API, and Settings TP:
