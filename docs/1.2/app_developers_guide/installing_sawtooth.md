@@ -804,7 +804,7 @@ Minikube](https://kubernetes.io/docs/setup/minikube/).
 
 Download the Kubernetes configuration file for a single-node
 environment:
-[sawtooth-kubernetes-default.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/kubernetes/sawtooth-kubernetes-default.yaml).
+[sawtooth-kubernetes-default.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default.yaml).
 
 This file defines the process for constructing a one-node Sawtooth
 environment with following containers:

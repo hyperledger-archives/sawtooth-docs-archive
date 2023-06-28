@@ -199,9 +199,9 @@ access those settings when they join the network.
 Download the Docker Compose file for a multiple-node network.
 
 -   For PBFT, download
-    [sawtooth-default-pbft.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-pbft.yaml)
+    [sawtooth-default-pbft.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/compose/sawtooth-default-pbft.yaml)
 -   For PoET, download
-    [sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/main/docker/compose/sawtooth-default-poet.yaml)
+    [sawtooth-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/compose/sawtooth-default-poet.yaml)
 
 ### Step 2: Start the Sawtooth Network
 
