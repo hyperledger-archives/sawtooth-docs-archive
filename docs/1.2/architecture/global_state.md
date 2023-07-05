@@ -49,7 +49,7 @@ stored. An address is a hex-encoded 70 character string representing 35
 bytes. In the tree implementation, each byte is a Radix path segment
 which identifies the next node in the path to the leaf containing the
 data associated with the address. The address format contains a 3 byte
-(6 hex character) namespace prefix which provides 2^24^ (16,777,216)
+(6 hex character) namespace prefix which provides 2^24 (16,777,216)
 possible different namespaces in a given instance of Sawtooth. The
 remaining 32 bytes (64 hex characters) are encoded based on the
 specifications of the designer of the namespace, and may include schemes

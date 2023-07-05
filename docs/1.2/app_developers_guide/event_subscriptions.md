@@ -15,10 +15,10 @@ subscription allows an application to perform the following functions:
     from a specific point on the blockchain
 
 An application can react immediately to each event or store event data
-for later processing and analysis. For example, a [state delta
-processor]{.title-ref} could store state data in a reporting database
-for analysis and processing, which provides access to state information
-without the delay of requesting state data from the validator. For
+for later processing and analysis. For example, a
+[state delta processor](#sawtoothstate-delta) could store state data in a
+reporting database for analysis and processing, which provides access to state
+information without the delay of requesting state data from the validator. For
 examples, see the [Sawtooth Supply
 Chain](https://github.com/hyperledger/sawtooth-supply-chain) or
 [Sawtooth
@@ -63,7 +63,7 @@ without attributes. For more information, see
 
 Events are represented with the following protobuf message:
 
-``` protobuf
+```protobuf
 message Event {
   // Used to subscribe to events and servers as a hint for how to deserialize
   // event_data and what pairs to expect in attributes.
@@ -77,7 +77,7 @@ message Event {
   repeated Attribute attributes = 2;
 
   // Opaque data defined by the event_type.
-  bytes  data = 3;
+  bytes data = 3;
 }
 ```
 
@@ -105,7 +105,7 @@ event contains information about the block, such as the block ID, block
 number, state root hash, and previous block ID. It has the following
 structure:
 
-``` protobuf
+```protobuf
 Event {
   event_type = "sawtooth/block-commit",
   attributes = [
@@ -123,7 +123,7 @@ A `sawtooth/state-delta` occurs when a block is committed. This event
 contains all state changes that occurred at a given address for that
 block. This event has the following structure:
 
-``` python
+```python
 Event {
   event_type = "sawtooth/state-delta",
   attributes = [Attribute { key = "address", value = "abc...def" }],
@@ -264,7 +264,7 @@ the validator\'s messaging protocol.
 An event subscription is represented with the following protobuf
 messages, which are defined in `sawtooth-core/protos/events.proto`.
 
-``` python
+```python
 message EventSubscription {
   string event_type = 1;
   repeated EventFilter filters = 2;
@@ -288,7 +288,7 @@ message EventFilter {
 A `ClientEventsSubscribeRequest` envelope is used to submit subscription
 requests and receive the responses.
 
-``` protobuf
+```protobuf
 message ClientEventsSubscribeRequest {
     repeated EventSubscription subscriptions = 1;
     // The block id (or ids, if trying to walk back a fork) the subscriber last
@@ -301,7 +301,7 @@ message ClientEventsSubscribeRequest {
 The validator responds with a `ClientEventsSubscribeResponse` message
 that specifies whether the subscription was successful.
 
-``` protobuf
+```protobuf
 message ClientEventsSubscribeResponse {
     enum Status {
          OK = 0;
@@ -329,8 +329,8 @@ the REST API, but there are several limitations:
     the results. A web socket subscription returns all events.
 -   Event catch-up is not available.
 
-We recommend using ZMQ for event subscription, as described in
-`zmq_event_subscription`{.interpreted-text role="doc"}.
+We recommend [using ZMQ](#using-zmq-to-subscribe-to-events) for event
+subscription.
 
 For information on using web sockets, see [State Delta
 WebSockets]({% link docs/1.2/rest_api/state_delta_websockets.md%}).
@@ -366,7 +366,7 @@ for event subscription. It also describes the following operations:
 The following steps assume that the XO transaction family has a `create`
 event that is sent when a game has been created, as in this example:
 
-``` python
+```python
 context.add_event(
     "xo/create", {
         'name': name,
@@ -387,7 +387,7 @@ The following example constructs an event subscription for state-delta
 events (changes in state) with a `REGEX_ANY` filter for events from the
 XO transaction family.
 
-``` python
+```python
 subscription = EventSubscription(
     event_type="sawtooth/state-delta",
     filters=[
@@ -417,7 +417,7 @@ After constructing a subscription, submit the subscription request to
 the validator. The following example connects to the validator using
 ZMQ, then submits the subscription request.
 
-``` python
+```python
 # Setup a connection to the validator
 ctx = zmq.Context()
 socket = ctx.socket(zmq.DEALER)
@@ -446,7 +446,7 @@ subscription was successful.
 
 The following example receives the response and verifies the status.
 
-``` python
+```python
 # Receive the response
 resp = socket.recv_multipart()[-1]
 
@@ -482,7 +482,7 @@ these events.
 
 The following example listens for events and prints them indefinitely.
 
-``` python
+```python
 while True:
   resp = socket.recv_multipart()[-1]
 
@@ -566,7 +566,7 @@ date:
 The following example submits a subscription request that includes event
 catch-up.
 
-``` python
+```python
 # Setup a connection to the validator
 ctx = zmq.Context()
 socket = ctx.socket(zmq.DEALER)
@@ -600,7 +600,7 @@ no arguments, wait for the response, then close the ZMQ socket.
 
 This example submits an unsubscribe request.
 
-``` python
+```python
 # Construct the request
 request = ClientEventsUnsubscribeRequest()
 
@@ -618,7 +618,7 @@ socket.send_multipart([msg.SerializeToString()])
 The following example receives the validator\'s response to an
 unsubscribe request, verifies the status, and closes the ZMQ connection.
 
-``` python
+```python
 # Receive the response
 resp = socket.recv_multipart()[-1]
 

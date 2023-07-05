@@ -39,7 +39,7 @@ docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md %}).
 
 You can verify the BIOS version after the machine has booted by running:
 
-``` console
+```console
 $ sudo lshw| grep -A5 *-firmware
      *-firmware
           description: BIOS
@@ -54,7 +54,7 @@ $ sudo lshw| grep -A5 *-firmware
 Install the prerequisites for SGX and the Intel SGX Platform Software
 (PSW).
 
-``` console
+```console
 $ sudo apt-get update &&
   sudo apt-get install -y \
       alien \
@@ -78,7 +78,7 @@ $ sudo apt-get update &&
 
 Download and install the SGX driver:
 
-``` console
+```console
 $ mkdir ~/sgx && cd ~/sgx
 $ wget https://download.01.org/intel-sgx/linux-2.0/sgx_linux_x64_driver_eb61a95.bin
 $ chmod +x sgx_linux_x64_driver_eb61a95.bin
@@ -89,7 +89,7 @@ Download and install the Intel Capability Licensing Client. This is
 presently available only as an .rpm, so you must convert it to a .deb
 package with alien:
 
-``` console
+```console
 $ wget http://registrationcenter-download.intel.com/akdlm/irc_nas/11414/iclsClient-1.45.449.12-1.x86_64.rpm
 $ sudo alien --scripts iclsClient-1.45.449.12-1.x86_64.rpm
 $ sudo dpkg -i iclsclient_1.45.449.12-2_amd64.deb
@@ -98,7 +98,7 @@ $ sudo dpkg -i iclsclient_1.45.449.12-2_amd64.deb
 Download and install the Dynamic Application Loader Host Interface
 (JHI):
 
-``` console
+```console
 $ wget https://github.com/01org/dynamic-application-loader-host-interface/archive/master.zip -O jhi-master.zip
 $ unzip jhi-master.zip && cd dynamic-application-loader-host-interface-master
 $ cmake .
@@ -109,7 +109,7 @@ $ sudo systemctl enable jhi
 
 Download and install the Intel SGX Platform Software (PSW):
 
-``` console
+```console
 $ cd ~/sgx
 $ wget https://download.01.org/intel-sgx/linux-2.0/sgx_linux_ubuntu16.04.1_x64_psw_2.0.100.40950.bin
 $ chmod +x sgx_linux_ubuntu16.04.1_x64_psw_2.0.100.40950.bin
@@ -118,7 +118,7 @@ $ sudo ./sgx_linux_ubuntu16.04.1_x64_psw_2.0.100.40950.bin
 
 Check to make sure the kernel module is loaded:
 
-``` console
+```console
 $ lsmod | grep sgx
 isgx                   36864  2
 ```
@@ -129,7 +129,7 @@ to \"Enabled\" in the BIOS.
 If you\'re still having trouble, the SGX software may need to be
 reinstalled:
 
-``` console
+```console
 $ sudo /opt/intel/sgxpsw/uninstall.sh
 $ cd ~/sgx
 $ sudo ./sgx_linux_x64_driver_eb61a95.bin
@@ -146,7 +146,7 @@ consensus.
 
 ### Install Sawtooth
 
-``` console
+```console
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
 $ sudo add-apt-repository 'deb [arch=amd64] <http://repo.sawtooth.me/ubuntu/chime/stable> bionic universe'
 $ sudo apt-get update
@@ -179,14 +179,14 @@ properly.
 Create the file `/etc/sawtooth/poet_enclave_sgx.toml` with your favorite
 editor (such as vi):
 
-``` console
+```console
 $ sudo vi /etc/sawtooth/poet_enclave_sgx.toml
 ```
 
 Add the following lines, replacing \[example\] with the spid value
 provided by Intel:
 
-``` ini
+```ini
 # Service Provider ID. It is linked to the key pair used to authenticate with
 # the attestation service.
 
@@ -206,14 +206,14 @@ Next, install the .pem certificate file that you downloaded earlier.
 Replace \[example\] in the path below with the path to the certificate
 file on your local system:
 
-``` console
+```console
 $ sudo install -o root -g sawtooth -m 640 \
 /[example]/sgx-certificate.pem /etc/sawtooth/sgx-certificate.pem
 ```
 
 Create validator keys:
 
-``` console
+```console
 $ sudo sawadm keygen
 ```
 
@@ -228,20 +228,20 @@ Become the `sawtooth` user and change to `/tmp`. In the following
 commands, the prompt `[sawtooth@system]` shows the commands that must be
 executed as the `sawtooth` user.
 
-``` console
+```console
 $ sudo -u sawtooth -s
 [sawtooth@system]$ cd /tmp
 ```
 
 Create a genesis batch:
 
-``` console
+```console
 [sawtooth@system]$ sawset genesis --key /etc/sawtooth/keys/validator.priv -o config-genesis.batch
 ```
 
 Create and submit a proposal:
 
-``` console
+```console
 [sawtooth@system]$ sawset proposal create -k /etc/sawtooth/keys/validator.priv \
 sawtooth.consensus.algorithm.name=PoET \
 sawtooth.consensus.algorithm.version=0.1 \
@@ -255,7 +255,7 @@ sawtooth.poet.enclave_module_name=sawtooth_poet_sgx.poet_enclave_sgx.poet_enclav
 When the `sawset proposal` command runs, you should see several lines of
 output showing that the SGX enclave has been initialized:
 
-``` console
+```console
 [12:03:58 WARNING poet_enclave] SGX PoET enclave initialized.
 [12:03:59 WARNING poet_enclave] SGX PoET enclave initialized.
 ```
@@ -293,7 +293,7 @@ output showing that the SGX enclave has been initialized:
 
 Create a poet-genesis batch:
 
-``` console
+```console
 [sawtooth@system]$ poet registration create -k /etc/sawtooth/keys/validator.priv \
   --enclave-module sgx -o poet_genesis.batch
 Writing key state for PoET public key: 0387a451...9932a998
@@ -302,13 +302,13 @@ Generating poet_genesis.batch
 
 Create a genesis block:
 
-``` console
+```console
 [sawtooth@system]$ sawadm genesis config-genesis.batch config.batch poet_genesis.batch
 ```
 
 You'll see some output indicating success:
 
-``` console
+```console
 Processing config-genesis.batch...
 Processing config.batch...
 Processing poet_genesis.batch...
@@ -317,7 +317,7 @@ Generating /var/lib/sawtooth/genesis.batch
 
 Genesis configuration is complete! Log out of the sawtooth account:
 
-``` console
+```console
 [sawtooth@system]$ exit
 $
 ```
@@ -328,13 +328,13 @@ You must specify some networking information so that the validator
 advertises itself properly and knows where to search for peers. Create
 the file `/etc/sawtooth/validator.toml`:
 
-``` console
+```console
 $ sudo vi /etc/sawtooth/validator.toml
 ```
 
 Add the following content to the file:
 
-``` ini
+```ini
 #
 # Hyperledger Sawtooth -- Validator Configuration
 #
@@ -388,7 +388,7 @@ Next, locate the `endpoint` section in this file. Replace the external
 interface and port values with either the publicly addressable IP
 address and port or the NAT values for your validator.
 
-``` ini
+```ini
 endpoint = "tcp://[external interface]:[port]"
 ```
 
@@ -396,7 +396,7 @@ Find the `seeds` section in the config file. Replace the seed address
 and port values with either the publicly addressable IP address and port
 or the NAT values for the other nodes in your network.
 
-``` ini
+```ini
 seeds = ["tcp://[seed address 1]:[port]",
          "tcp://[seed address 2]:[port]"]
 ```
@@ -404,7 +404,7 @@ seeds = ["tcp://[seed address 1]:[port]",
 If necessary, change the `network`, `component`, and `consensus` bind
 interface in the `bind` section.
 
-``` ini
+```ini
 bind = [
   "network:tcp://eno1:8800",
   "component:tcp://127.0.0.1:4004",
@@ -478,7 +478,7 @@ Next, generate your network keys.
 Finally, replace the example values in the validator config file with
 your unique network keys.
 
-``` ini
+```ini
 network_public_key = '{nw-public-key}'
 network_private_key = '{nw-private-key}'
 ```
@@ -486,7 +486,7 @@ network_private_key = '{nw-private-key}'
 After saving your changes, restrict permissions on `validator.toml` to
 protect the network private key.
 
-``` console
+```console
 $ sudo chown root:sawtooth /etc/sawtooth/validator.toml
 $ sudo chmod 640 /etc/sawtooth/validator.toml
 ```
@@ -496,13 +496,13 @@ $ sudo chmod 640 /etc/sawtooth/validator.toml
 Create the REST API configuration file, `/etc/sawtooth/rest_api.toml` by
 copying the example file from `/etc/sawtooth/rest_api.toml.example`.
 
-``` console
+```console
 $ sudo cp -a /etc/sawtooth/rest_api.toml.example /etc/sawtooth/rest_api.toml
 ```
 
 Use `sudo` to edit this file.
 
-``` console
+```console
 $ sudo vi /etc/sawtooth/rest_api.toml
 ```
 
@@ -510,7 +510,7 @@ If necessary, change the `bind` setting to specify where the REST API
 listens for incoming communication. Be sure to remove the `#` comment
 character to activate this setting.
 
-``` console
+```console
 bind = ["127.0.0.1:8008"]
 ```
 
@@ -518,7 +518,7 @@ If necessary, change the `connect` setting, which specifies where the
 REST API can find this node\'s validator on the network. Be sure to
 remove the `#` comment character to activate this setting.
 
-``` console
+```console
 connect = "tcp://localhost:4004"
 ```
 
@@ -532,7 +532,7 @@ connect = "tcp://localhost:4004"
 
 Use these commands to start the Sawtooth services:
 
-``` console
+```console
 $ sudo systemctl start sawtooth-rest-api.service
 $ sudo systemctl start sawtooth-poet-validator-registry-tp.service
 $ sudo systemctl start sawtooth-poet-engine.service
@@ -544,7 +544,7 @@ $ sudo systemctl start sawtooth-identity-tp.service
 
 You can follow the logs by running:
 
-``` console
+```console
 $ sudo journalctl -f \
 -u sawtooth-validator \
 -u sawtooth-settings-tp \
@@ -561,7 +561,7 @@ docs/1.2/sysadmin_guide/log_configuration.md %}).
 
 To verify that the services are running:
 
-``` console
+```console
 $ sudo systemctl status sawtooth-rest-api.service
 $ sudo systemctl status sawtooth-poet-validator-registry-tp.service
 $ sudo systemctl status sawtooth-poet-engine.service
@@ -578,7 +578,7 @@ the following commands:
 
 Stop Sawtooth services:
 
-``` console
+```console
 $ sudo systemctl stop sawtooth-rest-api.service
 $ sudo systemctl stop sawtooth-poet-validator-registry-tp.service
 $ sudo systemctl stop sawtooth-poet-engine.service
@@ -590,7 +590,7 @@ $ sudo systemctl stop sawtooth-identity-tp.service
 
 Restart Sawtooth services:
 
-``` console
+```console
 $ sudo systemctl restart sawtooth-rest-api.service
 $ sudo systemctl restart sawtooth-poet-validator-registry-tp.service
 $ sudo systemctl restart sawtooth-poet-engine.service

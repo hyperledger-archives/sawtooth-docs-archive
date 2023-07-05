@@ -35,7 +35,7 @@ to make a change.
 > scheme may be better in practice. Implementations which use a different
 > authorization scheme can replace this implementation by adhering to the
 > same addressing scheme and content format for settings. (For example,
-> the location of PoET settings can not change, or the PoET consensus
+> the location of PoET settings cannot change, or the PoET consensus
 > module will not be able to find them.)
 
 ## State
@@ -78,7 +78,7 @@ configuration:
 
 The following protocol buffers definition defines setting entries:
 
-``` protobuf
+```protobuf
 // Setting Container for the resulting state
 message Setting {
     // Contains a setting entry (or entries, in the case of collisions).
@@ -98,7 +98,7 @@ The setting \'sawtooth.settings.vote.proposals\' is stored as defined by
 the following protocol buffers definition. The value returned by this
 setting is a base64 encoded *SettingCandidates* message:
 
-``` protobuf
+```protobuf
 // Contains the vote counts for a given proposal.
 message SettingCandidate {
     // An individual vote record
@@ -140,12 +140,12 @@ the last part: `a`, `b`, `c` and `d.e`.
 
 Each of these pieces has a short hash computed (the first 16 characters
 of its SHA256 hash in hex) and is joined into a single address, with the
-settings namespace ([000000]{.title-ref}) added at the beginning.
+settings namespace (`[000000]`) added at the beginning.
 
 For example, the setting *sawtooth.settings.vote.proposals* could be set
 like this:
 
-``` pycon
+```pycon
 >>> '000000' + hashlib.sha256('sawtooth'.encode()).hexdigest()[:16] + \
         hashlib.sha256('config'.encode()).hexdigest()[:16] + \
         hashlib.sha256('vote'.encode()).hexdigest()[:16] + \
@@ -158,7 +158,7 @@ like this:
 Setting transaction family payloads are defined by the following
 protocol buffers code:
 
-``` protobuf
+```protobuf
 // Setting Payload
 // - Contains either a proposal or a vote.
 message SettingPayload {
@@ -254,7 +254,7 @@ recorded in the *SettingProposals* stored in
 The transaction processor outputs a *DEBUG*-level logging message
 similar to
 
-``` python3
+```python3
 "Adding proposal {}: {}".format(proposal_id, repr(proposal_data).
 ```
 

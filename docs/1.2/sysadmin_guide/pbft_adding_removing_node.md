@@ -196,6 +196,7 @@ You can delete several nodes at the same time.
    a. To stop the Sawtooth services, see [Stop or Restart Sawtooth Services]({%
       link docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md
       %}#stop-restart-sawtooth-services).
+
    b. To delete blockchain data, logs, and keys from this node, see [Step 14:
       Stop Sawtooth Components]({% link docs/1.2/app_developers_guide/installing_sawtooth.md
       %}#stop-sawtooth-ubuntu-label).

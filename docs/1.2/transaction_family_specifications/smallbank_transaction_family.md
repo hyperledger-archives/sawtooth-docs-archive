@@ -37,7 +37,7 @@ containing generated customer IDs, customer names, and savings and
 checking balances. The \'primary key\' of the data is the unique
 customer_id.
 
-``` protobuf
+```protobuf
 message Account {
     // Customer ID
     uint32 customer_id = 1;
@@ -67,7 +67,7 @@ of the Account entry. Addresses will adhere to the following format:
 
 For example, a Smallbank address could be generated as follows:
 
-``` pycon
+```pycon
 >>> customer_id = 42
 >>> hashlib.sha512('smallbank'.encode('utf-8')).hexdigest()[0:6] + hashlib.sha512(str(customer_id).encode('utf-8')).hexdigest()[-64:]
 '3325143ff98ae73225156b2c6c9ceddbfc16f5453e8fa49fc10e5d96a3885546a46ef4'
@@ -78,7 +78,7 @@ For example, a Smallbank address could be generated as follows:
 Smallbank transaction request payloads are defined by the following
 protobuf structure:
 
-``` protobuf
+```protobuf
 message SmallbankTransactionPayload {
     enum Type {
         CREATE_ACCOUNT = 1;
@@ -102,7 +102,7 @@ Based on the selected type, the data field will contain the appropriate
 transaction data (these messages would be defined within
 SmallbankTransactionPayload):
 
-``` protobuf
+```protobuf
 message CreateAccountTransactionData {
     // The CreateAccountTransaction creates an account
 

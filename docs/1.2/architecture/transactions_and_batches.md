@@ -176,7 +176,7 @@ which it depends.
 The dependencies field of a transaction allows explicitly specifying the
 transactions which must be applied prior to the current transaction.
 Explicit dependencies are useful in situations where transactions have
-dependencies but can not be placed in the same batch (for example, if
+dependencies but cannot be placed in the same batch (for example, if
 the transactions are submitted at different times).
 
 To assist in parallel scheduling operations, the inputs and outputs
@@ -283,8 +283,8 @@ The resulting serialized document is signed with the transactor\'s
 private ECDSA key using the secp256k1 curve.
 
 The validator expects a normalized 64-byte \"compact\" signature. This
-is a concatenation of the [R]{.title-ref} and [S]{.title-ref} fields of
-the signature. Some libraries will include an additional header byte,
+is a concatenation of the *R* and *S* fields of the signature.
+Some libraries will include an additional header byte,
 recovery ID field, or provide DER encoded signatures. Sawtooth will
 reject the signature if it is anything other than 64 bytes.
 

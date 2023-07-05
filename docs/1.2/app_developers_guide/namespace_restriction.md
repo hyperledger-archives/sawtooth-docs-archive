@@ -13,12 +13,12 @@ families. Some transaction families like [Settings
 Transaction Family]({% link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
 or [BlockInfo Transaction
 Family]({% link docs/1.2/transaction_family_specifications/blockinfo_transaction_family.md%})
-data at addresses that other transaction
+write data to addresses that other transaction
 families could use, like a specific on-chain setting, or the timestamp of the
 latest block. Nevertheless, for security reasons, it is important to
 make sure transaction families cannot write data at addresses that is
 only intended to be read. This is the goal of the *namespace
-restriction* feature, when explicitly activated, the validators verify
+restriction* feature: when explicitly activated, the validators verify
 that transaction processors only perform `set` operations
 whose addresses have a prefix in common with one of the family's
 specified namespace prefix(es). By default and for better flexibility,
@@ -39,7 +39,7 @@ matching at least one of the namespaces.
 Here is an example in which the namespaces are set for the transaction
 families `block_info`, `sawtooth_settings` and `intkey`:
 
-``` python
+```python
 sawtooth.validator.transaction_families='[
   {\"family\": \"block_info\", \"version\": \"1.0\", \"namespaces\": [\"00b10c\"]},
   {\"family\":\"sawtooth_settings\", \"version\":\"1.0\"},

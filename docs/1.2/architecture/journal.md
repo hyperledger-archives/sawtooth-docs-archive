@@ -203,9 +203,9 @@ The genesis process has the following general steps:
 
 The `sawadm genesis` command takes a set of batches as input and
 combines them to create the genesis batch, which is a single
-protobuf-encoded list of batches contained in [GenesisData]{.title-ref}.
+protobuf-encoded list of batches contained in `GenesisData`.
 
-``` protobuf
+```protobuf
 message GenesisData {
     repeated Batch batches = 1;
 }
@@ -228,7 +228,7 @@ create a batch of transactions that configure PoET consensus. Next, the
 `sawadm genesis` command combines that batch (plus any others that
 exist) into a `GenesisData` list of batches for the genesis block.
 
-``` bash
+```bash
 $ sawset proposal create \
   -k <signing-key-file> \
   -o sawset.batch \

@@ -114,7 +114,7 @@ consensus type. Then submit a consensus change proposal.
 
 ## PBFT Consensus {#pbft-consensus-label}
 
-[Sawtooth PBFT](% link docs/1.2/glossary.md %}#term-sawtooth-pbft) is a
+Sawtooth PBFT (see [glossary]({% link docs/1.2/glossary.md %})) is a
 voting-based, non-forking consensus algorithm with finality that
 provides Byzantine Fault Tolerance (BFT). PBFT is best for small,
 consortium-style networks that do not require open membership. For more
@@ -140,15 +140,15 @@ Requirements:
   [Running Sawtooth as a Service]({% link
   docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md
   %}#running-sawtooth-as-a-service).  (To start the consensus engine on the
-  command line, see [Step 5. Start Sawtooth on the First Node](% link
+  command line, see [Step 5. Start Sawtooth on the First Node]({% link
   docs/1.2/app_developers_guide/ubuntu_test_network.md %})).
 
 - Specify static peering when starting each validator. Use the
-  `--peering` option when starting the validator (see [sawtooth-validator](%
-  link docs/1.2/cli/sawtooth-validator.md %}) or set the off-chain `peers`
+  `--peering` option when starting the validator (see [sawtooth-validator]({%
+  link docs/1.2/cli/sawtooth-validator.md %})) or set the off-chain `peers`
   setting in the `validator.toml` configuration file (see
   [About Sawtooth Configuration Files]({% link
-  docs/1.2/sysadmin_guide/configuring_sawtooth.md %}).
+  docs/1.2/sysadmin_guide/configuring_sawtooth.md %})).
 
 - Use these on-chain settings to configure PBFT consensus:
 
@@ -168,7 +168,7 @@ Requirements:
   See [Creating the Genesis Block]({% link
   docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md
   %}#creating-the-genesis-block) for more information on the version and validator
-  public keys for the PBFT member list .
+  public keys for the PBFT member list.
 
 - For optional PBFT consensus settings, see [Configuring
   PBFT]({% link docs/1.2/pbft/configuring-pbft.md %})
@@ -192,7 +192,7 @@ information, see [Dynamic Consensus]({% link docs/1.2/index.md
 > To learn which versions of Sawtooth support PoET SGX consensus, see
 > [Using Sawtooth with PoET
 > SGX]({% link docs/1.2/sysadmin_guide/configure_sgx.md %})
-> in the > System Administrator's Guide.
+> in the System Administrator's Guide.
 
 Requirements:
 
@@ -260,15 +260,15 @@ Requirements:
   [Running Sawtooth as a Service]({% link
   docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md
   %}#running-sawtooth-as-a-service).  (To start the consensus engine on the
-  command line, see [Step 5. Start Sawtooth on the First Node](% link
+  command line, see [Step 5. Start Sawtooth on the First Node]({% link
   docs/1.2/app_developers_guide/ubuntu_test_network.md %})).
 
 - Specify static peering when starting each validator. Use the
-  `--peering` option when starting the validator (see [sawtooth-validator](%
-  link docs/1.2/cli/sawtooth-validator.md %}) or set the off-chain `peers`
+  `--peering` option when starting the validator (see [sawtooth-validator]({%
+  link docs/1.2/cli/sawtooth-validator.md %})) or set the off-chain `peers`
   setting in the `validator.toml` configuration file (see
   [About Sawtooth Configuration Files]({% link
-  docs/1.2/sysadmin_guide/configuring_sawtooth.md %}).
+  docs/1.2/sysadmin_guide/configuring_sawtooth.md %})).
 
 - Use these on-chain settings for Raft consensus:
 
@@ -279,7 +279,7 @@ Requirements:
   ```
 
   For the version number, see the `Cargo.toml` file. Use only the
-  first two digits (for example, [0.1]{.title-ref}).
+  first two digits (for example, `[0.1]`).
 
   For `VALxKEY`, specify the validator public key of each node in the
   network.

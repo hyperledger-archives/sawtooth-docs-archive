@@ -692,9 +692,9 @@ Download the Kubernetes configuration (kubeconfig) file for a Sawtooth
 network.
 
 -   For PBFT, download
-    [sawtooth-kubernetes-default-pbft.yaml](./sawtooth-kubernetes-default-pbft.yaml)
+    [sawtooth-kubernetes-default-pbft.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default-pbft.yaml)
 -   For PoET, download
-    [sawtooth-kubernetes-default-poet.yaml](./sawtooth-kubernetes-default-poet.yaml)
+    [sawtooth-kubernetes-default-poet.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default-poet.yaml)
 
 The kubeconfig file creates a Sawtooth network with five pods, each
 running a Sawtooth node. It also specifies the container images to
@@ -718,8 +718,8 @@ starts.
 
 2.  Download the following files:
 
-    -   [sawtooth-create-pbft-keys.yaml](https://github.com/hyperledger/sawtooth-core/blob/master/docker/kubernetes/sawtooth-create-pbft-keys.yaml)
-    -   [pbft-keys-configmap.yaml](https://github.com/hyperledger/sawtooth-core/blob/master/docker/kubernetes/pbft-keys-configmap.yaml)
+    -   [sawtooth-create-pbft-keys.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-create-pbft-keys.yaml)
+    -   [pbft-keys-configmap.yaml](https://github.com/hyperledger/sawtooth-core/blob/1-2/docker/kubernetes/pbft-keys-configmap.yaml)
 
     Save these files in the same directory where you saved
     `sawtooth-kubernetes-default-pbft.yaml...` (in the previous step).
@@ -934,7 +934,7 @@ Use these steps to start the Sawtooth network.
     > 0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
     > ```
 
-    Block 0 is the `genesis block`{.interpreted-text role="term"}. The
+    Block 0 is the *genesis block* (see [glossary](../glossary)). The
     other two blocks contain transactions for on-chain settings.
 
 3.  In a separate terminal window, connect to a different pod (such as
@@ -1210,8 +1210,9 @@ Use the following commands to stop and reset the Sawtooth network.
 
 This procedure describes how to create a Sawtooth network for an
 application development environment on a Ubuntu platform. Each host
-system (physical computer or virtual machine) is a [Sawtooth
-node]{.title-ref} that runs a validator and related Sawtooth components.
+system (physical computer or virtual machine) is a Sawtooth
+node (see [glossary](../glossary) and [diagram](../architecture)) that runs
+a validator and related Sawtooth components.
 
 > **Note**
 >
@@ -1364,7 +1365,7 @@ should be. `ifconfig` displays the network interfaces on your host
 system, along with additional information about the interfaces. For
 example:
 
-``` console
+```console
 $ ifconfig
 eth0      Link encap:Ethernet  HWaddr ...
           inet addr:...  Bcast:...  Mask:255.255.0.0
@@ -2028,6 +2029,7 @@ been committed.
 -   (PBFT only) Ensure that the on-chain setting
     `sawtooth.consensus.pbft.members` lists the validator public keys of
     all PBFT member nodes on the network.
+
     a.  Connect to the first node (the one that created the genesis
         block).
 

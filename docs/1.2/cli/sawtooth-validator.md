@@ -35,7 +35,7 @@ validator.
     network permissions, specify `challenge`, which requires connections
     to sign a challenge so their identity can be proved.
 
-``` console
+```console
 sawtooth-validator 1.2.6
 Configures and starts a Sawtooth validator.
 

@@ -76,7 +76,7 @@ This SDK is available through the standard Python import system.
 You can use the Python REPL to import the SDK into your Python
 environment, then verify the import by viewing the SDK\'s docstring.
 
-``` console
+```console
 $ python3
 >>> import sawtooth_sdk
 >>> help(sawtooth_sdk)
@@ -133,7 +133,7 @@ entry point.
 In the entry point, the `TransactionProcessor` class is given the
 address to connect with the validator and the handler class.
 
-``` python
+```python
 from sawtooth_sdk.processor.core import TransactionProcessor
 from sawtooth_xo.processor.handler import XoTransactionHandler
 
@@ -154,7 +154,7 @@ Handlers get called in two ways: with an `apply` method and with various
 processor. The bulk of the handler, however, is made up of `apply` and
 its helper functions.
 
-``` python
+```python
 class XoTransactionHandler(TransactionHandler):
     def __init__(self, namespace_prefix):
         self._namespace_prefix = namespace_prefix
@@ -203,7 +203,7 @@ which players are playing in the game.
 Valid actions are: create a new game, take an unoccupied space, and
 delete a game.
 
-``` python
+```python
 def apply(self, transaction, context):
 
     header = transaction.header
@@ -242,7 +242,7 @@ The validation rules and state updates that are associated with the
 
 The `create` action has the following implementation:
 
-``` python
+```python
 elif xo_payload.action == 'create':
 
     if xo_state.get_game(xo_payload.name) is not None:
@@ -264,7 +264,7 @@ elif xo_payload.action == 'create':
 
 The `delete` action has the following implementation:
 
-``` python
+```python
 if xo_payload.action == 'delete':
     game = xo_state.get_game(xo_payload.name)
 
@@ -280,7 +280,7 @@ if xo_payload.action == 'delete':
 
 The `take` action has the following implementation:
 
-``` python
+```python
 elif xo_payload.action == 'take':
     game = xo_state.get_game(xo_payload.name)
 
@@ -361,7 +361,7 @@ string with exactly two commas, which is formatted as follows:
 -   `<space>` is the location on the board, as an integer between 1-9
     (inclusive), if the action is take.
 
-``` python
+```python
 class XoPayload:
 
     def __init__(self, payload):
@@ -444,7 +444,7 @@ the same address), the colliding state entries will stored as the UTF-8
 encoding of the string `<a-entry>|<b-entry>|...`, where \<a-entry>,
 \<b-entry>,\... are sorted alphabetically.
 
-``` python
+```python
 XO_NAMESPACE = hashlib.sha512('xo'.encode("utf-8")).hexdigest()[0:6]
 
 
@@ -620,7 +620,7 @@ generated as follows (in Python):
 
 Addressing is implemented as follows:
 
-``` python
+```python
 def _make_xo_address(name):
 return XO_NAMESPACE + \
     hashlib.sha512(name.encode('utf-8')).hexdigest()[:64]
@@ -646,7 +646,7 @@ SDK\'s *signing* module.
 A *Signer* wraps a private key and provides some convenient methods for
 signing bytes and getting the private key\'s associated public key.
 
-``` python
+```python
 from sawtooth_signing import create_context
 from sawtooth_signing import CryptoFactory
 
@@ -675,7 +675,7 @@ three key/value pairs encoded as
 this:
 
 
-``` python
+```python
 import cbor
 
 payload = {
@@ -707,7 +707,7 @@ public keys associated with the its signature. The header references the
 payload through a SHA-512 hash of the payload bytes.
 
 
-``` python
+```python
 from hashlib import sha512
 from sawtooth_sdk.protobuf.transaction_pb2 import TransactionHeader
 
@@ -764,7 +764,7 @@ create a signature. This header signature also acts as the ID of the
 transaction. The header bytes, the header signature, and the payload
 bytes are all used to construct the complete Transaction.
 
-``` python
+```python
 from sawtooth_sdk.protobuf.transaction_pb2 import Transaction
 
 signature = signer.sign(txn_header_bytes)
@@ -786,7 +786,7 @@ two options for this. One or more Transactions can be combined into a
 serialized *TransactionList* method, or can be serialized as a single
 Transaction.
 
-``` python
+```python
 from sawtooth_sdk.protobuf.transaction_pb2 import TransactionList
 
 txn_list_bytes = TransactionList(
@@ -813,7 +813,7 @@ Batch. As Batches are much simpler than Transactions, a BatchHeader
 needs only the public key of the signer and the list of Transaction IDs,
 in the same order they are listed in the Batch.
 
-``` python
+```python
 from sawtooth_sdk.protobuf.batch_pb2 import BatchHeader
 
 txns = [txn]
@@ -831,7 +831,7 @@ The header is signed, and the resulting signature acts as the Batch\'s
 ID. The Batch is then constructed out of the header bytes, the header
 signature, and the transactions that make up the batch.
 
-``` python
+```python
 from sawtooth_sdk.protobuf.batch_pb2 import Batch
 
 signature = signer.sign(batch_header_bytes)
@@ -851,7 +851,7 @@ though the Batches themselves don\'t necessarily need to depend on each
 other. Unlike Batches, a BatchList is not atomic. Batches from other
 clients may be interleaved with yours.
 
-``` python
+```python
 from sawtooth_sdk.protobuf.batch_pb2 import BatchList
 
 batch_list_bytes = BatchList(batches=[batch]).SerializeToString()
@@ -874,12 +874,12 @@ allowing clients to communicate using HTTP/JSON standards. Simply send a
 header of *\"application/octet-stream\"*, and the *body* as a serialized
 *BatchList*.
 
-There are a many ways to make an HTTP request, and hopefully the
+There are many ways to make an HTTP request, and hopefully the
 submission process is fairly straightforward from here, but as an
 example, this is what it might look if you sent the request from the
 same Pythno  process that prepared the BatchList:
 
-``` python
+```python
 import urllib.request
 from urllib.error import HTTPError
 
@@ -899,12 +899,12 @@ And here is what it would look like if you saved the binary to a file,
 and then sent it from the command line with `curl`:
 
 
-``` python
+```python
 output = open('intkey.batches', 'wb')
 output.write(batch_list_bytes)
 ```
 
-``` bash
+```bash
 % curl --request POST \
     --header "Content-Type: application/octet-stream" \
     --data-binary @intkey.batches \

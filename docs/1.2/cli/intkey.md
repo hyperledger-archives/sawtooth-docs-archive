@@ -48,7 +48,7 @@ subcommands:
 
 The `intkey set` subcommand sets a key (**name**) to the
 specified value. This transaction will fail if the value is less than 0
-or greater than 2^32^ - 1.
+or greater than 2^32 - 1.
 
 ```
 usage: intkey set [-h] [-v] [-V] [--url URL] [--keyfile KEYFILE]
@@ -74,7 +74,7 @@ optional arguments:
 
 The `intkey inc` subcommand increments a key (**name**) by the
 specified value. This transaction will fail if the key is not set or if
-the resulting value would exceed 2^32^ - 1.
+the resulting value would exceed 2^32 - 1.
 
 ```
 usage: intkey inc [-h] [-v] [-V] [--url URL] [--keyfile KEYFILE]

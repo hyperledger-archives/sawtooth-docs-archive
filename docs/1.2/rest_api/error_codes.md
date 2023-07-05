@@ -36,7 +36,7 @@ response will include a single *error* property with three values:
 
 ## Example JSON Response
 
-``` json
+```json
 {
   "error": {
     "code": 30,

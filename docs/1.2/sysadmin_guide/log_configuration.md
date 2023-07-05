@@ -84,7 +84,7 @@ interested in.
 This example `log_config.toml` file creates a handler that only writes
 interconnect logs to the directory and file specified.
 
-``` shell
+```shell
 version = 1
 disable_existing_loggers = false
 
@@ -113,7 +113,7 @@ This example shows how to set up rotating logs. This is useful when the
 logs may grow very large, such as with a long-running network. For
 example:
 
-``` shell
+```shell
 [formatters.simple]
 format = "[%(asctime)s.%(msecs)03d [%(threadName)s] %(module)s %(levelname)s] %(message)s"
 datefmt = "%H:%M:%S"

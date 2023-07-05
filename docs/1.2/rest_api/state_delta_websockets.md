@@ -29,7 +29,7 @@ The application developer must first open a web socket. This is
 accomplished by using standard means. In the case of in-browser
 JavaScript:
 
-``` javascript
+```javascript
 let ws = new WebSocket('ws:localhost:8008/subscriptions')
 ```
 
@@ -45,7 +45,7 @@ a best-practice to send this message as part of the web socket\'s
 
 In the following example, we\'ll subscribe to changes in the XO family:
 
-``` javascript
+```javascript
 ws.onopen = () => {
   ws.send(JSON.stringify({
     'action': 'subscribe',
@@ -70,7 +70,7 @@ Once subscribed, events will be received via the web socket\'s
 *onmessage* handler. The event data is a JSON string, which
 looks like the following:
 
-``` javascript
+```javascript
 {
   "block_num": 8,
   "block_id": "ab7cbc7a...",
@@ -102,7 +102,7 @@ the web socket for a particular block\'s changes. You can use the
 *previous_block_id* from the current event to request the
 previous block\'s events, for example. Send the following message:
 
-``` javascript
+```javascript
 ws.send(JSON.stringify({
   'action': 'get_block_deltas',
   'block_id': 'd4b46c1c...',
@@ -116,7 +116,7 @@ them.
 
 If the block id does not exist, the following error will be returned:
 
-``` javascript
+```javascript
 {
   "error": "Must specify a block id"
 }
@@ -127,7 +127,7 @@ If the block id does not exist, the following error will be returned:
 To unsubscribe, you can either close the web socket, or if you want to
 unsubscribe temporarily, you can send an unsubscribe action:
 
-``` javascript
+```javascript
 ws.send(JSON.stringify({
   'action': 'unsubscribe'
 }))
@@ -144,7 +144,7 @@ warnings:
 If the validator is unavailable to the REST API process, a warning will
 be sent in lieu of a state delta event:
 
-``` javascript
+```javascript
 {
   "warning": "Validator unavailable"
 }
@@ -153,7 +153,7 @@ be sent in lieu of a state delta event:
 If an unrecognized action is sent on to the server via the websocket, an
 error message will be sent back:
 
-``` javascript
+```javascript
 {
   "error": "Unknown action \"bad_action\""
 }

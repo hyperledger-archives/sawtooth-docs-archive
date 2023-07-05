@@ -163,7 +163,7 @@ For more information on the consensus API's `Update` messages, see the
 [Consensus API
 RFC](https://github.com/hyperledger/sawtooth-rfcs/blob/master/text/0004-consensus-api.md#updates).
 
-``` protobuf
+```protobuf
 // Represents all common information used in a PBFT message
 message PbftMessageInfo {
   // Type of the message

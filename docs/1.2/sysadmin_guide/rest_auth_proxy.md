@@ -32,7 +32,7 @@ These URLs are a convenience for clients, but the proxy can destroy
 crucial URL information. For example, a correct link should look this
 this:
 
-``` json
+```json
 {
   "link": "https://hyperledger.org/sawtooth/blocks?head=..."
 }
@@ -40,7 +40,7 @@ this:
 
 Instead, the \"destroyed\" link might look like this:
 
-``` json
+```json
 {
   "link": "http://localhost:8008/blocks?head=..."
 }
@@ -76,7 +76,7 @@ sends the same information as multiple \"X-Forwarded\" headers. The
 [RFC7239](https://tools.ietf.org/html/rfc7239#section-4), contains
 semicolon-separated key-value pairs, as in this example:
 
-``` text
+```text
 Forwarded: for=196.168.1.1; host=proxy1.com, host=proxy2.com; proto="https"
 ```
 

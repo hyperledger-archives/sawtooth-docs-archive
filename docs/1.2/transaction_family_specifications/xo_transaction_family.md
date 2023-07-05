@@ -43,7 +43,7 @@ characters of the SHA-512 hash of the UTF-8 encoding of the game name.
 For example, the XO address for a game called \"mygame\" could be
 generated as follows:
 
-``` pycon
+```pycon
 >>> hashlib.sha512('xo'.encode('utf-8')).hexdigest()[:6] + hashlib.sha512('mygame'.encode('utf-8')).hexdigest()[:64]
 '5b7349700e158b598043efd6d7610345a75a00b22ac14c9278db53f586179a92b72fbd'
 ```
@@ -56,12 +56,10 @@ string with exactly two commas, which is formatted as follows:
 `<name>,<action>,<space>`
 
 -   `<name>` is the game name as a non-empty string not containing the
-    character `|`. If `<action>` is [create]{.title-ref}, the new name
-    must be unique.
--   `<action>` is the game action: [create]{.title-ref},
-    [take]{.title-ref}, or [delete]{.title-ref}
+    character `|`. If `<action>` is `create`, the new name must be unique.
+-   `<action>` is the game action: `create`, `take`, or `delete`.
 -   `<space>` is the location on the board, as an integer between 1-9
-    (inclusive), if `<action>` is [take]{.title-ref}
+    (inclusive), if `<action>` is `take`.
 
 ## Transaction Header
 
@@ -83,7 +81,7 @@ XO transactions have no explicit dependencies.
 
 The XO transaction processor receives a transaction request and a state
 dictionary. If it is valid, the transaction request payload will have a
-game name, an action, and, if the action is [take]{.title-ref}, a space.
+game name, an action, and, if the action is `take`, a space.
 
 1.  If the action is `create`, the transaction is invalid if
     the game name is already in state dictionary. Otherwise, the
@@ -101,7 +99,7 @@ game name, an action, and, if the action is [take]{.title-ref}, a space.
     -   the game state is `P1-NEXT` and the player-1 key is
         not null and different from the transaction signing key, or
     -   the game state is `P2-NEXT` and the player-2 key is
-        nonnull and different from the transaction signing key, or
+        not null and different from the transaction signing key, or
     -   the space-th character in the board-string is not
         `-`.
 
@@ -110,7 +108,7 @@ game name, an action, and, if the action is [take]{.title-ref}, a space.
 
     a.  Player keys - If the player-1 key is null (the empty string), it
         will be updated to key with which the transaction was signed. If
-        the player-1 key is nonnull and the player-2 key is null, the
+        the player-1 key is not null and the player-2 key is null, the
         player-2 will be updated to the signing key. Otherwise, the
         player keys will not be changed.
 

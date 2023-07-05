@@ -31,7 +31,7 @@ The address values of IntegerKey transaction family entries are stored
 in state as a CBOR encoded dictionary, with the key being the *Name* and
 the value being an integer *Value*.
 
-``` python
+```python
 cbor.dumps({
     # The name of the entry : The current value of the entry
     'Name':'Value'
@@ -42,7 +42,7 @@ cbor.dumps({
 
 -   Valid *Names* are utf-8 encoded strings with a maximum of 20
     characters
--   Valid *Values* must be integers in the range of 0 through 2^32^ - 1
+-   Valid *Values* must be integers in the range of 0 through 2^32 - 1
     (32-bit unsigned int)
 
 ### Addressing
@@ -59,7 +59,7 @@ of the IntegerKey entry. Addresses will adhere to the following format:
 
 For example, an IntegerKey address could be generated as follows:
 
-``` pycon
+```pycon
 >>> hashlib.sha512('intkey'.encode('utf-8')).hexdigest()[0:6] + hashlib.sha512('name'.encode('utf-8')).hexdigest()[-64:]
 '1cf126cc488cca4cc3565a876f6040f8b73a7b92475be1d0b1bc453f6140fba7183b9a'
 ```
@@ -74,7 +74,7 @@ For example, an IntegerKey address could be generated as follows:
 IntegerKey transaction request payloads are defined by the following
 CBOR data format:
 
-``` python
+```python
 cbor.dumps({
     # Describes the action the transaction takes, either 'set', 'inc', or 'dec'
     'Verb': 'verb',
@@ -128,7 +128,7 @@ The address for the transaction is generated using the algorithm stated
 in the Addressing section of this document. If an encoding error occurs,
 the transaction is invalid.
 
-The transaction request *Verb* , *Name*, and *Value* are checked. If any
+The transaction request *Verb*, *Name*, and *Value* are checked. If any
 of these values are empty, the transaction is invalid. *Verb* must be
 either \'set\', \'inc\', or \'dec\'. *Name* must be a utf-8 encoded
 string with a maximum of 20 characters. *Value* must be a 32-bit
@@ -146,7 +146,7 @@ dictionary. If the *Name* does not exist in the state dictionary, it is
 an invalid transaction. Otherwise, we attempt to increment the *Value*
 in the state dictionary by the *Value* specified in the transaction
 request. If this incrementation would result in a value outside the
-range of 0 through 2^32^ - 1 it is considered an invalid transaction.
+range of 0 through 2^32 - 1 it is considered an invalid transaction.
 Otherwise, the *Value* in the state dictionary is incremented.
 
 If the *Verb* is \'dec\', the *Name* specified by the transaction
@@ -155,5 +155,5 @@ dictionary. If the *Name* does not exist in the state dictionary, it is
 an invalid transaction. Otherwise, we attempt to decrement the *Value*
 in the state dictionary by the *Value* specified in the transaction
 request. If this decrementation would result in a value outside the
-range of 0 through 2^32^ - 1, it is considered an invalid transaction.
+range of 0 through 2^32 - 1, it is considered an invalid transaction.
 Otherwise, the *Value* in the state dictionary is decremented.

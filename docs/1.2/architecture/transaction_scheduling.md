@@ -146,6 +146,6 @@ careful about which transactions are returned; only transactions with do
 not have state conflicts will be executed in parallel. When the Executor
 asks for the next transaction, the scheduler inspects the list of
 unscheduled transactions; the first in the list for which all
-predecessors have finished executed will be be returned. If none are
+predecessors have finished executing will be be returned. If none are
 found, the scheduler will block and re-check after a transaction has
 finished being executed.

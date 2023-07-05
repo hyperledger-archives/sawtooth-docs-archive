@@ -1,14 +1,5 @@
----
----
-
-::: note
-::: title
-Note
-:::
-
-This page has moved. Please see:
-`setting_up_sawtooth_network`{.interpreted-text role="doc"}
-:::
+This page has moved. Please
+[see here](setting_up_sawtooth_network).
 
 <!--
   Licensed under Creative Commons Attribution 4.0 International License
