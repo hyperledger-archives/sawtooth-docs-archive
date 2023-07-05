@@ -184,8 +184,8 @@ The configuration is documented at
 'poet_genesis.batch'` error</h2>
 
 Change to a sawtooth user-writable directory before running the command
-and make sure file [poet_genesis.batch]{.title-ref} does not already
-exist: `cd /tmp; ls poet_genesis.batch`
+and make sure file `poet_genesis.batch` does not already exist:
+`cd /tmp; ls poet_genesis.batch`
 
 ## What does `Consensus not ready to build candidate block` mean?
 

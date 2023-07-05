@@ -17,7 +17,7 @@ with command: `sudo usermod -aG docker $USER` . However, this gives
 `$USER` root-equivalent permissions. A better alternate is to define an
 alias for docker and docker-compose and add to your \~/.bashrc file:
 
-``` sh
+```sh
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 ```
@@ -31,19 +31,19 @@ For details, see
 
 This occurs when docker was not halted cleanly. Run the following first:
 
-``` sh
+```sh
 sudo docker-compose -f sawtooth-default.yaml down
 ```
 
 Then this:
 
-``` sh
+```sh
 sudo docker-compose -f sawtooth-default.yaml up
 ```
 
 An alternate solution is to force it to ignore the existing files:
 
-``` sh
+```sh
 docker-compose -f docker/compose/sawtooth-default.yaml up --force
 ```
 
@@ -51,14 +51,14 @@ docker-compose -f docker/compose/sawtooth-default.yaml up --force
 `docker-compose -f sawtooth-default.yaml up` : `ERROR: Couldn't connect to
 Docker daemon at http+docker://localhost - is it running?`</h2>
 
-If it\'s at a non-standard location, specify the URL with the
-DOCKER_HOST environment variable.
+If it's at a non-standard location, specify the URL with the
+`DOCKER_HOST` environment variable.
 
 You may not have enough permission to run. Try prefixing with sudo:
 `sudo docker-compose ...` To determine if sure docker is running and to
 start Docker, type:
 
-``` sh
+```sh
 service docker status
 sudo service docker start
 ```
@@ -72,7 +72,7 @@ Get http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/json: dial unix
 Try running with sudo. For example: sudo docker run hello-world. Here\'s
 a few aliases you can add to your `~/.bashrc` file:
 
-``` sh
+```sh
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 ```
@@ -84,7 +84,7 @@ net/http: request canceled while waiting for connection
 
 If it worked before, first try restarting docker:
 
-``` sh
+```sh
 sudo service docker start; sudo service docker stop
 ```
 
@@ -116,7 +116,7 @@ container ...`</h2>
 The container already exists. You need to remove or rename it. To
 remove:
 
-``` sh
+```sh
 sudo docker ps -a # list container IDs
 sudo docker stop <container ID>
 sudo docker rm <container ID>
@@ -143,19 +143,19 @@ sample script that installs Docker CE on Ubuntu:
 
 The docker daemons may not be running. To check, run:
 
-``` sh
+```sh
 $ ps -ef | grep dockerd
 ```
 
 To start, run:
 
-``` sh
+```sh
 $ sudo systemctl restart docker.service
 ```
 
 ## How do I manually start and stop docker on Linux?
 
-``` sh
+```sh
 $ sudo service docker start
 $ service docker status
 $ sudo service docker stop
@@ -163,7 +163,7 @@ $ sudo service docker stop
 
 ## How do I enable and disable automatic start of docker on boot on Linux?
 
-``` sh
+```sh
 $ sudo systemctl enable docker
 $ systemctl status docker
 $ sudo systemctl disable docker
@@ -236,16 +236,16 @@ container will not be destroyed.
 
 For a list of directories used by Sawtooth, see
 <https://github.com/danintel/sawtooth-faq/blob/master/validator.rst#what-files-does-sawtooth-use>
-It is best to set [\$SAWTOOTH_HOME]{.title-ref} so all the configuration
-and data is under one root directory.
+It is best to set the `SAWTOOTH_HOME` environment variable so all the
+configuration and data is under one root directory, see discussion of
+[default paths]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#path-configuration-file).
 
 <h2 id="i-get-error-1-2-not-found">I get this error running Docker:
 `ERROR: manifest for hyperledger/sawtooth-validator:1.2 not found`</h2>
 
 You are following instructions for the unreleased Sawtooth `nightly`
 build. There are no Docker images for the nightly build. Instead use the
-`latest` build documentation at
-<https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide.html>
+[versioned build documentation]({% link docs/1.2/app_developers_guide/index.md %}).
 
 <h2 id="why-does-network-not-start-subsequent-runs"> Why doesn't
 sawtooth-default-poet.yaml start the network successfully on subsequent

@@ -256,7 +256,7 @@ blockchain *transactions* are immutable. With some programming languages
 
 ## How do I tell what version of Sawtooth is running?
 
-``` sh
+```sh
 $ sawtooth --version
 sawtooth-cli (Hyperledger Sawtooth) version 1.1.2
 ```
@@ -307,7 +307,8 @@ available in earlier releases.
 
 ## How do I detect a forked blockchain in a Sawtooth network?
 
-Use [sawnet compare-chains]{.title-ref} and look for a different set of
+Use [`sawnet compare-chains`]({% link docs/1.2/cli/sawnet.md %}#sawnet-compare-chains)
+and look for a different set of
 block(s) at the head of the chains. This is distinct from the case where
 one node has a blockchain that\'s not up-to-date, but has conflicting
 heads (\"forked\"). Forking can occur if the Sawtooth network is
