@@ -7,10 +7,10 @@
 This section describes the validator and transactor permissions in
 Hyperledger Sawtooth.
 
--   [Transactor key permissioning](#transactor-key-permissioning-label)controls
-    who (which users and clients) can submit transactions and batches to a
-    validator. Sawtooth provides both on-chain (network-wide) and off-chain
-    (local) settings for transactor key permissioning.
+-   [Transactor key permissioning](#transactor-key-permissioning-label)
+    controls who (which users and clients) can submit transactions and batches
+    to a validator. Sawtooth provides both on-chain (network-wide) and
+    off-chain (local) settings for transactor key permissioning.
 -   [Validator key
     permissioning]({% link docs/1.2/architecture/permissioning_requirement.md%})
     controls which nodes can connect to the Sawtooth network. These settings are
@@ -27,7 +27,7 @@ on-chain settings and how many votes are required for a settings change.
 > Sawtooth also includes another type of transaction control that limits
 > which transaction processors can submit transactions. For more
 > information, see [Setting the Allowed Transaction Types
-> (Optional)]({% link docs/1.2/sysadmin_guide/setting_allowed_txns.md%})".
+> (Optional)]({% link docs/1.2/sysadmin_guide/setting_allowed_txns.md%}).
 
 # Transactor Key Permissioning {#transactor-key-permissioning-label}
 
@@ -72,7 +72,7 @@ configuration file, `validator.toml`, and placing it in the config
 directory. Add the configuration for transactor permissioning to this
 file using the following format:
 
-``` none
+```none
 [permissions]
 
 ROLE = POLICY_NAME
@@ -85,7 +85,7 @@ default). Multiple roles may be defined in the same format within the
 validator configuration file.
 
 The policies are stored in the policy_dir defined by the path config
-(see [Configuraing
+(see [Configuring
 Sawtooth]({% link docs/1.2/sysadmin_guide/configuring_sawtooth.md%}#path-configuration-file).
 
 Each policy consists of permit and deny rules, similar to policies
@@ -96,7 +96,7 @@ transactors. The rules are evaluated in order.
 
 A policy file has the following format:
 
-``` none
+```none
 PERMIT_KEY {key}
 DENY_KEY {key}
 ```
@@ -119,7 +119,7 @@ a role name and the value is a policy. All roles that limit who is
 allowed to sign transactions and batches should start with transactor as
 a prefix.
 
-``` none
+```none
 transactor.SUB_ROLE = POLICY_NAME
 ```
 
@@ -268,7 +268,7 @@ The Identity namespace stores roles as key-value pairs, where the key is
 a role name and the value is a policy. Sawtooth network permissioning
 roles use the following pattern:
 
-``` none
+```none
 network[.SUB_ROLE] = POLICY_NAME
 ```
 

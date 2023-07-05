@@ -42,7 +42,7 @@ sabre-sdk = {git = "https://github.com/hyperledger/sawtooth-sabre"}
 The Sabre SDK provides the following required structs needed to write a
 smart contract.
 
-``` rust
+```rust
 use sabre_sdk::ApplyError;
 use sabre_sdk::TransactionContext;
 use sabre_sdk::TransactionHandler;
@@ -71,7 +71,7 @@ execute_entrypoint
 Every smart contract must contain an entrypoint function and an apply
 function that can be passed into execute_entrypoint.
 
-``` rust
+```rust
 #[no_mangle]
 pub unsafe fn entrypoint(payload: WasmPtr, signer: WasmPtr, signature: WasmPtr) -> i32 {
     execute_entrypoint(payload, signer, signature, apply)
@@ -80,7 +80,7 @@ pub unsafe fn entrypoint(payload: WasmPtr, signer: WasmPtr, signature: WasmPtr) 
 
 The apply method should have the following signature.
 
-``` rust
+```rust
 fn apply(
     request: &TpProcessRequest,
     context: &mut dyn TransactionContext,
@@ -91,7 +91,7 @@ The main function can be empty if you are only writing the smart
 contract to be deployed, not started up as a transaction processor in a
 different process.
 
-``` rust
+```rust
 fn main() {
 }
 ```
@@ -143,7 +143,7 @@ The main.rs file for the transaction processor should separate out the
 different extern crate and use statements. This can be done using
 cfg_if. Make the handler a public module and add an empty main function.
 
-``` rust
+```rust
 #[macro_use]
 extern crate cfg_if;
 
@@ -183,7 +183,7 @@ that the smart contract apply function and the entrypoint function
 should include the `#[cfg(target_arch = "wasm32")]` decorator, so they
 will only be compiled when compiling into Wasm.
 
-``` rust
+```rust
 cfg_if! {
     if #[cfg(target_arch = "wasm32")] {
         use sabre_sdk::ApplyError;
@@ -247,7 +247,7 @@ crate](https://doc.rust-lang.org/1.1.0/log/macro.info!.html). To use add
 `#[macro_use]` above `extern crate sabre_sdk` and use the macros as
 normal.
 
-``` rust
+```rust
 info!(
     "payload: {} {} {}",
     payload.get_name_a(),
@@ -291,7 +291,7 @@ logged.
 To compile your smart contract into wasm you need to use Rust\'s nightly
 tool chain and need to add target wasm32-unknown-unknown.
 
-``` console
+```console
 $ rustup update
 $ rustup default nightly
 $ rustup target add wasm32-unknown-unknown --toolchain nightly
@@ -300,7 +300,7 @@ $ rustup target add wasm32-unknown-unknown --toolchain nightly
 To compile the smart contract run the following command in
 sawtooth-sabre/example/intkey_multiply/processor:
 
-``` console
+```console
 $ cargo build --target wasm32-unknown-unknown --release
 ```
 
@@ -323,7 +323,7 @@ $ cargo build --target wasm32-unknown-unknown --release
 *asinit* is a tool for initializing an AssemblyScript
 project. Run the following to create a new AssemblyScript project.
 
-``` console
+```console
 $ npm install --save-dev assemblyscript
 $ npx asinit .
 ```
@@ -331,7 +331,7 @@ $ npx asinit .
 Then, edit the *package.json* to generate WebAssembly that
 imports *abort*.
 
-``` json
+```json
 {
     "name": "my-sc-project",
     "version": "0.0.1",
@@ -355,7 +355,7 @@ imports *abort*.
 
 Build a project run the following
 
-``` console
+```console
 npm run asbuild
 ```
 
@@ -364,7 +364,7 @@ npm run asbuild
 In order to produce Sawtooth Sabre compatible WebAssembly install
 AssemblyScript Compiler (asc) and run the following command.
 
-``` console
+```console
 $ npm install -g asc
 
 $ asc assembly/index.ts \

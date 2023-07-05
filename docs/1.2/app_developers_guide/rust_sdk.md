@@ -70,7 +70,7 @@ Sawtooth in Rust.
     located in the Sawtooth SDK Rust repository
     <http://github.com/hyperledger/sawtooth-sdk-rust>.
 
-``` ini
+```ini
 [package]
 name = "package_name"
 version = "0.1.0"
@@ -85,7 +85,7 @@ sawtooth-sdk = "0.2"
     specify `extern crate sawtooth_sdk;` and then `use` the packages you
     need from the Sawtooth SDK. For example:
 
-``` rust
+```rust
 extern crate sawtooth_sdk;
 
 use sawtooth_sdk::processor::TransactionProcessor;
@@ -121,7 +121,7 @@ entry point.
 In the entry point, the `TransactionProcessor` class is given the
 address to connect with the validator and the handler class.
 
-``` rust
+```rust
 extern crate sawtooth_sdk;
 
 use sawtooth_sdk::processor::TransactionProcessor;
@@ -151,7 +151,7 @@ Handlers get called in two ways: with an `apply` method and with various
 processor. The bulk of the handler, however, is made up of `apply` and
 its helper functions.
 
-``` rust
+```rust
 use sawtooth_sdk::messages::processor::TpProcessRequest;
 use sawtooth_sdk::processor::handler::ApplyError;
 use sawtooth_sdk::processor::handler::TransactionContext;
@@ -224,7 +224,7 @@ space fields, while the `XoState` contains information about a game (a
 `Game` object). The `Game` struct holds a game name, a board, the
 game\'s state, and the identities of both players.
 
-``` rust
+```rust
 fn apply(
     &self,
     request: &TpProcessRequest,
@@ -278,7 +278,7 @@ The validation rules and state updates that are associated with the
 
 The `create` action has the following implementation:
 
-``` rust
+```rust
 // --snip--
 "create" => {
     if game.is_none() {
@@ -298,7 +298,7 @@ The `create` action has the following implementation:
 
 The `delete` action has the following implementation:
 
-``` rust
+```rust
 // --snip--
 "delete" => {
     if game.is_none() {
@@ -315,7 +315,7 @@ The `delete` action has the following implementation:
 
 The `take` action has the following implementation:
 
-``` rust
+```rust
 // --snip--
 "take" => {
         if let Some(mut g) = game {
@@ -412,7 +412,7 @@ string with exactly two commas, which is formatted as follows:
 -   `<space>` is the location on the board, as an integer between 1-9
     (inclusive), if the action is take.
 
-``` rust
+```rust
 use sawtooth_sdk::processor::handler::ApplyError;
 
 pub struct XoPayload {
@@ -530,7 +530,7 @@ the same address), the colliding state entries will stored as the UTF-8
 encoding of the string `<a-entry>|<b-entry>|...`, where \<a-entry>,
 \<b-entry>,\... are sorted alphabetically.
 
-``` rust
+```rust
 // Use statements
 // --snip--
 
@@ -670,7 +670,7 @@ generated as follows (in Python):
 
 Addressing is implemented as follows:
 
-``` rust
+```rust
 use crypto::sha2::Sha512;
 
 pub fn get_xo_prefix() -> String {
@@ -711,7 +711,7 @@ SDK\'s *signing* module.
 A *Signer* wraps a private key and provides some convenient methods for
 signing bytes and getting the private key\'s associated public key.
 
-``` rust
+```rust
 use sawtooth_sdk::signing::CryptoFactory;
 use sawtooth_sdk::signing::create_context;
 
@@ -743,7 +743,7 @@ three key/value pairs encoded as
 [CBOR](https://en.wikipedia.org/wiki/CBOR). Creating one might look like
 this:
 
-``` rust
+```rust
 extern crate serde;
 extern crate serde_cbor;
 
@@ -785,7 +785,7 @@ are involved, references to prior transactions it depends on, and the
 public keys associated with the its signature. The header references the
 payload through a SHA-512 hash of the payload bytes.
 
-``` rust
+```rust
 extern crate protobuf;
 extern crate openssl;
 extern crate rand;
@@ -853,8 +853,8 @@ pub fn to_hex_string(bytes: &Vec<u8>) -> String {
 > Remember that a *batcher public_key* is the hex public key matching the
 > private key that will later be used to sign a Transaction\'s Batch, and
 > *dependencies* are the *header signatures* of Transactions that must be
-> committed before this one (see *TransactionHeaders* in
-`/architecture/transactions_and_batches`{.interpreted-text role="doc"}).
+> committed before this one
+> (see [`TransactionHeader`]({% link docs/1.2/architecture/transactions_and_batches.md%})).
 
 > **Note**
 >
@@ -880,7 +880,7 @@ create a signature. This header signature also acts as the ID of the
 transaction. The header bytes, the header signature, and the payload
 bytes are all used to construct the complete Transaction.
 
-``` rust
+```rust
 use sawtooth_sdk::messages::transaction::Transaction;
 
 let signature = signer
@@ -903,7 +903,7 @@ two options for this. One or more Transactions can be combined into a
 serialized *TransactionList* method, or can be serialized as a single
 Transaction.
 
-``` rust
+```rust
 let txn_list_vec = vec![txn1, txn2];
 let txn_list = TransactionList::new();
 txn_list.set_transactions(RepeatedField::from_vec(txn_list_vec));
@@ -931,7 +931,7 @@ needs only the public key of the signer and the list of Transaction IDs,
 in the same order they are listed in the Batch.
 
 
-``` rust
+```rust
 use sawtooth_sdk::messages::batch::BatchHeader;
 
 let mut batch_header = BatchHeader::new();
@@ -963,7 +963,7 @@ The header is signed, and the resulting signature acts as the Batch\'s
 ID. The Batch is then constructed out of the header bytes, the header
 signature, and the transactions that make up the batch.
 
-``` rust
+```rust
 use sawtooth_sdk::messages::batch::Batch;
 
 let signature = signer
@@ -985,7 +985,7 @@ though the Batches themselves don\'t necessarily need to depend on each
 other. Unlike Batches, a BatchList is not atomic. Batches from other
 clients may be interleaved with yours.
 
-``` rust
+```rust
 use sawtooth_sdk::messages::batch::BatchList;
 
 let mut batch_list = BatchList::new();
@@ -1011,12 +1011,12 @@ allowing clients to communicate using HTTP/JSON standards. Simply send a
 header of *\"application/octet-stream\"*, and the *body* as a serialized
 *BatchList*.
 
-There are a many ways to make an HTTP request, and hopefully the
+There are many ways to make an HTTP request, and hopefully the
 submission process is fairly straightforward from here, but as an
 example, this is what it might look if you sent the request from the
 same Rust process that prepared the BatchList:
 
-``` rust
+```rust
 // When using an external crate don't forget to add it to your dependencies
 // in the Cargo.toml file, just like with the sdk itself
 extern crate reqwest;
@@ -1034,7 +1034,7 @@ let res = client
 And here is what it would look like if you saved the binary to a file,
 and then sent it from the command line with `curl`:
 
-``` rust
+```rust
 use std::fs::File;
 use std::io::Write;
 
@@ -1043,7 +1043,7 @@ file.write_all(&batch_list_bytes)
     .expect("Error writing bytes");
 ```
 
-``` bash
+```bash
 % curl --request POST \
     --header "Content-Type: application/octet-stream" \
     --data-binary @intkey.batches \

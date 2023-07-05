@@ -10,11 +10,11 @@ specify the operation to perform, such as `list` or `create`. The
 subcommands have options and arguments that control their behavior. For
 example:
 
-``` console
+```console
 $ sawtooth state list --format csv
 ```
 
-``` console
+```console
 usage: sawtooth [-h] [-v] [-V]
                 {batch,block,identity,keygen,peer,status,settings,state,transaction}
                 ...
@@ -92,7 +92,7 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-``` console
+```console
 usage: sawtooth batch list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                            [-F {csv,json,yaml,default}]
 
@@ -121,7 +121,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth batch show [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-k KEY]
                            [-F {yaml,json}]
                            batch_id
@@ -159,7 +159,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth batch status [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                              [--wait [WAIT]] [-F {yaml,json}]
                              batch_ids
@@ -195,7 +195,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth batch submit [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-v]
                              [-V] [--wait [WAIT]] [-f FILENAME]
                              [--batch-size-limit BATCH_SIZE_LIMIT]
@@ -226,7 +226,7 @@ optional arguments:
 The `sawtooth block` subcommands display information about the blocks in
 the current blockchain.
 
-``` console
+```console
 usage: sawtooth block [-h] {list,show} ...
 
 Provides subcommands to display information about the blocks in the current
@@ -254,7 +254,7 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-``` console
+```console
 usage: sawtooth block list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                            [-F {csv,json,yaml,default}] [-n COUNT]
 
@@ -287,7 +287,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth block show [-h] [--url URL] [-u USERNAME[:PASSWORD]] [-k KEY]
                            [-F {yaml,json}]
                            block_id
@@ -324,7 +324,7 @@ Note that only the public keys stored in the setting
 sawtooth.identity.allowed_keys are allowed to submit identity
 transactions. Use the `sawset` commands to change this setting.
 
-``` console
+```console
 usage: sawtooth identity [-h] {policy,role} ...
 
 Provides subcommands to work with roles and policies.
@@ -346,7 +346,7 @@ subcommands:
 The `sawtooth identity policy` subcommands are used to display the
 current policies stored in state and to create new policies.
 
-``` console
+```console
 usage: sawtooth identity policy [-h] {create,list} ...
 
 Provides subcommands to list the current policies stored in state and to
@@ -372,7 +372,7 @@ assumed last rule to deny all. This subcommand can also be used to
 change the policy that is already set to a role without having to also
 reset the role.
 
-``` console
+```console
 usage: sawtooth identity policy create [-h] [-k KEY] [-o OUTPUT | --url URL]
                                        [--wait WAIT]
                                        name rule [rule ...]
@@ -401,7 +401,7 @@ The `sawtooth identity policy list` subcommand lists the policies that
 are currently set in state. This list can be used to figure out which
 policy name should be set for a new role.
 
-``` console
+```console
 usage: sawtooth identity policy list [-h] [--url URL]
                                      [--format {default,csv,json,yaml}]
 
@@ -419,7 +419,7 @@ optional arguments:
 The `sawtooth identity role` subcommands are used to list the current
 roles stored in state and to create new roles.
 
-``` console
+```console
 usage: sawtooth identity role [-h] {create,list} ...
 
 Provides subcommands to list the current roles stored in state and to create
@@ -446,7 +446,7 @@ be taken on the network. For example, the role named
 `transactor.transaction_signer` controls who is allowed to sign
 transactions.
 
-``` console
+```console
 usage: sawtooth identity role create [-h] [-k KEY] [--wait WAIT]
                                      [-o OUTPUT | --url URL]
                                      name policy
@@ -478,7 +478,7 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-``` console
+```console
 usage: sawtooth identity role list [-h] [--url URL]
                                    [--format {default,csv,json,yaml}]
 
@@ -499,7 +499,7 @@ batches. These files are stored in the `<key-dir>` directory in
 `<key_name>.priv` and `<key_dir>/<key_name>.pub`. By default,
 `<key_dir>` is `~/.sawtooth` and `<key_name>` is `$USER`.
 
-``` console
+```console
 usage: sawtooth keygen [-h] [-v] [-V] [--key-dir KEY_DIR] [--force] [-q]
                        [key_name]
 
@@ -526,7 +526,7 @@ defaults to $USER.
 The `sawtooth peer` subcommand displays the addresses of a specified
 validator\'s peers.
 
-``` console
+```console
 usage: sawtooth peer [-h] {list} ...
 
 Provides a subcommand to list a validator's peers
@@ -548,7 +548,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth peer list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                           [-F {csv,json,yaml,default}]
 
@@ -570,7 +570,7 @@ optional arguments:
 The `sawtooth settings` subcommand displays the values of currently
 active on-chain settings.
 
-``` console
+```console
 usage: sawtooth settings [-h] {list} ...
 
 Displays the values of currently active on-chain settings.
@@ -588,7 +588,7 @@ settings:
 The `sawtooth settings list` subcommand displays the current keys and
 values of on-chain settings.
 
-``` console
+```console
 usage: sawtooth settings list [-h] [--url URL] [--filter FILTER]
                               [--format {default,csv,json,yaml}]
 
@@ -608,7 +608,7 @@ optional arguments:
 The `sawtooth state` subcommands display information about the entries
 in the current blockchain state.
 
-``` console
+```console
 usage: sawtooth state [-h] {list,show} ...
 
 Provides subcommands to display information about the state entries in the
@@ -642,7 +642,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth state list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                            [-F {csv,json,yaml,default}] [--head HEAD]
                            [subtree]
@@ -682,7 +682,7 @@ By default, the peers are displayed as a CSV string, but other
 plain-text formats (JSON, and YAML) are available and can be piped into
 a file for further processing.
 
-``` console
+```console
 usage: sawtooth state show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                            [--head HEAD]
                            address
@@ -706,7 +706,7 @@ optional arguments:
 The `sawtooth status` subcommands display information related to a
 validator\'s status.
 
-``` console
+```console
 usage: sawtooth status [-h] {show} ...
 
 Provides a subcommand to show a validator's status
@@ -729,7 +729,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth status show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                             [-F {csv,json,yaml,default}]
 
@@ -751,7 +751,7 @@ optional arguments:
 The `sawtooth transaction` subcommands display information about the
 transactions in the current blockchain.
 
-``` console
+```console
 usage: sawtooth transaction [-h] {list,show} ...
 
 Provides subcommands to display information about the transactions in the
@@ -776,7 +776,7 @@ By default, this information is displayed as a white-space delimited
 table intended for display, but other plain-text formats (CSV, JSON, and
 YAML) are available and can be piped into a file for further processing.
 
-``` console
+```console
 usage: sawtooth transaction list [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                                  [-F {csv,json,yaml,default}]
 
@@ -807,7 +807,7 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-``` console
+```console
 usage: sawtooth transaction show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                                  [-k KEY] [-F {yaml,json}]
                                  transaction_id

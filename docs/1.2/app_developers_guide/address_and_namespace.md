@@ -40,7 +40,7 @@ example namespace prefix that utilizes the string making up the
 transaction family namespace name to calculate the prefix is
 demonstrated by the following Python code:
 
-``` python
+```python
 prefix = hashlib.sha256("example_txn_family_namespace".encode('utf-8')).hexdigest()[:6]
 ```
 
@@ -67,7 +67,7 @@ for more information.
 
 The transaction family prefix is:
 
-``` python
+```python
 hashlib.sha512('intkey'.encode('utf-8')).hexdigest()[0:6]
 ```
 
@@ -76,7 +76,7 @@ This resolves to \'1cf126\'.
 To store a value in the entry *Name*, the address would be calculated
 like this:
 
-``` python
+```python
 address = "1cf126" + hashlib.sha512('name'.encode('utf-8')).hexdigest()[-64:]
 ```
 
@@ -100,7 +100,7 @@ data on each object type is keyed to a unique object identifier.
 
 Code Example:
 
-``` python
+```python
 >>> hashlib.sha256("my-transaction-family-namespace-example".encode('utf-8')).hexdigest()[:6] + hashlib.sha256("widget-type".encode('utf-8')).hexdigest()[:4] + hashlib.sha256("unique-widget-identifier".encode('utf-8')).hexdigest()[:60]
 '4ae1df0ad3ac05fdc7342c50d909d2331e296badb661416896f727131207db276a908e'
 ```
@@ -119,4 +119,4 @@ transaction family's requirements in mind.
 
 See the [Settings Transactions
 family]({%link docs/1.2/transaction_family_specifications/settings_transaction_family.md%})
-foranother more complex addressing scheme.
+for another more complex addressing scheme.

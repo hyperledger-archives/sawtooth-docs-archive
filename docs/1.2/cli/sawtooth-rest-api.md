@@ -17,7 +17,7 @@ the validator is running (the default is `tcp://localhost:4004`). An
 optional timeout value configures how long the REST API will wait for a
 response for the validator.
 
-``` console
+```console
 usage: sawtooth-rest-api [-h] [-B BIND] [-C CONNECT] [-t TIMEOUT]
                          [--client-max-size CLIENT_MAX_SIZE] [-v]
                          [--opentsdb-url OPENTSDB_URL]

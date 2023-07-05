@@ -37,7 +37,7 @@ contract_name. If the contract is executed but does not have the needed
 permission to read or write to state, the transaction is considered
 invalid.
 
-``` protobuf
+```protobuf
 message NamespaceRegistry {
   message Permission {
     string contract_name = 1;
@@ -56,7 +56,7 @@ When the same address is computed for different namespace registries, a
 collision occurs; all colliding namespace registries are stored in at
 the address in a NamespaceRegistryList
 
-``` protobuf
+```protobuf
 message NamespaceRegistryList {
   repeated NamespaceRegistry registries = 1;
 }
@@ -73,7 +73,7 @@ the contract and the public key of the creator. The hash can be used by
 a client to verify this is the correct version of the contract that
 should be executed.
 
-``` protobuf
+```protobuf
 message ContractRegistry {
   message Version {
     string version = 1;
@@ -96,7 +96,7 @@ message ContractRegistry {
 ContractRegistry entries whose addresses collide are stored in a
 ContractRegsitryList.
 
-``` protobuf
+```protobuf
 message ContractRegistryList {
   repeated ContractRegistry registries = 1;
 }
@@ -110,7 +110,7 @@ the expected inputs and outputs (namespaces) used when executing the
 contract, the public key of the creator, and the compiled wasm code of
 the contract.
 
-``` protobuf
+```protobuf
 message Contract {
   string name = 1;
   string version = 2;
@@ -123,7 +123,7 @@ message Contract {
 
 Contracts whose addresses collide are stored in a ContractList.
 
-``` protobuf
+```protobuf
 message ContractList {
   repeated Contract contracts = 1;
 }
@@ -145,7 +145,7 @@ A smart permission is defined with three fields:
     permission function belongs. This organization is created via the
     Pike transaction processor
 
-``` protobuf
+```protobuf
 message SmartPermission {
   string name = 1;
   string org_id = 2;
@@ -160,7 +160,7 @@ permission list. A smart permission list contains one field:
 
 -   `smart_permissions`: a list of smart permissions
 
-``` protobuf
+```protobuf
 message SmartPermissionList {
     repeated SmartPermission smart_permissions = 1;
 }
@@ -209,7 +209,7 @@ appropriate logic.
 Only the defined actions are available and only one action payload
 should be defined in the SabrePayload.
 
-``` protobuf
+```protobuf
 message SabrePayload {
   enum Action {
     ACTION_UNSET = 0;
@@ -255,7 +255,7 @@ message SabrePayload {
 
 Creates a contract and updates the associated contract registry.
 
-``` protobuf
+```protobuf
 message CreateContractAction {
   string name = 1;
   string version = 2;
@@ -303,7 +303,7 @@ The outputs for CreateContractAction must include:
 Delete a contract and remove its entry from the associated contract
 registry.
 
-``` protobuf
+```protobuf
 message DeleteContractAction {
   string name = 1;
   string version = 2;
@@ -311,7 +311,7 @@ message DeleteContractAction {
 ```
 
 If the contract does not already exist or does not have an entry in the
-contract registry, the transactions is invalid.
+contract registry, the transaction is invalid.
 
 If the transaction signer is not an owner, they cannot delete the
 contract and the transaction is invalid.
@@ -333,7 +333,7 @@ The outputs for DeleteContractAction must include:
 
 Execute the contract.
 
-``` protobuf
+```protobuf
 message ExecuteContractAction {
   string name = 1;
   string version = 2;
@@ -383,7 +383,7 @@ The outputs for ExecuteContractAction must include:
 
 Create a contract registry with no version.
 
-``` protobuf
+```protobuf
 message CreateContractRegistryAction {
   string name = 1;
   repeated string owners = 2;
@@ -417,7 +417,7 @@ The outputs for CreateContractRegistryAction must include:
 
 Deletes a contract registry if there are no versions.
 
-``` protobuf
+```protobuf
 message DeleteContractRegistryAction {
   string name = 1;
 }
@@ -443,7 +443,7 @@ The outputs for DeleteContractRegistryAction must include:
 
 Update the contract registry\'s owners list.
 
-``` protobuf
+```protobuf
 message UpdateContractRegistryOwnersAction {
   string name = 1;
   repeated string owners = 2;
@@ -470,7 +470,7 @@ The outputs for UpdateContractRegistryOwnersAction must include:
 
 Creates a namespace registry with no permissions.
 
-``` protobuf
+```protobuf
 message CreateNamespaceRegistryAction {
   string namespace = 1;
   repeated string owners = 2;
@@ -498,7 +498,7 @@ The outputs for CreateNamespaceRegistryAction must include:
 
 Deletes a namespace registry if it does not contains any permissions.
 
-``` protobuf
+```protobuf
 message DeleteNamespaceRegistryAction {
   string namespace = 1;
 }
@@ -524,7 +524,7 @@ The outputs for DeleteNamespaceRegistryAction must include:
 
 Update the namespace registry\'s owners list.
 
-``` protobuf
+```protobuf
 message UpdateNamespaceRegistryOwnersAction {
   string namespace = 1;
   repeated string owners = 2;
@@ -553,7 +553,7 @@ The outputs for UpdateNamespaceRegistryOwnersAction must include:
 Adds a permission entry into a namespace registry for the associated
 namespace.
 
-``` protobuf
+```protobuf
 message CreateNamespaceRegistryPermissionAction {
   string namespace = 1;
   string contract_name = 2;
@@ -589,7 +589,7 @@ The outputs for CreateNamespaceRegistryPermissionAction must include:
 Delete a permission entry in a namespace registry for the associated
 namespace.
 
-``` protobuf
+```protobuf
 message DeleteNamespaceRegistryPermissionAction {
   string namespace = 1;
   string contract_name = 2;
@@ -623,7 +623,7 @@ included organization can create smart permissions for the organization.
 Agents and Organization are created and registered by the Pike
 transaction processor.
 
-``` protobuf
+```protobuf
 message CreateSmartPermissionAction {
   string name = 1;
   string org_id = 2;
@@ -639,7 +639,7 @@ organization can update smart permissions for the organization. Agents
 and Organization are created and registered by the Pike transaction
 processor.
 
-``` protobuf
+```protobuf
 message UpdateSmartPermissionAction {
   string name = 1;
   string org_id = 2;
@@ -655,7 +655,7 @@ organization can delete smart permissions for the organization. Agents
 and Organization are created and registered by the Pike transaction
 processor.
 
-``` protobuf
+```protobuf
 message DeleteSmartPermissionAction {
   string name = 1;
   string org_id = 2;

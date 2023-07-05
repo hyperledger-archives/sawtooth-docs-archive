@@ -29,13 +29,13 @@ Use localhost to access the REST API from the Validator Docker container
 or from where the Validator is running. For example, to get state
 history (equivalent to `sawtooth state list`) type:
 
-``` sh
+```sh
 curl http://localhost:8008/state
 ```
 
 From the Client Docker container, access from rest-api. For example:
 
-``` sh
+```sh
 curl http://rest-api:8008/state
 ```
 
@@ -113,13 +113,13 @@ access transaction receipts, use the REST API. For more information, see
 
 ## How do I retrieve a transaction receipt?
 
-Use the REST API. Here\'s a sample request (The ID is the transaction
-ID, listed with [sawtooth transaction list]{.title-ref}):
+Use the REST API. Here's a sample request (the ID is the transaction ID,
+listed with
+[`sawtooth transaction list`]({% link docs/1.2/cli/sawtooth.md %}#sawtooth-transaction-list)):
 `wget http://localhost:8008/receipts?id=YourTransactionIDsHere` Replace
 `YourTransactionIDsHere` with 1 or more comma-separated 128 hex
-character transaction IDs. Change [localhost]{.title-ref} to
-[rest-api]{.title-ref} for Docker. The response is several lines of JSON
-format output. For example,
+character transaction IDs. Change `localhost` to `rest-api` for Docker.
+The response is several lines of JSON format output. For example,
 <https://gist.github.com/danintel/0f878141c60bb566237e8db11226aa4e> .
 For more than 15 IDs, use `POST /receipts` . For Receipts REST API
 details, see `receipts` at

@@ -28,7 +28,7 @@ inter-transaction validation are:
 
 The `BatchInjector` class supports injecting batches into blocks:
 
-``` python
+```python
 interface BatchInjector:
   // Called when a new block is created and before any batches are added. A list of
   // batches to insert at the beginning of the block must be returned. A StateView

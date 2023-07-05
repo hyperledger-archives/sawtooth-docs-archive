@@ -104,7 +104,7 @@ The command requires that a path to a contract definition is provided to
 `--filename`. The contract definition should be a yaml file with the
 following information:
 
-``` yaml
+```yaml
 name: <contract name>
 version: <contract version>
 wasm: <path to compiled wasm file>

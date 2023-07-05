@@ -183,8 +183,8 @@ off-chain configuration setting is described in a later procedure.
     Sawtooth and generated the keys. Gather these keys from
     `/etc/sawtooth/keys/validator.pub` on each node.
 
-The first node in a new Sawtooth network must create the [genesis
-block]{.title-ref} (the first block on the distributed ledger). When the
+The first node in a new Sawtooth network must create the *genesis block*
+(the first block on the distributed ledger). When the
 other nodes join the network, they use the on-chain settings that were
 specified in the genesis block.
 
@@ -447,7 +447,7 @@ the settings in each configuration file.
 The following steps configure the validator\'s networking information so
 that the validator advertises itself properly and knows where to search
 for peers. Additional steps specify the peers for this node, change the
-scheduler type (optional), and create a network key.
+scheduler type (optional), and create a network key (optional).
 
 1.  Create the validator configuration file by copying the example file.
 
@@ -576,7 +576,16 @@ scheduler type (optional), and create a network key.
     scheduler = 'parallel'
     ```
 
-6.  (Optional) Set the network key to specify secured network
+6.  (Optional) Restrict the permissions on `validator.toml` to protect the
+    network private key. This *must* be done if you are continuing with the
+    following step.
+
+    ``` console
+    $ sudo chown root:sawtooth /etc/sawtooth/validator.toml
+    $ sudo chmod 640 /etc/sawtooth/validator.toml
+    ```
+
+7.  (Optional) Set the network key to specify secured network
     communication between nodes in the network. By default, the network
     is unsecured.
 
@@ -629,14 +638,6 @@ scheduler type (optional), and create a network key.
        network_public_key = '{nw-public-key}'
        network_private_key = '{nw-private-key}'
        ```
-
-7.  After saving your changes, restrict the permissions on
-    `validator.toml` to protect the network private key.
-
-    ``` console
-    $ sudo chown root:sawtooth /etc/sawtooth/validator.toml
-    $ sudo chmod 640 /etc/sawtooth/validator.toml
-    ```
 
 8.  Finally, restart the validator to activate the configuration
     changes.
@@ -973,6 +974,7 @@ functionality.
 - (PBFT only) Ensure that the on-chain setting
   `sawtooth.consensus.pbft.members` lists the validator public keys of
   all PBFT member nodes on the network.
+
   a. Connect to the first node (the one that created the genesis
      block).
 

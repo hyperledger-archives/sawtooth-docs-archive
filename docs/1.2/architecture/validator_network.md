@@ -240,7 +240,7 @@ authorization type and must be implemented by all requesters at a
 minimum. If the requester cannot comply with the given authorization
 type for that role entry, it is unable to gain access to that role.
 
-``` protobuf
+```protobuf
 message ConnectionRequest {
   // This is the first message that must be sent to start off authorization.
   // The endpoint of the connection.

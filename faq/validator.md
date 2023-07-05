@@ -53,7 +53,7 @@ will then process all blocks that were added to the blockchain since the
 node went down. It will be busy during this initial phase, but will
 return to normal after that.
 
-``` sh
+```sh
 curl http://localhost:8008/blocks
 ```
 
@@ -61,7 +61,7 @@ This verifies the REST API is available.
 
 From the Client Docker container run this:
 
-``` sh
+```sh
 curl http://rest-api:8008/blocks
 ```
 
@@ -416,7 +416,7 @@ If you\'ve installed sawtooth already, python3 and python3-zmq would
 have been already installed and available in your system. Here\'s an
 example to create the keypair in Python:
 
-``` python
+```python
 import zmq
 (public, secret) = zmq.curve_keypair()
 print("network_public_key =", public.decode("utf-8"),
@@ -425,7 +425,7 @@ print("network_public_key =", public.decode("utf-8"),
 
 Also, if you can use a compiled binary tool:
 
-``` sh
+```sh
 $ sudo apt-get install g++ libzmq3-dev
 $ wget https://raw.githubusercontent.com/zeromq/libzmq/master/tools/curve_keygen.cpp
 $ g++ curve_keygen.cpp -o curve_keygen -lzmq
@@ -440,10 +440,10 @@ pair is not configured, Network communications between validators will not be
 authenticated or encrypted` ?</h2>
 
 You did not configure the keypair for the network nodes. For development
-purposes, that is OK. For production, use create a network keypair and
-add to file [validator.toml]{.title-ref}, as instructed in the question
-here about how to generate the `network_public_key` and
-`network_private_key` .
+purposes, that is OK. For production, create a network keypair and
+add to file `validator.toml`, as instructed in the
+[question](#how-to-generate-network-pubkey) about how to generate the
+`network_public_key` and `network_private_key`.
 
 ## I am seeing only one transaction per block in my blockchain. Why?
 

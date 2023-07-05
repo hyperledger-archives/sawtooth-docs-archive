@@ -210,7 +210,7 @@ the validator through the REST API.
 To log into the client container, open a new terminal window and run the
 following command:
 
-``` console
+```console
 user@host$ docker exec -it sawtooth-shell-default bash
 root@client#
 ```
@@ -554,7 +554,7 @@ table shows the values in the example Compose file,
 As described above, you can display Sawtooth log messages by using the
 `docker logs` command from your host system:
 
-``` console
+```console
 user@host$ docker logs {OPTIONS} {ContainerName}
 ```
 
@@ -564,7 +564,7 @@ API, and transaction processors) has both a debug log and an error log.
 
 For example, the validator container has these log files:
 
-``` console
+```console
 root@validator# ls -1 /var/log/sawtooth
 validator-debug.log
 validator-error.log
@@ -572,7 +572,7 @@ validator-error.log
 
 The IntegerKey container has these log files:
 
-``` console
+```console
 root@intkey-tp# ls -1 /var/log/sawtooth
 intkey-ae98c3726f9743c4-debug.log
 intkey-ae98c3726f9743c4-error.log
@@ -866,7 +866,7 @@ Use these steps to start Sawtooth:
 
 Connect to the shell container.
 
-``` none
+```none
 $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-shell -- bash
 ```
 
@@ -882,14 +882,14 @@ $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --containe
 To verify that you can reach the REST API, run this `curl` command from
 the shell container:
 
-``` console
+```console
 root@sawtooth-0# curl http://localhost:8008/blocks
 ```
 
 If the validator and REST API are running and reachable, the output for
 each command should be similar to this example:
 
-``` console
+```console
 {
   "data": [
     {
@@ -1260,7 +1260,7 @@ transaction processors) has both a debug log and an error log.
 For example, you can connect to the validator container and display the
 contents of `/var/log/sawtooth`:
 
-``` console
+```console
 $ kubectl exec -it $(kubectl get pods | awk '/sawtooth-0/{print $1}') --container sawtooth-validator -- bash
 root@sawtooth-0# ls -1 /var/log/sawtooth
 validator-debug.log
@@ -1408,8 +1408,8 @@ stable or nightly. We recommend using the stable repository.
 
        ``` console
        user@validator$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
-       <user@validator>\$ sudo add-apt-repository \'deb \[arch=amd64\] <http://repo.sawtooth.me/ubuntu/chime/stable> bionic universe\'
-            <user@validator>\$ sudo apt-get update
+       <user@validator>$ sudo add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe'
+            <user@validator>$ sudo apt-get update
        ```
 
   -   To use the nightly repository, run the following commands:
@@ -1454,7 +1454,7 @@ stable or nightly. We recommend using the stable repository.
 Generate your user key for Sawtooth, using the same terminal window as
 the previous step.
 
-``` console
+```console
 user@validator$ sawtooth keygen my_key
 writing file: /home/yourname/.sawtooth/keys/my_key.priv
 writing file: /home/yourname/.sawtooth/keys/my_key.pub
@@ -1472,7 +1472,7 @@ writing file: /home/yourname/.sawtooth/keys/my_key.pub
 Generate the key for the validator, which runs as root. Use the same
 terminal window as the previous step.
 
-``` console
+```console
 user@validator$ sudo sawadm keygen
 writing file: /etc/sawtooth/keys/validator.priv
 writing file: /etc/sawtooth/keys/validator.pub
@@ -1904,8 +1904,8 @@ purposes.
     >
     > The log file names for the transaction processors contain a random
     > string that is unique for each instance of the transaction
-    > processor. For more information, see
-    > `examine-logs-ubuntu-label`{.interpreted-text role="ref"}.
+    > processor. For more information, read about
+    > [examining logs](#examine-logs-ubuntu-label).
 
 #### Submitting Transactions with sawtooth batch submit
 

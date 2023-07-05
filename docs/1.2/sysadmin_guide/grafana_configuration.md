@@ -127,15 +127,19 @@ InfluxDB is used to store Sawtooth metrics data.
     > dashboard that is included in the Grafana Docker container from git
     > master.
 
-    a.  Use one of these methods to get the 1.0 dashboard:
-        -   Find the dashboard in the 1-0 branch at
-            `sawtooth-core/docker/grafana/dashboards/sawtooth_performance.json`
-        -   Download the dashboard from GitHub at this location:
-            [hyperledger/sawtooth-core/1-0/docker/grafana/dashboards/sawtooth_performance.json](https://raw.githubusercontent.com/hyperledger/sawtooth-core/1-0/docker/grafana/dashboards/sawtooth_performance.json)
+    a.  To get the 1.0 dashboard, either find it in the `1-0` branch at
+        `sawtooth-core/docker/grafana/dashboards/sawtooth_performance.json`
+        or download
+        [`sawtooth_performance.json`](https://raw.githubusercontent.com/hyperledger/sawtooth-core/1-0/docker/grafana/dashboards/sawtooth_performance.json)
+        from GitHub.
+
     b.  Click on the Grafana spiral logo and mouse over \"Dashboards\",
         then click \"Import\".
+
     c.  Click \"Upload .json file\".
+
     d.  Navigate to the location of `sawtooth_performance.json`.
+
     e.  Select \"metrics\" in the drop-down menu and click \"Import\".
 
 ## Configure the Sawtooth Validator for Grafana
@@ -195,10 +199,12 @@ Grafana.
         > ```
 
     -   To restart `sawtooth-validator` on the command line, see the
-        appropriate procedure in the Application Developer\'s Guide:
-        either `../app_developers_guide/ubuntu`{.interpreted-text
-        role="doc"} or `proc-multi-ubuntu-label`{.interpreted-text
-        role="ref"}.
+    -   Application Developer's Guide: it explains how to stop either
+        [a single node]({%
+        link docs/1.2/app_developers_guide/installing_sawtooth.md %}#stop-sawtooth-ubuntu-label)
+        or [a network]({%
+        link docs/1.2/app_developers_guide/creating_sawtooth_network.md %}#stop-sawtooth-kube2-label),
+        then follow the prior steps for starting.
 
 ## Configure the Sawtooth REST API for Grafana
 

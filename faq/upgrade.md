@@ -22,7 +22,7 @@ This is applicable to upgrade from version 1.0.X to 1.1.X
         validator connections. For example, command line option to
         listen on localhost is as follows
 
-``` sh
+```sh
 sawtooth-validator --bind consensus:tcp://localhost:5050
 ```
 

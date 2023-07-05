@@ -115,8 +115,11 @@ but will not be in the current blockchain state.
 
 By default, the REST API listens to client requests on localhost
 (127.0.0.1) and is not accessible from a client on another machine. To
-change this, edit file /etc/sawtooth/rest_api.toml\` (copy from
-[rest_api.toml.example]{.title-ref}) and add a line similar to:
+change this, edit file `/etc/sawtooth/rest_api.toml` (copy from
+`rest_api.toml.example` then
+[set ownership andpermissions]({%
+link docs/1.2/sysadmin_guide/configuring_sawtooth.md %}#rest-api-configuration-file))
+and add a line similar to:
 `bind = ["10.1.1.2:8008"]` where you change `10.1.1.2` to your IP
 address or hostname.
 

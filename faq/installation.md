@@ -12,7 +12,7 @@ The following setups the Sawtooth stable repository, lists the packages,
 and installs the core packages (sawtooth, python3-sawtooth-cli,
 python3-sawtooth-sdk, python3-sawtooth-signing):
 
-``` sh
+```sh
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD
 $ sudo add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/bumper/stable xenial universe'
 $ sudo apt update
@@ -79,7 +79,7 @@ same host.
 The C++ SDK package is in the nightly repository. Until the package
 dependency is fixed, here\'s a workaround to force an install:
 
-``` sh
+```sh
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 44FC67F19B2466EA
 $ sudo apt-add-repository "deb [trusted=yes] http://repo.sawtooth.me/ubuntu/nightly bionic universe"
 $ sudo apt update
@@ -95,7 +95,7 @@ running `sawtooth setting list` or `xo list` :
 This usually occurs when there is no genesis node created. To create,
 type the following:
 
-``` sh
+```sh
 ## Create the genesis node:
 sawtooth keygen
 sawset genesis
@@ -110,15 +110,15 @@ sudo -u sawtooth sawtooth-validator -vv
 `Permission denied`</h2>
 
 Change to a sawtooth user-writable directory before running the command
-and make sure file [config-genesis.batch]{.title-ref} does not already
-exist: `cd /tmp; ls config-genesis.batch`
+and make sure file `config-genesis.batch` does not already exist:
+`cd /tmp; ls config-genesis.batch`
 
 <h2 id="i-get-key-file-not-readable"> I get a `Key file is not readable` error
 when starting `sudo -u sawtooth sawtooth-validator -vv`</h2>
 
 The validator key file permissions are wrong. To fix it, type:
 
-``` sh
+```sh
 $ sudo
 $ sudo chown root:sawtooth /etc/sawtooth/keys /etc/sawtooth/keys/*
 $ sudo chmod 755 /etc/sawtooth/keys
@@ -226,14 +226,14 @@ blocks can be published. The missing steps are:
 -   After the \"Install Sawtooth\" step, install the DevMode consensus
     engine package.
 
-``` sh
+```sh
 $ sudo apt-get install sawtooth-devmode-engine-rust
 ```
 
 -   After \"Step 5: Start the Validator\", start the DevMode consensus
     engine
 
-``` sh
+```sh
 $ sudo -u sawtooth devmode-engine-rust -vv --connect tcp://localhost:5050
 ```
 
@@ -405,7 +405,7 @@ Sawtooth nightly builds on Ubuntu 18.x LTS (Xenial). As a workaround do
 not install the meta-package `sawtooth`. Instead list the Sawtooth
 packages and install the packages you need. For example:
 
-``` sh
+```sh
 $ apt search sawtooth # List Sawtooth packages (optional)
 $ sudo apt-get install python3-sawtooth-cli python3-sawtooth-integration \
     python3-sawtooth-rest-api python3-sawtooth-sdk \
@@ -423,7 +423,7 @@ are incomplete for Sawtooth nightly builds. They work for Sawtooth 1.1,
 but for nightly builds the consensus engine setting is now required. The
 correct instructions in Step 3 for nightly builds are:
 
-``` sh
+```sh
 $ cd /tmp
 $ sudo -u sawtooth sawset genesis -k /etc/sawtooth/keys/validator.priv
 $ sudo -u sawtooth sawset proposal create \

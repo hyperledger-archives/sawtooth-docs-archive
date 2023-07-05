@@ -394,8 +394,8 @@ You have something non-deterministic happening with your changes to
 state. You should not do non-deterministic actions in your transaction
 processor such as generating timestamps or random numbers. The
 serialization must also be deterministic\--the data must always
-serialize the same. You should log the contents of [entries]{.title-ref}
-prior to setState calls in your transaction processor. There will likely
+serialize the same. You should log the contents of `entries` prior
+to `setState` calls in your transaction processor. There will likely
 be a difference between the publishing and validation executions of the
 transaction (they always need to be identical)
 

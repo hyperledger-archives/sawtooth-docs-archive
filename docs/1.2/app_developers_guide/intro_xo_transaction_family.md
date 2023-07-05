@@ -22,8 +22,7 @@ application to play a game of tic-tac-toe on the blockchain.
 
 The XO transaction family defines the data model and business logic for
 playing tic-tac-toe on the blockchain by submitting transactions for
-[create]{.title-ref}, [take]{.title-ref}, and [delete]{.title-ref}
-actions. For more information, see [XO Transaction
+`create`, `take`, and `delete` actions. For more information, see [XO Transaction
 Family]({% link docs/1.2/transaction_family_specifications/xo_transaction_family.md%})
 
 The XO transaction family includes:
@@ -87,7 +86,7 @@ To connect to the Sawtooth node, use the steps for your platform:
 ### Step 2: Confirm Connectivity to the REST API
 
 Verify that you can connect to the REST API. The step will help
-determine if The REST API is at the default location
+determine if the REST API is at the default location
 (`http://localhost:8008`).
 
 The `xo` client sends requests to update and query the blockchain to the
@@ -143,7 +142,7 @@ Processors]({% link docs/1.2/app_developers_guide/installing_sawtooth.md %}#star
 
 Create keys for two players to play the game:
 
-``` console
+```console
 $ sawtooth keygen jack
 writing file: /home/ubuntu/.sawtooth/keys/jack.priv
 writing file: /home/ubuntu/.sawtooth/keys/jack.addr
@@ -162,7 +161,7 @@ writing file: /home/ubuntu/.sawtooth/keys/jill.addr
 
 Create a game named `my-game` with the following command:
 
-``` console
+```console
 $ xo create my-game --username jack
 ```
 
@@ -176,7 +175,7 @@ $ xo create my-game --username jack
 Verify that the `create` transaction was committed by displaying the
 list of existing games:
 
-``` console
+```console
 $ xo list
 GAME            PLAYER 1        PLAYER 2        BOARD     STATE
 my-game                                         --------- P1-NEXT
@@ -207,13 +206,13 @@ my-game                                         --------- P1-NEXT
 Start playing tic-tac-toe by taking a space as the first player, Jack.
 In this example, Jack takes space 5:
 
-``` console
+```console
 $ xo take my-game 5 --username jack
 ```
 
 This diagram shows the number of each space.
 
-``` console
+```console
  1 | 2 | 3
 ---|---|---
  4 | 5 | 6
@@ -227,7 +226,7 @@ Each `xo` command is a transaction. A successful transaction updates
 global state with the game name, board state, game state, and player
 keys, using this format:
 
-``` none
+```none
 <game-name>,<board-state>,<game-state>,<player1-key>,<player2-key>
 ```
 
@@ -245,7 +244,7 @@ allowed on the finished game.
 Next, take a space on the board as player 2, Jill. In this example, Jill
 takes space 1:
 
-``` console
+```console
 $ xo take my-game 1 --username jill
 ```
 
@@ -254,7 +253,7 @@ $ xo take my-game 1 --username jill
 Whenever you want to see the current state of the game board, enter the
 following command:
 
-``` console
+```console
 $ xo show my-game
 ```
 
@@ -263,7 +262,7 @@ player\'s public key, the game state, and the current board state. This
 example shows the game state `P1-NEXT` (player 1 has the next turn) and
 a board with Jack\'s X in space 5 and Jill\'s O in space 1.
 
-``` console
+```console
 GAME:     : my-game
 PLAYER 1  : 02403a
 PLAYER 2  : 03729b
@@ -279,7 +278,7 @@ STATE     : P1-NEXT
 This `xo` client formats the global state data so that it\'s easier to
 read than the state returned to the transaction processor:
 
-``` none
+```none
 my-game,O---X----,P1-NEXT,02403a...,03729b...
 ```
 
@@ -291,7 +290,7 @@ grid.
 You can continue the game until one of the players wins or the game ends
 in a tie, as in this example:
 
-``` console
+```console
 $ xo show my-game
 GAME:     : my-game
 PLAYER 1  : 02403a
@@ -310,7 +309,7 @@ STATE     : TIE
 Either player can use the `xo delete` command to remove the game data
 from global state.
 
-``` console
+```console
 $ xo delete my-game
 ```
 

@@ -66,7 +66,7 @@ characters. The procedure is as follows:
 
 For example, in Python the address could be constructed with:
 
-``` pycon
+```pycon
   >>> \'00b10c01\' + hex(block_num)[2:].zfill(62))
 ```
 
@@ -81,7 +81,7 @@ BlockInfoConfig will store the following information:
 
 These values will be stored in the following protobuf message:
 
-``` protobuf
+```protobuf
 message BlockInfoConfig {
   uint64 latest_block = 1;
   uint64 oldest_block = 2;
@@ -93,7 +93,7 @@ message BlockInfoConfig {
 Block information is stored at the address calculated above using the
 following protobuf message:
 
-``` protobuf
+```protobuf
 message BlockInfo {
   // Block number in the chain
   uint64 block_num = 1;
@@ -118,7 +118,7 @@ message BlockInfo {
 BlockInfo transaction family payloads are defined by the following
 protocol buffers code:
 
-``` protobuf
+```protobuf
 message BlockInfoTxn {
   // The new block to add to state
   BlockInfo new_block = 1;
@@ -183,7 +183,7 @@ config.
 
 Verify the block number in the new BlockInfo message is one greater than
 the block number of the most recent block stored in state. If not, this
-transactions is invalid.
+transaction is invalid.
 
 Verify the timestamp in the new BlockInfo message follows the rules
 below. If it does not, this transaction is invalid.

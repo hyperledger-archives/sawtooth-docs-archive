@@ -7,7 +7,7 @@ can be used to view the current proposals, create proposals, vote on
 existing proposals, and produce setting values that will be set in the
 genesis block.
 
-``` console
+```console
 usage: sawset [-h] [-v] [-V] {genesis,proposal} ...
 
 Provides subcommands to change genesis block settings and to view, create, and
@@ -49,7 +49,7 @@ The `sawset genesis` subcommand creates a Batch of settings proposals
 that can be consumed by `sawadm genesis` and used during genesis block
 construction.
 
-``` console
+```console
 usage: sawset genesis [-h] [-k KEY] [-o OUTPUT] [-T APPROVAL_THRESHOLD]
                       [-A AUTHORIZED_KEY]
 
@@ -77,7 +77,7 @@ The Settings transaction family supports a simple voting mechanism for
 applying changes to on-change settings. The `sawset proposal`
 subcommands provide tools to view, create and vote on proposed settings.
 
-``` console
+```console
 usage: sawset proposal [-h] {create,list,vote} ...
 
 Provides subcommands to view, create, or vote on proposed settings
@@ -99,7 +99,7 @@ The `sawset proposal create` subcommand creates proposals for settings
 changes. The change may be applied immediately or after a series of
 votes, depending on the vote threshold setting.
 
-``` console
+```console
 usage: sawset proposal create [-h] [-k KEY]
                               [-o OUTPUT | --url URL | --sabre-output SABRE_OUTPUT]
                               setting [setting ...]
@@ -128,7 +128,7 @@ The `sawset proposal list` subcommand displays the currently proposed
 settings that are not yet active. This list of proposals can be used to
 find proposals to vote on.
 
-``` console
+```console
 usage: sawset proposal list [-h] [--url URL] [--public-key PUBLIC_KEY]
                             [--filter FILTER]
                             [--format {default,csv,json,yaml}]
@@ -152,7 +152,7 @@ The `sawset proposal vote` subcommand votes for a specific
 settings-change proposal. Use `sawset proposal list` to find the
 proposal id.
 
-``` console
+```console
 usage: sawset proposal vote [-h] [--url URL] [-k KEY]
                             proposal_id {accept,reject}
 

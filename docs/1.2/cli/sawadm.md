@@ -4,7 +4,7 @@ The `sawadm` command is used for Sawtooth administration tasks. The
 `sawadm` subcommands create validator keys during initial configuration
 and help create the genesis block when initializing a validator.
 
-``` console
+```console
 usage: sawadm [-h] [-v] [-V] {genesis,keygen} ...
 
 Provides subcommands to create validator keys and create the genesis block
@@ -71,7 +71,7 @@ When `sawadm genesis` runs, it displays the path and filename of the
 target file where the serialized `GenesisData` is written. (Default:
 `sawtooth_data`/`genesis.batch`.) For example:
 
-``` console
+```console
 $ sawadm genesis config.batch mktplace.batch
 Generating /var/lib/sawtooth/genesis.batch
 ```
@@ -79,7 +79,7 @@ Generating /var/lib/sawtooth/genesis.batch
 Use `--output` `filename` to specify a different name for
 the target file.
 
-``` console
+```console
 usage: sawadm genesis [-h] [-v] [-V] [-o OUTPUT] [--ignore-required-settings]
                       [input_file [input_file ...]]
 
@@ -122,7 +122,7 @@ default, the public-private key files are named `validator.priv` and
 validator.pub. Use the \<key-name> argument to specify a different file
 name.
 
-``` console
+```console
 usage: sawadm keygen [-h] [-v] [-V] [--force] [-q] [key_name]
 
 Generates keys for the validator to use when signing blocks.

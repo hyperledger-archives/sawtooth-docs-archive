@@ -52,7 +52,7 @@ A policy will have a name and a list of entries. Each policy entry will
 have a list of type/key pairs. The type will be either PERMIT_KEY or
 DENY_KEY. Each key in a type/key pair will be a public key.
 
-``` protobuf
+```protobuf
 // Policy will be stored in a PolicyList to account for hash collisions
 message PolicyList {
   repeated Policy policies = 1;
@@ -89,7 +89,7 @@ A role will be made up of a role name and the name of the policy to be
 enforced for that role. The data will be stored in state at the address
 described above using the following protobuf messages:
 
-``` protobuf
+```protobuf
 // Roles will be stored in a RoleList to handle state collisions. The Roles
 // will be sorted by name.
 message RoleList {
@@ -114,7 +114,7 @@ For each policy, the address will be formed by concatenating the
 namespace, the special policy namespace of "00", and the first 62
 characters of the SHA-256 hash of the policy name:
 
-``` pycon
+```pycon
 >>> "00001d" + "00" + hashlib.sha256(policy_name.encode()).hexdigest()[:62]
 ```
 
@@ -135,7 +135,7 @@ by concatenating the identity namespace "00001d", the role namespace
 For example, the address for the role client.query_state would be
 constructed as follows:
 
-``` pycon
+```pycon
 >>> "00001d"+ "01" + hashlib.sha256('client'.encode()).hexdigest()[:14]+ \
   hashlib.sha256('query_state'.encode()).hexdigest()[:16]+ \
   hashlib.sha256(''.encode()).hexdigest()[:16]+ \
@@ -149,7 +149,7 @@ protocol buffers code:
 
 File: sawtooth-core/families/identity/protos/identity.proto
 
-``` protobuf
+```protobuf
 message IdentityPayload {
     enum IdentityType {
       POLICY = 0;
@@ -217,7 +217,7 @@ make sure it has a name and a policy_name. If either are missing, the
 transaction is considered invalid. The policy_name stored in the role
 must match a `Policy` already stored in state, if no policy is found
 stored at the address created by the policy_name, the transaction is
-invalid. If the policy exist, the address for the new role is fetched.
+invalid. If the policy exists, the address for the new role is fetched.
 If there is no data found at the address, a new `RoleList` object is
 created, the new role is added, and the policy list is applied to state.
 If there is data, it is parsed into a `RoleList`. The new role is added

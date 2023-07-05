@@ -3,7 +3,7 @@
 The `sawnet` command is used to interact with an entire network of
 Sawtooth nodes.
 
-``` console
+```console
 usage: sawnet [-h] [-v] [-V] {compare-chains,list-blocks,peers} ...
 
 Inspect status of a sawtooth network
@@ -41,7 +41,7 @@ subcommands:
 The `sawnet compare-chains` subcommand compares chains across the
 specified nodes.
 
-``` console
+```console
 usage: sawnet compare-chains [-h] [-v] [-V] [--users USERNAME[:PASSWORD]]
                              [-l LIMIT] [--table] [--tree]
                              urls [urls ...]
@@ -94,7 +94,7 @@ DIVERG
 
 ## sawnet peers
 
-``` console
+```console
 usage: sawnet peers [-h] {list,graph} ...
 
 Shows the peering arrangment of a network.
@@ -113,7 +113,7 @@ subcommands:
 The `sawnet peers list` subcommand displays the peers of the specified
 nodes.
 
-``` console
+```console
 usage: sawnet peers list [-h] [-v] [-V] [--users USERNAME[:PASSWORD]]
                          [--pretty]
                          urls [urls ...]
@@ -141,7 +141,7 @@ optional arguments:
 The `sawnet peers graph` subcommand displays a file called `peers.dot`
 that describes the peering arrangement of the specified nodes.
 
-``` console
+```console
 usage: sawnet peers graph [-h] [-v] [-V] [--users USERNAME[:PASSWORD]]
                           [-o OUTPUT] [--force]
                           urls [urls ...]

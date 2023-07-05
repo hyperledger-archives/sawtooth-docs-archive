@@ -57,7 +57,7 @@ available in the `sawtooth-core` repository unless noted below.
 -   The [XO Transaction Family]({% link
     docs/1.2/transaction_family_specifications/xo_transaction_family.md %})
     allows two users to play a simple game of tic-tac-toe (see [Playing with the
-    XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%}).
+    XO Transaction Family]({% link docs/1.2/app_developers_guide/intro_xo_transaction_family.md%})).
     The [xo]({% link docs/1.2/cli/xo.md %}) command provides an
     example CLI client.
 

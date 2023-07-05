@@ -32,7 +32,7 @@ Sawtooth also supports several non-component configuration files:
 
 - The [Log Configuration File](#log-configuration-file) allows you to
   configure the log output for each component.
-- The [Path Configuration File](#path_configuration_file) controls the
+- The [Path Configuration File](#path-configuration-file) controls the
   location of Sawtooth directories, such as the configuration directory
   (`config_dir`) and log directory (`log_dir`). This file also lets you set an
   optional `$SAWTOOTH_HOME` environment variable to change the base location
