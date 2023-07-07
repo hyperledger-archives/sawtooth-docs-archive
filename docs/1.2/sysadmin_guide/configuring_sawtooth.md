@@ -288,7 +288,7 @@ file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-core` repository at
 `/sawtooth-core/rest_api/packaging/rest_api.toml.example`. To create a
@@ -369,7 +369,7 @@ configuration file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-core` repository at
 `/sawtooth-core/cli/cli.toml.example`. To create a CLI configuration
@@ -400,7 +400,7 @@ configuration file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-core` repository at
 `/sawtooth-core/consensus/poet/sgx/packaging/poet_enclave_sgx.toml.example`.
@@ -472,7 +472,7 @@ the configuration file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-core` repository at
 `/sawtooth-core/families/identity/sawtooth_identity/packaging/identity.toml.example`.
@@ -506,7 +506,7 @@ the configuration file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-core` repository at
 `/sawtooth-core/families/settings/packaging/settings.toml.example`. To
@@ -540,7 +540,7 @@ the configuration file.
 > **Note**
 >
 > By default, the config directory is `/etc/sawtooth/`.
-> See [Path Configuration File](#path-configuration_file) for more information.
+> See [Path Configuration File](#path-configuration-file) for more information.
 
 An example configuration file is in the `sawtooth-sdk-python` repository
 at

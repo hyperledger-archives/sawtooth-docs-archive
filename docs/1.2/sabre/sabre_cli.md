@@ -14,7 +14,7 @@ registries and their permissions.
 `sabre` is the top level command for Sabre. It contains the following
 subcommands: `cr`, `upload`, `ns`, `perm`, and `exec`. The subcommands
 have options and arguments that control their behavior. All subcommands
-include `-key`, the name of the signing key, and `--url`, the url to the
+include `--key`, the name of the signing key, and `--url`, the url to the
 Sawtooth REST API.
 
 ```
@@ -228,7 +228,7 @@ should be a path to the file that contains the Sabre contract bytes.
 
 ## sabre sp
 
-The `sabre sp` subbcommand submits a Sabre transaction that can create,
+The `sabre sp` subcommand submits a Sabre transaction that can create,
 update, or delete smart permissions
 
 ```

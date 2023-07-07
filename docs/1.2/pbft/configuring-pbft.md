@@ -76,7 +76,7 @@ processor]({% link
 docs/1.2/transaction_family_specifications/settings_transaction_family.md %})
 (or an equivalent) is required to process these settings.
 
-> ** Tip **
+> **Tip**
 >
 > To display the existing settings, use [sawtooth settings
 > list]({% link docs/1.2/cli/sawtooth.md %}#sawtooth-settings-list).

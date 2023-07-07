@@ -21,7 +21,7 @@ installed.
    $ docker run -v $(pwd):/project/sawtooth-pbft -it sawtooth-dev-pbft bash
     ```
 
-   > *Tip*
+   > **Tip**
    >
    > If you have already configured a `cargo-registry` Docker volume, use the
    > following `docker run` command to speed up the build time in the next step.
