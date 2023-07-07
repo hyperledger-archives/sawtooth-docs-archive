@@ -365,7 +365,7 @@ all the supported transaction families in this Sawtooth blockchain network.
 
 One way is to add logging messages (using`LOGGER.info()` for Python or Rust
 log4rs). and sprinkle your code with debug messages, such as
-`LOGGER.info(\"Action = %s.\", action)]` in
+`LOGGER.info("Action = %s.", action)]` in
 Python (or another language you use for the TP). Start the transaction
 processor with the `-vv` or `-vvv` flags and look for console output.
 

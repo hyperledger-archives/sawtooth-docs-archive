@@ -71,7 +71,10 @@ sawtooth.consensus.pbft.members
 :   JSON list of public keys belonging to each node that is a member of
     the PBFT network. Only required PBFT setting. Key is from
     `/etc/sawtooth/keys/validator.pub` . Example:
-    `["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",\ "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa"]`
+    ```json
+    ["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",
+     "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa3"]
+    ```
 
     For details on this and other PBFT settings, see
     <https://github.com/hyperledger/sawtooth-pbft/blob/master/src/config.rs>
@@ -115,7 +118,10 @@ sawtooth.consensus.raft.peers
 
 :   JSON list of each peer node\'s public key. Only required RAFT
     setting. Key is from `/etc/sawtooth/keys/validator.pub` . Example:
-    `["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",\ "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa"]`
+    ```json
+    ["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",\
+     "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa3"]
+    ```
 
 sawtooth.consensus.raft.period
 
