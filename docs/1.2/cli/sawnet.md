@@ -138,8 +138,10 @@ optional arguments:
 
 ## sawnet peers graph
 
-The `sawnet peers graph` subcommand displays a file called `peers.dot`
-that describes the peering arrangement of the specified nodes.
+The `sawnet peers graph` subcommand creates a file called `peers.dot`
+that describes the peering arrangement of the specified nodes. The
+[Graphviz documentation](https://www.graphviz.org/documentation/) describes
+the file format and how to transform it into a diagram.
 
 ```console
 usage: sawnet peers graph [-h] [-v] [-V] [--users USERNAME[:PASSWORD]]
