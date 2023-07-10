@@ -327,6 +327,8 @@ ledger.
 >     -   Source files for this documentation
 > -   [Sawtooth PBFT](https://github.com/hyperledger/sawtooth-pbft): Use
 >     PBFT consensus with Sawtooth
+> -   [Sawtooth PoET](https://github.com/hyperledger/sawtooth-poet): Use
+>     PoET consensus with Sawtooth
 > -   [Sawtooth Sabre](https://github.com/hyperledger/sawtooth-sabre):
 >     Run on-chain smart contracts executed in a WebAssembly virtual
 >     machine
