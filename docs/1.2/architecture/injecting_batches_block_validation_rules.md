@@ -113,7 +113,10 @@ local
     takes a list of transaction indices in the block and enforces the
     rule on each. This rule is useful in combination with the other
     rules to ensure a client is not submitting transactions that should
-    only be injected by the winning validator.
+    only be injected by the winning validator. For example, the string
+    `local:0,1` means that the first two transactions in the block must be
+    signed with the same key as the block itself. As with `XatY`, a negative
+    index counts backward from the end of the block.
 
 # Example: BlockInfoInjector
 
