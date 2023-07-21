@@ -4,10 +4,8 @@
 | Name | GitHub |
 | --- | --- |
 | Andi Gunderson | agunde406 |
-| Anne Chenette | chenette |
 | Dan Anderson | danintel |
 | Dan Middleton | dcmiddle |
-| Darian Plumb | dplumb94 |
 | James Mitchell | jsmitchell |
 | Kelly Olson | ineffectualproperty |
 | Peter Schwarz | peterschwarz |
@@ -19,4 +17,6 @@
 | Name | GitHub |
 | --- | --- |
 | Adam Ludvik | aludvik |
+| Anne Chenette | chenette |
 | Boyd Johnson | boydjohnson |
+| Darian Plumb | dplumb94 |
