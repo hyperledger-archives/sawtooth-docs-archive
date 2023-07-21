@@ -40,9 +40,9 @@ the Docker tag for the Sabre transaction processor image.
     <td>
         <ul>
             <li>Transaction context is a trait</li>
-            <li>API has new `get_state_entry` to get one entry and
-                `get_state_entries` to get multiple entries (plus corresponding
-                functions for set and delete)</li>
+            <li>API has new <code>get_state_entry</code> to get one entry and
+                <code>get_state_entries</code> to get multiple entries
+                (plus corresponding functions for set and delete)</li>
         </ul>
     </td>
 </tr>

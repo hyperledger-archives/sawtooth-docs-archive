@@ -146,7 +146,7 @@ network are able to participate in the consensus process.
 Any messages that fail to parse or pass the required checks are ignored.  If a
 message is successfully parsed and passes verification, it is passed to a
 handler for that specific message type (see [Message
-Types]#pbft-arch-message-types)), where it may go through further checks, be
+Types](#pbft-arch-message-types)), where it may go through further checks, be
 stored in the message log, or trigger some actions.
 
 ### Message Definitions

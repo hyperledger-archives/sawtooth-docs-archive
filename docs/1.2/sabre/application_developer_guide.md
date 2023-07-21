@@ -231,13 +231,13 @@ pub unsafe fn entrypoint(payload: WasmPtr, signer: WasmPtr, signature: WasmPtr) 
 > Wasm. This may improve over time as Wasm popularity grows, or it may
 > persist into the future.
 >
-> For example, cbor-codec, cbor crate used in the intkey transaction
+> For example, cbor-codec, the cbor crate used in the intkey transaction
 > processor, does not compile into wasm and serde_cbor is missing libm
 > dependencies at runtime. To bypass this, custom intkey cbor encode and
 > decode functions had to be written for intkey multiply.
 
 For the full intkey-multiply example look at
-sawtooth-sabre/example/intkey_multiply/processor
+[`sawtooth-sabre/example/intkey_multiply/processor`](https://github.com/hyperledger/sawtooth-sabre/tree/main/example/intkey_multiply/processor).
 
 ## Logging in a Sabre Smart Contract {#logging-in-smart-contracts}
 
@@ -281,7 +281,7 @@ fn apply(
 
 The log level of the Sabre transaction processor is enforced for all
 smart contracts. For example, if the Sabre transaction processor has a
-log level of `info` a `debug` statement in a smart contract will not be
+log level of `info` then a `debug` statement in a smart contract will not be
 logged.
 
 ## Compiling the Contract {#compiling-smart-contract-label}
@@ -298,7 +298,7 @@ $ rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
 To compile the smart contract run the following command in
-sawtooth-sabre/example/intkey_multiply/processor:
+`sawtooth-sabre/example/intkey_multiply/processor`:
 
 ```console
 $ cargo build --target wasm32-unknown-unknown --release
@@ -313,7 +313,7 @@ $ cargo build --target wasm32-unknown-unknown --release
 > -   Compile in Release mode (`--release`)
 > -   Remove any `"{:?}"` from any format strings, as this pulls in a
 >     bunch of stuff
-> -   Use this script to reduce the size
+> -   Use this script to reduce the size:
 >     <https://www.hellorust.com/news/native-wasm-target.html>
 
 ### AssemblyScript
@@ -463,7 +463,7 @@ IntegerKey (intkey), and Sabre.
 In this step, you will use the `sabre-shell` container to set initial
 values in state for your contract.
 
-The `intkey-multiply` smart contract executes the simple function `A=B\*C`. This
+The `intkey-multiply` smart contract executes the simple function `A=B*C`. This
 contract requires existing `B` and `C` values from state, then stores the result
 `A` in state. This example also requires a payload file that identifies these
 values by key name.

@@ -28,7 +28,7 @@ submission of transactions to a running validator via the URL of the
 validator\'s REST API.
 
 Before playing a game, you must start a validator, the XO transaction
-processor,and the REST API. The XO client sends requests to update and
+processor, and the REST API. The XO client sends requests to update and
 query the blockchain to the URL of the REST API (by default,
 `http://127.0.0.1:8008`).
 

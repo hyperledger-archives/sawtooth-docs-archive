@@ -66,7 +66,7 @@ The `sawtooth batch` subcommands display information about the Batches
 in the current blockchain and submit Batches to the validator via the
 REST API. A Batch is a group of interdependent transactions that is the
 atomic unit of change in Sawtooth. For more information, see
-"Transactions and Batches!"
+[Transactions and Batches](../architecture/transactions_and_batches).
 
 ```console
 usage: sawtooth batch [-h] {list,show,status,submit} ...
@@ -321,7 +321,7 @@ the current roles and policy set in state, create new roles, and new
 policies.
 
 Note that only the public keys stored in the setting
-sawtooth.identity.allowed_keys are allowed to submit identity
+`sawtooth.identity.allowed_keys` are allowed to submit identity
 transactions. Use the `sawset` commands to change this setting.
 
 ```console
@@ -678,10 +678,6 @@ This subcommand requires the URL of the REST API (default:
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
 
-By default, the peers are displayed as a CSV string, but other
-plain-text formats (JSON, and YAML) are available and can be piped into
-a file for further processing.
-
 ```console
 usage: sawtooth state show [-h] [--url URL] [-u USERNAME[:PASSWORD]]
                            [--head HEAD]
@@ -728,6 +724,10 @@ This subcommand requires the URL of the REST API (default:
 `http://localhost:8008`), and can specify a
 `username`:`password` combination when the REST API is
 behind a Basic Auth proxy.
+
+By default, the status is displayed as a CSV string, but other
+plain-text formats (JSON, and YAML) are available and can be piped into
+a file for further processing.
 
 ```console
 usage: sawtooth status show [-h] [--url URL] [-u USERNAME[:PASSWORD]]

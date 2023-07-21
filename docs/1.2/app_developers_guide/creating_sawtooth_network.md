@@ -376,6 +376,13 @@ running.
     > MyKey: 999
     > ```
 
+> **Note**
+>
+> One may create a [`cli.toml` file](../sysadmin_guide/configuring_sawtooth#sawtooth-cli-configuration-file)
+> (and perhaps [set `SAWTOOTH_HOME`](../sysadmin_guide/configuring_sawtooth#path-configuration-file))
+> to set a new default URL for some of the CLI commands, like
+> `sawtooth peer list`. Others, like `intkey`, may still need a `--url` to be given.
+
 ### Step 5. Configure the Allowed Transaction Types (Optional) {#configure-txn-procs-docker-label}
 
 By default, a validator accepts transactions from any transaction

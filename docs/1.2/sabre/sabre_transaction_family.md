@@ -94,7 +94,7 @@ message ContractRegistry {
 ```
 
 ContractRegistry entries whose addresses collide are stored in a
-ContractRegsitryList.
+ContractRegistryList.
 
 ```protobuf
 message ContractRegistryList {
