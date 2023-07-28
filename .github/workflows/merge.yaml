@@ -2,8 +2,8 @@ name: Merge
 
 on:
   push:
-  schedule:
-    - cron: "30 8 * * *"
+    branches: [ main ]
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
