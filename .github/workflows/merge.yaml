@@ -7,7 +7,6 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  slack-channel: 'alerts'
 
 concurrency:
   group: "${{ github.ref }}-${{ github.workflow }}"
@@ -29,15 +28,6 @@ jobs:
       - name: Lint Website
         run: just lint
 
-      - name: Notify Slack of Failure
-        if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,author,job
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
   test_docker_build:
     runs-on: ubuntu-latest
     steps:
@@ -51,15 +41,6 @@ jobs:
 
       - name: Test building website
         run: just docker-build
-
-      - name: Notify Slack of Failure
-        if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,author,job
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   publish_docker:
     needs: [lint_website, test_docker_build]
@@ -85,12 +66,3 @@ jobs:
         run: ./ci/publish-docker
         env:
           GOOGLE_PSE: ${{ secrets.GOOGLE_PSE }}
-
-      - name: Notify Slack of Failure
-        if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,author,job
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
