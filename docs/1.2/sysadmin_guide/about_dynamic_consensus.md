@@ -234,59 +234,13 @@ Requirements:
 
 ## Raft Consensus {#raft-consensus-label}
 
-[Sawtooth Raft]({% link docs/1.2/glossary.md %}#term-sawtooth-raft) provides a
-simple consensus algorithm that is easy to understand. It is leader-based, crash
-fault tolerant, and does not fork. For more information, see the [Raft
-documentation]({% link docs/1.2/raft/index.md %}).
+Sawtooth Raft was intended to provide a simple consensus algorithm that is
+easy to understand. Raft is leader-based, crash fault tolerant, and does not
+fork.
 
-> **Note**
->
-> Sawtooth Raft is currently a prototype (not yet released). For more
-> information, see the
-> [sawtooth-raft](https://github.com/hyperledger/sawtooth-raft)
-> repository.
-
-Requirements:
-
-- Each node must install the Raft consensus engine package,
-  `sawtooth-raft-engine`.
-
-- Each node must run the Raft consensus engine:
-
-  - Service: `sawtooth-raft-engine.service`
-  - Executable: `raft-engine`
-
-  For more information, see
-  [Running Sawtooth as a Service]({% link
-  docs/1.2/sysadmin_guide/setting_up_sawtooth_network.md
-  %}#running-sawtooth-as-a-service).  (To start the consensus engine on the
-  command line, see [Step 5. Start Sawtooth on the First Node]({% link
-  docs/1.2/app_developers_guide/ubuntu_test_network.md %})).
-
-- Specify static peering when starting each validator. Use the
-  `--peering` option when starting the validator (see [sawtooth-validator]({%
-  link docs/1.2/cli/sawtooth-validator.md %})) or set the off-chain `peers`
-  setting in the `validator.toml` configuration file (see
-  [About Sawtooth Configuration Files]({% link
-  docs/1.2/sysadmin_guide/configuring_sawtooth.md %})).
-
-- Use these on-chain settings for Raft consensus:
-
-  ``` none
-  sawtooth.consensus.algorithm.name=raft
-  sawtooth.consensus.algorithm.version=[VERSION]
-  sawtooth.consensus.raft.peers=[VAL1KEY,VAL2KEY,...,VALnKEY]
-  ```
-
-  For the version number, see the `Cargo.toml` file. Use only the
-  first two digits (for example, `[0.1]`).
-
-  For `VALxKEY`, specify the validator public key of each node in the
-  network.
-
-- For other on-chain settings for Raft, see [Optional
-  Settings]({% link docs/1.2/raft/configuring_deploying.md %})
-  in the Raft documentation.
+**Sawtooth Raft is due for removal** because the prototype was never ready
+for production, and applications requiring finality can use PBFT consensus
+instead.
 
 ## Devmode Consensus {#devmode-consensus-label}
 

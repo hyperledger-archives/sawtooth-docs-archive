@@ -181,10 +181,6 @@ for these algorithms:
 >         simulator is also called \"PoET/CFT\" because it is crash
 >         fault tolerant, not Byzantine fault tolerant.
 >
-> -   [Sawtooth Raft]({% link docs/1.2/raft/index.md %}) is a
->     leader-based consensus algorithm that provides crash fault
->     tolerance for a small network with restricted membership.
->
 > -   Devmode (short for \"developer mode\") is a simplified
 >     random-leader algorithm that is useful for developing and testing
 >     a transaction processor. Devmode is not recommended for multi-node
