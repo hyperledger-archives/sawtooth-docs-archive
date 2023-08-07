@@ -111,7 +111,7 @@ Context
 Classical Consensus
 
 :   Uses an agreement or voting mechanism to select a leader (vs.
-    Nakamoto-style consensus) E.g., PBFT and Raft
+    Nakamoto-style consensus), e.g., PBFT
 
 Crypto
 
@@ -406,12 +406,6 @@ Public Blockchain
 r
 
 :   Rate, measurement of performance in transactions per second
-
-Raft
-
-:   Consensus algorithm that elects a leader for a term of arbitrary
-    time. Leader replaced if it times-out. Raft is faster than PoET, but
-    is not BFT (Raft is CFT). Also Raft does not fork.
 
 Remix
 

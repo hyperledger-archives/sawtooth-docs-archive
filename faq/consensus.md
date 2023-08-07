@@ -36,29 +36,15 @@ PoET SGX (name \"PoET\", version 0.1)
     (a processor supporting Intel SGX). Currently supported in Sawtooth 1.0
     only.
 
-Raft (name \"raft\", version 0.1)
-
-:   Consensus algorithm that elects a leader for a term of arbitrary
-    time. Leader replaced if it times-out. Raft is faster than PoET, but
-    is CFT, not BFT. Also Raft does not fork. For Sawtooth Raft is new
-    and still being stabilized.
-
 ## Will Sawtooth support more consensus algorithms in the future?
 
 Yes. With pluggable consensus, the idea is to have a meaningful set of
-consensus algorithms so the \"best fit\" can be applied to an
-application\'s use case. Raft is a recent addition\--still being
-stabilized. Others are being planned.
+consensus algorithms so the "best fit" can be applied to an
+application's use case. Someday, the previous Raft prototype may be completed
+or replaced. Others algorithms are being planned.
 
 REMME.io has independently implemented Algorand Byzantine Agreement on
 Sawtooth.
-
-## Where is Raft documented?
-
-<https://sawtooth.hyperledger.org/docs/raft/nightly/master/> To use,
-basically set `sawtooth.consensus.algorithm` to `raft` and
-`sawtooth.consensus.raft.peers` to a list of peer nodes (network public
-keys).
 
 ## Does the PBFT implementation follow the original paper?
 
@@ -238,14 +224,17 @@ running, and this message was quite common.
 The initial default consensus algorithm is `devmode`, which is not for
 production use.
 
-Here is an example that changes the consensus to Raft:
+Here is an example that changes the consensus to PBFT:
 
 ```
 sawset proposal create \
---url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv  \
- sawtooth.consensus.algorithm=raft sawtooth.consensus.raft.peers=\
+--url http://localhost:8008 --key /etc/sawtooth/keys/validator.priv \
+ sawtooth.consensus.algorithm=pbft \
+ sawtooth.consensus.algorithm.version=1.0 \
+ sawtooth.consensus.pbft.members=\
   '["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631", \
- "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa"]'`
+    "c4e026c55b62abce8a38c431203cae2c0fcce259ddab5b5ddc6d5242b379afc270", \
+    "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa3"]'`
 ```
 
 ## How do I change the consensus algorithm for a network that has forked?
@@ -293,9 +282,8 @@ production, have 2 nodes per identity.
 ## Can PoET be configured for small networks?
 
 Yes, for development purposes. For production purposes, consider using
-another consensus algorithm. For example, Raft or PBFT handles a small
-number of nodes nicely. We recommend PBFT for small networks. Raft is
-less interesting being CFT and not BFT, and having overall less testing.
+another consensus algorithm. For example, we recommend PBFT for small
+networks of a few nodes.
 
 For PoET in a small blockchain network, disable defense-in-depth tests
 for small test networks (say, \< \~12 nodes) with:
