@@ -44,13 +44,12 @@ sawtooth.config.authorization_type
 sawtooth.consensus.algorithm.name
 
 :   Pluggable consensus algorithm name. These include `PoET`, `Devmode`,
-    `raft`, and `pbft`. The default is `devmode` for Sawtooth 1.1 or
-    earlier, with no default for the (unreleased) nightly build.
+    and `pbft`. The default is `devmode` for Sawtooth 1.1 or earlier, with no
+    default for the (unreleased) nightly build.
 
 sawtooth.consensus.algorithm.version
 
-:   Consensus algorithm version. Currently 0.1 for PoET, Devmode, PBFT,
-    and Raft.
+:   Consensus algorithm version. Currently 0.1 for PoET, Devmode, and PBFT.
 
 sawtooth.consensus.block_validation_rules
 
@@ -105,29 +104,6 @@ sawtooth.consensus.pbft.forced_view_change_interval
 
 :   How many blocks to commit before forcing a view change for fairness
     Optional, default 100 blocks
-
-sawtooth.consensus.raft.election_tick
-
-:   RAFT consensus election tick, in seconds. E.g., 1500
-
-sawtooth.consensus.raft.heartbeat_tick
-
-:   RAFT consensus heartbeat tick, in seconds. E.g., 150
-
-sawtooth.consensus.raft.peers
-
-:   JSON list of each peer node\'s public key. Only required RAFT
-    setting. Key is from `/etc/sawtooth/keys/validator.pub` . Example:
-    ```json
-    ["0276f8fed116837eb7646f800e2dad6d13ad707055923e49df08f47a963547b631",\
-     "035d8d519a200cdb8085c62d6fb9f2678cf71cbde738101d61c4c8c2e9f2919aa3"]
-    ```
-
-sawtooth.consensus.raft.period
-
-:   RAFT consensus period, in seconds. E.g., 3. Higher settings cause
-    larger blocks, small settings have faster performance with smaller,
-    quicker block publication, but causes more network traffic.
 
 sawtooth.consensus.valid_block_publishers
 

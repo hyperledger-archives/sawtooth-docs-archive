@@ -177,9 +177,10 @@ Raft consensus
   with a restricted membership. Raft is crash fault tolerant, not
   Byzantine fault tolerant, and has finality (does not fork). For more
   information, see [Raft (computer science) on
-  Wikipedia](https://en.wikipedia.org/wiki/Raft_(computer_science))
-  and the [Sawtooth Raft
-  documentation](https://sawtooth.hyperledger.org/docs/raft/nightly/master/introduction.html).
+  Wikipedia](https://en.wikipedia.org/wiki/Raft_(computer_science)).
+  **Sawtooth Raft is due for removal** because the prototype was never ready
+  for production, and applications requiring finality can use PBFT consensus
+  instead.
 
 REST API
 

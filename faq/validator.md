@@ -135,11 +135,6 @@ specified by at least one other node (and preferably multiple nodes).
 
 :   contains policy settings, if any
 
-`/var/lib/sawtooth-raft/`
-
-:   Optional Raft consensus-specific files. Present only if you use
-    Raft. Directory can be changed with `$SAWTOOTH_RAFT_HOME`
-
 If set these files are placed under directory `$SAWTOOTH_HOME` (except
 files under your home directory, `~` ). Detailed configuration
 information and examples for Sawtooth directories is at
@@ -198,7 +193,7 @@ peers.
     firewall configuration to communicate with peer validators. Uses
     ZMQ.
 
--   5050 is used by the consensus engine (such as PoET or Raft). This
+-   5050 is used by the consensus engine (such as PBFT or PoET). This
     port should be closed to external hosts in a firewall configuration.
     Uses ZMQ.
 
@@ -311,9 +306,6 @@ to be scheduled irrespective of the failed transaction.
     language and therefore slower. It also suffers from the Global
     Interpreter Lock (GIL), which locks executing multiple threads to
     one thread at-a-time
--   When fully stabilized, substitute PoET consensus with Raft
-    consensus. Raft is CFT instead of BFT, but it should perform better
-    in exchange for lower fault tolerance
 -   As you make changes, measure the impact with a performance tool such
     as Hyperledger Caliper
 
