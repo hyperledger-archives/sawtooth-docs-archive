@@ -1,4 +1,4 @@
-name: Deploy-to-grid.splinter.dev
+name: Deploy-to-splinter.splinter.dev
 
 on:
   workflow_dispatch:
