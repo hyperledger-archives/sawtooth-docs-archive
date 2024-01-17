@@ -1,4 +1,4 @@
-# Copyright 2018-2020 Cargill Incorporated
+# Copyright 2023 Bitwise IO, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,25 +12,71 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-build: docker-build
+build:
+    #!/usr/bin/env sh
+    set -e
 
-docker-build:
-    docker build \
-        -t hyperledger/sawtooth-website:main \
-        -f ci/website.dockerfile \
-        .
+    if [ $(uname -s) = "Darwin" ]; then
+        export RUBY_VERSION=3.1.3
+        source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+        chruby ruby-$RUBY_VERSION
+    fi
 
-docker-lint:
-    docker-compose \
-        -f docker/compose/run-lint.yaml \
-        up \
-        --abort-on-container-exit \
-        --build \
-        lint-sawtooth-docs
+    bundle install
+    bundle exec jekyll build
 
-docker-run:
-    docker-compose up --build; docker-compose down
+clean:
+    rm -rf \
+        .jekyll-metadata/ \
+        _site/ \
+        Gemfile.lock
 
-lint: docker-lint
+install-jekyll-via-brew:
+    #!/usr/bin/env sh
+    set -e
 
-run: docker-run
+    brew install chruby ruby-install xz
+
+    export RUBY_VERSION=3.1.3
+    ruby-install ruby $RUBY_VERSION --no-reinstall --cleanup
+    source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+    chruby ruby-$RUBY_VERSION
+
+    gem install jekyll bundler mdl
+
+install-mdl:
+    #!/usr/bin/env sh
+    set -e
+
+    if [ $(uname -s) = "Darwin" ]; then
+        export RUBY_VERSION=3.1.3
+        source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+        chruby ruby-$RUBY_VERSION
+    fi
+
+    gem install mdl
+
+run:
+    #!/usr/bin/env sh
+    set -e
+
+    if [ $(uname -s) = "Darwin" ]; then
+        export RUBY_VERSION=3.1.3
+        source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+        chruby ruby-$RUBY_VERSION
+    fi
+
+    bundle install
+    bundle exec jekyll serve --incremental
+
+lint:
+    #!/usr/bin/env sh
+    set -e
+
+    if [ $(uname -s) = "Darwin" ]; then
+        export RUBY_VERSION=3.1.3
+        source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+        chruby ruby-$RUBY_VERSION
+    fi
+
+    mdl -g -i -r ~MD001,~MD002,~MD003,~MD004,~MD005,~MD006,~MD007,~MD009,~MD012,~MD013,~MD014,~MD019,~MD022,~MD024,~MD023,~MD025,~MD026,~MD027,~MD028,~MD029,~MD030,~MD031,~MD032,~MD033,~MD034,~MD035,~MD036,~MD046,~MD047,~MD055,~MD056,~MD057 .
